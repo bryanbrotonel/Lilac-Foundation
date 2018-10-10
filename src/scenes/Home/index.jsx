@@ -1,14 +1,13 @@
-import React from "react";
+import React from 'react';
+
+import Blog from '../Blog';
 
 class Home extends React.Component {
   render() {
     return (
-      <div className="container">
-        <div className="row pt-5">
-          <div className="col-12 col-lg-6 offset-lg-3">
-            <h1 className="text-center">The Lilac Foundation</h1>
-          </div>
-        </div>
+      <div>
+        <h1>Lilac Foundation</h1>
+        <Blog />
       </div>
     );
   }

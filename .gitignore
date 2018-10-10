@@ -9,6 +9,7 @@
 # production
 /build
 .vscode
+.prettierrc
 
 # misc
 .DS_Store

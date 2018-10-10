@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter, Switch, Route } from "react-router-dom";
 
-import { default as Home } from "../Home";
+import Home from "../Home";
 
 const App = props => {
   return (
