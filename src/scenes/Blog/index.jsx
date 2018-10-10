@@ -1,6 +1,9 @@
 import React from 'react';
 import * as contentful from 'contentful';
 
+import PageHeader from '../../components/PageHeader';
+import BlogItem from './components/BlogItem';
+
 class Blog extends React.Component {
   constructor() {
     super();
@@ -35,11 +38,16 @@ class Blog extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Blog page</h2>
+      <div className="container">
+        <PageHeader color="is-info" title="Lilac Foundation Blog">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni velit
+          numquam saepe nam asperiores, optio ex. Beatae blanditiis perferendis
+          molestiae temporibus harum facere, eaque delectus ut assumenda
+          recusandae porro non?
+        </PageHeader>
         <br />
         {this.state.posts.map(({ fields }, i) => (
-          <pre key={i}>{JSON.stringify(fields, null, 2)}</pre>
+          <BlogItem key={i} {...fields} />
         ))}
       </div>
     );

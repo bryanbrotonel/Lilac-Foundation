@@ -6,8 +6,7 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        <h1>Lilac Foundation</h1>
-        <Blog />
+        <h1>The Lilac Foundation</h1>
       </div>
     );
   }
