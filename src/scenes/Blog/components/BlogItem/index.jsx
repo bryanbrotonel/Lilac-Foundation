@@ -6,18 +6,21 @@ import * as Markdown from 'react-markdown';
 import moment from 'moment';
 
 class BlogItem extends React.Component {
+
+  // Creates url with post title and id
+  createURL(str, title, id) {
+    return `${str[0]}${title.replace(/\s+/g, '-').toLowerCase()}-${id}`;
+  }
+
   render() {
     const props = this.props;
-    const { title, content, path, date } = props;
+    const { title, content, date, id } = props;
+
+    const path = this.createURL`${title}${id}`;
 
     return (
       <div className="box">
         <article className="media">
-          <div className="media-left">
-            <figure className="iamge is-64x64">
-              {/* <img src={icon} alt="Icon"/> */}
-            </figure>
-          </div>
           <div className="media-content">
             <div className="content">
               <h1>{title}</h1>
@@ -35,7 +38,7 @@ class BlogItem extends React.Component {
                   className="level-item is-small is-link"
                   to={{
                     pathname: `/blog/${path}`,
-                    state: { title, content, path, date }
+                    state: { title, content, path, date, id }
                   }}
                 >
                   Continue Reading...

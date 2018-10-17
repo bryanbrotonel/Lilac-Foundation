@@ -1,18 +1,31 @@
-import React from "react";
-import { withRouter, Switch, Route } from "react-router-dom";
+import React from 'react';
+import { Provider } from 'react-redux';
+import createHistory from 'history/createBrowserHistory';
+import Proptypes from 'prop-types';
+import { Route, Router, Switch } from 'react-router-dom';
 
-import Home from "../Home";
-import Blog from "../Blog";
-import BlogPost from "../BlogPost";
+import Home from '../Home';
+import Blog from '../Blog';
+import BlogPost from '../BlogPost';
 
-const App = props => {
+const App = ({ store }) => {
+  const history = createHistory();
+
   return (
-    <Switch>
-      <Route exact path="/" component={Home} />
-      <Route exact path='/blog' component={Blog}/>
-      <Route exact path='/blog/:blogPost' component={BlogPost} />
-    </Switch>
+    <Provider store={store}>
+      <Router history={history}>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/blog" component={Blog} />
+          <Route exact path="/blog/:blogPost" component={BlogPost} />
+        </Switch>
+      </Router>
+    </Provider>
   );
 };
 
-export default withRouter(App);
+App.propTypes = {
+  store: Proptypes.object.isRequired
+};
+
+export default App;

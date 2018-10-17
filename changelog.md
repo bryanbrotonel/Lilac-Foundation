@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+#### 2018-10-10, 2018-10-17
+- Retreived & displayed blog posts from [Contentful](https://www.contentful.com/)
+- Retreived & displayed single blog post from [Contentful](https://www.contentful.com/) with blog post id
+- Basic styling with [Brumla](https://bulma.io/)
+- Implemented to blog [Redux](https://redux.js.org)
+
 #### 2018-10-09
 - Iniital commit
 - [Webpack](https://webpack.js.org/) configuration
@@ -15,7 +21,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [Eslint](https://eslint.org/) configuraiton
 - [SASS](https://sass-lang.com/) folder structure
 - [React](https://reactjs.org/) base component
-
-#### 2018-10-10
-- Retreived & displayed blog posts from [Contentful](https://www.contentful.com/)
-- Basic styling with [Brumla](https://bulma.io/)
