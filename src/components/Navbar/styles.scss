@@ -1,0 +1,57 @@
+@import 'resources/scss/modules/colours';
+
+$text-colour: $black;
+
+// Navbar styling
+.navbar {
+    height: 80px;
+    background-color: $white;
+}
+
+// Position and sizing of clickable cross button
+.bm-cross-button {
+    height: 24px;
+    width: 24px;
+}
+
+// Color/shape of close button cross
+.bm-cross {
+    background: $text-colour;
+}
+
+// General sidebar styles
+.bm-menu {
+    background: $white;
+    padding: 2.5em 1.5em 0;
+    font-size: 1.30em;
+}
+
+.bm-menu-wrap {
+    top: 0;
+}
+
+// Wrapper for item list
+.bm-item-list {
+    padding: 0.8em;
+
+    .navbar-link {
+        font-weight: 500;
+    }
+}
+
+// Burger menu item
+.bm-item {
+    padding: 0.3em;
+    color: $text-colour;
+
+    &:hover {
+        color: $text-colour;
+    }
+}
+
+// Overlay styling
+.bm-overlay {
+    background: $black-overlay;
+    top: 0;
+    right: 0;
+}
