@@ -6,61 +6,87 @@ import './styles.scss';
 export class Footer extends React.Component {
   constructor() {
     super();
-    this.state = {
-      contactLink: 'Contact',
-      termsLink: 'Terms and Conditions',
-      refundLink: 'Refund Policy',
-      instagramLink: 'Instagram',
-      facebookLink: 'Facebook'
-    };
   }
   render() {
-    const {
-      contactLink,
-      termsLink,
-      refundLink,
-      instagramLink,
-      facebookLink
-    } = this.state;
 
     return (
-        <div className="footer container">
-          <hr />
-          <div className="d-flex justify-content-between">
-            <ul className="footer-menu text-dark">
-              <li>
-                {' '}
-                <NavLink to="/contact">{contactLink}</NavLink>
-              </li>
-              <li>
-                <NavLink to="/terms-and-conditions">{termsLink}</NavLink>
-              </li>
-              <li>
-                <NavLink to="/refund-Policy">{refundLink}</NavLink>
-              </li>
-            </ul>
-            <ul className="footer-menu text-dark text-right">
-              <li>
-                <a
-                  href="https://www.instagram.com/supplybyforte/"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  {instagramLink}
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.facebook.com/supplybyforte"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  {facebookLink}
-                </a>
-              </li>
-            </ul>
+      <div className="footer">
+        <div className="container">
+        <hr/>
+          <div className="row">
+            <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+              <div className="ft-logo">
+                <h2>The Lilac Foundation</h2>
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-4">
+              <div className="footer-widget">
+                <ul className="list-unstyled">
+                  <li>
+                    <a href="#">Work</a>
+                  </li>
+                  <li>
+                    <a href="#">Mission</a>
+                  </li>
+                  <li>
+                    <a href="#">Story</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="col-4">
+              <div className="footer-widget">
+                <ul className="list-unstyled">
+                  <li>
+                    <a href="#">About</a>
+                  </li>
+                  <li>
+                    <a href="#">Team</a>
+                  </li>
+                  <li>
+                    <a href="#">Blog</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="col-4">
+              <div className="footer-widget">
+                <ul className="list-unstyled">
+                  <li>
+                    <a href="#">Instagram</a>
+                  </li>
+                  <li>
+                    <a href="#">Twitter</a>
+                  </li>
+                  <li>
+                    <a href="#">Facebook</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center">
+              <div className="tiny-footer">
+                <p>
+                  Copyright © All Rights Reserved {new Date().getFullYear()} |
+                  Website by{' '}
+                  <a
+                    href="https://bryanbrotonel.com"
+                    target="_blank"
+                    className="copyrightlink"
+                  >
+                    Bryan Brotonel
+                  </a>
+                </p>
+              </div>
+            </div>
+            {/* <!-- /. tiny-footer --> */}
           </div>
         </div>
+      </div>
     );
   }
 }

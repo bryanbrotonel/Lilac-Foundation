@@ -1,0 +1,35 @@
+// Footer Typography
+
+.footer {
+    color: $primary;
+    font-size: 17px;
+}
+
+.footer-widget ul li a {
+    text-transform: capitalize;
+    font-size: 17px;
+    color: $gray-300;
+
+    &:hover {
+        color: $black;
+        text-decoration: none;
+    }
+}
+
+.tiny-footer {
+    font-size: 14px;
+    color: $secondary-dark;
+    font-weight: 600;
+    line-height: 1;
+
+}
+
+.copyrightlink {
+    color: $gray-200;
+
+    &:hover,
+    &:after {
+        text-decoration: none;
+        color: $black;
+    }
+}

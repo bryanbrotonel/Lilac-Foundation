@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-#### 2018-10-10, 2018-10-17, 2018-10-18
+#### 2018-10-10, 2018-10-17, 2018-10-18, 2018-10-20
 
 - Retreived & displayed blog posts from [Contentful](https://www.contentful.com/)
 - Retreived & displayed single blog post from [Contentful](https://www.contentful.com/) with blog post id
@@ -24,6 +24,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Implemented responsive navbar
 
 - Added env file for imports
+
+- Added footer with styling
 
 #### 2018-10-09
 

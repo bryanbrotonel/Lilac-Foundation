@@ -1,10 +1,20 @@
-$black: #000 !default;;
-$white: #FFF !default;;
+$black: #0a0a0a !default;
+$white: #FFF !default;
 $platinum: #E5E6E4;
 
 $black-tint: rgba($black, .25);
 $black-overlay: rgba($black, 0.3);
 
+$gray-100: #ECEDF2;
+$gray-200: #BCC0C7;
+$gray-300: #949AA6;
+
 $primary: #D1B1FF;
+$primary-dark: #9f81cc;
+$primary-light: #ffe3ff;
+
 $secondary: #E8E9EB;
+$secondary-dark: #b6b7b9;
+$secondary-darker: #868789;
+
 $tertiary: #FBFBF2;
