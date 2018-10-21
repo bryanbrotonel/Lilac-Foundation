@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 
 import './styles.scss';
 
@@ -11,7 +10,6 @@ export class Footer extends React.Component {
     return (
       <div className="footer">
         <div className="container">
-          <hr />
           <div className="row">
             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
               <div className="ft-logo">

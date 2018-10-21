@@ -1,24 +1,22 @@
 @import "resources/scss/modules/colours";
 
-hr {
-    border-bottom: 1px solid $gray-100;
-}
-
+// Footer
 .footer {
     background-color: $white;
-    padding-top: 30px;
+    padding-top: 80px;
 }
 
+// Footer logo
 .ft-logo {
     padding-bottom: 30px;
 }
 
-
+// Footer widget
 .footer-widget {
     padding-bottom: 50px;
 }
 
-
+// Tiny bottom footer
 .tiny-footer {
     padding: 14px 0px;
     background-color: transparent;

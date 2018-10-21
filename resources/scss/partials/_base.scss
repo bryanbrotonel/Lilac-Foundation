@@ -1,1 +1,32 @@
 @import "../modules/all";
+
+// Horizontal vertical center elements
+.hv-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+// Vertical center elements
+.v-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+// Horizontal center elements
+.h-center {
+    margin: 0 auto;
+}
+
+// Bootstrap rows with no gutters
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+
+    >.col,
+    >[class*="col-"] {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}

@@ -2,7 +2,7 @@ import React from 'react';
 import Proptypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import PageHeader from '../../components/PageHeader';
+import PageHeader from '../../components/Page Header';
 import { Loader } from '../../components/Loader';
 import BlogItem from './components/BlogItem';
 
