@@ -8,11 +8,10 @@ export class Footer extends React.Component {
     super();
   }
   render() {
-
     return (
       <div className="footer">
         <div className="container">
-        <hr/>
+          <hr />
           <div className="row">
             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
               <div className="ft-logo">
@@ -76,6 +75,7 @@ export class Footer extends React.Component {
                   <a
                     href="https://bryanbrotonel.com"
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="copyrightlink"
                   >
                     Bryan Brotonel
@@ -83,7 +83,6 @@ export class Footer extends React.Component {
                 </p>
               </div>
             </div>
-            {/* <!-- /. tiny-footer --> */}
           </div>
         </div>
       </div>

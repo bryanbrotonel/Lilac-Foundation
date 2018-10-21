@@ -1,5 +1,9 @@
 // Footer Typography
 
+p {
+    color: $gray-300;
+}
+
 .footer {
     color: $primary;
     font-size: 17px;
@@ -8,7 +12,7 @@
 .footer-widget ul li a {
     text-transform: capitalize;
     font-size: 17px;
-    color: $gray-300;
+    color: $gray-200;
 
     &:hover {
         color: $black;
@@ -25,7 +29,7 @@
 }
 
 .copyrightlink {
-    color: $gray-200;
+    color: $gray-300;
 
     &:hover,
     &:after {
