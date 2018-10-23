@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 0.0.2
 
+#### 2018-10-22
+
+### Added
+
+  - Added blog item layout and card
+  - Added work item layout and styling
+
+### Removed
+
+  - Replaced Meet the Team section with blog section
+
 #### 2018-10-21
 
 ### Added
@@ -15,18 +26,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Added Mission section
   - Added Team section
   - Added Work section
-
-#### 2018-10-22
-
-### Added
-
-  - Added blog section
-    - Added blog item layout and card
-  - Added [UIkit](https://getuikit.com/)
-
-### Removed
-
-  - Replaced Meet the Team section with blog section
 
 ## 0.0.1
 
