@@ -7,20 +7,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 0.0.2
 
-### Added
-
 #### 2018-10-21
+
+### Added
 
 - Implemented home page layout with styling
   - Added Mission section
   - Added Team section
   - Added Work section
 
-## 0.0.1
+#### 2018-10-22
 
 ### Added
 
+  - Added blog section
+    - Added blog item layout and card
+  - Added [UIkit](https://getuikit.com/)
+
+### Removed
+
+  - Replaced Meet the Team section with blog section
+
+## 0.0.1
+
 #### 2018-10-10, 2018-10-17, 2018-10-18, 2018-10-20
+
+### Added
 
 - Retreived & displayed blog posts from [Contentful](https://www.contentful.com/)
 - Retreived & displayed single blog post from [Contentful](https://www.contentful.com/) with blog post id
@@ -38,6 +50,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added footer with styling
 
 #### 2018-10-09
+
+### Added
 
 - Iniital commit
 - [Webpack](https://webpack.js.org/) configuration
