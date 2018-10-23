@@ -1,23 +1,20 @@
 import React from 'react';
 import Proptypes from 'prop-types';
 
-import './styles.scss';
-
-class WorkItem extends React.Component {
+class WorkSectionItem extends React.Component {
   render() {
     const { workTitle, order } = this.props;
 
     return (
-      <div className="row text-left align-items-center pt-5">
-        <div className={`col-7 col-md-5 ${order}`}>
+      <div className="row text-left align-items-center pt-5 pb-md-5">
+        <div className={`col-4 col-md-5 ${order[0]}`}>
           <img
             alt="image"
-            className="img-fluid"
+            className="img-fluid mb-3 mb-md-0"
             src="https://editor-latest.s3.amazonaws.com/design-blocks/block_images/img_square_2.svg"
           />
         </div>
-
-        <div className="col-12 col-md-5 m-md-auto">
+        <div className={`col-12 col-md-5 ${order[1]}`}>
           <h2>
             <strong>{workTitle}</strong>
           </h2>
@@ -36,9 +33,9 @@ class WorkItem extends React.Component {
   }
 }
 
-WorkItem.propTypes = {
+WorkSectionItem.propTypes = {
   workTitle: Proptypes.string.isRequired,
-  order: Proptypes.string.isRequired
+  order: Proptypes.array.isRequired
 };
 
-export default WorkItem;
+export default WorkSectionItem;

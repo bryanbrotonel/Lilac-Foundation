@@ -1,29 +1,34 @@
 import React from 'react';
 import PageSection from '../../../../components/Page Section';
-import WorkItem from './Work Item';
+import WorkSectionItem from './Work Section Item';
 
 class WorkSection extends React.Component {
   constructor() {
     super();
 
     this.state = {
-      workItems: [
-        'Work Title 1',
-        'Work Title 2',
-        'Work Title 3'
-      ]
+      workItems: ['Work Title 1', 'Work Title 2', 'Work Title 3']
     };
   }
 
+  // Styles work item for layout
   styleWorkItem(itemIndex) {
-    return itemIndex % 2 !== 0 ? 'order-md-12' : '';
+    let imageStyle = '',
+      contentStyle = '';
+
+    if (itemIndex % 2 === 0) {
+      contentStyle = 'm-md-auto';
+    } else {
+      imageStyle = 'm-md-auto order-md-5';
+    }
+    return [imageStyle, contentStyle];
   }
 
   render() {
     const { workItems } = this.state;
     const workContent = workItems.map(workItem => {
       return (
-        <WorkItem
+        <WorkSectionItem
           key={workItem}
           workTitle={workItem}
           order={this.styleWorkItem(workItems.indexOf(workItem))}
@@ -33,14 +38,9 @@ class WorkSection extends React.Component {
 
     return (
       <PageSection className="bg-gray" height="50">
-        <section
-          className="fdb-block"
-          data-block-type="features"
-          data-id="9"
-          draggable="true"
-        >
+        <div>
           <div className="container">
-            <div className="row justify-content-center pb-5">
+            <div className="row justify-content-center">
               <div className="col-12 text-center">
                 <h1>Work</h1>
               </div>
@@ -48,7 +48,7 @@ class WorkSection extends React.Component {
 
             {workContent}
           </div>
-        </section>
+        </div>
       </PageSection>
     );
   }

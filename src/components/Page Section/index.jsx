@@ -19,7 +19,7 @@ class PageSection extends React.Component {
 }
 
 PageSection.propTypes = {
-  height: Proptypes.string.isRequired,
+  height: Proptypes.string,
   className: Proptypes.string,
   children: Proptypes.object
 };

@@ -6,7 +6,7 @@ class MissionSection extends React.Component {
     return (
       <PageSection height="50">
         <div className="container">
-          <div className="row no-gutters">
+          <div className="row no-gutters justify-content-center">
             <div className="col-8 col-md-7">
               <h1>Mission</h1>
               <p>

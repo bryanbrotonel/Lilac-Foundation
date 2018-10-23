@@ -37,12 +37,16 @@ class BlogSection extends React.Component {
     });
 
     return (
-      <PageSection height="50">
+      <PageSection>
         <div className="container text-center">
-          <h1 className="section-title">The Lilac Foundation Blog</h1>
+          <div className="row justify-content-center pb-5">
+            <div className="col-12 text-center">
+              <h1>The Lilac Foundation Blog</h1>
+            </div>
+          </div>
           <div className="row justify-content-center">{blogItems}</div>
         </div>
-      </PageSection>
+        </PageSection>
     );
   }
 }
