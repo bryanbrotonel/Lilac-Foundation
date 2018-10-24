@@ -4,7 +4,7 @@ import PageSection from '../../../../components/Page Section';
 class MissionSection extends React.Component {
   render() {
     return (
-      <PageSection height="50">
+      <PageSection height="50vh">
         <div className="container">
           <div className="row no-gutters justify-content-center">
             <div className="col-8 col-md-7">

@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 0.0.2
 
+#### 2018-10-24
+
+### Added
+
+- Sorted blog post by descending date
+- Updated home blog section layout and styling
+
+- Page section height prop
+
+### Removed
+
+- Blog section item
+
 #### 2018-10-22
 
 ### Added
