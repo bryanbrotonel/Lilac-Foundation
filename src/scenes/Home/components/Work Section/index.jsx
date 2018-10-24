@@ -37,7 +37,7 @@ class WorkSection extends React.Component {
     });
 
     return (
-      <PageSection className="bg-gray" height="50">
+      <PageSection className="bg-gray" height="50vh">
         <div>
           <div className="container">
             <div className="row justify-content-center">

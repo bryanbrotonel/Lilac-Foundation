@@ -38,7 +38,7 @@ class Blog extends React.Component {
 
   render() {
     const { loading, posts } = this.props.blog;
-
+    
     return (
       <div className="container">
         <PageHeader color="is-info" title="Lilac Foundation Blog">
