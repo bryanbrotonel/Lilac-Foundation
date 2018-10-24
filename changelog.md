@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Sorted blog post by descending date
-- Updated home blog section layout and styling
+- Updated home blog section layout, styling, and responsiveness
 
 - Simplified work items styling
 - Simplified page section height prop
@@ -22,6 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Blog section item
 - Team section folder mispelling
+- Loader class
 
 #### 2018-10-22
 
