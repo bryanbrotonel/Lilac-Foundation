@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 import * as Markdown from 'react-markdown';
 
-import PageContent from '../../components/PageContent';
+import PageContent from '../../components/Page Content';
 import { loadBlogPost } from '../../store/blog';
 
 // Maps Redux dispatch actions to props

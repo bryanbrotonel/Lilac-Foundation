@@ -1,13 +1,23 @@
 import React from 'react';
 
-import Blog from '../Blog';
+import VideoHeader from '../../components/Video Header';
+import WorkSection from './components/Work Section';
+import BlogSection from './components/Blog Section';
+import MissionSection from './components/Mission Section';
+import DonateSection from '../Donate Section';
+import TeamSection from './components/Team Seciton';
 
 class Home extends React.Component {
   render() {
     return (
-      <div>
-        <h1>The Lilac Foundation</h1>
-      </div>
+      <React.Fragment>
+        <VideoHeader />
+        <MissionSection />
+        <WorkSection />
+        <BlogSection />
+        <TeamSection/>
+        <DonateSection />
+      </React.Fragment>
     );
   }
 }

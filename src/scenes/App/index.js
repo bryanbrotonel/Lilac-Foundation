@@ -1,26 +1,24 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import createHistory from 'history/createBrowserHistory';
 import Proptypes from 'prop-types';
-import { Route, Router, Switch } from 'react-router-dom';
 
-import Home from '../Home';
-import Blog from '../Blog';
-import BlogPost from '../BlogPost';
+import Routes from '../../routes';
+import NavBar from '../../components/Navbar';
+import { Footer } from '../../components/Footer';
+
+import './styles.scss';
 
 const App = ({ store }) => {
-  const history = createHistory();
-
   return (
-    <Provider store={store}>
-      <Router history={history}>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/blog" component={Blog} />
-          <Route exact path="/blog/:blogPost" component={BlogPost} />
-        </Switch>
-      </Router>
-    </Provider>
+    <div id="app">
+      <NavBar />
+      <div id="body">
+        <Provider store={store}>
+          <Routes />
+        </Provider>
+      </div>
+      <Footer />
+    </div>
   );
 };
 

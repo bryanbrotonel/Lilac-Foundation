@@ -1,0 +1,29 @@
+$black: #0a0a0a !default;
+$white: #FFF !default;
+$platinum: #E5E6E4;
+
+$black-tint: rgba($black, .25);
+$black-overlay: rgba($black, 0.3);
+
+$gray-100: #F6F6F8;
+
+$text-light: #BCC0C7;
+$text: #949AA6;
+
+$primary: #D1B1FF;
+$primary-dark: #9f81cc;
+$primary-light: #ffe3ff;
+
+$primary-tint: rgba($primary-dark, .9);
+
+$secondary: #E8E9EB;
+$secondary-dark: #b6b7b9;
+$secondary-darker: #868789;
+
+$tertiary: #FBFBF2;
+
+// Section background colours mixins
+@mixin bg-colour($background, $text) {
+    background: $background !important;
+    color: $text !important;
+}

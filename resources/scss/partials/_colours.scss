@@ -1,0 +1,16 @@
+@import 'resources/scss/modules/colours';
+
+// Background with gray colour
+.bg-gray {
+    @include bg-colour($gray-100, $black);
+}
+
+// Background with primary colour
+.bg-primary {
+    @include bg-colour($primary, $white);
+}
+
+// Background with tint
+.bg-primary-wallpaper {
+    @include bg-colour((linear-gradient($primary-tint, $primary-tint), url('https://source.unsplash.com/AEaTUnvneik/1600x1024') no-repeat center center / cover), $white);
+}

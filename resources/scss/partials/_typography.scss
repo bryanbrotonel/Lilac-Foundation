@@ -1,0 +1,43 @@
+// Paragraph styling
+p,
+.paragraph-text {
+    color: $text;
+}
+
+// Footer Typography
+.footer {
+    color: $primary;
+    font-size: 17px;
+}
+
+// Footer widget list
+.footer-widget ul li a {
+    text-transform: capitalize;
+    font-size: 17px;
+    color: $text-light;
+
+    &:hover {
+        color: $black;
+        text-decoration: none;
+    }
+}
+
+// Mini footer
+.tiny-footer {
+    font-size: 14px;
+    color: $secondary-dark;
+    font-weight: 600;
+    line-height: 1;
+
+}
+
+// Copyright footer link
+.copyrightlink {
+    color: $text;
+
+    &:hover,
+    &:after {
+        text-decoration: none;
+        color: $black;
+    }
+}
