@@ -43,7 +43,6 @@ class BlogSection extends React.Component {
     if (!loading && posts.length !== 0) {
       // Assignes latest to post to first post from sorted blog entries
       latestPost = posts[0].fields;
-      console.log('latestpost', latestPost);
     }
 
     return !loading && posts.length !== 0 ? (
@@ -67,16 +66,13 @@ class BlogSection extends React.Component {
                   <br />
                   <h3>{latestPost.title}</h3>
                   <h5>{latestPost.subtitle}</h5>
-                  <p>
-                    {' '}
-                    <Markdown
-                      source={latestPost.content
-                        .split('')
-                        .splice(0, 150)
-                        .join('')
-                        .concat('...')}
-                    />
-                  </p>
+                  <Markdown
+                    source={latestPost.content
+                      .split('')
+                      .splice(0, 150)
+                      .join('')
+                      .concat('...')}
+                  />
                   <a href="https://www.froala.com">Read More &gt;</a>
                 </div>
               </div>

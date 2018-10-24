@@ -25,7 +25,6 @@ class TeamSection extends React.Component {
                 <h1>Meet the Team</h1>
               </div>
             </div>
-
             <div className="row text-center justify-content-center">
               {teamSectionItems}
             </div>

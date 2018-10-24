@@ -3,18 +3,18 @@ import Proptypes from 'prop-types';
 
 class WorkSectionItem extends React.Component {
   render() {
-    const { workTitle, order } = this.props;
+    const { workTitle, rightDivStyle } = this.props;
 
     return (
-      <div className="row text-left align-items-center pt-5 pb-md-5">
-        <div className={`col-4 col-md-5 ${order[0]}`}>
+      <div className="row justify-content-around pt-5 pb-md-5">
+        <div className={`col-12 col-md-5 ${rightDivStyle}`}>
           <img
             alt="image"
             className="img-fluid mb-3 mb-md-0"
-            src="https://editor-latest.s3.amazonaws.com/design-blocks/block_images/img_square_2.svg"
+            src="https://images.unsplash.com/photo-1533222535026-754c501569dd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2253a1d8c16428c76d5706083a8cb1ab&auto=format&fit=crop&w=2250&q=80"
           />
         </div>
-        <div className={`col-12 col-md-5 ${order[1]}`}>
+        <div className="col-12 col-md-5">
           <h2>
             <strong>{workTitle}</strong>
           </h2>
@@ -35,7 +35,7 @@ class WorkSectionItem extends React.Component {
 
 WorkSectionItem.propTypes = {
   workTitle: Proptypes.string.isRequired,
-  order: Proptypes.array.isRequired
+  rightDivStyle: Proptypes.string.isRequired
 };
 
 export default WorkSectionItem;

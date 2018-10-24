@@ -14,7 +14,7 @@ const PageHeader = props => (
 
 PageHeader.propTypes = {
   title: Proptypes.string.isRequired,
-  children: Proptypes.object.isRequired
+  children: Proptypes.any.isRequired
 };
 
 export default PageHeader;

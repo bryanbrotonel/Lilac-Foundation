@@ -14,11 +14,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Sorted blog post by descending date
 - Updated home blog section layout and styling
 
-- Page section height prop
+- Simplified work items styling
+- Simplified page section height prop
+- Simplified page header children prop
 
 ### Removed
 
 - Blog section item
+- Team section folder mispelling
 
 #### 2018-10-22
 

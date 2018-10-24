@@ -13,15 +13,7 @@ class WorkSection extends React.Component {
 
   // Styles work item for layout
   styleWorkItem(itemIndex) {
-    let imageStyle = '',
-      contentStyle = '';
-
-    if (itemIndex % 2 === 0) {
-      contentStyle = 'm-md-auto';
-    } else {
-      imageStyle = 'm-md-auto order-md-5';
-    }
-    return [imageStyle, contentStyle];
+    return itemIndex % 2 !== 0 ? 'order-md-5' : '';
   }
 
   render() {
@@ -31,7 +23,7 @@ class WorkSection extends React.Component {
         <WorkSectionItem
           key={workItem}
           workTitle={workItem}
-          order={this.styleWorkItem(workItems.indexOf(workItem))}
+          rightDivStyle={this.styleWorkItem(workItems.indexOf(workItem))}
         />
       );
     });
@@ -45,7 +37,6 @@ class WorkSection extends React.Component {
                 <h1>Work</h1>
               </div>
             </div>
-
             {workContent}
           </div>
         </div>
