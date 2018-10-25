@@ -13,8 +13,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Sorted blog post by descending date
 - Updated home blog section layout and styling
-
 - Page section height prop
+- About page component
+  - About write up content layout and styling
+  - Meet the team layout and styling
+- About page routing
 
 ### Removed
 
@@ -24,15 +27,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-  - Added blog item layout and card styling
-  - Added Work item layout and styling
-  - Added Team member item layout and styling
-  
-  - Proper section item naming
+- Added blog item layout and card styling
+- Added Work item layout and styling
+- Added Team member item layout and styling
+- Proper section item naming
 
 ### Removed
 
-  - Replaced Meet the Team section with blog section
+- Replaced Meet the Team section with blog section
 
 #### 2018-10-21
 
@@ -51,17 +53,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Retreived & displayed blog posts from [Contentful](https://www.contentful.com/)
 - Retreived & displayed single blog post from [Contentful](https://www.contentful.com/) with blog post id
-
 - Basic styling with [Bootstrap](https://getbootstrap.com)
 - Implemented to blog [Redux](https://redux.js.org)
 - Added colours [SASS](https://sass-lang.com/) module
-
 - Restructured app and routing structure
 - Added env file for imports
-
 - Added [React Burger Menu](http://negomi.github.io/react-burger-menu/) for mobile navigation
 - Implemented responsive navbar
-
 - Added footer with styling
 
 #### 2018-10-09
