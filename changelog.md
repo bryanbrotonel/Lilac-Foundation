@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Simplified work items styling
 - Simplified page section height prop
 - Simplified page header children prop
+- Simplified about section layout
 
 ### Removed
 

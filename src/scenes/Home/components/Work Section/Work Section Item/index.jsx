@@ -25,7 +25,7 @@ class WorkSectionItem extends React.Component {
             dolor sunt dicta officia quasi.
           </p>
           <p>
-            <a href="https://www.froala.com">Learn More &gt;</a>
+            <a href="#">Learn More &gt;</a>
           </p>
         </div>
       </div>
