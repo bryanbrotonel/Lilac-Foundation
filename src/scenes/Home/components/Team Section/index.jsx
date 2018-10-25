@@ -18,7 +18,10 @@ class TeamSection extends React.Component {
     });
     return (
       <PageSection className="bg-gray" height="50vh">
-        <div className="team-2">
+      <div className="text-center">
+        <h1>Meet the Team</h1>
+      </div>
+        {/* <div className="team-2">
           <div className="container">
             <div className="row justify-content-center pb-5">
               <div className="col-12 text-center">
@@ -29,7 +32,7 @@ class TeamSection extends React.Component {
               {teamSectionItems}
             </div>
           </div>
-        </div>
+        </div> */}
       </PageSection>
     );
   }

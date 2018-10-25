@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Sorted blog post by descending date
 - Updated home blog section layout, styling, and responsiveness
+- Improved page section padding for better use of whitespace
 
 - Simplified work items styling
 - Simplified page section height prop

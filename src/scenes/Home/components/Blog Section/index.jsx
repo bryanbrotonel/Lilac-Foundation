@@ -59,12 +59,12 @@ class BlogSection extends React.Component {
 
     return !loading && posts.length !== 0 ? (
       <div>
-        <div className="row no-gutters blog-section-wrapper">
+        <div className="row no-gutters justify-content-center blog-section-wrapper">
           <div className="col-12 py-4 d-sm-block d-md-none">
             <div className="container">{sectionTitle}</div>
           </div>
           <div className="col-12 col-md-6">
-            <PageSection
+            <div
               className="blog-header"
               style={{
                 backgroundImage:
@@ -72,9 +72,9 @@ class BlogSection extends React.Component {
               }}
             />
           </div>
-          <div className="col-12 col-md-6">
-            <PageSection height="100%">
-              <div className="container p-2 px-md-5">
+          <div className="col-10 col-md-6">
+            <PageSection>
+              <div className="container">
                 <div className="pb-4 d-none d-md-block">{sectionTitle}</div>
                 <h3>{latestPost.title}</h3>
                 <h5>{latestPost.subtitle}</h5>
@@ -92,7 +92,7 @@ class BlogSection extends React.Component {
         </div>
       </div>
     ) : (
-      <Loader/>
+      <Loader />
     );
   }
 }

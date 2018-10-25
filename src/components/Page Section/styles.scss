@@ -1,4 +1,10 @@
-// Page section title styling
-.section-title {
-    padding-bottom: 30px;
+// Page section padding
+.page-section {
+    padding: 3rem;
+}
+
+@media (min-width: 992px) {
+    .page-section {
+        padding: 8rem 3rem;
+    }
 }
