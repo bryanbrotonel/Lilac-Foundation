@@ -65,7 +65,7 @@ class BlogSection extends React.Component {
           </div>
           <div className="col-12 col-md-6">
             <div
-              className="blog-header"
+              className="blog-section-header"
               style={{
                 backgroundImage:
                   'url(' + latestPost.headerImage.fields.file.url + ')'
@@ -73,7 +73,7 @@ class BlogSection extends React.Component {
             />
           </div>
           <div className="col-10 col-md-6">
-            <PageSection>
+            <PageSection className="blog-content">
               <div className="container">
                 <div className="pb-4 d-none d-md-block">{sectionTitle}</div>
                 <h3>{latestPost.title}</h3>

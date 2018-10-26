@@ -1,0 +1,30 @@
+// Team member padding styling
+.team-member {
+    padding-bottom: .5rem;
+
+    p {
+        margin-bottom: 0;
+    }
+}
+
+// Team section padding styling
+.team-section {
+    padding: 3rem;
+}
+
+// Large media team section styling
+@media (min-width: 992px) {
+
+    // Large screen team member padding styling
+    .team-member {
+        padding-bottom: 2rem;
+        padding-left: 3rem !important;
+        padding-right: 3rem !important;
+    }
+
+    // Large screen team section padding styling
+    .team-section {
+        padding-bottom: 0;
+    }
+
+}
