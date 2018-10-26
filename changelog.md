@@ -7,21 +7,34 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 0.0.2
 
+#### 2018-10-25
+
+### Added
+- [Fontawesome](https://fontawesome.com/) icons
+- Updated footer layout, styling, and typography
+
 #### 2018-10-24
 
 ### Added
 
 - Sorted blog post by descending date
-- Updated home blog section layout and styling
+- Updated home blog section layout, styling, and responsiveness
 - Page section height prop
 - About page component
   - About write up content layout and styling
   - Meet the team layout and styling
 - About page routing
+- Improved page section padding for better use of whitespace
+- Simplified work items styling
+- Simplified page section height prop
+- Simplified page header children prop
+- Simplified about section layout
 
 ### Removed
 
 - Blog section item
+- Team section folder mispelling
+- Loader class
 
 #### 2018-10-22
 

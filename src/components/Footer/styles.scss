@@ -3,21 +3,13 @@
 // Footer
 .footer {
     background-color: $white;
-    padding-top: 80px;
+    padding: 4.5rem 0;
 }
 
-// Footer logo
-.ft-logo {
-    padding-bottom: 30px;
+.list-inline-item:not(:last-child) {
+    margin-right: 1rem !important;
 }
 
-// Footer widget
-.footer-widget {
-    padding-bottom: 50px;
-}
-
-// Tiny bottom footer
-.tiny-footer {
-    padding: 14px 0px;
-    background-color: transparent;
+.copyright-footer {
+    padding-top: 2rem;
 }

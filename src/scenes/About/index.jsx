@@ -17,7 +17,7 @@ class About extends React.Component {
     });
 
     return (
-      <div>
+      <div className="bg-gray">
         <div className="container">
           <div className="row justify-content-center py-3 p-md-5">
             <div className="col-12 col-md-4 pb-3 pb-md-0 v-center">
