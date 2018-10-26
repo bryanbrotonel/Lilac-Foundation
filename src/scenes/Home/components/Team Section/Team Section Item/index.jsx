@@ -9,8 +9,8 @@ class TeamSectionItem extends React.Component {
       <div className="col-5 col-md-2 m-sm-auto">
         <img
           alt="image"
-          className="img-fluid pb-3"
-          src="https://editor-latest.s3.amazonaws.com/design-blocks/block_images/img_round.svg"
+          className="rounded-circle w-100"
+          src="https://continuinged.uni.edu/sites/default/files/headshotplaceholder_female_4.jpg"
         />
 
         <h3>{name}</h3>

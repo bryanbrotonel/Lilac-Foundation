@@ -8,6 +8,8 @@ import { Loader } from '../../../../components/Loader';
 
 import { loadBlog } from '../../../../store/blog';
 
+import './styles.scss';
+
 // Maps Redux dispatch actions to props
 const mapDispatchToProps = dispatch => {
   return {
@@ -37,61 +39,67 @@ class BlogSection extends React.Component {
   }
 
   render() {
-    const { loading, posts } = this.props.blog;
+    const { blog } = this.props;
+    const { loading, posts } = blog;
+
     var latestPost;
 
     if (!loading && posts.length !== 0) {
-      // Assignes latest to post to first post from sorted blog entries
+      // Assigns latest to post to first post from sorted blog entries
       latestPost = posts[0].fields;
-      console.log('latestpost', latestPost);
     }
+
+    // Home blog section title
+    const sectionTitle = (
+      <React.Fragment>
+        <h1>The Lilac Foundation Blog</h1>
+        <h5 className="text-muted">The latest from the team</h5>
+      </React.Fragment>
+    );
 
     return !loading && posts.length !== 0 ? (
       <div>
-        <div className="row no-gutters">
-          <div className="col-12 col-md-6">
-            <PageSection className="p-0">
-              <img
-                className="w-100"
-                src={latestPost.headerImage.fields.file.url}
-                alt=""
-              />
-            </PageSection>
+        <div className="row no-gutters justify-content-center blog-section-wrapper">
+          <div className="col-12 py-4 d-sm-block d-md-none">
+            <div className="container">{sectionTitle}</div>
           </div>
           <div className="col-12 col-md-6">
-            <PageSection height="100%">
+            <div
+              className="blog-header"
+              style={{
+                backgroundImage:
+                  'url(' + latestPost.headerImage.fields.file.url + ')'
+              }}
+            />
+          </div>
+          <div className="col-10 col-md-6">
+            <PageSection>
               <div className="container">
-                <div className="p-2 px-md-5">
-                  <h1>The Lilac Foundation Blog</h1>
-                  <h4 className="text-muted">The latest from the team</h4>
-                  <br />
-                  <h3>{latestPost.title}</h3>
-                  <h5>{latestPost.subtitle}</h5>
-                  <p>
-                    {' '}
-                    <Markdown
-                      source={latestPost.content
-                        .split('')
-                        .splice(0, 150)
-                        .join('')
-                        .concat('...')}
-                    />
-                  </p>
-                  <a href="https://www.froala.com">Read More &gt;</a>
-                </div>
+                <div className="pb-4 d-none d-md-block">{sectionTitle}</div>
+                <h3>{latestPost.title}</h3>
+                <h5>{latestPost.subtitle}</h5>
+                <Markdown
+                  source={latestPost.content
+                    .split('')
+                    .splice(0, 150)
+                    .join('')
+                    .concat('...')}
+                />
+                <a href="#">Read More &gt;</a>
               </div>
             </PageSection>
           </div>
         </div>
       </div>
     ) : (
-      <Loader className="has-text-primary" />
+      <Loader />
     );
   }
 }
 
 BlogSection.propTypes = {
-  loadBlog: Proptypes.func
+  loadBlog: Proptypes.func,
+  blog: Proptypes.any
 };
 
 export default connect(

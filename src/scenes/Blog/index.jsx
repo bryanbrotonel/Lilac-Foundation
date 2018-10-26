@@ -49,7 +49,7 @@ class Blog extends React.Component {
         </PageHeader>
         <br />
         {loading ? (
-          <Loader className="has-text-primary" />
+          <Loader/>
         ) : (
           posts.map(({ fields, sys }, i) => (
             <BlogItem key={i} {...fields} {...sys} />

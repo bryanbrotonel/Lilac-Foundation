@@ -17,18 +17,19 @@ class TeamSection extends React.Component {
       return <TeamSectionItem key={member} name={member} />;
     });
     return (
-      <PageSection className="bg-gray" height="50vh">
-        <div className="team-2">
-          <div className="container">
-            <div className="row justify-content-center pb-5">
-              <div className="col-12 text-center">
-                <h1>Meet the Team</h1>
-              </div>
-            </div>
-
-            <div className="row text-center justify-content-center">
-              {teamSectionItems}
-            </div>
+      <PageSection className="bg-gray">
+        <div className="row w-100">
+          <div className="col-6 hv-center">
+            <h1>About Us</h1>
+          </div>
+          <div className="col-6">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni ea,
+              pariatur distinctio incidunt aliquam unde adipisci odit maxime.
+              Quam tenetur iure ut necessitatibus dignissimos eveniet quisquam
+              excepturi nihil dolore nemo.
+            </p>
+            <a href="#">Read our story &gt;</a>
           </div>
         </div>
       </PageSection>

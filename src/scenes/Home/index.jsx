@@ -5,7 +5,7 @@ import WorkSection from './components/Work Section';
 import BlogSection from './components/Blog Section';
 import MissionSection from './components/Mission Section';
 import DonateSection from '../Donate Section';
-import TeamSection from './components/Team Seciton';
+import TeamSection from './components/Team Section';
 
 class Home extends React.Component {
   render() {
@@ -15,7 +15,7 @@ class Home extends React.Component {
         <MissionSection />
         <WorkSection />
         <BlogSection />
-        <TeamSection/>
+        <TeamSection />
         <DonateSection />
       </React.Fragment>
     );
