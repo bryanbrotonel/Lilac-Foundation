@@ -12,6 +12,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - [Fontawesome](https://fontawesome.com/) icons
 - Updated footer layout, styling, and typography
+- Added Scroll To Top route component
+- Blog post layout and styling
+- Renamed blog section styling
+- SCSS modules
+  - Added link stying mixin
+  - Blog masthead overlay colour
 
 #### 2018-10-24
 

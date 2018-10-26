@@ -22,6 +22,8 @@ $secondary-darker: #868789;
 
 $tertiary: #FBFBF2;
 
+$blog-masthead-overlay: #212529;
+
 // Section background colours mixins
 @mixin bg-colour($background, $text) {
     background: $background !important;

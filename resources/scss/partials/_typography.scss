@@ -4,6 +4,41 @@ p,
     color: $text;
 }
 
+// Link and hover styling
+a {
+    @include colouredLinks($black)
+}
+
+// START OF BLOG POST STYLING
+
+// Blog post content paragraph styling
+.blog-post-content p {
+    color: #555 !important
+}
+
+// Heading text colours
+.heading * {
+    color: $white !important;
+}
+
+// Heaidng title typography styling
+.heading .title {
+    font-size: 60px !important;
+    font-weight: bold;
+}
+
+// Heaidng subtitle typography styling
+.heading .subtitle {
+    font-size: 25px !important;
+}
+
+// Heaidng blog metadata typography styling
+.heading .meta {
+    font-style: italic;
+}
+
+// END OF BLOG POST STYLING
+
 // Title and subtitle
 h1+h5 {
     color: #6c757d !important
@@ -36,17 +71,6 @@ h1+h5 {
 // Footer widget list items padding
 .footer-widget ul li:not(:last-child) {
     padding-bottom: .75rem;
-}
-
-// Link and hover styling
-.svg-inline--fa,
-.copyrightlink {
-    color: $black;
-
-    &:hover,
-    &:after {
-        color: $black;
-    }
 }
 
 // END OF FOOTER TYPOGRAPHY STYLING
