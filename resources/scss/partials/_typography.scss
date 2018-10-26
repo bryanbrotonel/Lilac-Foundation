@@ -4,17 +4,23 @@ p,
     color: $text;
 }
 
+// START OF FOOTER TYPOGRAPHY STYLING
+
 // Footer Typography
 .footer {
-    color: $primary;
+    color: $black;
     font-size: 17px;
+
+    // Footer Fontawesome icons sizing
+    .svg-inline--fa {
+        font-size: 2rem !important;
+    }
 }
 
 // Footer widget list
 .footer-widget ul li a {
-    text-transform: capitalize;
-    font-size: 17px;
-    color: $text-light;
+    font-size: 18 px;
+    color: $black;
 
     &:hover {
         color: $black;
@@ -22,22 +28,20 @@ p,
     }
 }
 
-// Mini footer
-.tiny-footer {
-    font-size: 14px;
-    color: $secondary-dark;
-    font-weight: 600;
-    line-height: 1;
-
+// Footer widget list items padding
+.footer-widget ul li:not(:last-child) {
+    padding-bottom: .75rem;
 }
 
-// Copyright footer link
+// Link and hover styling
+.svg-inline--fa,
 .copyrightlink {
-    color: $text;
+    color: $black;
 
     &:hover,
     &:after {
-        text-decoration: none;
         color: $black;
     }
 }
+
+// END OF FOOTER TYPOGRAPHY STYLING
