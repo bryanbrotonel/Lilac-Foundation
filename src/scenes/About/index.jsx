@@ -16,8 +16,7 @@ class About extends React.Component {
       return <TeamSectionItem key={member} name={member} />;
     });
 
-    return (
-      <div>
+    return <div className="bg-gray">
         <div className="container">
           <div className="row justify-content-center py-3 p-md-5">
             <div className="col-12 col-md-4 pb-3 pb-md-0 v-center">
@@ -27,36 +26,35 @@ class About extends React.Component {
             <div className="col-12 col-md-8">
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Facilis, exercitationem voluptatem corrupti quo, accusamus, est
-                molestiae dolorum aliquam minus odio dignissimos labore dicta
-                iste aut! Eum harum deserunt voluptas blanditiis.
+                Facilis, exercitationem voluptatem corrupti quo, accusamus,
+                est molestiae dolorum aliquam minus odio dignissimos labore
+                dicta iste aut! Eum harum deserunt voluptas blanditiis.
               </p>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Facilis, exercitationem voluptatem corrupti quo, accusamus, est
-                molestiae dolorum aliquam minus odio dignissimos labore dicta
-                iste aut! Eum harum deserunt voluptas blanditiis.
+                Facilis, exercitationem voluptatem corrupti quo, accusamus,
+                est molestiae dolorum aliquam minus odio dignissimos labore
+                dicta iste aut! Eum harum deserunt voluptas blanditiis.
               </p>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Facilis, exercitationem voluptatem corrupti quo, accusamus, est
-                molestiae dolorum aliquam minus odio dignissimos labore dicta
-                iste aut! Eum harum deserunt voluptas blanditiis.
+                Facilis, exercitationem voluptatem corrupti quo, accusamus,
+                est molestiae dolorum aliquam minus odio dignissimos labore
+                dicta iste aut! Eum harum deserunt voluptas blanditiis.
               </p>
             </div>
           </div>
-          <div className="team-section row justify-content-center">
+        <div className="row justify-content-center py-3 p-md-5">
             <div className="col-12 col-md-4 pb-3 pb-md-0 v-center">
               <h1>Meet the Team</h1>
               <h5>Let's get acquainted</h5>
             </div>
-            <div className="col-12 col-md-8">
+            <div className="team-section col-12 col-md-8">
               <div className="row hv-center">{teamSectionItems}</div>
             </div>
           </div>
         </div>
-      </div>
-    );
+      </div>;
   }
 }
 

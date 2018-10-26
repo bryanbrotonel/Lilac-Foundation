@@ -8,7 +8,7 @@ class TeamSectionItem extends React.Component {
     const { name } = this.props;
 
     return (
-      <div className="team-member col-8 col-sm-8 col-md-5 text-center">
+      <div className="team-member col-8 col-sm-5 text-center">
         <div>
           <img
             alt="image"
