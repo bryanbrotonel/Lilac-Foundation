@@ -14,10 +14,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Team member profile page
 - Global team member component
   - Team member component layout
+- Global page header component
 
 ### Removed
 - About page team section item
 - Responsive layout styling
+- Blog page header component
 
 #### 2018-10-26, 2018-10-29
 
