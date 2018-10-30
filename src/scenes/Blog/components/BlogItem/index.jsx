@@ -1,5 +1,6 @@
 import React from 'react';
 import Proptypes from 'prop-types';
+import moment from 'moment';
 
 import { Link } from 'react-router-dom';
 
@@ -13,21 +14,28 @@ class BlogItem extends React.Component {
 
   render() {
     const props = this.props;
-    const { title, headerImage, id } = props;
+    const { id, title, subtitle, headerImage, date } = props;
 
     const path = this.createURL`${title}${id}`;
 
     return (
-      <div className="blog-item col-12 col-md-6 col-lg-4">
-        <Link className="card" to={`/blog/${path}`}>
-          <img
-            src={headerImage.fields.file.url}
-            alt=""
-            className="card-img-top"
-          />
-          <div className="card-body text-center">
-            <h4>{title}</h4>
-          </div>
+      <div className=" col-12 col-md-6">
+        <Link to={`/blog/${path}`}>
+          <figure className="blog-item">
+            <img src={headerImage.fields.file.url} alt="pr-sample13" />
+            <div className="date">
+              <span className="day">{moment(date).format('D')}</span>
+              <span className="month">{moment(date).format('MMM')}</span>
+            </div>
+            <figcaption>
+              <h3>{title}</h3>
+              <p>{subtitle}</p>
+            </figcaption>
+            <div className="hover">
+              <i className="ion-android-open" />
+            </div>
+            <a href="#" />
+          </figure>
         </Link>
       </div>
     );

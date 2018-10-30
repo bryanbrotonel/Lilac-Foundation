@@ -1,9 +1,93 @@
 @import 'resources/scss/modules/colours';
 
+// Hover icon
+@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+
+// Blog item styling
 .blog-item {
+    background-color: $black;
+    box-shadow: 0 0 5px rgba($black, 0.15);
+    float: left;
+    margin: 10px 1%;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
     margin-bottom: 2rem;
 }
 
-.card:hover {
-    text-decoration: none;
+// Blog item border box transitions
+.blog-item * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+}
+
+// Blog item image styling
+.blog-item img {
+    max-width: 100%;
+    vertical-align: top;
+    position: relative;
+    opacity: 0.75;
+}
+
+// Blog item caption placement and styling
+.blog-item figcaption {
+    padding: 25px 20px 25px;
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+}
+
+// Blog item date styling
+.blog-item .date {
+    background-color: $white;
+    min-height: 48px;
+    min-width: 48px;
+    padding: 10px 0;
+    position: absolute;
+    right: 15px;
+    top: 0;
+}
+
+// Blog item date styling
+.blog-item .date span {
+    display: block;
+    line-height: 14px;
+}
+
+// Blog item hover overlay
+.blog-item .hover {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    align-items: center;
+    background-color: rgba($primary, 0.75);
+    display: flex;
+    font-size: 65px;
+    justify-content: center;
+    opacity: 0;
+}
+
+// Blog item hover styling and animation
+.blog-item:hover .hover,
+.blog-item.hover .hover {
+    -webkit-transition-delay: 0.1s;
+    transition-delay: 0.1s;
+    opacity: 1;
+}
+
+// Blog-item caption styling
+.blog-item:hover figcaption,
+.blog-item.hover figcaption {
+    opacity: 0;
+}
+
+// Date hover animation
+.blog-item:hover .date,
+.blog-item.hover .date {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
 }

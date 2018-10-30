@@ -21,7 +21,38 @@ a {
 
 // END OF BLOG PAGE STYLING
 
-// START OF BLOG POST STYLING
+// START OF BLOG ITEM STYLING
+
+// Blog item typography styling
+.blog-item {
+    color: $white;
+    font-size: 16px;
+    text-align: left;
+}
+
+// Blog item date styling
+.blog-item .date {
+    color: $black;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+// Blog item date and month font styling
+.blog-item .date .month {
+    font-size: 11px;
+}
+
+// Blog item typography styling
+.blog-item h3,
+.blog-item p {
+    margin: 0;
+    padding: 0;
+    color: $white !important;
+}
+
+// END OF BLOG ITEM STYLING
 
 // Blog post content paragraph styling
 .blog-post-content p {
