@@ -10,6 +10,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 #### 2018-10-30
 
 ### Added
+- Team member route
+- Team member profile page
+- Global team member component
+  - Team member component layout
+
+### Removed
+- About page team section item
 - Responsive layout styling
 
 #### 2018-10-26, 2018-10-29

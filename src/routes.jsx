@@ -5,6 +5,7 @@ import Home from './scenes/Home';
 import Blog from './scenes/Blog';
 import BlogPost from './scenes/BlogPost';
 import About from './scenes/About';
+import TeamMemberProfile from './scenes/Team Member Profile';
 
 const Routes = () => (
   <Switch>
@@ -13,6 +14,7 @@ const Routes = () => (
     <Route exact path="/blog" component={Blog} />
     <Route exact path="/blog/:blogPost" component={BlogPost} />
     <Route exact path="/about" component={About} />
+    <Route exact path="/about/:teamMember" component={TeamMemberProfile} />
   </Switch>
 );
 
