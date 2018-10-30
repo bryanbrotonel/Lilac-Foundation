@@ -1,0 +1,9 @@
+// Link and hover mixin
+@mixin colouredLinks($colour) {
+    color: $colour;
+
+    &:hover,
+    &:after {
+        color: $colour;
+    }
+}

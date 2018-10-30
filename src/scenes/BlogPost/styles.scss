@@ -1,0 +1,24 @@
+@import 'resources/scss/modules/colours';
+
+// Blog content image width
+.blog-post-content {
+    img {
+        width: 100%;
+    }
+}
+
+// Header masthead styling
+header.masthead {
+    margin-bottom: 50px;
+    background: no-repeat center center;
+    background-attachment: scroll;
+    position: relative;
+    background-size: cover;
+    height: 20rem;
+}
+
+// Header masthead overlay styling
+header.masthead .overlay {
+    background-color: $blog-masthead-overlay;
+    opacity: .5
+}

@@ -2,9 +2,9 @@ import React from 'react';
 import Proptypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import PageHeader from '../../components/Page Header';
 import { Loader } from '../../components/Loader';
 import BlogItem from './components/BlogItem';
+import BlogHeader from './components/Blog Header';
 
 import { loadBlog } from '../../store/blog';
 
@@ -31,30 +31,30 @@ class Blog extends React.Component {
 
   componentDidMount() {
     const { loadBlog } = this.props;
-    
+
     // Dispatches loadBlog()
     loadBlog();
   }
 
   render() {
     const { loading, posts } = this.props.blog;
-    
+
     return (
-      <div className="container">
-        <PageHeader color="is-info" title="Lilac Foundation Blog">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni velit
-          numquam saepe nam asperiores, optio ex. Beatae blanditiis perferendis
-          molestiae temporibus harum facere, eaque delectus ut assumenda
-          recusandae porro non?
-        </PageHeader>
-        <br />
-        {loading ? (
-          <Loader/>
-        ) : (
-          posts.map(({ fields, sys }, i) => (
-            <BlogItem key={i} {...fields} {...sys} />
-          ))
-        )}
+      <div className="bg-gray">
+        <div className="container">
+          <BlogHeader />
+          <div className="row justify-content-between">
+            {loading ? (
+              <div className="col-12">
+                <Loader />
+              </div>
+            ) : (
+              posts.map(({ fields, sys }, i) => (
+                <BlogItem key={i} {...fields} {...sys} />
+              ))
+            )}
+          </div>
+        </div>
       </div>
     );
   }

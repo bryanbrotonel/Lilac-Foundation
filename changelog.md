@@ -7,11 +7,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 0.0.2
 
+#### 2018-10-26, 2018-10-29
+
+### Added
+
+- Added blog page header
+- Implemented blog card layout
+- Blog post content layout
+
+### Removed
+- Blog item link props
+
 #### 2018-10-25
 
 ### Added
 - [Fontawesome](https://fontawesome.com/) icons
 - Updated footer layout, styling, and typography
+- Added Scroll To Top route component
+- Blog post layout and styling
+- Renamed blog section styling
+- SCSS modules
+  - Added link stying mixin
+  - Blog masthead overlay colour
 
 #### 2018-10-24
 

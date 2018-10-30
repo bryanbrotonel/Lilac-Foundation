@@ -4,6 +4,9 @@ import ReactDOM from 'react-dom';
 import { Router } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
 
+// Scroll to Top Component
+import ScrollToTop from './components/Scroll To Top';
+
 // Fontawesome icon imports
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
@@ -26,7 +29,9 @@ library.add(faEnvelope, faFacebook, faInstagram);
 
 ReactDOM.render(
   <Router history={history}>
-    <App store={store} />
+    <ScrollToTop>
+      <App store={store} />
+    </ScrollToTop>
   </Router>,
   document.getElementById('root')
 );
