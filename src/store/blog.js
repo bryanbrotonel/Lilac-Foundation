@@ -30,7 +30,9 @@ export function loadBlog() {
 
     // Retreives and returns client blog post entries
     return blogClient
-      .getEntries()
+      .getEntries({
+        content_type: 'blogPost'
+      })
       .then(({
           items
         }) =>

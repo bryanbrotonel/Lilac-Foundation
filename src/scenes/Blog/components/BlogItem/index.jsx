@@ -34,7 +34,6 @@ class BlogItem extends React.Component {
             <div className="hover">
               <i className="ion-android-open" />
             </div>
-            <a href="#" />
           </figure>
         </Link>
       </div>
