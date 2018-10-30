@@ -57,7 +57,7 @@ class BlogPost extends React.Component {
           <div className="overlay" />
 
           <div className="heading row no-gutters justify-content-center w-100">
-            <div className="col-md-6 post-heading">
+            <div className="col-md-7 post-heading">
               <div className="container">
                 <h1 className="title">{title}</h1>
                 <h5 className="subtitle">{subtitle}</h5>
@@ -77,7 +77,7 @@ class BlogPost extends React.Component {
 
         <div>
           <div className="row no-gutters justify-content-center">
-            <div className="col-sm-8 col-md-6">
+            <div className="col-md-7">
               <div className="container">
                 <Markdown className="blog-post-content" source={content} />
               </div>

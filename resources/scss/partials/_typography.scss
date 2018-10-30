@@ -9,6 +9,18 @@ a {
     @include colouredLinks($black)
 }
 
+// START BLOG PAGE STYLING
+
+.blog-header h1 {
+    font-size: 4rem;
+}
+
+.blog-header h6 {
+    color: $text;
+}
+
+// END OF BLOG PAGE STYLING
+
 // START OF BLOG POST STYLING
 
 // Blog post content paragraph styling
@@ -40,8 +52,11 @@ a {
 // END OF BLOG POST STYLING
 
 // Title and subtitle
-h1+h5 {
-    color: #6c757d !important
+h1,
+h2 {
+    +h5 {
+        color: #6c757d !important
+    }
 }
 
 // START OF FOOTER TYPOGRAPHY STYLING

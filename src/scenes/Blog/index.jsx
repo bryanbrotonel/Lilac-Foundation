@@ -2,7 +2,6 @@ import React from 'react';
 import Proptypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import PageHeader from '../../components/Page Header';
 import { Loader } from '../../components/Loader';
 import BlogItem from './components/BlogItem';
 import BlogHeader from './components/Blog Header';
@@ -41,18 +40,20 @@ class Blog extends React.Component {
     const { loading, posts } = this.props.blog;
 
     return (
-      <div className="container">
-        <div className="row justify-content-center">
+      <div className="bg-gray">
+        <div className="container">
           <BlogHeader />
-          {loading ? (
-            <div className="col-12">
-              <Loader />
-            </div>
-          ) : (
-            posts.map(({ fields, sys }, i) => (
-              <BlogItem key={i} {...fields} {...sys} />
-            ))
-          )}
+          <div className="row justify-content-between">
+            {loading ? (
+              <div className="col-12">
+                <Loader />
+              </div>
+            ) : (
+              posts.map(({ fields, sys }, i) => (
+                <BlogItem key={i} {...fields} {...sys} />
+              ))
+            )}
+          </div>
         </div>
       </div>
     );

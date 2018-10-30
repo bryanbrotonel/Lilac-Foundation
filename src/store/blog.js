@@ -24,7 +24,6 @@ function sortBlogPosts(blog) {
 
 // Loads all blogs from post from Contentful
 export function loadBlog() {
-  console.log('loadBlog()');
   return dispatch => {
     // Dispatches loading animation
     dispatch(actions.blogLoading());
