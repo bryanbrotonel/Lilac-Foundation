@@ -1,0 +1,26 @@
+// Team member socials list styling
+.socials-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+// Team member socials list item styling
+.socials-list li {
+    display: inline;
+}
+
+.socials-list li:not(:last-child) {
+    margin-right: 1rem;
+}
+
+// Medium device list styling
+@media (min-width: 768px) {
+    .socials-list li {
+        display: block;
+    }
+
+    .socials-list li:not(:last-child) {
+        margin: 0;
+    }
+}
