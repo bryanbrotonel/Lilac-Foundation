@@ -24,14 +24,15 @@ function sortBlogPosts(blog) {
 
 // Loads all blogs from post from Contentful
 export function loadBlog() {
-  console.log('loadBlog()');
   return dispatch => {
     // Dispatches loading animation
     dispatch(actions.blogLoading());
 
     // Retreives and returns client blog post entries
     return blogClient
-      .getEntries()
+      .getEntries({
+        content_type: 'blogPost'
+      })
       .then(({
           items
         }) =>

@@ -72,8 +72,8 @@ class BlogSection extends React.Component {
               }}
             />
           </div>
-          <div className="col-10 col-md-6">
-            <PageSection className="blog-content">
+          <div className="col-12 col-md-6">
+            <PageSection className="blog-section-content">
               <div className="container">
                 <div className="pb-4 d-none d-md-block">{sectionTitle}</div>
                 <h3>{latestPost.title}</h3>

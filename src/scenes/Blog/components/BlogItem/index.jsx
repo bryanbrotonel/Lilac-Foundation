@@ -1,12 +1,12 @@
 import React from 'react';
 import Proptypes from 'prop-types';
-
-import { Link } from 'react-router-dom';
-import * as Markdown from 'react-markdown';
 import moment from 'moment';
 
-class BlogItem extends React.Component {
+import { Link } from 'react-router-dom';
 
+import './styles.scss';
+
+class BlogItem extends React.Component {
   // Creates url with post title and id
   createURL(str, title, id) {
     return `${str[0]}${title.replace(/\s+/g, '-').toLowerCase()}-${id}`;
@@ -14,49 +14,28 @@ class BlogItem extends React.Component {
 
   render() {
     const props = this.props;
-    const { title, content, date, id } = props;
+    const { id, title, subtitle, headerImage, date } = props;
 
     const path = this.createURL`${title}${id}`;
 
     return (
-      <div className="box">
-        <article className="media">
-          <div className="media-content">
-            <div className="content">
-              <h1>{title}</h1>
-              <Markdown
-                source={content
-                  .split('')
-                  .splice(0, 150)
-                  .join('')
-                  .concat('...')}
-              />
+      <div className=" col-12 col-md-6">
+        <Link to={`/blog/${path}`}>
+          <figure className="blog-item">
+            <img src={headerImage.fields.file.url} alt="pr-sample13" />
+            <div className="date">
+              <span className="day">{moment(date).format('D')}</span>
+              <span className="month">{moment(date).format('MMM')}</span>
             </div>
-            <div className="level">
-              <div className="level-left">
-                <Link
-                  className="level-item is-small is-link"
-                  to={{
-                    pathname: `/blog/${path}`,
-                    state: { title, content, path, date, id }
-                  }}
-                >
-                  Continue Reading...
-                </Link>
-              </div>
-              <div className="level-right">
-                <p className="level-item has-text-link is-size-7">
-                  {moment(date).calendar(null, {
-                    sameDay: '[Today]',
-                    lastDay: '[Yesteday]',
-                    lastWeek: '[Last] dddd',
-                    sameElse: 'MM Do YYYY'
-                  })}
-                </p>
-              </div>
+            <figcaption>
+              <h3>{title}</h3>
+              <p>{subtitle}</p>
+            </figcaption>
+            <div className="hover">
+              <i className="ion-android-open" />
             </div>
-          </div>
-        </article>
+          </figure>
+        </Link>
       </div>
     );
   }

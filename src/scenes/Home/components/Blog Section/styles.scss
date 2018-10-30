@@ -11,7 +11,7 @@
 }
 
 // Blog post content styling
-.blog-content {
+.blog-section-content {
     padding-left: 0;
     padding-right: 0;
 }
@@ -19,7 +19,7 @@
 @media (min-width: 992px) {
     
     // Reset padding to page section padding
-    .blog-content {
+    .blog-section-content {
         padding: 8rem 3rem;
     }
 }
