@@ -6,11 +6,13 @@ import Blog from './scenes/Blog';
 import BlogPost from './scenes/BlogPost';
 import About from './scenes/About';
 import TeamMemberProfile from './scenes/Team Member Profile';
+import Work from './scenes/Work';
 
 const Routes = () => (
   <Switch>
     <Redirect from="/home" to="/" />
     <Route exact path="/" component={Home} />
+    <Route exact path="/work" component={Work} />
     <Route exact path="/blog" component={Blog} />
     <Route exact path="/blog/:blogPost" component={BlogPost} />
     <Route exact path="/about" component={About} />

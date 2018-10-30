@@ -9,14 +9,16 @@ import AboutSection from './components/About Section';
 
 class Home extends React.Component {
   render() {
-    return <React.Fragment>
+    return (
+      <React.Fragment>
         <VideoHeader />
         <MissionSection />
         <WorkSection />
         <BlogSection />
         <AboutSection />
         <DonateSection />
-      </React.Fragment>;
+      </React.Fragment>
+    );
   }
 }
 

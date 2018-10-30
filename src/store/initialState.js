@@ -4,5 +4,10 @@ export default {
         loading: false,
         posts: [],
         singlePost: []
+    },
+    work: {
+        loading: false,
+        work: [],
+        singleWork: []
     }
 }

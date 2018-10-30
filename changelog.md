@@ -16,6 +16,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Team member component layout
 - Global page header component
 - New blog functions path 
+- Added work scene
+  - Added work route
+- Retreived work posts from [Contentful](https://www.contentful.com/)
 
 ### Removed
 - About page team section item

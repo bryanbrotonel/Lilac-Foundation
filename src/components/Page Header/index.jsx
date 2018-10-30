@@ -1,4 +1,5 @@
 import React from 'react';
+import propTypes from 'prop-types';
 
 import './styles.scss';
 
@@ -12,6 +13,10 @@ class PageHeader extends React.Component {
       </div>
     );
   }
+}
+
+PageHeader.propTypes = {
+  children: propTypes.any
 }
 
 export default PageHeader;

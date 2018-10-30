@@ -1,8 +1,40 @@
 import React from 'react';
+import Proptypes from 'prop-types';
+import { connect } from 'react-redux';
+import { loadWork } from '../../store/work/work';
+
 import PageHeader from '../../components/Page Header';
 
+// Maps Redux dispatch actions to props
+const mapDispatchToProps = dispatch => {
+  return {
+    loadWork: () => {
+      dispatch(loadWork());
+    }
+  };
+};
+
+// Maps Redux state to props
+function mapStateToProps(state) {
+  return { work: state.work };
+}
+
 class Work extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.componentDidMount = this.componentDidMount.bind(this);
+  }
+
+  componentDidMount() {
+    const { loadWork } = this.props;
+
+    // Dispatches loadWork()
+    loadWork();
+  }
+
   render() {
+
     return (
       <div className="container">
         <PageHeader>
@@ -19,4 +51,12 @@ class Work extends React.Component {
   }
 }
 
-export default Work;
+Work.propTypes = {
+  loadWork: Proptypes.func
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Work);
+
