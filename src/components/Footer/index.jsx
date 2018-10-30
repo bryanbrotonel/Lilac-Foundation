@@ -16,13 +16,10 @@ export class Footer extends React.Component {
             <div className="footer-widget col-4 d-none d-md-flex">
               <ul className="list-unstyled">
                 <li>
-                  <a href="#">Work</a>
-                </li>
-                <li>
-                  <a href="#">Mission</a>
-                </li>
-                <li>
                   <a href="#">Story</a>
+                </li>
+                <li>
+                  <a href="#">Work</a>
                 </li>
               </ul>
             </div>
@@ -31,9 +28,6 @@ export class Footer extends React.Component {
               <ul className="list-unstyled">
                 <li>
                   <a href="#">About</a>
-                </li>
-                <li>
-                  <a href="#">Team</a>
                 </li>
                 <li>
                   <a href="#">Blog</a>
@@ -67,7 +61,7 @@ export class Footer extends React.Component {
               </ul>
             </div>
           </div>
-          <hr/>
+          <hr />
           <div className="row">
             <div className="copyright-footer col text-center">
               Copyright © All Rights Reserved {new Date().getFullYear()} |
