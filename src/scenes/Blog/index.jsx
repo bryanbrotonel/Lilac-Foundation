@@ -1,10 +1,10 @@
 import React from 'react';
 import Proptypes from 'prop-types';
 import { connect } from 'react-redux';
+import { loadBlog } from '../../store/blog/blog';
 
 import { Loader } from '../../components/Loader';
 import BlogItem from './components/BlogItem';
-import { loadBlog } from '../../store/blog';
 
 import PageHeader from '../../components/Page Header';
 

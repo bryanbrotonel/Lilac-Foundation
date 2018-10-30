@@ -6,7 +6,7 @@ import * as Markdown from 'react-markdown';
 import PageSection from '../../../../components/Page Section';
 import { Loader } from '../../../../components/Loader';
 
-import { loadBlog } from '../../../../store/blog';
+import { loadBlog } from '../../../../store/blog/blog';
 
 import './styles.scss';
 

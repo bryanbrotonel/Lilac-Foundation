@@ -1,19 +1,32 @@
 // Blog actions
 
-// Import Redux types
-import * as types from './types';
+// Import Redux Blog types
+import {
+  BLOG_LOADING,
+  LOAD_BLOG_SUCCESS,
+  LOAD_POST_SUCCESS
+} from './types';
 
 // Action that returns current state of blog load
 export function blogLoading(isLoading = true) {
-  return { type: types.BLOG_LOADING, isLoading };
+  return {
+    type: BLOG_LOADING,
+    isLoading
+  };
 }
 
-// Action that returns the successfully loaded blog type, and blog posts
+// Action that returns the successfully blog posts
 export function loadBlogSuccess(posts) {
-  return { type: types.LOAD_BLOG_SUCCESS, posts };
+  return {
+    type: LOAD_BLOG_SUCCESS,
+    posts
+  };
 }
 
 // Action that returns the successfully loaded blog post
 export function loadPostSuccess(post) {
-  return { type: types.LOAD_POST_SUCCESS, post };
+  return {
+    type: LOAD_POST_SUCCESS,
+    post
+  };
 }
