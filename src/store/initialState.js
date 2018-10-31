@@ -8,6 +8,6 @@ export default {
     work: {
         loading: false,
         work: [],
-        singleWork: []
+        workPost: []
     }
 }

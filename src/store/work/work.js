@@ -15,12 +15,12 @@ function loadingWorkError(dispatch, error) {
 
 
 // Sorts work posts by descending date
-function sortWorkItems(works) {
-    works.sort(function (a, b) {
+function sortWorkItems(workPosts) {
+    workPosts.sort(function (a, b) {
         return Date.parse(b.fields.date) - Date.parse(a.fields.date);
     });
 
-    return works;
+    return workPosts;
 }
 
 // Loads all works  from Contentful

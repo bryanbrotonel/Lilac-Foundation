@@ -30,7 +30,7 @@ export default function workReducer(state = initialState.work, action) {
         case LOAD_WORK_POST_SUCCESS:
             return {
                 ...state,
-                workPost: action.works,
+                workPost: action.workPost,
                 loading: false
             };
 

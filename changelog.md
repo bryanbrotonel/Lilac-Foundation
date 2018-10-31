@@ -9,6 +9,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 #### 2018-10-30
 
+### 2018-10-31
+
+#### Added
+- Work post scene
+- Work post routing
+- Work page layout
+ - Retreived work page content from [Contentful](https://www.contentful.com/)
+ - Work page work post items
+ - 
+- Markdown content image styling
+
+#### Removed
+- Blog content
+
+#### 2018-10-30
+
 ### Added
 - Team member route
 - Team member profile page
