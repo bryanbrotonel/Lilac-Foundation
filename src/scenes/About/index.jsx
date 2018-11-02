@@ -1,5 +1,6 @@
 import React from 'react';
 import TeamMember from '../../components/Team Member';
+import PageHeader from '../../components/Page Header';
 
 class About extends React.Component {
   constructor() {
@@ -13,18 +14,23 @@ class About extends React.Component {
     const { teamMembers } = this.state;
 
     const teamSectionItems = teamMembers.map(member => {
-      return <div key={member} className="col-8 col-sm-5 text-center">
+      return (
+        <div key={member} className="col-8 col-sm-5 text-center">
           <TeamMember name={member} />
-        </div>;
+        </div>
+      );
     });
 
     return (
       <div className="bg-gray">
         <div className="container">
-          <div className="row justify-content-center py-3 p-md-5">
+          <PageHeader>
+            <h1>About</h1>
+          </PageHeader>
+          <div className="row justify-content-center pb-3 px-md-5">
             <div className="col-12 col-md-4 pb-3 pb-md-0 v-center">
-              <h1>About Us</h1>
-              <h5>Hear our story</h5>
+              <h1>Our Story</h1>
+              <h5>Learn our origins</h5>
             </div>
             <div className="col-12 col-md-8">
               <p>

@@ -1,8 +1,8 @@
 import * as contentful from 'contentful';
-import * as actions from './blog/actions';
+import * as actions from './actions';
 
-// The Lilac Foundation Blog Client
-const blogClient = contentful.createClient({
+// The Lilac Foundation Client
+const client = contentful.createClient({
   space: 's85q1dv8e3m5',
   accessToken: 'e1f99556ca22933d807bbeba1f93e70d5ebaa2bd37d43e099d26f653e9ade466'
 });
@@ -22,14 +22,14 @@ function sortBlogPosts(blog) {
   return blog;
 }
 
-// Loads all blogs from post from Contentful
+// Loads all blogs from Contentful
 export function loadBlog() {
   return dispatch => {
     // Dispatches loading animation
     dispatch(actions.blogLoading());
 
     // Retreives and returns client blog post entries
-    return blogClient
+    return client
       .getEntries({
         content_type: 'blogPost'
       })
@@ -39,6 +39,7 @@ export function loadBlog() {
         // Dispatches loading success action return blog
         dispatch(actions.loadBlogSuccess(sortBlogPosts(items)))
       )
+      .catch(error => loadingBlogError(dispatch, error));
   };
 }
 
@@ -49,7 +50,7 @@ export function loadBlogPost(id) {
     dispatch(actions.blogLoading());
 
     // Retreives and returns requested client post entry
-    return blogClient
+    return client
       .getEntry(id)
       .then(({
           fields

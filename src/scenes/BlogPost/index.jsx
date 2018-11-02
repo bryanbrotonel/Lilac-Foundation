@@ -7,7 +7,7 @@ import moment from 'moment';
 import * as Markdown from 'react-markdown';
 
 import { Loader } from '../../components/Loader';
-import { loadBlogPost } from '../../store/blog';
+import { loadBlogPost } from '../../store/blog/blog';
 
 import './styles.scss';
 
