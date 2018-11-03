@@ -6,7 +6,7 @@ html {
 // Page body typography styling
 body {
     background-color: $white;
-    font-family: $header-font;
+    font-family: $base-font;
     font-weight: $base-font-weight;
     line-height: $base-line-height;
     color: $black;
@@ -15,17 +15,21 @@ body {
 // Paragraph styling
 p {
     margin-bottom: 1.3em;
-    font-family: $base-font;
 }
 
 // Heading styling
-h1,
-h2,
-h3,
-h4 {
-    margin: 1.414em 0 0.5em;
-    font-weight: inherit;
-    line-height: 1.2;
+@for $i from 1 through 6 {
+    h#{7 - $i} {
+        font-family: $header-font;
+    }
+}
+
+@for $i from 1 through 4 {
+    h#{5 - $i} {
+        margin: 1.414em 0 0.5em;
+        font-weight: inherit;
+        line-height: 1.2;
+    }
 }
 
 // First heading styling
