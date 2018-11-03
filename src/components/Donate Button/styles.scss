@@ -31,5 +31,5 @@
 .btn-light:active,
 .btn-light.active,
 .open>.dropdown-toggle.btn-light {
-    @include btn-colour($white, $black);
+    @include btn-colour($black, $white);
 }
