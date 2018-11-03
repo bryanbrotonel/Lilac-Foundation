@@ -1,3 +1,9 @@
+@import 'resources/scss/modules/colours';
+
 .blog-header {
     padding: 2rem 0;
+}
+
+.blog-header h6 {
+    color: $text;
 }

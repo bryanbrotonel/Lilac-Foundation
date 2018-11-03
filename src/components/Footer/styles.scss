@@ -4,12 +4,35 @@
 .footer {
     background-color: $white;
     padding: 4.5rem 0;
+    color: $black;
 }
 
 .list-inline-item:not(:last-child) {
     margin-right: 1rem !important;
 }
 
+// Footer Fontawesome icons sizing
 .copyright-footer {
     padding-top: 2rem;
+}
+
+// Footer Typography
+.footer .svg-inline--fa {
+    font-size: 2rem !important;
+}
+
+// Footer widget list
+.footer-widget ul li a {
+    font-size: 18 px;
+    color: $black;
+
+    &:hover {
+        color: $black;
+        text-decoration: none;
+    }
+}
+
+// Footer widget list items padding
+.footer-widget ul li:not(:last-child) {
+    padding-bottom: .75rem;
 }
