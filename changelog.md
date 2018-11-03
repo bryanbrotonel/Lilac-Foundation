@@ -15,12 +15,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - New navbar layout
 - Added donate button
 - Button colour mixin
+- Improved typography modules
+- Footer content, layout, and styling
 
 #### Removed
 - Component specific typography partials
 - Navbar styling
   - Background colour
   - Fixed on top styling
+- [Fontawesome](https://fontawesome.com/) icons
 
 ## 0.0.2
 

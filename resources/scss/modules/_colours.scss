@@ -15,6 +15,7 @@ $primary-light: #ffe3ff;
 $primary-tint: rgba($primary-dark, .9);
 
 $tertiary: #272932;
+$tertiary-text: #4E5264;
 
 // Section background colours mixins
 @mixin bg-colour($background, $text) {
@@ -25,5 +26,5 @@ $tertiary: #272932;
 @mixin btn-colour($text, $background: transparent) {
     color: $text !important;
     background-color: $background !important;
-    border-color: $text !important
+    border-color: if($background !=transparent, $background, $text) !important;
 }
