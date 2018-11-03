@@ -1,11 +1,12 @@
+@import 'resources/scss/modules/typography';
 @import 'resources/scss/modules/colours';
 
 $text-colour: $black;
 
 // Navbar styling
 .navbar {
-    height: 80px;
-    background-color: $white;
+    min-height: 80px;
+    font-family: $base-font;
 }
 
 // Position and sizing of clickable cross button

@@ -21,3 +21,9 @@ $tertiary: #272932;
     background: $background !important;
     color: $text !important;
 }
+
+@mixin btn-colour($text, $background: transparent) {
+    color: $text !important;
+    background-color: $background !important;
+    border-color: $text !important
+}

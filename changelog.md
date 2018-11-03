@@ -12,9 +12,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 #### Added
 - Poly-fluid sizing typography courtesy of [Jakobud](https://github.com/Jakobud)
 - Colour modules
+- New navbar layout
+- Added donate button
+- Button colour mixin
 
 #### Removed
 - Component specific typography partials
+- Navbar styling
+  - Background colour
+  - Fixed on top styling
 
 ## 0.0.2
 
