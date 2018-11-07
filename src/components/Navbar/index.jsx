@@ -64,28 +64,15 @@ class Navbar extends React.Component {
       );
     });
 
-    return (
-      <nav className="navbar navbar-expand-md navbar-light">
-        <Menu
-          isOpen={menuOpen}
-          onStateChange={state => this.handleStateChange(state)}
-          customBurgerIcon={false}
-          right={true}
-          pageWrapId={'body'}
-          outerContainerId={'app'}
-        >
+    return <nav id="navbar" className="navbar navbar-expand-md">
+        <Menu isOpen={menuOpen} onStateChange={state => this.handleStateChange(state)} customBurgerIcon={false} right={true} pageWrapId={'body'} outerContainerId={'app'}>
           {mobileNavLinks}
         </Menu>
         <div className="container-fluid">
           <div className="row w-100 mx-auto">
-            <div className="col-11 col-md-4">
+            <div className="col-10 col-md-4">
               <a className="navbar-brand mr-auto mr-md-0" href="#">
-                <img
-                  src="https://bulma.io/images/bulma-logo.png"
-                  alt="Bulma: a modern CSS framework based on Flexbox"
-                  width="112"
-                  height="28"
-                />
+                <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
               </a>
             </div>
             <div className="col-4 offcanvas-collapse d-none d-md-flex">
@@ -94,19 +81,14 @@ class Navbar extends React.Component {
             <div className="col-4 text-right d-none d-md-block">
               <DonateButton className="btn-primary" />
             </div>
-            <div className="col-1 hv-center">
-              <button
-                className="navbar-toggler p-0 border-0"
-                type="button"
-                onClick={() => this.toggleMenu()}
-              >
+            <div className="col-2 hv-center">
+              <button className="custom-toggler navbar-toggler p-0 border-0" type="button" onClick={() => this.toggleMenu()}>
                 <span className="navbar-toggler-icon" />
               </button>
             </div>
           </div>
         </div>
-      </nav>
-    );
+      </nav>;
   }
 }
 

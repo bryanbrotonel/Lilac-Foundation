@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 #### Added
  - Able to retreive header images through [Contentful](https://www.contentful.com/)
    - Implemented through new base [redux](https://redux.js.org)
+- Navbar toggler placement and colouring
 
 ### 2018-11-06
 
