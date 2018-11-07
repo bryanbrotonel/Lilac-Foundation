@@ -5,7 +5,7 @@ import './styles.scss';
 class VideoHeader extends React.Component {
   render() {
     return (
-      <header>
+      <header className="video-header">
         <div className="overlay" />
         <video playsInline={true} autoPlay={true} muted="muted" loop="loop">
           <source

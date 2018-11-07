@@ -39,26 +39,26 @@ class Blog extends React.Component {
   render() {
     const { loading, posts } = this.props.blog;
 
-    return <div className="bg-gray">
+    return (
+      <div className="bg-gray">
+        <PageHeader headerImage="https://source.unsplash.com/fVUl6kzIvLg/1600x900">
+          <h1>Blog</h1>
+        </PageHeader>
         <div className="container">
-          <PageHeader>
-            <h1>The Lilac Foundation Blog</h1>
-            <h6>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo
-              minima quos atque perferendis amet nihil exercitationem iusto
-              quia pariatur, quidem officia tenetur ullam. Praesentium, ut
-              placeat fuga at non dignissimos?
-            </h6>
-          </PageHeader>
           <div className="row justify-content-between">
-            {loading ? <div className="col-12">
+            {loading ? (
+              <div className="col-12">
                 <Loader />
-              </div> : posts.map(({ fields, sys }, i) => (
+              </div>
+            ) : (
+              posts.map(({ fields, sys }, i) => (
                 <BlogItem key={i} {...fields} {...sys} />
-              ))}
+              ))
+            )}
           </div>
         </div>
-      </div>;
+      </div>
+    );
   }
 }
 

@@ -1,9 +1,53 @@
 @import 'resources/scss/modules/colours';
 
-.blog-header {
-    padding: 2rem 0;
+// Page header styling
+.page-header {
+    height: 30vh;
+    width: 100%;
+    position: absolute !important;
+    top: 0 !important;
+    background-color: $primary-dark !important;
+
+    background: no-repeat center center;
+    background-attachment: scroll;
+    position: relative;
+    background-size: cover;
 }
 
-.blog-header h6 {
+// Page header neighbour margin for page header visibility
+.page-header+div {
+    margin-top: 22.5vh;
+}
+
+// Page subtitle text colour
+.page-header h6 {
     color: $text;
+}
+
+// Page header heading row width and height
+.page-header .heading {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+// Heading z-index
+.heading * {
+    z-index: 1;
+}
+
+// Heading content bottom padding
+.heading-content {
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
+
+// Medium device list styling
+@media (min-width: 768px) {
+    .page-header {
+        height: 50vh;
+    }
+
+    .page-header+div {
+        margin-top: 50vh;
+    }
 }

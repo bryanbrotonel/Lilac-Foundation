@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 0.0.3
 
+### 2018-11-06
+
+#### Added
+- Page header layout, styling, and responsivness
+- Global overlay styling
+- Coloured links styling
+- Video header specific styilng
+
 ### 2018-11-02
 
 #### Added

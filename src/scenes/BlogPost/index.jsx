@@ -10,6 +10,7 @@ import { Loader } from '../../components/Loader';
 import { loadBlogPost } from '../../store/blog/blog';
 
 import './styles.scss';
+import PageHeader from '../../components/Page Header';
 
 // Maps Redux dispatch actions to props
 const mapDispatchToProps = dispatch => {
@@ -44,36 +45,25 @@ class BlogPost extends React.Component {
 
   render() {
     const { post } = this.props;
-    const { headerImage, date, title, subtitle, content, author } = post;
+    const { headerImage, date, title, subtitle, content, author } = post;    
 
     return post.length !== 0 ? (
       <React.Fragment>
-        <header
-          className="masthead hv-center"
-          style={{
-            backgroundImage: 'url(' + headerImage.fields.file.url + ')'
-          }}
-        >
-          <div className="overlay" />
-
-          <div className="heading row no-gutters justify-content-center w-100">
-            <div className="col-md-7 post-heading">
-              <div className="container">
-                <h1 className="title">{title}</h1>
-                <h5 className="subtitle">{subtitle}</h5>
-                <span className="meta">
-                  Published by {author}{' '}
-                  {moment(date).calendar(null, {
-                    sameDay: '[today]',
-                    lastDay: '[yesterday]',
-                    lastWeek: '[last] dddd',
-                    sameElse: '[on] MMM Do YYYY'
-                  })}
-                </span>
-              </div>
-            </div>
+        <PageHeader headerImage={headerImage.fields.file.url}>
+          <div className="post-heading">
+            <h1 className="title">{title}</h1>
+            <h5 className="subtitle">{subtitle}</h5>
+            <span className="meta">
+              Published by {author}{' '}
+              {moment(date).calendar(null, {
+                sameDay: '[today]',
+                lastDay: '[yesterday]',
+                lastWeek: '[last] dddd',
+                sameElse: '[on] MMM Do YYYY'
+              })}
+            </span>
           </div>
-        </header>
+        </PageHeader>
 
         <div>
           <div className="row no-gutters justify-content-center">

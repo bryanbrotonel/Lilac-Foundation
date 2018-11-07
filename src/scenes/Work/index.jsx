@@ -7,8 +7,6 @@ import PageHeader from '../../components/Page Header';
 import { Loader } from '../../components/Loader';
 import WorkItem from './WorkItem';
 
-import PageSection from '../../components/Page Section';
-
 // Maps Redux dispatch actions to props
 const mapDispatchToProps = dispatch => {
   return {
@@ -39,16 +37,12 @@ class Work extends React.Component {
 
   render() {
     const { loading, work } = this.props.work;
-
-    console.log(work);
-
-    return (
-      <div className=" bg-gray">
-        <div className="container">
-          <PageHeader>
-            <h1>Work</h1>
-          </PageHeader>
-        </div>
+    
+    return <div className=" bg-gray">
+        <h1>Work</h1>
+        <PageHeader headerImage="https://source.unsplash.com/xtd3zYWxEs4/1600x900">
+          <h1>Work</h1>
+        </PageHeader>
         <div className="work-page container">
           <div className="work-section">
             <div className="row">
@@ -57,8 +51,8 @@ class Work extends React.Component {
                 <p>
                   Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                   Quibusdam odit, soluta voluptatibus minus omnis obcaecati
-                  eveniet officia ipsum molestias animi, vitae dicta atque in
-                  maiores vero temporibus odio. Nesciunt, corporis.
+                  eveniet officia ipsum molestias animi, vitae dicta atque
+                  in maiores vero temporibus odio. Nesciunt, corporis.
                 </p>
               </div>
             </div>
@@ -67,38 +61,33 @@ class Work extends React.Component {
                 <h1>How we work</h1>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Quasi, quas sit, repellat accusamus molestias vitae vel illo
-                  eaque est placeat et fugit repudiandae hic rem a temporibus
-                  non odio voluptates.
+                  Quasi, quas sit, repellat accusamus molestias vitae vel
+                  illo eaque est placeat et fugit repudiandae hic rem a
+                  temporibus non odio voluptates.
                 </p>
               </div>
             </div>
           </div>
           <div className="work-section row">
-            {loading ? (
-              <Loader />
-            ) : (
-              work.map(({ fields, sys }, i) => (
+            {loading ? <Loader /> : work.map(({ fields, sys }, i) => (
                 <div className="col-12 col-md-4" key={i}>
                   <WorkItem {...fields} {...sys} />
                 </div>
-              ))
-            )}
+              ))}
           </div>
           <div className="work-section row justify-content-center">
             <div className="col-6 text-center">
               <h3>Work With Us</h3>
               <p>
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. A,
-                maxime, animi consequatur doloremque totam nostrum facilis quo
-                voluptatum ipsam illum quod quaerat neque! Ad dicta unde dolores
-                voluptates veritatis laborum.
+                maxime, animi consequatur doloremque totam nostrum facilis
+                quo voluptatum ipsam illum quod quaerat neque! Ad dicta unde
+                dolores voluptates veritatis laborum.
               </p>
             </div>
           </div>
         </div>
-      </div>
-    );
+      </div>;
   }
 }
 

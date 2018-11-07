@@ -21,12 +21,12 @@ class About extends React.Component {
       );
     });
 
-    return (
-      <div className="bg-gray">
+    return <div className="bg-gray">
+        <PageHeader headerImage="https://source.unsplash.com/jWKUi10FZBo/1600x900">
+          <h1>About</h1>
+          <h4>More behind the lilac</h4>
+        </PageHeader>
         <div className="container">
-          <PageHeader>
-            <h1>About</h1>
-          </PageHeader>
           <div className="row justify-content-center pb-3 px-md-5">
             <div className="col-12 col-md-4 pb-3 pb-md-0 v-center">
               <h1>Our Story</h1>
@@ -35,21 +35,21 @@ class About extends React.Component {
             <div className="col-12 col-md-8">
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Facilis, exercitationem voluptatem corrupti quo, accusamus, est
-                molestiae dolorum aliquam minus odio dignissimos labore dicta
-                iste aut! Eum harum deserunt voluptas blanditiis.
+                Facilis, exercitationem voluptatem corrupti quo, accusamus,
+                est molestiae dolorum aliquam minus odio dignissimos labore
+                dicta iste aut! Eum harum deserunt voluptas blanditiis.
               </p>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Facilis, exercitationem voluptatem corrupti quo, accusamus, est
-                molestiae dolorum aliquam minus odio dignissimos labore dicta
-                iste aut! Eum harum deserunt voluptas blanditiis.
+                Facilis, exercitationem voluptatem corrupti quo, accusamus,
+                est molestiae dolorum aliquam minus odio dignissimos labore
+                dicta iste aut! Eum harum deserunt voluptas blanditiis.
               </p>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Facilis, exercitationem voluptatem corrupti quo, accusamus, est
-                molestiae dolorum aliquam minus odio dignissimos labore dicta
-                iste aut! Eum harum deserunt voluptas blanditiis.
+                Facilis, exercitationem voluptatem corrupti quo, accusamus,
+                est molestiae dolorum aliquam minus odio dignissimos labore
+                dicta iste aut! Eum harum deserunt voluptas blanditiis.
               </p>
             </div>
           </div>
@@ -63,8 +63,7 @@ class About extends React.Component {
             </div>
           </div>
         </div>
-      </div>
-    );
+      </div>;
   }
 }
 
