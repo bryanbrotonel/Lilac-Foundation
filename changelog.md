@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 0.0.3
 
+### 2018-11-07
+
+#### Added
+ - Able to retreive header images through [Contentful](https://www.contentful.com/)
+   - Implemented through new base [redux](https://redux.js.org)
+
 ### 2018-11-06
 
 #### Added
