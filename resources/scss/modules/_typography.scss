@@ -48,12 +48,12 @@ $base-line-height: 1.45;
 }
 
 // Link and hover mixin
-@mixin colouredLinks($colour) {
+@mixin colouredLinks($colour, $hover: $colour) {
     color: $colour !important;
 
     &:hover,
     &:after {
-        color: $colour !important;
+        color: $hover !important;
         text-decoration: none;
     }
 }

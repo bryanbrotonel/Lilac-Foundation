@@ -1,4 +1,5 @@
 @import "resources/scss/modules/colours";
+@import "resources/scss/modules/typography";
 
 // Footer
 .footer {
@@ -19,11 +20,11 @@
 // Footer widget list
 .footer-widget ul li {
     font-weight: 550;
+}
 
-    &:hover {
-        color: $text;
-        text-decoration: none;
-    }
+.footer-widget ul li a {
+    text-transform: capitalize;
+    @include colouredLinks($white, $text);
 }
 
 // Footer widget list items padding
