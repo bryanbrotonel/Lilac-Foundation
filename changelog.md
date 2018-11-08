@@ -13,11 +13,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - Able to retreive header images through [Contentful](https://www.contentful.com/)
    - Implemented through new base [Redux](https://redux.js.org)
 - Navbar toggler placement and colouring
+
 - Retreived Lilac Foundation social media from [Contentful](https://www.contentful.com/)
-  - Added new socials [Redux](https://redux.js.org) reducer
+  - Added new socials [Redux](https://redux.js.org) thunk
 - Linked footer links to respective pages
 - Separated [Contentful](https://www.contentful.com/) into `blogClient` and `contentClient`
 - Coloured links mixin improvements
+
+- Retreived Lilac Foundation team members from [Contentful](https://www.contentful.com/)
+  - Added new team page [Redux](https://redux.js.org) thunk
+- Team page component and routing
+
+#### Removed
+- Unused about page content
 
 ### 2018-11-06
 
