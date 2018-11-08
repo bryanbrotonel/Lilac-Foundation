@@ -1,83 +1,118 @@
 import React from 'react';
-// import { NavLink } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Proptypes from 'prop-types';
+import { Link } from 'react-router-dom';
+
+import { connect } from 'react-redux';
+import { loadSocialMedia } from '../../store/base/base';
+
+import DonateButton from '../Donate Button';
 
 import './styles.scss';
 
-export class Footer extends React.Component {
+const mapDispatchToProps = dispatch => {
+  return {
+    loadSocialMedia: () => {
+      dispatch(loadSocialMedia('2umAjY8tMEQuOIYUmii08Y'));
+    }
+  };
+};
+
+const mapStateToProps = state => {
+  return { base: state.base };
+};
+
+class Footer extends React.Component {
   constructor() {
     super();
+
+    this.state = {
+      pages: ['projects', 'blog', 'team', 'about'],
+      socials: []
+    };
+
+    this.componentDidMount = this.componentDidMount.bind(this);
   }
+
+  componentDidMount() {
+    const { loadSocialMedia } = this.props;
+
+    // Dispatch loadSocialMedia()
+    loadSocialMedia();
+  }
+
   render() {
+    const { pages } = this.state;
+    const { socials } = this.props.base;
+
+    // Format footer page links
+    const footerPageLinks = pages.map(page => {
+      return (
+        <li key={page}>
+          <Link to={'/' + page}>{page}</Link>
+        </li>
+      );
+    });
+
+    // Format footer social media links
+    if (socials.length != 0) {
+      var footerSocialLinks = Object.keys(socials).map(key => {
+        return (
+          <li key={key}>
+            <a href={socials[key]} target="_blank" rel="noopener noreferrer">
+              {key}
+            </a>
+          </li>
+        );
+      });
+    }
+
     return (
-      <div>
-        <footer className="footer container">
+      <div className="footer">
+        <footer className=" container">
           <div className="row align-items-top">
             <div className="footer-widget col-4 d-none d-md-flex">
-              <ul className="list-unstyled">
-                <li>
-                  <a href="#">Story</a>
-                </li>
-                <li>
-                  <a href="#">Work</a>
-                </li>
-              </ul>
+              <ul className="list-unstyled">{footerPageLinks}</ul>
             </div>
 
             <div className="footer-widget col-4 d-none d-md-flex">
-              <ul className="list-unstyled">
-                <li>
-                  <a href="#">About</a>
-                </li>
-                <li>
-                  <a href="#">Blog</a>
-                </li>
-              </ul>
+              <ul className="list-unstyled">{footerSocialLinks}</ul>
             </div>
 
             <div className="col-12 col-md-4 text-left">
-              <h5>The Lilac Foundation</h5>
-              <p>
+              <h5>
+                <strong>The Lilac Foundation</strong>
+              </h5>
+              <p className="mb-2">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Distinctio pariatur excepturi voluptates aspernatur tempora
                 consectetur.
               </p>
-              <ul className="list-inline">
-                <li className="list-inline-item">
-                  <a href="">
-                    <FontAwesomeIcon icon={['far', 'envelope']} />
-                  </a>
-                </li>
-                <li className="list-inline-item">
-                  <a href="">
-                    <FontAwesomeIcon icon={['fab', 'facebook']} />
-                  </a>
-                </li>
-                <li className="list-inline-item">
-                  <a href="">
-                    <FontAwesomeIcon icon={['fab', 'instagram']} />
-                  </a>
-                </li>
-              </ul>
+              <DonateButton className="btn-light" />
             </div>
           </div>
-          <hr />
-          <div className="row">
-            <div className="copyright-footer col text-center">
-              Copyright © All Rights Reserved {new Date().getFullYear()} |
-              Website by{' '}
-              <a
-                href="https://bryanbrotonel.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="copyrightlink"
-              >
-                Bryan Brotonel
-              </a>
-            </div>
+          <div className="footer-credit">
+            Made with <span className="heart">❤</span> by&#160;
+            <a
+              href="https://bryanbrotonel.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="credit-link"
+            >
+              Bryan Brotonel
+            </a>
           </div>
         </footer>
       </div>
     );
   }
 }
+
+Footer.Proptypes = {
+  loadSocialMedia: Proptypes.func,
+  base: Proptypes.obj
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Footer);

@@ -1,15 +1,56 @@
 @import "resources/scss/modules/colours";
+@import "resources/scss/modules/typography";
 
 // Footer
 .footer {
-    background-color: $white;
+    background-color: $tertiary;
     padding: 4.5rem 0;
+    color: $white;
 }
 
 .list-inline-item:not(:last-child) {
     margin-right: 1rem !important;
 }
 
-.copyright-footer {
-    padding-top: 2rem;
+// Footer Typography
+.footer .svg-inline--fa {
+    font-size: 2rem !important;
+}
+
+// Footer widget list
+.footer-widget ul li {
+    font-weight: 550;
+}
+
+.footer-widget ul li a {
+    text-transform: capitalize;
+    @include colouredLinks($white, $text);
+}
+
+// Footer widget list items padding
+.footer-widget ul li:not(:last-child) {
+    padding-bottom: .75rem;
+}
+
+// Footer credit spacing
+.footer-credit {
+    margin-top: 2rem;
+}
+
+// Footer credit heart colouring
+.footer-credit .heart {
+    color: $primary;
+}
+
+// Footer text
+.footer-credit,
+.footer-credit .credit-link {
+    color: $tertiary-text !important;
+}
+
+// Footer links hover styling
+.footer-widget ul li:hover,
+.footer-credit .credit-link:hover {
+    color: $text !important;
+    text-decoration: none;
 }

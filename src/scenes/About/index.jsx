@@ -1,6 +1,25 @@
 import React from 'react';
+import Proptypes from 'prop-types';
+
+import { connect } from 'react-redux';
+import { loadHeaderImage } from '../../store/base/base';
+
 import TeamMember from '../../components/Team Member';
 import PageHeader from '../../components/Page Header';
+
+// Maps Redux dispatch actions to props
+const mapDispatchToProps = dispatch => {
+  return {
+    loadHeaderImage: () => {
+      dispatch(loadHeaderImage('NokqFw6LQWUmYUWWmicyg'));
+    }
+  };
+};
+
+// Maps Redux state to props
+function mapStateToProps(state) {
+  return { headerImage: state.base };
+}
 
 class About extends React.Component {
   constructor() {
@@ -8,10 +27,20 @@ class About extends React.Component {
     this.state = {
       teamMembers: ['Member 1', 'Member 2', 'Member 3', 'Member 4']
     };
+
+    this.componentDidMount = this.componentDidMount.bind(this);
+  }
+
+  componentDidMount() {
+    const { loadHeaderImage } = this.props;
+
+    // Dispatches headerImage()
+    loadHeaderImage();
   }
 
   render() {
     const { teamMembers } = this.state;
+    const { headerImage } = this.props.headerImage;
 
     const teamSectionItems = teamMembers.map(member => {
       return (
@@ -23,37 +52,12 @@ class About extends React.Component {
 
     return (
       <div className="bg-gray">
+        <PageHeader headerImage={headerImage}>
+          <h1>About</h1>
+          <h4>More behind the lilac</h4>
+        </PageHeader>
         <div className="container">
-          <PageHeader>
-            <h1>About</h1>
-          </PageHeader>
-          <div className="row justify-content-center pb-3 px-md-5">
-            <div className="col-12 col-md-4 pb-3 pb-md-0 v-center">
-              <h1>Our Story</h1>
-              <h5>Learn our origins</h5>
-            </div>
-            <div className="col-12 col-md-8">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Facilis, exercitationem voluptatem corrupti quo, accusamus, est
-                molestiae dolorum aliquam minus odio dignissimos labore dicta
-                iste aut! Eum harum deserunt voluptas blanditiis.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Facilis, exercitationem voluptatem corrupti quo, accusamus, est
-                molestiae dolorum aliquam minus odio dignissimos labore dicta
-                iste aut! Eum harum deserunt voluptas blanditiis.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Facilis, exercitationem voluptatem corrupti quo, accusamus, est
-                molestiae dolorum aliquam minus odio dignissimos labore dicta
-                iste aut! Eum harum deserunt voluptas blanditiis.
-              </p>
-            </div>
-          </div>
-          <div className="row justify-content-center py-3 p-md-5">
+          <div className="row justify-content-center">
             <div className="col-12 col-md-4 pb-3 pb-md-0 v-center">
               <h1>Meet the Team</h1>
               <h5>Let's get acquainted</h5>
@@ -68,4 +72,12 @@ class About extends React.Component {
   }
 }
 
-export default About;
+About.propTypes = {
+  loadHeaderImage: Proptypes.func,
+  headerImage: Proptypes.object
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(About);

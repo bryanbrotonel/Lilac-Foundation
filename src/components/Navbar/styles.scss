@@ -1,11 +1,18 @@
+@import 'resources/scss/modules/typography';
 @import 'resources/scss/modules/colours';
 
 $text-colour: $black;
 
 // Navbar styling
 .navbar {
-    height: 80px;
-    background-color: $white;
+    min-height: 80px;
+    font-family: $base-font;
+    background-color: transparent !important;
+    z-index: 3 !important;
+}
+
+.custom-toggler .navbar-toggler-icon {
+    @include navbar-toggler-icon($white);
 }
 
 // Position and sizing of clickable cross button
@@ -54,4 +61,10 @@ $text-colour: $black;
     background: $black-overlay;
     top: 0;
     right: 0;
+}
+
+.navbar-dark {
+    .navbar-nav .nav-link {
+        @include colouredLinks($white);
+    }
 }

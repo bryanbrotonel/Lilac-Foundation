@@ -4,21 +4,21 @@ import Proptypes from 'prop-types';
 
 import Routes from '../../routes';
 import NavBar from '../../components/Navbar';
-import { Footer } from '../../components/Footer';
+import Footer from '../../components/Footer';
 
 import './styles.scss';
 
 const App = ({ store }) => {
   return (
-    <div id="app">
-      <NavBar />
-      <div id="body">
-        <Provider store={store}>
+    <Provider store={store}>
+      <div id="app">
+        <NavBar />
+        <div id="body">
           <Routes />
-        </Provider>
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </Provider>
   );
 };
 

@@ -1,10 +1,13 @@
 @import 'resources/scss/modules/colours';
+@import 'resources/scss/modules/typography';
 
 // Hover icon
 @import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
 
 // Blog item styling
 .blog-item {
+    color: $white;
+    text-align: left;
     background-color: $black;
     box-shadow: 0 0 5px rgba($black, 0.15);
     margin-bottom: 2rem;
@@ -39,6 +42,12 @@
 
 // Blog item date styling
 .blog-item .date {
+    color: $black;
+    font-family: $base-font;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
     background-color: $white;
     min-height: 48px;
     min-width: 48px;
@@ -46,6 +55,11 @@
     position: absolute;
     right: 15px;
     top: 0;
+}
+
+// Blog item date and month font styling
+.blog-item .date .month {
+    font-size: 11px;
 }
 
 // Blog item date styling
@@ -88,4 +102,12 @@
 .blog-item.hover .date {
     -webkit-transform: translateY(-100%);
     transform: translateY(-100%);
+}
+
+// Blog item typography styling
+.blog-item h3,
+.blog-item p {
+    margin: 0;
+    padding: 0;
+    color: $white !important;
 }

@@ -2,25 +2,27 @@ import React from 'react';
 import Proptypes from 'prop-types';
 import { connect } from 'react-redux';
 import { loadWork } from '../../store/work/work';
+import { loadHeaderImage } from '../../store/base/base';
 
 import PageHeader from '../../components/Page Header';
 import { Loader } from '../../components/Loader';
 import WorkItem from './WorkItem';
-
-import PageSection from '../../components/Page Section';
 
 // Maps Redux dispatch actions to props
 const mapDispatchToProps = dispatch => {
   return {
     loadWork: () => {
       dispatch(loadWork());
+    },
+    loadHeaderImage: () => {
+      dispatch(loadHeaderImage('2iuUpTaObaSCw0kcya8Ci'));
     }
   };
 };
 
 // Maps Redux state to props
 function mapStateToProps(state) {
-  return { work: state.work };
+  return { headerImage: state.base, work: state.work };
 }
 
 class Work extends React.Component {
@@ -31,7 +33,10 @@ class Work extends React.Component {
   }
 
   componentDidMount() {
-    const { loadWork } = this.props;
+    const { loadHeaderImage, loadWork } = this.props;
+
+    // Dispatches headerImage()
+    loadHeaderImage();
 
     // Dispatches loadWork()
     loadWork();
@@ -39,16 +44,14 @@ class Work extends React.Component {
 
   render() {
     const { loading, work } = this.props.work;
-
-    console.log(work);
+    const { headerImage } = this.props.headerImage;
 
     return (
       <div className=" bg-gray">
-        <div className="container">
-          <PageHeader>
-            <h1>Work</h1>
-          </PageHeader>
-        </div>
+        <h1>Work</h1>
+        <PageHeader headerImage={headerImage}>
+          <h1>Work</h1>
+        </PageHeader>
         <div className="work-page container">
           <div className="work-section">
             <div className="row">
@@ -103,7 +106,8 @@ class Work extends React.Component {
 }
 
 Work.propTypes = {
-  loadWork: Proptypes.func
+  loadWork: Proptypes.func,
+  loadHeaderImage: Proptypes.func
 };
 
 export default connect(

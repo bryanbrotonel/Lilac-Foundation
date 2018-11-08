@@ -5,9 +5,47 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## 0.0.2
+## 0.0.3
 
-#### 2018-10-30
+### 2018-11-07
+
+#### Added
+ - Able to retreive header images through [Contentful](https://www.contentful.com/)
+   - Implemented through new base [Redux](https://redux.js.org)
+- Navbar toggler placement and colouring
+- Retreived Lilac Foundation social media from [Contentful](https://www.contentful.com/)
+  - Added new socials [Redux](https://redux.js.org) reducer
+- Linked footer links to respective pages
+- Separated [Contentful](https://www.contentful.com/) into `blogClient` and `contentClient`
+- Coloured links mixin improvements
+
+### 2018-11-06
+
+#### Added
+- Page header layout, styling, and responsivness
+- Global overlay styling
+- Coloured links styling
+- Video header specific styilng
+
+### 2018-11-02
+
+#### Added
+- Poly-fluid sizing typography courtesy of [Jakobud](https://github.com/Jakobud)
+- Colour modules
+- New navbar layout
+- Added donate button
+- Button colour mixin
+- Improved typography modules
+- Footer content, layout, and styling
+
+#### Removed
+- Component specific typography partials
+- Navbar styling
+  - Background colour
+  - Fixed on top styling
+- [Fontawesome](https://fontawesome.com/) icons
+
+## 0.0.2
 
 ### 2018-10-31
 
@@ -15,17 +53,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Work post scene
 - Work post routing
 - Work page layout
- - Retreived work page content from [Contentful](https://www.contentful.com/)
- - Work page work post items
- - 
+  - Retreived work page content from [Contentful](https://www.contentful.com/)
+   - Work page work post items
 - Markdown content image styling
 
 #### Removed
 - Blog content
 
-#### 2018-10-30
+### 2018-10-30
 
-### Added
+#### Added
 - Team member route
 - Team member profile page
 - Global team member component
@@ -36,27 +73,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Added work route
 - Retreived work posts from [Contentful](https://www.contentful.com/)
 
-### Removed
+#### Removed
 - About page team section item
 - Responsive layout styling
 - Blog page header component
 - Blogclient variable
 - Unused store imports
 
-#### 2018-10-26, 2018-10-29
+### 2018-10-26, 2018-10-29
 
-### Added
-
+#### Added
 - Added blog page header
 - Implemented blog card layout
 - Blog post content layout
 
-### Removed
+#### Removed
 - Blog item link props
 
-#### 2018-10-25
+### 2018-10-25
 
-### Added
+#### Added
 - [Fontawesome](https://fontawesome.com/) icons
 - Updated footer layout, styling, and typography
 - Added Scroll To Top route component
@@ -66,10 +102,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Added link stying mixin
   - Blog masthead overlay colour
 
-#### 2018-10-24
+### 2018-10-24
 
-### Added
-
+#### Added
 - Sorted blog post by descending date
 - Updated home blog section layout, styling, and responsiveness
 - Page section height prop
@@ -83,29 +118,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Simplified page header children prop
 - Simplified about section layout
 
-### Removed
-
+#### Removed
 - Blog section item
 - Team section folder mispelling
 - Loader class
 
-#### 2018-10-22
+### 2018-10-22
 
-### Added
-
+#### Added
 - Added blog item layout and card styling
 - Added Work item layout and styling
 - Added Team member item layout and styling
 - Proper section item naming
 
-### Removed
+#### Removed
 
 - Replaced Meet the Team section with blog section
 
-#### 2018-10-21
+### 2018-10-21
 
-### Added
-
+#### Added
 - Implemented home page layout with styling
   - Added Mission section
   - Added Team section
@@ -113,10 +145,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 0.0.1
 
-#### 2018-10-10, 2018-10-17, 2018-10-18, 2018-10-20
+### 2018-10-10, 2018-10-17, 2018-10-18, 2018-10-20
 
-### Added
-
+#### Added
 - Retreived & displayed blog posts from [Contentful](https://www.contentful.com/)
 - Retreived & displayed single blog post from [Contentful](https://www.contentful.com/) with blog post id
 - Basic styling with [Bootstrap](https://getbootstrap.com)
@@ -128,10 +159,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Implemented responsive navbar
 - Added footer with styling
 
-#### 2018-10-09
+### 2018-10-09
 
-### Added
-
+#### Added
 - Iniital commit
 - [Webpack](https://webpack.js.org/) configuration
 - [Babel](https://babeljs.io/) configuraiton

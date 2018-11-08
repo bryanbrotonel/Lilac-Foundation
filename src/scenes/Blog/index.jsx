@@ -1,11 +1,12 @@
 import React from 'react';
 import Proptypes from 'prop-types';
+
 import { connect } from 'react-redux';
 import { loadBlog } from '../../store/blog/blog';
+import { loadHeaderImage } from '../../store/base/base';
 
 import { Loader } from '../../components/Loader';
 import BlogItem from './components/BlogItem';
-
 import PageHeader from '../../components/Page Header';
 
 // Maps Redux dispatch actions to props
@@ -13,13 +14,16 @@ const mapDispatchToProps = dispatch => {
   return {
     loadBlog: () => {
       dispatch(loadBlog());
+    },
+    loadHeaderImage: () => {
+      dispatch(loadHeaderImage('6zLfKvDvY4OkAiAm4SSam0'));
     }
   };
 };
 
 // Maps Redux state to props
 function mapStateToProps(state) {
-  return { blog: state.blog };
+  return { headerImage: state.base, blog: state.blog };
 }
 
 class Blog extends React.Component {
@@ -30,7 +34,10 @@ class Blog extends React.Component {
   }
 
   componentDidMount() {
-    const { loadBlog } = this.props;
+    const { loadHeaderImage, loadBlog } = this.props;
+
+    // Dispatches headerImage()
+    loadHeaderImage();
 
     // Dispatches loadBlog()
     loadBlog();
@@ -38,18 +45,13 @@ class Blog extends React.Component {
 
   render() {
     const { loading, posts } = this.props.blog;
+    const { headerImage } = this.props.headerImage;
 
     return <div className="bg-gray">
+        <PageHeader headerImage={headerImage}>
+          <h1>Blog</h1>
+        </PageHeader>
         <div className="container">
-          <PageHeader>
-            <h1>The Lilac Foundation Blog</h1>
-            <h6>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo
-              minima quos atque perferendis amet nihil exercitationem iusto
-              quia pariatur, quidem officia tenetur ullam. Praesentium, ut
-              placeat fuga at non dignissimos?
-            </h6>
-          </PageHeader>
           <div className="row justify-content-between">
             {loading ? <div className="col-12">
                 <Loader />

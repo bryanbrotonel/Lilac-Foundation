@@ -1,5 +1,9 @@
 // Initial Redux state
 export default {
+    base: {
+        socials: [],
+        headerImage: ''
+    },
     blog: {
         loading: false,
         posts: [],
