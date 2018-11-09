@@ -61,6 +61,11 @@ h4 {
     @include poly-fluid-sizing('font-size', $h4-map);
 }
 
+// Blockquote font size styling
+blockquote {
+    font-size: 1.125rem;
+}
+
 // Small font sizing
 small,
 .font_small {
