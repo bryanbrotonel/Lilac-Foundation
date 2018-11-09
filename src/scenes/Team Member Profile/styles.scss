@@ -1,3 +1,14 @@
+.member-info {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-bottom: 15px;
+}
+
+.member-info .member-name {
+    margin-top: 0;
+    font-weight: 400;
+}
+
 // Team member socials list styling
 .socials-list {
     list-style-type: none;
@@ -12,15 +23,4 @@
 
 .socials-list li:not(:last-child) {
     margin-right: 1rem;
-}
-
-// Medium device list styling
-@media (min-width: 768px) {
-    .socials-list li {
-        display: block;
-    }
-
-    .socials-list li:not(:last-child) {
-        margin: 0;
-    }
 }
