@@ -14,13 +14,16 @@ class TeamMember extends React.Component {
 
     return (
       <div className="team-member">
-        <img
-          alt="image"
-          className="rounded-circle w-100"
-          src={profilePictureURL}
-        />
-        <h4>{name}</h4>
-        <p>{role}</p>
+        <div className="team-member-image rounded-circle">
+          {' '}
+          <img
+            src={profilePictureURL}
+            alt={name}
+            className=" rounded-circle w-100"
+          />
+        </div>
+        <h4 className="team-member-name">{name}</h4>
+        <p className="team-member-role">{role}</p>
       </div>
     );
   }
@@ -28,7 +31,7 @@ class TeamMember extends React.Component {
 
 TeamMember.propTypes = {
   name: Proptypes.string.isRequired,
-  role: Proptypes.string.isRequired,
+  role: Proptypes.string,
   profilePicture: Proptypes.string
 };
 

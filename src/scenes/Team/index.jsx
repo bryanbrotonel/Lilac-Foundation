@@ -66,7 +66,7 @@ class Team extends React.Component {
         <div className="container">
           <div className="row justify-content-center">
             <div className="team-section col-10">
-              <div className="row hv-center">{teamMemberItems}</div>
+              <div className="row justify-content-center">{teamMemberItems}</div>
             </div>
           </div>
         </div>

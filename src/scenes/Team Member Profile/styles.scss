@@ -1,26 +1,35 @@
+@import 'resources/scss/modules/colours';
+@import 'resources/scss/modules/typography';
+
+// Member info padding and margins
 .member-info {
     padding-left: 0 !important;
     padding-right: 0 !important;
     margin-bottom: 15px;
 }
 
+// Member name typography styling
 .member-info .member-name {
     margin-top: 0;
     font-weight: 400;
 }
 
 // Team member socials list styling
-.socials-list {
+.member-socials {
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
+.member-social-link {
+    @include colouredLinks($text-dark, $black)
+}
+
 // Team member socials list item styling
-.socials-list li {
+.member-socials li {
     display: inline;
 }
 
-.socials-list li:not(:last-child) {
+.member-socials li:not(:last-child) {
     margin-right: 1rem;
 }

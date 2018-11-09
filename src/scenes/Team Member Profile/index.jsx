@@ -47,32 +47,44 @@ class TeamMemberProfile extends React.Component {
 
     if (teamMembers.length != 0) {
       var teamMemberItems = Object.keys(teamMembers).map(key => {
-        const { name, role, profilePicture, path } = teamMembers[key].fields;
+        const { name, profilePicture, path } = teamMembers[key].fields;
 
         return (
           <div key={name} className="col-8 col-sm-6 col-md-4 text-center">
             <Link to={`/team/${path}`}>
               <TeamMember
                 name={name}
-                role={role}
                 profilePicture={profilePicture.fields.file.url}
               />
             </Link>
           </div>
         );
       });
+    }
+
+    if (!loading && teamMember) {
+      const { name, role, socials } = teamMember.fields;
 
       memberInfo = (
         <div className="member-info">
-          <h3 className="member-name">{teamMember.fields.name}</h3>
-          <h6 className="base-font">{teamMember.fields.role}</h6>
-          <div className="text-muted">
-            <ul className="socials-list">
-              <li>Facebook</li>
-              <li>Instagram</li>
-              <li>Twitter</li>
-            </ul>
-          </div>
+          <h3 className="member-name">{name}</h3>
+          <h5 className="base-font">{role}</h5>
+          <ul className="member-socials">
+            {Object.keys(socials.fields).map(key => {
+              return (
+                <li key={`${name} - ${key}`}>
+                  <a
+                    href={socials.fields[key]}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="member-social-link"
+                  >
+                    {key}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       );
     }
@@ -83,7 +95,7 @@ class TeamMemberProfile extends React.Component {
           <Loader />
         ) : !teamMember ? (
           <div className="container hv-center">
-            <h1 className="text-muted">Member not found :(</h1>
+            <h1 className="text-muted base-font">Member not found :(</h1>
           </div>
         ) : (
           <div className="container my-5">
@@ -103,10 +115,12 @@ class TeamMemberProfile extends React.Component {
                 <Markdown source={teamMember.fields.description} />
               </div>
               <div className="col-12 mb-3 text-center">
-                <h2>Meet the Team</h2>
+                <h3>Meet the Team</h3>
               </div>
-              <div className="col-10">
-                <div className="row hv-center">{teamMemberItems}</div>
+              <div className="col-10 col-lg-8">
+                <div className="row justify-content-center">
+                  {teamMemberItems}
+                </div>
               </div>
             </div>
           </div>

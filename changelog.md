@@ -13,15 +13,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `TEAM_LOADING` Team thunk type
 - Team member profile page routing
 - Redid team member profile page layout and styling
+- Retreived team member page socials from [Contentful](https://www.contentful.com/)
+  - Added typography styling
+- Blockquote font size styling
+- `Text-dark` font colour
+- Team member image hover and grayscale
 
 #### Removed
 - `LOAD_TEAM_MEMBERS_SUCCESS` Team thunk type
 - Team page introduction blurb
+- Role in team member items on team member page
+- Added team member socials with link styling
+- `Subtitle` font colour
 
 ### 2018-11-07
 
 #### Added
- - Able to retreive header images through [Contentful](https://www.contentful.com/)
+ - Able to retreive header images from [Contentful](https://www.contentful.com/)
    - Implemented through new base [Redux](https://redux.js.org)
 - Navbar toggler placement and colouring
 
