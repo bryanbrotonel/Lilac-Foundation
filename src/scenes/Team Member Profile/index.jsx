@@ -1,85 +1,140 @@
 import React from 'react';
+import Proptypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import * as Markdown from 'react-markdown';
+import { connect } from 'react-redux';
+import { loadTeamMembers } from '../../store/team/team';
+
 import TeamMember from '../../components/Team Member';
+import { Loader } from '../../components/Loader';
 
 import './styles.scss';
+
+const mapDispatchToProps = dispatch => {
+  return {
+    loadTeamMembers: () => {
+      dispatch(loadTeamMembers());
+    }
+  };
+};
+
+const mapStateToProps = state => {
+  return { team: state.team };
+};
 
 class TeamMemberProfile extends React.Component {
   constructor() {
     super();
-    this.state = {
-      teamMembers: ['Member 1', 'Member 2', 'Member 3']
-    };
+
+    this.componentDidMount = this.componentDidMount.bind(this);
+  }
+
+  componentDidMount() {
+    const { loadTeamMembers } = this.props;
+
+    // Dispatch loadTeamMembers()
+    loadTeamMembers();
   }
 
   render() {
-    const { teamMembers } = this.state;
+    const { team } = this.props;
+    const { loading, teamMembers } = team;
+    var memberInfo;
 
-    const teamSectionItems = teamMembers.map(member => {
-      return (
-        <div key={member} className="col-8 col-sm-5 col-md-3 text-center">
-          <TeamMember name={member} />
+    const teamMember = teamMembers.find(
+      member => member.fields.path === location.pathname.split('/').pop()
+    );
+
+    if (teamMembers.length != 0) {
+      var teamMemberItems = Object.keys(teamMembers).map(key => {
+        const { name, profilePicture, path } = teamMembers[key].fields;
+
+        return (
+          <div key={name} className="col-8 col-sm-6 col-md-4 text-center">
+            <Link to={`/team/${path}`}>
+              <TeamMember
+                name={name}
+                profilePicture={profilePicture.fields.file.url}
+              />
+            </Link>
+          </div>
+        );
+      });
+    }
+
+    if (!loading && teamMember) {
+      const { name, role, socials } = teamMember.fields;
+
+      memberInfo = (
+        <div className="member-info">
+          <h3 className="member-name">{name}</h3>
+          <h5 className="base-font">{role}</h5>
+          <ul className="member-socials">
+            {Object.keys(socials.fields).map(key => {
+              return (
+                <li key={`${name} - ${key}`}>
+                  <a
+                    href={socials.fields[key]}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="member-social-link"
+                  >
+                    {key}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       );
-    });
+    }
 
     return (
-      <div className="container pt-5">
-        <div className="row pb-5 justify-content-center">
-          <div className="col-8 col-md-4 col-lg-3 mb-3 text-center">
-            <div className="mb-3">
-              <img
-                alt="image"
-                className="rounded-circle w-75 mb-4"
-                src="https://continuinged.uni.edu/sites/default/files/headshotplaceholder_female_4.jpg"
-              />
-              <h2>Team Member</h2>
-              <h5>Role</h5>
+      <React.Fragment>
+        {loading && !teamMember ? (
+          <Loader />
+        ) : !teamMember ? (
+          <div className="container hv-center">
+            <h1 className="text-muted base-font">Member not found :(</h1>
+          </div>
+        ) : (
+          <div className="container my-5">
+            <div className="row py-md-5 justify-content-center">
+              <div className="col-8 col-md-5 col-lg-4 mb-3 text-center">
+                <div className="member-info mb-3">
+                  <img
+                    alt="image"
+                    className="rounded-circle w-75"
+                    src={teamMember.fields.profilePicture.fields.file.url}
+                  />
+                </div>
+                <div className="d-md-none">{memberInfo}</div>
+              </div>
+              <div className="col-12 col-md-7 col-lg-6">
+                <div className="d-none d-md-block">{memberInfo}</div>
+                <Markdown source={teamMember.fields.description} />
+              </div>
+              <div className="col-12 mb-3 text-center">
+                <h3>Meet the Team</h3>
+              </div>
+              <div className="col-10 col-lg-8">
+                <div className="row justify-content-center">
+                  {teamMemberItems}
+                </div>
+              </div>
             </div>
-            <div className="text-muted">
-              <ul className="socials-list">
-                <li>Facebook</li>
-                <li>Instagram</li>
-                <li>Twitter</li>
-              </ul>
-            </div>
           </div>
-          <div className="col-12 col-md-7 col-lg-6">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
-              obcaecati alias eum rem quasi necessitatibus iusto, placeat unde
-              reprehenderit eveniet mollitia corporis doloremque! Modi quisquam
-              veniam autem inventore earum. Ut!
-            </p>
-            <p>
-              Animi iusto earum itaque autem adipisci, asperiores illum? Quas
-              iure vitae qui repudiandae voluptatibus ut corporis, libero
-              perferendis temporibus minima? Adipisci eaque facilis inventore
-              incidunt voluptatum voluptas ex quos doloribus!
-            </p>
-            <p>
-              Dolorem, ad. Necessitatibus accusamus cumque perspiciatis
-              reprehenderit incidunt aut, quibusdam libero illo aliquam soluta
-              eos aliquid quis, laboriosam in ut omnis sunt officia eaque
-              molestiae tempore beatae pariatur maiores officiis.
-            </p>
-            <p>
-              Animi iusto earum itaque autem adipisci, asperiores illum? Quas
-              iure vitae qui repudiandae voluptatibus ut corporis, libero
-              perferendis.
-            </p>
-          </div>
-        </div>
-        <div className="row justify-content-center">
-          <div className="col-12 text-center pb-5">
-            <h2>Meet The Team</h2>
-          </div>
-          <div className="col-12 col-md-12 col-lg-10">
-            <div className="row justify-content-center">{teamSectionItems}</div>
-          </div>
-        </div>
-      </div>
+        )}
+      </React.Fragment>
     );
   }
 }
 
-export default TeamMemberProfile;
+TeamMemberProfile.propTypes = {
+  loadTeamMembers: Proptypes.func
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TeamMemberProfile);
