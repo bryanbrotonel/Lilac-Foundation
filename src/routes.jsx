@@ -19,8 +19,8 @@ const Routes = () => (
     <Route exact path="/blog" component={Blog} />
     <Route exact path="/blog/:blogPost" component={BlogPost} />
     <Route exact path="/team" component={Team} />
+    <Route exact path="/team/:teamMember" component={TeamMemberProfile} />
     <Route exact path="/about" component={About} />
-    <Route exact path="/about/:teamMember" component={TeamMemberProfile} />
   </Switch>
 );
 

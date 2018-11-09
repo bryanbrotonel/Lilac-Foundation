@@ -2,30 +2,31 @@
 
 import initialState from '../initialState';
 import {
-    LOAD_TEAM_MEMBERS_SUCCESS,
-    LOAD_TEAM_MEMBER_SUCCESS
+    TEAM_LOADING,
+    LOAD_TEAM_MEMBERS_SUCCESS
 } from './types';
 
 // Team reducer
 export default function teamReducer(state = initialState.team, action) {
     switch (action.type) {
 
-        // Successful team members load
+        // Blog loading type
+        case TEAM_LOADING:
+            return {
+                ...state,
+                loading: action.isLoading
+            };
+
+            // Successful team members load
         case LOAD_TEAM_MEMBERS_SUCCESS:
             return {
                 ...state,
-                teamMembers: action.teamMembers
-            }
-
-        // Successful team member load
-        case LOAD_TEAM_MEMBER_SUCCESS:
-            return {
-                ...state,
-                teamMember: action.teamMember
+                teamMembers: action.teamMembers,
+                loading: false
             }
 
         default:
-        return state;
+            return state;
 
     }
 }

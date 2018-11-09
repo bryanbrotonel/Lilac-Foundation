@@ -9,6 +9,7 @@ import DonateButton from '../Donate Button';
 
 import './styles.scss';
 
+// Maps Redux dispatch actions to props
 const mapDispatchToProps = dispatch => {
   return {
     loadSocialMedia: () => {
@@ -17,6 +18,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
+// Maps Redux state to props
 const mapStateToProps = state => {
   return { base: state.base };
 };

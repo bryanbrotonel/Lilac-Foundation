@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 0.0.3
 
+### 2018-11-08
+
+#### Added
+- `TEAM_LOADING` Team thunk type
+- Team member profile page routing
+- Redid team member profile page layout and styling
+
+#### Removed
+- `LOAD_TEAM_MEMBERS_SUCCESS` Team thunk type
+- Team page introduction blurb
+
 ### 2018-11-07
 
 #### Added

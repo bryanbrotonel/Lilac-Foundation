@@ -15,7 +15,7 @@ export default {
         singlePost: []
     },
     team: {
-        teamMembers: [],
-        teamMember: []
+        loading: false,
+        teamMembers: []
     }
 }

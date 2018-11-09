@@ -37,14 +37,15 @@ class Team extends React.Component {
 
   render() {
     const { team } = this.props;
-    const { teamMembers } = team;
+    const { teamMembers } = team;    
 
+    // Format each team member into TeamMember components
     if (teamMembers.length != 0) {
       var teamMemberItems = Object.keys(teamMembers).map(key => {
         const { name, role, profilePicture, path } = teamMembers[key].fields;
 
         return (
-          <div key={name} className="col-8 col-sm-3 text-center">
+          <div key={name} className="col-8 col-sm-6 col-md-4 text-center">
             <Link to={`/team/${path}`}>
               <TeamMember
                 name={name}
@@ -63,18 +64,8 @@ class Team extends React.Component {
           <h1>Team</h1>
         </PageHeader>
         <div className="container">
-          <div className="row justify-content-center text-center">
-            <div className="col-12 col-md-5">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Reiciendis, quas ullam aliquam, odio distinctio nemo quis
-                commodi ea nobis maxime quidem. Vel dignissimos numquam beatae
-                odit illo debitis ut quaerat.
-              </p>
-            </div>
-          </div>
           <div className="row justify-content-center">
-            <div className="team-section col">
+            <div className="team-section col-10">
               <div className="row hv-center">{teamMemberItems}</div>
             </div>
           </div>
