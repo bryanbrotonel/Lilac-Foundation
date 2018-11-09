@@ -4,7 +4,6 @@ import Proptypes from 'prop-types';
 import { connect } from 'react-redux';
 import { loadHeaderImage } from '../../store/base/base';
 
-import TeamMember from '../../components/Team Member';
 import PageHeader from '../../components/Page Header';
 
 // Maps Redux dispatch actions to props

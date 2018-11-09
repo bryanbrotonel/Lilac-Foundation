@@ -33,3 +33,14 @@
 .member-socials li:not(:last-child) {
     margin-right: 1rem;
 }
+
+// Medium device list styling
+@media (min-width: 768px) {
+    .socials-list li {
+        display: block;
+    }
+
+    .socials-list li:not(:last-child) {
+        margin: 0;
+    }
+}

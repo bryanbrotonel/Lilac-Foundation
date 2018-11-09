@@ -2,24 +2,30 @@ import React from 'react';
 import Proptypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import { loadTeamMembers } from '../../store/team/team';
 import { connect } from 'react-redux';
+import { loadHeaderImage } from '../../store/base/base';
+import { loadTeamMembers } from '../../store/team/team';
 
 import PageHeader from '../../components/Page Header';
 import TeamMember from '../../components/Team Member';
 
 import './styles.scss';
 
+// Maps Redux dispatch actions to props
 const mapDispatchToProps = dispatch => {
   return {
+    loadHeaderImage: () => {
+      dispatch(loadHeaderImage('3g3Bv3hTyEc28ey8CAqw0a'));
+    },
     loadTeamMembers: () => {
       dispatch(loadTeamMembers());
     }
   };
 };
 
+// Maps Redux state to props
 const mapStateToProps = state => {
-  return { team: state.team };
+  return { base: state.base, team: state.team };
 };
 
 class Team extends React.Component {
@@ -29,14 +35,18 @@ class Team extends React.Component {
   }
 
   componentDidMount() {
-    const { loadTeamMembers } = this.props;
+    const { loadHeaderImage, loadTeamMembers } = this.props;
 
+    // Dispatches headerImage()
+    loadHeaderImage();
+    
     // Dispatches loadTeamMembers()
     loadTeamMembers();
   }
 
   render() {
-    const { team } = this.props;
+    const { base, team } = this.props;
+    const { headerImage } = base;
     const { teamMembers } = team;    
 
     // Format each team member into TeamMember components
@@ -58,20 +68,20 @@ class Team extends React.Component {
       });
     }
 
-    return (
-      <div className="bg-gray">
-        <PageHeader headerImage="http://source.unsplash.com/m6RCv8K0rTM/1600x1024">
+    return <div className="bg-gray">
+        <PageHeader headerImage={headerImage}>
           <h1>Team</h1>
         </PageHeader>
         <div className="container">
           <div className="row justify-content-center">
             <div className="team-section col-10">
-              <div className="row justify-content-center">{teamMemberItems}</div>
+              <div className="row justify-content-center">
+                {teamMemberItems}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    );
+      </div>;
   }
 }
 

@@ -15,7 +15,6 @@ class TeamMember extends React.Component {
     return (
       <div className="team-member">
         <div className="team-member-image rounded-circle">
-          {' '}
           <img
             src={profilePictureURL}
             alt={name}
