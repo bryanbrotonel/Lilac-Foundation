@@ -5,31 +5,24 @@ import './styles.scss';
 
 class TeamMember extends React.Component {
   render() {
-    const { name, role, profilePicture } = this.props;
-
-    var profilePictureURL =
-      profilePicture.length == 0
-        ? 'https://continuinged.uni.edu/sites/default/files/headshotplaceholder_female_4.jpg'
-        : profilePicture;
+    const { name } = this.props;
 
     return (
       <div className="team-member">
         <img
           alt="image"
-          className="rounded-circle w-100"
-          src={profilePictureURL}
+          className="rounded-circle w-100 mb-4"
+          src="https://continuinged.uni.edu/sites/default/files/headshotplaceholder_female_4.jpg"
         />
-        <h4>{name}</h4>
-        <p>{role}</p>
+        <h3>{name}</h3>
+        <p>Member</p>
       </div>
     );
   }
 }
 
 TeamMember.propTypes = {
-  name: Proptypes.string.isRequired,
-  role: Proptypes.string.isRequired,
-  profilePicture: Proptypes.string
+  name: Proptypes.string.isRequired
 };
 
 export default TeamMember;

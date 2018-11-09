@@ -4,18 +4,14 @@ export default {
         socials: [],
         headerImage: ''
     },
-    work: {
-        loading: false,
-        work: [],
-        workPost: []
-    },
     blog: {
         loading: false,
         posts: [],
         singlePost: []
     },
-    team: {
+    work: {
         loading: false,
-        teamMembers: []
+        work: [],
+        workPost: []
     }
 }
