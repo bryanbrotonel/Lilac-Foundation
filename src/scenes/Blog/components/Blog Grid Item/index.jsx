@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 import './styles.scss';
 
-class BlogItem extends React.Component {
+class BlogGridItem extends React.Component {
   // Creates url with post title and id
   createURL(str, title, id) {
     return `${str[0]}${title.replace(/\s+/g, '-').toLowerCase()}-${id}`;
@@ -22,7 +22,7 @@ class BlogItem extends React.Component {
       <div className=" col-12 col-md-6">
         <Link to={`/blog/${path}`}>
           <figure className="blog-item">
-            <img src={headerImage.fields.file.url} alt="pr-sample13" />
+            <img src={headerImage.fields.file.url} />
             <div className="date">
               <span className="day">{moment(date).format('D')}</span>
               <span className="month">{moment(date).format('MMM')}</span>
@@ -41,9 +41,9 @@ class BlogItem extends React.Component {
   }
 }
 
-BlogItem.propTypes = {
+BlogGridItem.propTypes = {
   title: Proptypes.string,
   content: Proptypes.string,
   path: Proptypes.string
 };
-export default BlogItem;
+export default BlogGridItem;

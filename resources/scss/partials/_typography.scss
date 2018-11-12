@@ -50,7 +50,7 @@ h2 {
 // Third header styling
 h3 {
     // font-size: 1.777em;
-    $h3-map: (576px: 16px, 768px: 21.328px, 992px: 28.432px);
+    $h3-map: (768px: 21.328px, 992px: 28.432px);
     @include poly-fluid-sizing('font-size', $h3-map);
 }
 
@@ -64,6 +64,10 @@ h4 {
 // Blockquote font size styling
 blockquote {
     font-size: 1.125rem;
+}
+
+.base-font {
+    font-family: $base-font !important;
 }
 
 // Small font sizing

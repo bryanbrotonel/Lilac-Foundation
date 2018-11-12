@@ -34,7 +34,7 @@
 // Markdown content image width
 .markdown-content img {
     width: 100%;
-} 
+}
 
 // Masthead overlay styling
 .overlay {
@@ -45,4 +45,18 @@
     width: 100%;
     background-color: $black;
     opacity: .5
+}
+
+// Disable text select
+.no-select {
+    /* Safari */
+    -webkit-user-select: none;
+    /* Konqueror HTML */
+    -khtml-user-select: none;
+    /* Firefox */
+    -moz-user-select: none;
+    /* Internet Explorer/Edge */
+    -ms-user-select: none;
+    /* Non-prefixed version, currently supported by Chrome and Opera */
+    user-select: none;
 }
