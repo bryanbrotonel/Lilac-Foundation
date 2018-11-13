@@ -7,6 +7,7 @@ import { loadHeaderImage } from '../../store/base/base';
 
 import { Loader } from '../../components/Loader';
 import PageHeader from '../../components/Page Header';
+import Pagination from '../../components/Pagination';
 import BlogGridItem from './components/Blog Grid Item';
 import BlogListItem from './components/Blog List Item';
 
@@ -34,10 +35,15 @@ class Blog extends React.Component {
     super(props);
 
     this.state = {
+      currentBlogPosts: [],
+      pageLimit: 6,
+      currentPage: null,
+      totalPages: null,
       gridDisplay: true
     };
 
     this.componentDidMount = this.componentDidMount.bind(this);
+    this.onPageChanged = this.onPageChanged.bind(this);
   }
 
   componentDidMount() {
@@ -50,16 +56,32 @@ class Blog extends React.Component {
     loadBlog();
   }
 
+  displayBlog() {
+  }
+
   // Toggle blog grid display
   toggleDisplay() {
-
     this.setState(prevState => ({
       gridDisplay: !prevState.gridDisplay
     }));
   }
 
+  onPageChanged(data) {
+    const { posts } = this.props.blog;
+    console.log(posts);
+    const { currentPage, totalPages, pageLimit } = data;
+
+    // Get blog posts offset for current page
+    const offset = (currentPage - 1) * pageLimit;
+
+    // Get blog posts for current page
+    const currentBlogPosts = posts.slice(0, offset + pageLimit);
+
+    this.setState({ currentBlogPosts, currentPage, totalPages });
+  }
+
   render() {
-    const { gridDisplay } = this.state;
+    const { gridDisplay, currentBlogPosts } = this.state;
     const { loading, posts } = this.props.blog;
     const { headerImage } = this.props.headerImage;
 
@@ -90,18 +112,29 @@ class Blog extends React.Component {
             <div className="hv-center">
               <Loader />
             </div>
-          ) : gridDisplay ? (
+          ) : (
             <React.Fragment>
-              <div className="row justify-content-between">
-                {posts.map(({ fields, sys }, i) => (
-                  <BlogGridItem key={i} {...fields} {...sys} />
-                ))}
+              {gridDisplay ? (
+                <React.Fragment>
+                  <div className="row justify-content-between">
+                    {currentBlogPosts.map(({ fields, sys }, i) => (
+                      <BlogGridItem key={i} {...fields} {...sys} />
+                    ))}
+                  </div>
+                </React.Fragment>
+              ) : (
+                currentBlogPosts.map(({ fields, sys }, i) => (
+                  <BlogListItem key={i} {...fields} {...sys} />
+                ))
+              )}
+              <div className="text-center pb-4">
+                <Pagination
+                  totalItems={posts.length}
+                  pageLimit={6}
+                  onPageChanged={this.onPageChanged}
+                />
               </div>
             </React.Fragment>
-          ) : (
-            posts.map(({ fields, sys }, i) => (
-              <BlogListItem key={i} {...fields} {...sys} />
-            ))
           )}
         </div>
       </div>

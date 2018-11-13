@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Added blog list component
   - Added toggling button
 - Changed page header height
+- Blog pagination functionality
 
 #### Removed
 - Renamed blog item component
