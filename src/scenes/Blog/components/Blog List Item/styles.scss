@@ -15,7 +15,7 @@
 
 // Blog list image translate on hover
 .blog-list-image:hover {
-    transform: translatey(-7.5px)
+    @include hoverZoomImg(1.05);
 }
 
 // Blog list image width

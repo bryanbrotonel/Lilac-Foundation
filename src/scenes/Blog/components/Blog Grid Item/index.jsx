@@ -31,9 +31,6 @@ class BlogGridItem extends React.Component {
               <h3>{title}</h3>
               <p>{subtitle}</p>
             </figcaption>
-            <div className="hover">
-              <i className="ion-android-open" />
-            </div>
           </figure>
         </Link>
       </div>

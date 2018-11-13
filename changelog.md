@@ -18,9 +18,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Added toggling button
 - Changed page header height
 - Blog pagination functionality
+- Blog list and grid hover
 
 #### Removed
 - Renamed blog item component
+- Blog grid hover overlay
 
 ### 2018-11-08
 
