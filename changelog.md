@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 #### Added
 - About page layout and styling
 - About item layout and styling
+- Retreived about items from [Contentful](https://www.contentful.com/)
+
+#### Removed
+- Unecessary sorting functions
 
 ### 2018-11-12
 
