@@ -2,7 +2,7 @@
 
 // Page header styling
 .page-header {
-    height: 30vh;
+    height: 40vh;
     width: 100%;
     position: absolute !important;
     top: 0 !important;
@@ -16,7 +16,7 @@
 
 // Page header neighbour margin for page header visibility
 .page-header+div {
-    margin-top: 22.5vh;
+    margin-top: 32.5vh;
 }
 
 // Page subtitle text colour
@@ -38,7 +38,7 @@
 // Heading content bottom padding
 .heading-content {
     margin-top: 0;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .heading-content *:last-child {

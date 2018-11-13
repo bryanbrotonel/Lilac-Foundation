@@ -13,15 +13,6 @@ function loadingBlogError(dispatch, error) {
   dispatch(actions.blogLoading(false));
 }
 
-// Sorts blog posts by descending date
-function sortBlogPosts(blog) {
-  blog.sort(function (a, b) {
-    return Date.parse(b.fields.date) - Date.parse(a.fields.date);
-  });
-
-  return blog;
-}
-
 // Loads all blogs from Contentful
 export function loadBlog() {
   return dispatch => {
@@ -31,13 +22,14 @@ export function loadBlog() {
     // Retreives and returns client blog post entries
     return client
       .getEntries({
-        content_type: 'blogPost'
+        content_type: 'blogPost',
+        order: '-fields.date'
       })
       .then(({
           items
         }) =>
         // Dispatches loading success action return blog
-        dispatch(actions.loadBlogSuccess(sortBlogPosts(items)))
+        dispatch(actions.loadBlogSuccess(items))
       )
       .catch(error => loadingBlogError(dispatch, error));
   };

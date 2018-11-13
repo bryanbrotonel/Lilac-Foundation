@@ -7,6 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 0.0.3
 
+### 2018-11-12
+
+#### Added
+- Added figures scss module
+  - Added zoom image hover and grayscale hover
+- Added no select styling
+- Added blog page grid and list layout
+  - Added blog list component
+  - Added toggling button
+- Changed page header height
+- Blog pagination functionality
+- Blog list and grid hover
+
+#### Removed
+- Renamed blog item component
+- Blog grid hover overlay
+
 ### 2018-11-08
 
 #### Added

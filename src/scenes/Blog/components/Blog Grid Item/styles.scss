@@ -1,11 +1,10 @@
 @import 'resources/scss/modules/colours';
 @import 'resources/scss/modules/typography';
-
-// Hover icon
-@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+@import 'resources/scss/modules/figures';
 
 // Blog item styling
 .blog-item {
+    @include hoverZoomImg(1.05);
     color: $white;
     text-align: left;
     background-color: $black;
@@ -27,8 +26,7 @@
 // Blog item image styling
 .blog-item img {
     max-width: 100%;
-    vertical-align: top;
-    position: relative;
+    object-fit: cover;
     opacity: 0.75;
 }
 
@@ -68,40 +66,12 @@
     line-height: 14px;
 }
 
-// Blog item hover overlay
-.blog-item .hover {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    align-items: center;
-    background-color: rgba($primary, 0.75);
-    display: flex;
-    font-size: 65px;
-    justify-content: center;
-    opacity: 0;
-}
-
 // Blog item hover styling and animation
 .blog-item:hover .hover,
 .blog-item.hover .hover {
     -webkit-transition-delay: 0.1s;
     transition-delay: 0.1s;
     opacity: 1;
-}
-
-// Blog-item caption styling
-.blog-item:hover figcaption,
-.blog-item.hover figcaption {
-    opacity: 0;
-}
-
-// Date hover animation
-.blog-item:hover .date,
-.blog-item.hover .date {
-    -webkit-transform: translateY(-100%);
-    transform: translateY(-100%);
 }
 
 // Blog item typography styling
