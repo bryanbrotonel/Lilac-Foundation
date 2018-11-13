@@ -1,0 +1,27 @@
+@import 'resources/scss/modules/colours';
+
+// About timeline spacing
+.about-timeline {
+    position: relative;
+    padding: 7em 0;
+}
+
+// About timeline line
+.about-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 30px;
+    height: 100%;
+    width: 5px;
+    background: $primary;
+    z-index: 1;
+}
+
+// About timeline line
+@media only screen and (min-width: 720px) {
+    .about-timeline::before {
+        left: 50%;
+        margin-left: -2px;
+    }
+}

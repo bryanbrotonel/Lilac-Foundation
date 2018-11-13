@@ -25,8 +25,24 @@ export function loadHeaderImage(id) {
 // Loads social media
 export function loadSocialMedia(id) {
     return dispatch => {
-        return contentClient.getEntry(id).then((socials) => {            
+        return contentClient.getEntry(id).then((socials) => {
             dispatch(actions.loadSocialsSuccess(socials.fields))
         }).catch(error => console.log(error));
+    }
+}
+
+// Loads about page items
+export function loadAboutItems() {
+    return dispatch => {
+        return contentClient.getEntries({
+                content_type: 'aboutItem',
+                select: 'fields.title,fields.headerImage,fields.description',
+                order: 'fields.order'
+            }).then(({
+                    items
+                }) =>
+                // Dispatches loading success action return blog
+                dispatch(actions.loadAboutItemsSuccess(items))
+            ).catch(error => console.log(error));
     }
 }

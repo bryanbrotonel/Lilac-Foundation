@@ -3,7 +3,8 @@
 import initialState from '../initialState';
 import {
     LOAD_HEADER_IMAGE_SUCCESS,
-    LOAD_SOCIALS_SUCCESS
+    LOAD_SOCIALS_SUCCESS,
+    LOAD_ABOUT_ITEMS_SUCCESS
 } from './types';
 
 // Base app reducer
@@ -22,9 +23,16 @@ export default function baseReducer(state = initialState.base, action) {
             return {
                 ...state,
                 socials: action.socials
+            };
+        
+        // Successful about items load type
+        case LOAD_ABOUT_ITEMS_SUCCESS:
+            return {
+                ...state,
+                aboutItems: action.aboutItems
             }
 
-            // Default case
+        // Default case
         default:
             return state;
     }

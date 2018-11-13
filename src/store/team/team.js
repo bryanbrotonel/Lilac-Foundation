@@ -13,15 +13,6 @@ function loadingTeamError(dispatch, error) {
     dispatch(actions.teamLoading(false));
 }
 
-// Sorts blog posts by descending date
-function sortTeamMembers(team) {
-    team.sort(function (a, b) {
-        return Date.parse(a.fields.order) - Date.parse(b.fields.order);
-    });
-
-    return team;
-}
-
 // Load team member
 export function loadTeamMembers() {
     return dispatch => {
@@ -30,12 +21,13 @@ export function loadTeamMembers() {
         dispatch(actions.teamLoading());
 
         return contentClient.getEntries({
-                content_type: 'teamMember'
+                content_type: 'teamMember',
+                order: 'fields.order'
             }).then(({
                     items
                 }) =>
                 // Dispatches loading success action returning team members
-                dispatch(actions.loadTeamMembersSuccess(sortTeamMembers(items)))
+                dispatch(actions.loadTeamMembersSuccess(items))
             )
             .catch(error => loadingTeamError(dispatch, error));
     }
