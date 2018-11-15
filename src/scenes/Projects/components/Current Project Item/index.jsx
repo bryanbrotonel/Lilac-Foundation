@@ -14,14 +14,16 @@ class CurrentProjectItem extends React.Component {
   }
 
   render() {
-    const { id, title, headerImage, content } = this.props;
+    const { id, title, headerImage } = this.props;
 
     const path = this.createURL`${title}${id}`;
 
     return (
-      <Link to={`/projects/${path}`} className="project-item-link">
-        <div className="project-item text-center">
-          {/* <img src={headerImage.fields.file.url} className="header-image" /> */}
+      <Link to={`/projects/${path}`} className="current-project-item-link">
+        <div className="current-project-item h-100">
+          <div className="current-project-item-image text-center">
+            <img src={headerImage.fields.file.url} />
+          </div>
           <h3 className="title">{title}</h3>
         </div>
       </Link>

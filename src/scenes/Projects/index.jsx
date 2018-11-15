@@ -6,7 +6,10 @@ import { loadHeaderImage } from '../../store/base/base';
 
 import PageHeader from '../../components/Page Header';
 import { Loader } from '../../components/Loader';
-import CurrentProjectItem from './Current Project Item';
+import CurrentProjectItem from './components/Current Project Item';
+import FutureProjectItem from './components/Future Project Item';
+
+import './styles.scss';
 
 // Maps Redux dispatch actions to props
 const mapDispatchToProps = dispatch => {
@@ -22,7 +25,6 @@ const mapDispatchToProps = dispatch => {
 
 // Maps Redux state to props
 function mapStateToProps(state) {
-  console.log(state.projects)
   return { base: state.base, projects: state.projects };
 }
 
@@ -43,40 +45,72 @@ class Projects extends React.Component {
     loadProjects();
   }
 
+  sortProjects(projects) {
+    var currentProjects = new Array(),
+      futureProjects = new Array();
+
+    for (var project in projects) {
+      // Assign project object
+      let projectObj = projects[project];
+
+      // Sort current and future projects from currentProject boolean
+      if (!projectObj.fields.futureProject) {
+        currentProjects.push(projectObj);
+      } else {
+        futureProjects.push(projectObj);
+      }
+    }
+
+    // Returns array of the storted projects
+    return [currentProjects, futureProjects];
+  }
+
   render() {
     const { loading, projects } = this.props.projects;
-    console.log(loading, projects);
-    
+    var sortedProjects;
+
+    // When done loading projects
+    if (!loading) {
+      sortedProjects = this.sortProjects(projects);
+    }
+
     const { headerImage } = this.props.base;
 
     return (
       <div className=" bg-gray">
-        <h1>Projects</h1>
         <PageHeader headerImage={headerImage}>
           <h1>Projects</h1>
         </PageHeader>
-        <div className="projects-page container">
-          <div className="projects-section row">
+        <div className="container">
+          <div className="projects-section">
             {loading ? (
               <Loader />
             ) : (
-              projects.map(({ fields, sys }, i) => (
-                <div className="col-12 col-md-4" key={i}>
-                    <CurrentProjectItem {...fields} {...sys} />
+              <React.Fragment>
+                <div className="row current-projects-section">
+                  <div className="col-12">
+                    <h2 className="projects-section-title">Current Projects</h2>
+                  </div>
+                  {// Past projects mapping
+                  sortedProjects[0].map(({ fields, sys }, i) => (
+                    <div className="col-12 col-lg-6" key={i}>
+                      <CurrentProjectItem {...fields} {...sys} />
+                    </div>
+                  ))}
                 </div>
-              ))
+                <div className="row future-projects-section">
+                  <div className="col-12 text-center">
+                    <h3 className="projects-section-title">Future Projects</h3>
+                  </div>
+                  {// Future projects mapping
+                  sortedProjects[1].map(({ fields, sys }, i) => (
+                    <div className="col-12 col-md-6" key={i}>
+                      <FutureProjectItem {...fields} {...sys} />
+                    </div>
+                  ))}
+                </div>
+              </React.Fragment>
             )}
-          </div>
-          <div className="projects-section row justify-content-center">
-            <div className="col-6 text-center">
-              <h3>Work With Us</h3>
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. A,
-                maxime, animi consequatur doloremque totam nostrum facilis quo
-                voluptatum ipsam illum quod quaerat neque! Ad dicta unde dolores
-                voluptates veritatis laborum.
-              </p>
-            </div>
           </div>
         </div>
       </div>
