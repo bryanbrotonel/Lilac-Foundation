@@ -1,36 +1,38 @@
 import React from 'react';
 import Proptypes from 'prop-types';
 
+import * as Markdown from 'react-markdown';
+
 import { Link } from 'react-router-dom';
 
 import './styles.scss';
 
-class WorkItem extends React.Component {
+class CurrentProjectItem extends React.Component {
   // Creates url with post title and id
   createURL(str, title, id) {
     return `${str[0]}${title.replace(/\s+/g, '-').toLowerCase()}-${id}`;
   }
 
   render() {
-    const { id, title, headerImage } = this.props;
+    const { id, title, headerImage, content } = this.props;
 
     const path = this.createURL`${title}${id}`;
 
     return (
-      <Link to={`/work/${path}`} className="work-item-link">
-        <div className="work-item text-center">
-          <img src={headerImage.fields.file.url} className="header-image" />
-          <h2 className="title">{title}</h2>
+      <Link to={`/projects/${path}`} className="project-item-link">
+        <div className="project-item text-center">
+          {/* <img src={headerImage.fields.file.url} className="header-image" /> */}
+          <h3 className="title">{title}</h3>
         </div>
       </Link>
     );
   }
 }
 
-WorkItem.propTypes = {
+CurrentProjectItem.propTypes = {
   id: Proptypes.string,
   title: Proptypes.string,
   headerImage: Proptypes.object
 };
 
-export default WorkItem;
+export default CurrentProjectItem;

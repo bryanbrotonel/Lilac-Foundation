@@ -4,10 +4,10 @@ export default {
         socials: [],
         headerImage: ''
     },
-    work: {
+    projects: {
         loading: false,
-        work: [],
-        workPost: []
+        projects: [],
+        projectPost: []
     },
     blog: {
         loading: false,

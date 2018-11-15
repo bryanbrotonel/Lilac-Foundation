@@ -1,13 +1,13 @@
 import React from 'react';
 import PageSection from '../../../../components/Page Section';
-import WorkSectionItem from './Work Section Item';
+import ProjectsSectionItem from './components/Projects Section Item';
 
-class WorkSection extends React.Component {
+class ProjectsSection extends React.Component {
   constructor() {
     super();
 
     this.state = {
-      workItems: ['Work Title 1', 'Work Title 2', 'Work Title 3']
+      workItems: ['Project Title 1', 'Project Title 2', 'Project Title 3']
     };
   }
 
@@ -20,9 +20,9 @@ class WorkSection extends React.Component {
     const { workItems } = this.state;
     const workContent = workItems.map(workItem => {
       return (
-        <WorkSectionItem
+        <ProjectsSectionItem
           key={workItem}
-          workTitle={workItem}
+          projectTitle={workItem}
           rightDivStyle={this.styleWorkItem(workItems.indexOf(workItem))}
         />
       );
@@ -34,7 +34,7 @@ class WorkSection extends React.Component {
           <div className="container">
             <div className="row justify-content-center">
               <div className="col-12 text-center">
-                <h1>Work</h1>
+                <h1>Projects</h1>
               </div>
             </div>
             {workContent}
@@ -45,4 +45,4 @@ class WorkSection extends React.Component {
   }
 }
 
-export default WorkSection;
+export default ProjectsSection;

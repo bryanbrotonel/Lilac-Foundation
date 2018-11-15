@@ -4,13 +4,13 @@ import { connect } from 'react-redux';
 
 import * as Markdown from 'react-markdown';
 
-import { loadWorkPost } from '../../store/work/work';
+import { loadProjectPost } from '../../store/projects/projects';
 
 // Maps Redux dispatch actions to props
 const mapDispatchToProps = dispatch => {
   return {
-    loadWorkPost: id => {
-      dispatch(loadWorkPost(id));
+    loadProjectPost: id => {
+      dispatch(loadProjectPost(id));
     }
   };
 };
@@ -18,10 +18,10 @@ const mapDispatchToProps = dispatch => {
 // Maps Redux state to props
 function mapStateToProps(state) {
   console.log('state', state);
-  return { workPost: state.work.workPost };
+  return { projectPost: state.projects.projectPost };
 }
 
-class WorkPost extends React.Component {
+class ProjectPost extends React.Component {
   constructor(props) {
     super(props);
 
@@ -29,19 +29,19 @@ class WorkPost extends React.Component {
   }
 
   componentDidMount() {
-    const { location, loadWorkPost } = this.props;
+    const { location, loadProjectPost } = this.props;
 
     // Get post id from url
     const id = location.pathname.split('-').pop();
     console.log(id);
 
     // Dispatches loadBlogPost(id) with post id as argument
-    loadWorkPost(id);
+    loadProjectPost(id);
   }
 
   render() {
-    const { workPost } = this.props;
-    const { title, content } = workPost;
+    const { projectPost } = this.props;
+    const { title, content } = projectPost;
 
     return (
       <div>
@@ -58,11 +58,11 @@ class WorkPost extends React.Component {
   }
 }
 
-WorkPost.propTypes = {
-  workPost: Proptypes.any
+ProjectPost.propTypes = {
+  projectPost: Proptypes.any
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(WorkPost);
+)(ProjectPost);

@@ -1,0 +1,17 @@
+@import 'resources/scss/modules/colours';
+
+// Project item styling
+.project-item {
+    margin-bottom: 1rem;
+}
+
+// Project item image styling
+.project-item .header-image {
+    width: 100%;
+    margin-bottom: .5rem;
+}
+
+// Project item link text decoration
+.project-item-link {
+    text-decoration: none !important;
+}
