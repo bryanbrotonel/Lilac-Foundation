@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Added new Lilac image placeholder [Redux](https://redux.js.org) thunk
 - Added project page layout and styling
 - Added global page item component
+- Minor styling
 
 #### Removed
 

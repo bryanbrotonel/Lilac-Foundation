@@ -1,5 +1,11 @@
 @import "../modules/all";
 
+// Border sizings
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 // Horizontal vertical center elements
 .hv-center {
     align-items: center;
