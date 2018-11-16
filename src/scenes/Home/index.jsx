@@ -1,7 +1,7 @@
 import React from 'react';
 
 import VideoHeader from '../../components/Video Header';
-import WorkSection from './components/Work Section';
+import ProjectsSection from './components/Projects Section';
 import BlogSection from './components/Blog Section';
 import MissionSection from './components/Mission Section';
 import DonateSection from '../Donate Section';
@@ -13,7 +13,7 @@ class Home extends React.Component {
       <React.Fragment>
         <VideoHeader />
         <MissionSection />
-        <WorkSection />
+        <ProjectsSection />
         <BlogSection />
         <AboutSection />
         <DonateSection />

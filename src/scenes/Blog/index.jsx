@@ -27,6 +27,7 @@ const mapDispatchToProps = dispatch => {
 
 // Maps Redux state to props
 function mapStateToProps(state) {
+  console.log(state.blog)
   return { headerImage: state.base, blog: state.blog };
 }
 

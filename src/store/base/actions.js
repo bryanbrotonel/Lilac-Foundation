@@ -2,10 +2,19 @@
 
 // Import Redux base types
 import {
+    LOAD_PLACEHOLDER_SUCCESS,
     LOAD_HEADER_IMAGE_SUCCESS,
     LOAD_SOCIALS_SUCCESS,
     LOAD_ABOUT_ITEMS_SUCCESS
 } from './types';
+
+// Action that returns the successfully loaded header image
+export function loadPlaceholderImageSuccess(placeholderImage) {
+    return {
+        type: LOAD_PLACEHOLDER_SUCCESS,
+        placeholderImage
+    };
+}
 
 // Action that returns the successfully loaded header image
 export function loadHeaderImageSuccess(headerImage) {

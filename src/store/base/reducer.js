@@ -2,6 +2,7 @@
 
 import initialState from '../initialState';
 import {
+    LOAD_PLACEHOLDER_SUCCESS,
     LOAD_HEADER_IMAGE_SUCCESS,
     LOAD_SOCIALS_SUCCESS,
     LOAD_ABOUT_ITEMS_SUCCESS
@@ -10,6 +11,13 @@ import {
 // Base app reducer
 export default function baseReducer(state = initialState.base, action) {
     switch (action.type) {
+
+        // Successful placeholder image load type
+        case LOAD_PLACEHOLDER_SUCCESS:
+            return {
+                ...state,
+                placeholderImage: action.placeholderImage
+            };
 
         // Successful header image load type
         case LOAD_HEADER_IMAGE_SUCCESS:
@@ -24,7 +32,7 @@ export default function baseReducer(state = initialState.base, action) {
                 ...state,
                 socials: action.socials
             };
-        
+
         // Successful about items load type
         case LOAD_ABOUT_ITEMS_SUCCESS:
             return {

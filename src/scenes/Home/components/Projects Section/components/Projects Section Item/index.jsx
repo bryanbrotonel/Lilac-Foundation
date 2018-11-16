@@ -1,9 +1,9 @@
 import React from 'react';
 import Proptypes from 'prop-types';
 
-class WorkSectionItem extends React.Component {
+class ProjectsSectionItem extends React.Component {
   render() {
-    const { workTitle, rightDivStyle } = this.props;
+    const { projectTitle, rightDivStyle } = this.props;
 
     return (
       <div className="row justify-content-around pt-5 pb-md-5">
@@ -16,7 +16,7 @@ class WorkSectionItem extends React.Component {
         </div>
         <div className="col-12 col-md-5">
           <h2>
-            <strong>{workTitle}</strong>
+            <strong>{projectTitle}</strong>
           </h2>
           <p className="text-h3">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae
@@ -33,9 +33,9 @@ class WorkSectionItem extends React.Component {
   }
 }
 
-WorkSectionItem.propTypes = {
-  workTitle: Proptypes.string.isRequired,
+ProjectsSectionItem.propTypes = {
+  projectTitle: Proptypes.string.isRequired,
   rightDivStyle: Proptypes.string.isRequired
 };
 
-export default WorkSectionItem;
+export default ProjectsSectionItem;

@@ -2,12 +2,13 @@
 export default {
     base: {
         socials: [],
-        headerImage: ''
+        headerImage: '',
+        placeholderImage: ''
     },
-    work: {
+    projects: {
         loading: false,
-        work: [],
-        workPost: []
+        projects: [],
+        projectPost: []
     },
     blog: {
         loading: false,

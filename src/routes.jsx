@@ -7,15 +7,15 @@ import BlogPost from './scenes/BlogPost';
 import Team from './scenes/Team';
 import About from './scenes/About';
 import TeamMemberProfile from './scenes/Team Member Profile';
-import Work from './scenes/Work';
-import WorkPost from './scenes/WorkPost';
+import Projects from './scenes/Projects';
+import ProjectPost from './scenes/Project Post';
 
 const Routes = () => (
   <Switch>
     <Redirect from="/home" to="/" />
     <Route exact path="/" component={Home} />
-    <Route exact path="/work" component={Work} />
-    <Route exact path="/work/:workPost" component={WorkPost} />
+    <Route exact path="/projects" component={Projects} />
+    <Route exact path="/projects/:projectPost" component={ProjectPost} />
     <Route exact path="/blog" component={Blog} />
     <Route exact path="/blog/:blogPost" component={BlogPost} />
     <Route exact path="/team" component={Team} />

@@ -1,0 +1,28 @@
+@import 'resources/scss/modules/colours';
+@import 'resources/scss/modules/figures';
+
+// Current project item styling
+.current-project-item {
+    margin-bottom: 1rem;
+}
+
+// Current project item image styling
+.current-project-item-image {
+    @include hoverZoomImg(1.025);
+    margin-bottom: .5rem;
+}
+
+// Current project image sizing
+.current-project-item-image img {
+    width: 100%;
+}
+
+// Current project item title
+.current-project-item .title {
+    margin-top: 0;
+}
+
+// Current project item link text decoration
+.current-project-item-link {
+    text-decoration: none !important;
+}

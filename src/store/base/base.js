@@ -14,6 +14,16 @@ const contentClient = contentful.createClient({
 });
 
 // Loads header image with id
+export function loadPlaceholderImage(id) {
+    return dispatch => {
+        return blogClient.getAsset(id).then((asset) => {
+            console.log(asset)
+            dispatch(actions.loadPlaceholderImageSuccess(asset.fields.file.url))
+        });
+    }
+}
+
+// Loads header image with id
 export function loadHeaderImage(id) {
     return dispatch => {
         return blogClient.getAsset(id).then((asset) => {
@@ -35,14 +45,14 @@ export function loadSocialMedia(id) {
 export function loadAboutItems() {
     return dispatch => {
         return contentClient.getEntries({
-                content_type: 'aboutItem',
-                select: 'fields.title,fields.headerImage,fields.description',
-                order: 'fields.order'
-            }).then(({
-                    items
-                }) =>
-                // Dispatches loading success action return blog
-                dispatch(actions.loadAboutItemsSuccess(items))
-            ).catch(error => console.log(error));
+            content_type: 'aboutItem',
+            select: 'fields.title,fields.headerImage,fields.description',
+            order: 'fields.order'
+        }).then(({
+                items
+            }) =>
+            // Dispatches loading success action return blog
+            dispatch(actions.loadAboutItemsSuccess(items))
+        ).catch(error => console.log(error));
     }
 }
