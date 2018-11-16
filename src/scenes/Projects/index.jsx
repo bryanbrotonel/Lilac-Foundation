@@ -54,12 +54,17 @@ class Projects extends React.Component {
       let projectObj = projects[project];
 
       // Sort current and future projects from currentProject boolean
-      if (!projectObj.fields.futureProject) {
+      if (projectObj.fields.currentProject) {
         currentProjects.push(projectObj);
       } else {
         futureProjects.push(projectObj);
       }
     }
+
+    // Sort current projects by <date></date>
+    currentProjects.sort(function(a, b) {
+      return new Date(b.fields.date) - new Date(a.fields.date);
+    });
 
     // Returns array of the storted projects
     return [currentProjects, futureProjects];
@@ -82,36 +87,34 @@ class Projects extends React.Component {
           <h1>Projects</h1>
         </PageHeader>
         <div className="container">
-          <div className="projects-section">
-            {loading ? (
-              <Loader />
-            ) : (
-              <React.Fragment>
-                <div className="row current-projects-section">
-                  <div className="col-12">
-                    <h2 className="projects-section-title">Current Projects</h2>
-                  </div>
-                  {// Past projects mapping
-                  sortedProjects[0].map(({ fields, sys }, i) => (
-                    <div className="col-12 col-lg-6" key={i}>
-                      <CurrentProjectItem {...fields} {...sys} />
-                    </div>
-                  ))}
+          {loading ? (
+            <Loader />
+          ) : (
+            <React.Fragment>
+              <div className="row current-projects-section">
+                <div className="col-12">
+                  <h2 className="projects-section-title">Current Projects</h2>
                 </div>
-                <div className="row future-projects-section">
-                  <div className="col-12 text-center">
-                    <h3 className="projects-section-title">Future Projects</h3>
+                {// Current projects mapping
+                sortedProjects[0].map(({ fields, sys }, i) => (
+                  <div className="col-12 col-lg-6 mb-3 mb-lg-0" key={i}>
+                    <CurrentProjectItem {...fields} {...sys} />
                   </div>
-                  {// Future projects mapping
-                  sortedProjects[1].map(({ fields, sys }, i) => (
-                    <div className="col-12 col-md-6" key={i}>
-                      <FutureProjectItem {...fields} {...sys} />
-                    </div>
-                  ))}
+                ))}
+              </div>
+              <div className="row future-projects-section">
+                <div className="col-12 text-center">
+                  <h3 className="projects-section-title">Future Projects</h3>
                 </div>
-              </React.Fragment>
-            )}
-          </div>
+                {// Future projects mapping
+                sortedProjects[1].map(({ fields, sys }, i) => (
+                  <div className="col-12 col-md-6" key={i}>
+                    <FutureProjectItem {...fields} {...sys} />
+                  </div>
+                ))}
+              </div>
+            </React.Fragment>
+          )}
         </div>
       </div>
     );

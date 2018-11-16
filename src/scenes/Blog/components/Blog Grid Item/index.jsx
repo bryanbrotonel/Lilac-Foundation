@@ -1,10 +1,7 @@
 import React from 'react';
 import Proptypes from 'prop-types';
-import moment from 'moment';
 
-import { Link } from 'react-router-dom';
-
-import './styles.scss';
+import PageItem from '../../../../components/Page Item';
 
 class BlogGridItem extends React.Component {
   // Creates url with post title and id
@@ -19,20 +16,14 @@ class BlogGridItem extends React.Component {
     const path = this.createURL`${title}${id}`;
 
     return (
-      <div className=" col-12 col-md-6">
-        <Link to={`/blog/${path}`}>
-          <figure className="blog-item">
-            <img src={headerImage.fields.file.url} />
-            <div className="date">
-              <span className="day">{moment(date).format('D')}</span>
-              <span className="month">{moment(date).format('MMM')}</span>
-            </div>
-            <figcaption>
-              <h3>{title}</h3>
-              <p>{subtitle}</p>
-            </figcaption>
-          </figure>
-        </Link>
+      <div className="col-12 col-md-6 mb-5">
+        <PageItem
+          path={`/blog/${path}`}
+          title={title}
+          subtitle={subtitle}
+          date={date}
+          headerImage={headerImage.fields.file.url}
+        />
       </div>
     );
   }

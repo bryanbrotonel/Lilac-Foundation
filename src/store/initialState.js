@@ -2,7 +2,8 @@
 export default {
     base: {
         socials: [],
-        headerImage: ''
+        headerImage: '',
+        placeholderImage: ''
     },
     projects: {
         loading: false,

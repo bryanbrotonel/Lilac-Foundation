@@ -13,11 +13,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Sorting between past and future projects
 - Future project item layout and styling
+- Current project sorting
 - Project page layout and styling
+- Retreived Lilac image placeholder from [Contentful](https://www.contentful.com/)
+  - Added new Lilac image placeholder [Redux](https://redux.js.org) thunk
+- Added project page layout and styling
+- Added global page item component
 
 #### Removed
 
 - Global project item naming
+- `LOAD_HEADER_IMAGE_SUCCESS` type
+- Replaced blog item component contents with blog item
 
 ### 2018-11-14
 
@@ -38,7 +45,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Unecessary sorting functions
 
 ### 2018-11-12
+
 s
+
 #### Added
 
 - Added figures scss module
@@ -85,7 +94,7 @@ s
   - Implemented through new base [Redux](https://redux.js.org)
 - Navbar toggler placement and colouring
 - Retreived Lilac Foundation social media from [Contentful](https://www.contentful.com/)
-  - Added new socials [Redux](https://redux.js.org) reducer
+  - Added new socials [Redux](https://redux.js.org) thunk
 - Linked footer links to respective pages
 - Separated [Contentful](https://www.contentful.com/) into `blogClient` and `contentClient`
 - Coloured links mixin improvements
