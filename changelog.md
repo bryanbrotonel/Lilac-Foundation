@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 0.0.3
 
+### 2018-11-19
+
+#### Added
+
+- Retreived home section blurbs from [Contentful](https://www.contentful.com/)
+  - Added new home section [Redux](https://redux.js.org) thunks
+
 ### 2018-11-15
 
 #### Added
@@ -31,7 +38,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 #### Removed
 
-- Changed all intances of `work` to `project` for projects feature
+- Changed all isntances of `work` to `project` for projects feature
 
 ### 2018-11-13
 
