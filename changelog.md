@@ -13,6 +13,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Retreived home section blurbs from [Contentful](https://www.contentful.com/)
   - Added new home section [Redux](https://redux.js.org) thunks
+- Divided vague `loadProjects()` action into `loadCurrentProjects()` and `loadFutureProjects()` actions
+- Projects home section layout and styling
+  - Successfully loaded current projects from [Contentful](https://www.contentful.com/)
+
+#### Removed
+- Removed `loadProjects()` action
+- Removed Mission statement home section
+- Removed project section item from home section
 
 ### 2018-11-15
 

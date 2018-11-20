@@ -5,14 +5,15 @@ export default {
         headerImage: '',
         placeholderImage: ''
     },
-    home :{
+    home: {
         aboutBlurb: '',
         donateBlurb: '',
         loading: false
     },
     projects: {
         loading: false,
-        projects: [],
+        currentProjects: [],
+        futureProjects: [],
         projectPost: []
     },
     blog: {

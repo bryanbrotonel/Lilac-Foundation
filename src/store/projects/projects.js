@@ -13,25 +13,42 @@ function loadProjectsError(dispatch, error) {
     dispatch(actions.projectsLoading(false));
 }
 
-// Loads all projects from Contentful
-export function loadProjects() {
+// Loads current projects from Contentful
+export function loadCurrentProjects(limit = 100) {
     return dispatch => {
-        // Dispatches loading animation
-        dispatch(actions.projectsLoading());
-
-        // Retreives and returns client project post entries
-        return client
+        client
             .getEntries({
-                content_type: 'projectPost'
+                content_type: 'projectPost',
+                'fields.currentProject': 'true',
+                order: '-fields.date',
+                limit: limit
             })
             .then(({
                     items
                 }) =>
                 // Dispatches loading success action return project
-                dispatch(actions.loadProjectsSuccess(items))
+                dispatch(actions.loadCurrentProjectsSuccess(items))
             )
             .catch(error => loadProjectsError(dispatch, error));
-    };
+    }
+}
+
+// Loads future projects from Contentful
+export function loadFutureProjects() {
+    return dispatch => {
+        client
+            .getEntries({
+                content_type: 'projectPost',
+                'fields.currentProject': 'false'
+            })
+            .then(({
+                    items
+                }) =>
+                // Dispatches loading success action return project
+                dispatch(actions.loadFutureProjectsSuccess(items))
+            )
+            .catch(error => loadProjectsError(dispatch, error));
+    }
 }
 
 // Loads single project post from id from Contentful
