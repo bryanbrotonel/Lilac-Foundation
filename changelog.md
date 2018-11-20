@@ -16,11 +16,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Divided vague `loadProjects()` action into `loadCurrentProjects()` and `loadFutureProjects()` actions
 - Projects home section layout and styling
   - Successfully loaded current projects from [Contentful](https://www.contentful.com/)
+- Enlarged donate button
+- Blog home section styling
+- Blog item loading limit to thunk
 
 #### Removed
 - Removed `loadProjects()` action
 - Removed Mission statement home section
 - Removed project section item from home section
+- Unnecessary `console.log()`s
 
 ### 2018-11-15
 

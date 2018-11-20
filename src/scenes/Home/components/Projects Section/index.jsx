@@ -47,7 +47,7 @@ class ProjectsSection extends React.Component {
         const path = this.createURL`${title}${id}`;
 
         return (
-          <div key={id} className="col-12 col-md-6">
+          <div key={id} className="col-12 col-md-6 mb-3">
             <PageItem
               path={`/projects/${path}`}
               title={title}

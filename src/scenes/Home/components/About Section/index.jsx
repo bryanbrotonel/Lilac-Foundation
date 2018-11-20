@@ -34,7 +34,7 @@ class AboutSection extends React.Component {
     return (
       <PageSection className="bg-gray">
         <div className="container hv-center">
-          <div className="text-center w-50">
+          <div className="text-center col-12 col-md-6">
             {loading && !aboutBlurb ? (
               <h1 className="text-muted">Loading...</h1>
             ) : (

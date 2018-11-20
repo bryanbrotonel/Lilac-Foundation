@@ -20,7 +20,6 @@ function loadingHomeContentError(dispatch, error) {
 
 // Loads about blurb with id
 export function loadAboutBlurb(id) {
-    console.log('loadAboutBlurb')
     return dispatch => {
 
         // Dispatches loading animation

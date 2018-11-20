@@ -20,7 +20,6 @@ const mapDispatchToProps = dispatch => {
 
 // Maps Redux state to props
 function mapStateToProps(state) {
-  console.log('state', state);
   return { projectPost: state.projects.projectPost };
 }
 
@@ -36,7 +35,6 @@ class ProjectPost extends React.Component {
 
     // Get post id from url
     const id = location.pathname.split('-').pop();
-    console.log(id);
 
     // Dispatches loadBlogPost(id) with post id as argument
     loadProjectPost(id);
