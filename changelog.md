@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 0.0.3
 
+### 2018-11-20
+
+#### Added
+
+- Implemented home page masthead layout and styling
+- Added [Animate.css](https://daneden.github.io/animate.css/) to project dependecies
+
+#### Removed
+
+- Removed video header component
+
 ### 2018-11-19
 
 #### Added
@@ -21,6 +32,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Blog item loading limit to thunk
 
 #### Removed
+
 - Removed `loadProjects()` action
 - Removed Mission statement home section
 - Removed project section item from home section
@@ -65,8 +77,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Unecessary sorting functions
 
 ### 2018-11-12
-
-s
 
 #### Added
 
