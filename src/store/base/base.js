@@ -46,3 +46,12 @@ export function loadAboutItems() {
         ).catch(error => console.log(error));
     }
 }
+
+// Loads footer blurb with id
+export function loadFooterBlurb(id) {
+    return dispatch => {
+        return contentClient.getEntry(id).then((blurb) =>
+            dispatch(actions.loadFooterBlurbSuccess(blurb.fields))
+        ).catch(error => console.log(error));
+    }
+}

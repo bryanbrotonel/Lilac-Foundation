@@ -3,20 +3,25 @@ import Proptypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import { connect } from 'react-redux';
-import { loadSocialMedia } from '../../store/base/base';
+import { loadFooterBlurb, loadSocialMedia } from '../../store/base/base';
 
 import DonateButton from '../Donate Button';
 
 import './styles.scss';
 
+// Maps Redux dispatch actions to props
 const mapDispatchToProps = dispatch => {
   return {
+    loadFooterBlurb: () => {
+      dispatch(loadFooterBlurb('6KzSyVjmeWmq6weOe2AWsS'));
+    },
     loadSocialMedia: () => {
       dispatch(loadSocialMedia('2umAjY8tMEQuOIYUmii08Y'));
     }
   };
 };
 
+// Maps Redux state to props
 const mapStateToProps = state => {
   return { base: state.base };
 };
@@ -34,7 +39,10 @@ class Footer extends React.Component {
   }
 
   componentDidMount() {
-    const { loadSocialMedia } = this.props;
+    const { loadFooterBlurb, loadSocialMedia } = this.props;
+
+    // Dispatch loadFooterBlurb()
+    loadFooterBlurb();
 
     // Dispatch loadSocialMedia()
     loadSocialMedia();
@@ -42,7 +50,15 @@ class Footer extends React.Component {
 
   render() {
     const { pages } = this.state;
-    const { socials } = this.props.base;
+    const { footerBlurb, socials } = this.props.base;
+
+    // Format footer blurb
+    if (footerBlurb.length !== 0) {
+      const { blurbTitle, blurbContent } = footerBlurb;
+
+      var footerTitle = blurbTitle;
+      var footerBlurbContent = blurbContent;
+    }
 
     // Format footer page links
     const footerPageLinks = pages.map(page => {
@@ -80,13 +96,9 @@ class Footer extends React.Component {
 
             <div className="col-12 col-md-4 text-left">
               <h5>
-                <strong>The Lilac Foundation</strong>
+                <strong>{footerTitle}</strong>
               </h5>
-              <p className="mb-2">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Distinctio pariatur excepturi voluptates aspernatur tempora
-                consectetur.
-              </p>
+              <p className="mb-3">{footerBlurbContent}</p>
               <DonateButton className="btn-light" />
             </div>
           </div>
@@ -109,6 +121,7 @@ class Footer extends React.Component {
 
 Footer.Proptypes = {
   loadSocialMedia: Proptypes.func,
+  loadFooterBlurb: Proptypes.func,
   base: Proptypes.object
 };
 

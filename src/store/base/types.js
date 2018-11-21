@@ -11,3 +11,6 @@ export const LOAD_ABOUT_ITEMS_SUCCESS = 'LOAD_ABOUT_ITEMS_SUCCESS';
 
 // Successfully loaded socials
 export const LOAD_SOCIALS_SUCCESS = 'LOAD_SOCIALS_SUCCESS';
+
+// Successfully loaded footer blurb
+export const LOAD_FOOTER_BLURB_SUCCESS = 'LOAD_FOOTER_BLURB_SUCCESS';

@@ -38,7 +38,6 @@ class HomeMasthead extends React.Component {
 
   render() {
     const { headerImage } = this.props.base;
-    console.log(headerImage);
 
     return (
       <div className="home-masthead">

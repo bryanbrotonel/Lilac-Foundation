@@ -6,6 +6,7 @@ import {
     LOAD_PLACEHOLDER_SUCCESS,
     LOAD_HEADER_IMAGE_SUCCESS,
     LOAD_SOCIALS_SUCCESS,
+    LOAD_FOOTER_BLURB_SUCCESS
 } from './types';
 
 // Action that returns successfully retreived socials
@@ -37,5 +38,13 @@ export function loadSocialsSuccess(socials) {
     return {
         type: LOAD_SOCIALS_SUCCESS,
         socials
+    };
+}
+
+// Action that returns successfully retreived socials
+export function loadFooterBlurbSuccess(footerBlurb) {
+    return {
+        type: LOAD_FOOTER_BLURB_SUCCESS,
+        footerBlurb
     };
 }

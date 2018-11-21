@@ -1,6 +1,7 @@
 // Initial Redux state
 export default {
     base: {
+        footerBlurb: [],
         socials: [],
         headerImage: '',
         placeholderImage: ''
