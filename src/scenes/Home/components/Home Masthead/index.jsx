@@ -28,12 +28,15 @@ class HomeMasthead extends React.Component {
     // Dispatches headerImage()
     loadHeaderImage('1J9XegkkvKY06uCkiAywge');
 
+    // Changes navbar colour upon component mount
+    document.getElementById('navbar').classList.remove('navbar-light');
     document.getElementById('navbar').classList.add('navbar-dark');
   }
 
   // Resets navbar colour upon component unmount
   componentWillUnmount() {
     document.getElementById('navbar').classList.remove('navbar-dark');
+    document.getElementById('navbar').classList.add('navbar-light');
   }
 
   render() {

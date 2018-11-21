@@ -65,7 +65,7 @@ class Navbar extends React.Component {
     });
 
     return (
-      <nav id="navbar" className="navbar navbar-expand-md">
+      <nav id="navbar" className="navbar navbar-light navbar-expand-md">
         <Menu
           isOpen={menuOpen}
           onStateChange={state => this.handleStateChange(state)}
@@ -96,7 +96,7 @@ class Navbar extends React.Component {
             </div>
             <div className="col-2 hv-center">
               <button
-                className="custom-toggler navbar-toggler p-0 border-0"
+                className="navbar-toggler p-0 border-0"
                 type="button"
                 onClick={() => this.toggleMenu()}
               >
