@@ -10,6 +10,7 @@ import {
 
 import PageHeader from '../../components/Page Header';
 import { Loader } from '../../components/Loader';
+import ScrollReveal from '../../components/Scroll Reveal';
 import CurrentProjectItem from './components/Current Project Item';
 import FutureProjectItem from './components/Future Project Item';
 
@@ -64,6 +65,16 @@ class Projects extends React.Component {
 
     const { headerImage } = this.props.base;
 
+    // Scroll reveal config
+    const revealConfig = {
+      origin: 'bottom',
+      duration: 1000,
+      delay: 500,
+      distance: '25px',
+      scale: 1,
+      easing: 'ease-out'
+    };
+
     return (
       <div className="bg-gray">
         <PageHeader headerImage={headerImage}>
@@ -81,7 +92,9 @@ class Projects extends React.Component {
                 {// Current projects mapping
                 currentProjects.map(({ fields, sys }, i) => (
                   <div className="col-12 col-lg-6 mb-3 mb-lg-0" key={i}>
-                    <CurrentProjectItem {...fields} {...sys} />
+                    <ScrollReveal config={revealConfig}>
+                      <CurrentProjectItem {...fields} {...sys} />
+                    </ScrollReveal>
                   </div>
                 ))}
               </div>

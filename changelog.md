@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added scroll reveal to project home section
 - Switched header image thunks from blog [Contentful](https://www.contentful.com/) client to website content [Contentful](https://www.contentful.com/) client
 - Connected footer blurb to website content [Contentful](https://www.contentful.com/) client
+- Added [ScrollReveal.js](https://scrollrevealjs.org) throughout project where necessary
 
 #### Removed
 

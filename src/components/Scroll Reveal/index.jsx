@@ -9,13 +9,14 @@ class ScrollReveal extends React.Component {
   }
 
   render() {
-    const { children } = this.props;
+    const { className, children } = this.props;
 
-    return <div className="scroll-reveal">{children}</div>;
+    return <div className={`scroll-reveal ${className}`}>{children}</div>;
   }
 }
 
 ScrollReveal.propTypes = {
+  className: PropTypes.string,
   children: PropTypes.any.isRequired,
   config: PropTypes.any
 };

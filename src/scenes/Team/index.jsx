@@ -8,6 +8,7 @@ import { loadTeamMembers } from '../../store/team/team';
 
 import PageHeader from '../../components/Page Header';
 import TeamMember from '../../components/Team Member';
+import ScrollReveal from '../../components/Scroll Reveal';
 
 import './styles.scss';
 
@@ -49,6 +50,17 @@ class Team extends React.Component {
     const { headerImage } = base;
     const { teamMembers } = team;
 
+    // Scroll reveal config
+    const revealConfig = {
+      origin: 'bottom',
+      duration: 1000,
+      delay: 500,
+      distance: '25px',
+      scale: 1,
+      easing: 'ease-out',
+      interval: 200
+    };
+
     // Format each team member into TeamMember components
     if (teamMembers.length != 0) {
       var teamMemberItems = Object.keys(teamMembers).map(key => {
@@ -57,11 +69,13 @@ class Team extends React.Component {
         return (
           <div key={name} className="col-8 col-sm-6 col-md-4 text-center">
             <Link to={`/team/${path}`}>
+              <ScrollReveal config={revealConfig}>
               <TeamMember
                 name={name}
                 role={role}
                 profilePicture={profilePicture.fields.file.url}
               />
+              </ScrollReveal>
             </Link>
           </div>
         );
@@ -89,7 +103,9 @@ class Team extends React.Component {
 
 Team.propTypes = {
   loadTeamMembers: Proptypes.func,
-  team: Proptypes.object
+  loadHeaderImage: Proptypes.func,
+  team: Proptypes.object,
+  base: Proptypes.object
 };
 
 export default connect(

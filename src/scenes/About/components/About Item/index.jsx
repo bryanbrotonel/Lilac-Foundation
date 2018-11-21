@@ -1,6 +1,8 @@
 import React from 'react';
 import Proptypes from 'prop-types';
 
+import ScrollReveal from '../../../../components/Scroll Reveal';
+
 import './styles.scss';
 
 class AboutItem extends React.Component {
@@ -17,15 +19,26 @@ class AboutItem extends React.Component {
       overlay = <div className="overlay" />;
     }
 
+    // Scroll reveal config
+    const revealConfig = {
+      origin: 'right',
+      duration: 1000,
+      delay: 500,
+      distance: '25px',
+      scale: 1,
+      easing: 'ease-out'
+    };
+
     return (
       <div className="about-item" style={style}>
         {overlay}
         <div className="about-dot" />
-
         <div className="about-wrapper no-gutters row">
           <div className="about-content col-md-12 col-lg-8">
-            <h2 className="about-item-title">{title}</h2>
-            {children}
+            <ScrollReveal config={revealConfig}>
+              <h2 className="about-item-title">{title}</h2>
+              {children}
+            </ScrollReveal>
           </div>
         </div>
       </div>
