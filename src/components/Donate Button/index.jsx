@@ -9,7 +9,7 @@ class DonateButton extends React.Component {
 
     return (
       <button
-        className={`donate-button btn ${className}`}
+        className={`donate-button btn-lg ${className}`}
         type="submit"
       >
         Donate

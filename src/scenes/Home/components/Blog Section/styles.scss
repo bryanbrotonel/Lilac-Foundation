@@ -10,16 +10,15 @@
     background-position: center;
 }
 
-// Blog post content styling
-.blog-section-content {
-    padding-left: 0;
-    padding-right: 0;
+@media (min-width: 768px) {
+
+    // Blog post content styling
+    .blog-section-content .markdown-content {
+        width: 75%;
+    }
 }
 
-@media (min-width: 992px) {
-    
-    // Reset padding to page section padding
-    .blog-section-content {
-        padding: 8rem 3rem;
-    }
+// Blog section title margin
+.blog-section-title {
+    margin-top: 0;
 }

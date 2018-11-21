@@ -109,7 +109,7 @@ class Footer extends React.Component {
 
 Footer.Proptypes = {
   loadSocialMedia: Proptypes.func,
-  base: Proptypes.obj
+  base: Proptypes.object
 };
 
 export default connect(

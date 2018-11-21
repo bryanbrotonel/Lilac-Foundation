@@ -7,6 +7,39 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 0.0.3
 
+### 2018-11-20
+
+#### Added
+
+- Implemented home page masthead layout and styling
+- Added [Animate.css](https://daneden.github.io/animate.css/) to project dependecies
+- Added [ScrollReveal.js](https://scrollrevealjs.org) to project dependecies
+- Added scroll reveal to project home section
+
+#### Removed
+
+- Removed video header component
+
+### 2018-11-19
+
+#### Added
+
+- Retreived home section blurbs from [Contentful](https://www.contentful.com/)
+  - Added new home section [Redux](https://redux.js.org) thunks
+- Divided vague `loadProjects()` action into `loadCurrentProjects()` and `loadFutureProjects()` actions
+- Projects home section layout and styling
+  - Successfully loaded current projects from [Contentful](https://www.contentful.com/)
+- Enlarged donate button
+- Blog home section styling
+- Blog item loading limit to thunk
+
+#### Removed
+
+- Removed `loadProjects()` action
+- Removed Mission statement home section
+- Removed project section item from home section
+- Unnecessary `console.log()`s
+
 ### 2018-11-15
 
 #### Added
@@ -31,7 +64,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 #### Removed
 
-- Changed all intances of `work` to `project` for projects feature
+- Changed all isntances of `work` to `project` for projects feature
 
 ### 2018-11-13
 
@@ -46,8 +79,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Unecessary sorting functions
 
 ### 2018-11-12
-
-s
 
 #### Added
 

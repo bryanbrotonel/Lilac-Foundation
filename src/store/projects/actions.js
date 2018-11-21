@@ -3,7 +3,8 @@
 // Import Redux projects types
 import {
     PROJECTS_LOADING,
-    LOAD_PROJECTS_SUCCESS,
+    LOAD_CURRENT_PROJECTS_SUCCESS,
+    LOAD_FUTURE_PROJECTS_SUCCESS,
     LOAD_PROJECT_POST_SUCCESS
 }
 from './types';
@@ -17,10 +18,18 @@ export function projectsLoading(isLoading = true) {
 }
 
 // Action that returns the sucessfully loaded projects
-export function loadProjectsSuccess(projects) {
+export function loadCurrentProjectsSuccess(currentProjects) {
     return {
-        type: LOAD_PROJECTS_SUCCESS,
-        projects
+        type: LOAD_CURRENT_PROJECTS_SUCCESS,
+        currentProjects
+    };
+}
+
+// Action that returns the sucessfully loaded projects
+export function loadFutureProjectsSuccess(futureProjects) {
+    return {
+        type: LOAD_FUTURE_PROJECTS_SUCCESS,
+        futureProjects
     };
 }
 

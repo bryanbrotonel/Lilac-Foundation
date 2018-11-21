@@ -3,7 +3,8 @@
 import initialState from '../initialState';
 import {
     PROJECTS_LOADING,
-    LOAD_PROJECTS_SUCCESS,
+    LOAD_CURRENT_PROJECTS_SUCCESS,
+    LOAD_FUTURE_PROJECTS_SUCCESS,
     LOAD_PROJECT_POST_SUCCESS
 }
 from './types';
@@ -19,11 +20,19 @@ export default function projectReducer(state = initialState.projects, action) {
                 loading: action.isLoading
             };
 
-        // Successful projects loading type
-        case LOAD_PROJECTS_SUCCESS:
+        // Successful current projects loading type
+        case LOAD_CURRENT_PROJECTS_SUCCESS:
             return {
                 ...state,
-                projects: action.projects,
+                currentProjects: action.currentProjects,
+                loading: false
+            };
+            
+        // Successful future projects loading type
+        case LOAD_FUTURE_PROJECTS_SUCCESS:
+            return {
+                ...state,
+                futureProjects: action.futureProjects,
                 loading: false
             };
 

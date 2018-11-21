@@ -1,0 +1,79 @@
+@import 'resources/scss/modules/colours';
+
+// Home masthead layout and positioning
+.home-masthead {
+    width: 100%;
+    position: absolute !important;
+    top: 0 !important;
+    height: 95vh;
+}
+
+// Home masthead neighbour margin for masthead visibility
+.home-masthead+div {
+    margin-top: calc(95vh - 80px);
+}
+
+@media (min-width: 992px) {
+    .home-masthead {
+        height: 100vh;
+    }
+
+    .home-masthead+div {
+        margin-top: calc(100vh - 80px);
+    }
+}
+
+// Masthead content and image width and height
+.masthead-content-wrapper,
+.masthead-image-wrapper,
+.masthead-image {
+    width: 100%;
+    height: 100%;
+}
+
+// Masthead content wrapper z-index positioning
+.masthead-content-wrapper {
+    z-index: 1;
+    position: absolute;
+    background-color: rgba($tertiary, 0.5);
+}
+
+// Mastehad content typography styling
+.masthead-content {
+    text-align: center;
+    color: $white;
+}
+
+// Masthead content title fade in animation
+.masthead-content .masthead-title {
+    animation-name: fadeInDown;
+    animation-delay: .5s;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+// Masthead content subtitle margin and fade in animation
+.masthead-content .masthead-subtitle {
+    margin-top: 0;
+    animation-name: fadeInUp;
+    animation-duration: 1s;
+    animation-delay: 1.75s;
+    animation-fill-mode: both;
+}
+
+// Masthead image tint colour
+.masthead-image-wrapper {
+    background-color: $tertiary;
+}
+
+// Masthead image postiioning and animation
+.masthead-image {
+    object-fit: cover;
+    object-position: center;
+    overflow: hidden;
+
+    animation-name: fadeIn;
+    animation-duration: 1s;
+    animation-delay: 3.25s;
+    animation-fill-mode: both;
+}

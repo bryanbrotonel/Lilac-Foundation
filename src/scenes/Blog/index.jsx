@@ -27,7 +27,6 @@ const mapDispatchToProps = dispatch => {
 
 // Maps Redux state to props
 function mapStateToProps(state) {
-  console.log(state.blog)
   return { headerImage: state.base, blog: state.blog };
 }
 
@@ -69,7 +68,6 @@ class Blog extends React.Component {
 
   onPageChanged(data) {
     const { posts } = this.props.blog;
-    console.log(posts);
     const { currentPage, totalPages, pageLimit } = data;
 
     // Get blog posts offset for current page

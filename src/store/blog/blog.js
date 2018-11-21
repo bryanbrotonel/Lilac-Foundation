@@ -14,7 +14,7 @@ function loadingBlogError(dispatch, error) {
 }
 
 // Loads all blogs from Contentful
-export function loadBlog() {
+export function loadBlog(limit = 100) {
   return dispatch => {
     // Dispatches loading animation
     dispatch(actions.blogLoading());
@@ -23,7 +23,8 @@ export function loadBlog() {
     return client
       .getEntries({
         content_type: 'blogPost',
-        order: '-fields.date'
+        order: '-fields.date',
+        limit: limit
       })
       .then(({
           items

@@ -2,11 +2,12 @@ import React from 'react';
 import Proptypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as Markdown from 'react-markdown';
+import { Link } from 'react-router-dom';
+
+import { loadBlog } from '../../../../store/blog/blog';
 
 import PageSection from '../../../../components/Page Section';
 import { Loader } from '../../../../components/Loader';
-
-import { loadBlog } from '../../../../store/blog/blog';
 
 import './styles.scss';
 
@@ -14,7 +15,7 @@ import './styles.scss';
 const mapDispatchToProps = dispatch => {
   return {
     loadBlog: () => {
-      dispatch(loadBlog());
+      dispatch(loadBlog(1));
     }
   };
 };
@@ -38,15 +39,22 @@ class BlogSection extends React.Component {
     loadBlog();
   }
 
+  createURL(str, title, id) {
+    return `${str[0]}${title.replace(/\s+/g, '-').toLowerCase()}-${id}`;
+  }
+
   render() {
     const { blog } = this.props;
     const { loading, posts } = blog;
 
-    var latestPost;
+    var latestPost, path;
 
     if (!loading && posts.length !== 0) {
       // Assigns latest to post to first post from sorted blog entries
       latestPost = posts[0].fields;
+
+      // Creates path to blog post
+      path = this.createURL`${latestPost.title}${posts[0].sys.id}`;
     }
 
     // Home blog section title
@@ -73,19 +81,20 @@ class BlogSection extends React.Component {
             />
           </div>
           <div className="col-12 col-md-6">
-            <PageSection className="blog-section-content">
-              <div className="container">
+            <PageSection>
+              <div className="blog-section-content container">
                 <div className="pb-4 d-none d-md-block">{sectionTitle}</div>
-                <h3>{latestPost.title}</h3>
+                <h3 className="blog-section-title">{latestPost.title}</h3>
                 <h5>{latestPost.subtitle}</h5>
                 <Markdown
+                  className="markdown-content"
                   source={latestPost.content
                     .split('')
                     .splice(0, 150)
                     .join('')
                     .concat('...')}
                 />
-                <a href="#">Read More &gt;</a>
+                <Link to={`/blog/${path}`}>Read More &gt;</Link>
               </div>
             </PageSection>
           </div>
