@@ -13,8 +13,8 @@ import './styles.scss';
 // Maps Redux dispatch actions to props
 const mapDispatchToProps = dispatch => {
   return {
-    loadHeaderImage: () => {
-      dispatch(loadHeaderImage('NokqFw6LQWUmYUWWmicyg'));
+    loadHeaderImage: photoID => {
+      dispatch(loadHeaderImage(photoID));
     },
     loadAboutItems: () => {
       dispatch(loadAboutItems());
@@ -32,7 +32,7 @@ class About extends React.Component {
     const { loadHeaderImage, loadAboutItems } = this.props;
 
     // Dispatches headerImage()
-    loadHeaderImage();
+    loadHeaderImage('5sySaWfDFK2qiQAo8Imi0U');
 
     // Dispatches headerImage()
     loadAboutItems();

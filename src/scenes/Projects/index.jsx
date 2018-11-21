@@ -24,8 +24,8 @@ const mapDispatchToProps = dispatch => {
     loadFutureProjects: () => {
       dispatch(loadFutureProjects());
     },
-    loadHeaderImage: () => {
-      dispatch(loadHeaderImage('2iuUpTaObaSCw0kcya8Ci'));
+    loadHeaderImage: photoID => {
+      dispatch(loadHeaderImage(photoID));
     }
   };
 };
@@ -50,7 +50,7 @@ class Projects extends React.Component {
     } = this.props;
 
     // Dispatches headerImage()
-    loadHeaderImage();
+    loadHeaderImage('1rod766IpGKmKQCWGKOeQc');
 
     // Dispatches loadCurrentProjects()
     loadCurrentProjects();

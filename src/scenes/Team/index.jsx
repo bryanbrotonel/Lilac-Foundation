@@ -14,8 +14,8 @@ import './styles.scss';
 // Maps Redux dispatch actions to props
 const mapDispatchToProps = dispatch => {
   return {
-    loadHeaderImage: () => {
-      dispatch(loadHeaderImage('3g3Bv3hTyEc28ey8CAqw0a'));
+    loadHeaderImage: photoID => {
+      dispatch(loadHeaderImage(photoID));
     },
     loadTeamMembers: () => {
       dispatch(loadTeamMembers());
@@ -38,7 +38,7 @@ class Team extends React.Component {
     const { loadHeaderImage, loadTeamMembers } = this.props;
 
     // Dispatches headerImage()
-    loadHeaderImage();
+    loadHeaderImage('CiDgPq3WpwUIoUQ4OIGYI');
 
     // Dispatches loadTeamMembers()
     loadTeamMembers();
