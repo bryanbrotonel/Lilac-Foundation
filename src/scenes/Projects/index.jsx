@@ -65,7 +65,7 @@ class Projects extends React.Component {
     const { headerImage } = this.props.base;
 
     return (
-      <div className=" bg-gray">
+      <div className="bg-gray">
         <PageHeader headerImage={headerImage}>
           <h1>Projects</h1>
         </PageHeader>

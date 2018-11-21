@@ -13,6 +13,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Implemented home page masthead layout and styling
 - Added [Animate.css](https://daneden.github.io/animate.css/) to project dependecies
+- Added [ScrollReveal.js](https://scrollrevealjs.org) to project dependecies
+- Added scroll reveal to project home section
 
 #### Removed
 

@@ -6,6 +6,7 @@ import { loadCurrentProjects } from '../../../../store/projects/projects';
 
 import PageSection from '../../../../components/Page Section';
 import PageItem from '../../../../components/Page Item';
+import ScrollReveal from '../../../../components/Scroll Reveal';
 
 // Maps Redux dispatch actions to props
 const mapDispatchToProps = dispatch => {
@@ -41,6 +42,17 @@ class ProjectsSection extends React.Component {
 
     // Sort projects when done loading projects
     if (!loading && currentProjects) {
+
+      // Scroll reveal config
+      const revealConfig = {
+        origin: 'bottom',
+        duration: 1000,
+        delay: 200,
+        distance: '50px',
+        scale: 1,
+        easing: 'ease'
+      };
+
       projectItems = Object.keys(currentProjects).map(key => {
         const { title, headerImage } = currentProjects[key].fields;
         const { id } = currentProjects[key].sys;
@@ -48,11 +60,13 @@ class ProjectsSection extends React.Component {
 
         return (
           <div key={id} className="col-12 col-md-6 mb-3">
-            <PageItem
-              path={`/projects/${path}`}
-              title={title}
-              headerImage={headerImage.fields.file.url}
-            />
+            <ScrollReveal config={revealConfig}>
+              <PageItem
+                path={`/projects/${path}`}
+                title={title}
+                headerImage={headerImage.fields.file.url}
+              />
+            </ScrollReveal>
           </div>
         );
       });
