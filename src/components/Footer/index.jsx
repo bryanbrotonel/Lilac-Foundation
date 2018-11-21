@@ -95,9 +95,7 @@ class Footer extends React.Component {
             </div>
 
             <div className="col-12 col-md-4 text-left">
-              <h5>
-                <strong>{footerTitle}</strong>
-              </h5>
+              <h4 className="footer-title">{footerTitle}</h4>
               <p className="mb-3">{footerBlurbContent}</p>
               <DonateButton className="btn-light" />
             </div>

@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 #### Added
 - Implemented navbar hamburger button styling
+- Implemented fluid responsive typography
 
 ### 2018-11-20
 

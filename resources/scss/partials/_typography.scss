@@ -36,38 +36,42 @@ p {
 h1 {
     // font-size: 3.157em;
     margin-top: 0;
-    $h1-map: (576px: 28.432px, 768px: 37.904px, 992px: 50.512px);
+    $h1-map: (576px: 28.432px,
+        768px: 37.904px, 992px: 50.512px);
     @include poly-fluid-sizing('font-size', $h1-map);
 }
 
 // Second header styling
 h2 {
     // font-size: 2.369em;
-    $h2-map: (576px: 21.328px, 768px: 28.432px, 992px: 37.904px);
+    $h2-map: (576px: 21.328px,
+        768px: 28.432px, 992px: 37.904px);
     @include poly-fluid-sizing('font-size', $h2-map);
 }
 
 // Third header styling
 h3 {
-    // font-size: 1.777em;
+    font-size: 1.777em;
     $h3-map: (768px: 21.328px, 992px: 28.432px);
     @include poly-fluid-sizing('font-size', $h3-map);
 }
 
 // Fourth header styling
 h4 {
-    // font-size: 1.333em;
-    $h4-map: (768px: 16px, 992px: 21.328px);
+    font-size: 1.333em;
+    $h4-map: (768px: 21.328px, 992px: 21.328px);
     @include poly-fluid-sizing('font-size', $h4-map);
 }
+
+// Link hover styling
+a {
+    @include colouredLinks($black)
+}
+
 
 // Blockquote font size styling
 blockquote {
     font-size: 1.125rem;
-}
-
-.base-font {
-    font-family: $base-font !important;
 }
 
 // Small font sizing
@@ -76,7 +80,12 @@ small,
     font-size: 0.75em;
 }
 
-// Link and hover styling
-a {
-    @include colouredLinks($black)
+// Base font styling
+.base-font {
+    font-family: $base-font !important;
+}
+
+// Markdown snippet font sizing
+.markdown-snippet * {
+    font-size: 1rem !important;
 }
