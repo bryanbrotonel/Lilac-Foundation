@@ -67,7 +67,7 @@ class BlogPost extends React.Component {
 
         <div>
           <div className="row no-gutters justify-content-center">
-            <div className="col-md-7">
+            <div className="col-md-8 col-lg-6">
               <div className="container">
                 <Markdown className="markdown-content blog-post-content" source={content} />
               </div>

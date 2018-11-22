@@ -21,7 +21,7 @@ class AboutItem extends React.Component {
 
     // Scroll reveal config
     const revealConfig = {
-      origin: 'right',
+      origin: 'bottom',
       duration: 1000,
       delay: 500,
       distance: '25px',

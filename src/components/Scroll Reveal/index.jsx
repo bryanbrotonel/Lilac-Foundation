@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import sr from './Scroll Reveal';
 
+import './styles.scss';
+
 class ScrollReveal extends React.Component {
   componentDidMount() {
     sr.reveal('.scroll-reveal', this.props.config);

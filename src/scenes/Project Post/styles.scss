@@ -1,22 +1,21 @@
 @import 'resources/scss/modules/colours';
 
 // Project layout padding
-.project-post-sidebar,
-.project-images {
+.project-post-wrapper,
+.project-post-images {
     padding-bottom: 30px;
 }
 
-// Project post content styling
-.project-post-content {
+// Project post wrapper styling
+.project-post-wrapper {
     position: sticky;
     top: 0;
     padding-top: 2rem !important;
 }
 
 @media (min-width: 768px) {
-    .project-post-content {
+    .project-post-wrapper {
         padding: 2rem 0 3rem;
-        margin-top: 1rem;
     }
 }
 
@@ -31,12 +30,12 @@
 }
 
 // Project images padding
-.project-images img:not(:last-child) {
+.project-post-images img:not(:last-child) {
     padding-bottom: 30px;
 }
 
 @media (min-width: 768px) {
-    .project-images {
+    .project-post-images {
         padding: 3rem 0;
     }
 }

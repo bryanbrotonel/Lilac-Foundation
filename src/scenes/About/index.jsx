@@ -61,9 +61,7 @@ class About extends React.Component {
         <PageHeader headerImage={headerImage}>
           <h1>About</h1>
         </PageHeader>
-        <div>
           <div className="about-timeline">{aboutItemsSection}</div>
-        </div>
       </div>
     );
   }
