@@ -66,3 +66,16 @@
     /* Non-prefixed version, currently supported by Chrome and Opera */
     user-select: none;
 }
+
+.equal-height-row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.equal-height-row>[class*='col-'] {
+    display: flex;
+    flex-direction: column;
+}

@@ -1,41 +1,19 @@
 @import 'resources/scss/modules/colours';
 
-// Project layout padding
-.project-post-wrapper,
-.project-post-images {
-    padding-bottom: 30px;
-}
-
 // Project post wrapper styling
 .project-post-wrapper {
     position: sticky;
     top: 0;
-    padding-top: 2rem !important;
-}
-
-@media (min-width: 768px) {
-    .project-post-wrapper {
-        padding: 2rem 0 3rem;
-    }
+    padding: 2rem 0 !important;
 }
 
 // Project post title margins
 .project-post-title {
     margin-top: 0 !important;
+    margin-bottom: .5rem;
 }
 
 // Project post date typography colours
 .project-post-date {
     color: $text-dark;
-}
-
-// Project images padding
-.project-post-images img:not(:last-child) {
-    padding-bottom: 30px;
-}
-
-@media (min-width: 768px) {
-    .project-post-images {
-        padding: 3rem 0;
-    }
 }

@@ -85,6 +85,10 @@ small,
     font-family: $base-font !important;
 }
 
+.markdown-content p {
+    line-height: 1.6rem;
+}
+
 // Markdown snippet font sizing
 .markdown-snippet * {
     font-size: 1rem !important;

@@ -42,14 +42,14 @@ class ProjectPost extends React.Component {
 
   render() {
     const { projectPost } = this.props;
-    const { title, date, content, projectPictures } = projectPost;
+    const { title, date, content } = projectPost;
 
     return (
       <div className="container">
-        <div className="row">
-          <div className="col-12 col-md-6">
+        <div className="row justify-content-center">
+          <div className="col-12 col-md-7">
             <div className="project-post-wrapper">
-              <h2 className="project-post-title">{title}</h2>
+              <h1 className="project-post-title">{title}</h1>
               <p className="project-post-date">
                 {moment(date).calendar(null, {
                   sameDay: '[Today]',
@@ -61,11 +61,6 @@ class ProjectPost extends React.Component {
               <Markdown className="markdown-content" source={content} />
             </div>
           </div>
-          <div className="col-12 col-md-6 hv-center">
-            <div className="project-post-images">
-              <Markdown className="markdown-content" source={projectPictures} />
-            </div>
-          </div>
         </div>
       </div>
     );
@@ -73,7 +68,9 @@ class ProjectPost extends React.Component {
 }
 
 ProjectPost.propTypes = {
-  projectPost: Proptypes.any
+  projectPost: Proptypes.any,
+  location: Proptypes.object,
+  loadProjectPost: Proptypes.func
 };
 
 export default connect(

@@ -65,7 +65,7 @@ class BlogPost extends React.Component {
           </div>
         </PageHeader>
 
-        <div>
+        <div className="blog-post-wrapper">
           <div className="row no-gutters justify-content-center">
             <div className="col-md-8 col-lg-6">
               <div className="container">
