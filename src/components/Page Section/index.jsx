@@ -9,8 +9,8 @@ class PageSection extends React.Component {
 
     return (
       <div
-        className={`page-section hv-center ${className}`}
-        style={{ minHeight: height, ...style }}
+        className={`page-section hv-center${!className ? '' : ' ' + className}`}
+        style={{ maxHeight: height, ...style }}
       >
         {children}
       </div>

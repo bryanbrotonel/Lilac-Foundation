@@ -10,15 +10,26 @@
     background-position: center;
 }
 
+// Blog section content styling
+.blog-section-content {
+    padding: 3rem 0;
+}
+
 @media (min-width: 768px) {
+
+    // Blog section content styling
+    .blog-section-content {
+        padding: 3rem !important;
+    }
 
     // Blog post content styling
     .blog-section-content .markdown-content {
-        width: 75%;
+        width: 80%;
     }
 }
 
 // Blog section title margin
-.blog-section-title {
+.blog-section-title,
+.blog-section-subtitle {
     margin-top: 0;
 }

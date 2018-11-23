@@ -119,8 +119,6 @@ class Navbar extends React.Component {
                 ) : (
                   <ReactSVG
                     src={lilacLogo}
-                    fallback={() => lilacLogoAlt}
-                    loading={() => lilacLogoAlt}
                     svgClassName="navbar-logo"
                   />
                 )}

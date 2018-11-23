@@ -71,7 +71,7 @@ class BlogSection extends React.Component {
           <div className="col-12 py-4 d-sm-block d-md-none">
             <div className="container">{sectionTitle}</div>
           </div>
-          <div className="col-12 col-md-6">
+          <div className="col-12 col-md-5">
             <div
               className="blog-section-header"
               style={{
@@ -80,23 +80,21 @@ class BlogSection extends React.Component {
               }}
             />
           </div>
-          <div className="col-12 col-md-6">
-            <PageSection>
-              <div className="blog-section-content container">
-                <div className="pb-4 d-none d-md-block">{sectionTitle}</div>
-                <h3 className="blog-section-title">{latestPost.title}</h3>
-                <h5>{latestPost.subtitle}</h5>
-                <Markdown
-                  className="markdown-content"
-                  source={latestPost.content
-                    .split('')
-                    .splice(0, 150)
-                    .join('')
-                    .concat('...')}
-                />
-                <Link to={`/blog/${path}`}>Read More &gt;</Link>
-              </div>
-            </PageSection>
+          <div className="col-12 col-md-7">
+            <div className="blog-section-content container">
+              <div className="pb-4 d-none d-md-block">{sectionTitle}</div>
+              <h2 className="blog-section-title">{latestPost.title}</h2>
+              <h3 className="blog-section-subtitle">{latestPost.subtitle}</h3>
+              <Markdown
+                className="markdown-content"
+                source={latestPost.content
+                  .split('')
+                  .splice(0, 150)
+                  .join('')
+                  .concat('...')}
+              />
+              <Link to={`/blog/${path}`}>Read More &gt;</Link>
+            </div>
           </div>
         </div>
       </div>
