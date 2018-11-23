@@ -3,6 +3,7 @@
 import initialState from '../initialState';
 
 import {
+    LOAD_LILAC_LOGO_SUCCESS,
     LOAD_PLACEHOLDER_SUCCESS,
     LOAD_HEADER_IMAGE_SUCCESS,
     LOAD_SOCIALS_SUCCESS,
@@ -13,6 +14,13 @@ import {
 // Base app reducer
 export default function baseReducer(state = initialState.base, action) {
     switch (action.type) {
+
+        // Successful lilac logo load type
+        case LOAD_LILAC_LOGO_SUCCESS:
+            return {
+                ...state,
+                lilacLogo: action.lilacLogo
+            };
 
         // Successful placeholder image load type
         case LOAD_PLACEHOLDER_SUCCESS:

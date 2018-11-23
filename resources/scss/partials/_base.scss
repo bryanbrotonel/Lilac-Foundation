@@ -6,6 +6,11 @@
     box-sizing: border-box;
 }
 
+// Svg colouring
+svg {
+    fill: currentColor;
+}
+
 // Horizontal vertical center elements
 .hv-center {
     align-items: center;
@@ -15,7 +20,7 @@
 
 // Vertical center elements
 .v-center {
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     justify-content: center;
 }

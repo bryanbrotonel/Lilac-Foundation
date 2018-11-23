@@ -2,6 +2,7 @@
 
 // Import Redux base types
 import {
+    LOAD_LILAC_LOGO_SUCCESS,
     LOAD_ABOUT_ITEMS_SUCCESS,
     LOAD_PLACEHOLDER_SUCCESS,
     LOAD_HEADER_IMAGE_SUCCESS,
@@ -10,6 +11,14 @@ import {
 } from './types';
 
 // Action that returns successfully retreived socials
+export function loadLilacLogoSuccess(lilacLogo) {
+    return {
+        type: LOAD_LILAC_LOGO_SUCCESS,
+        lilacLogo
+    }
+}
+
+// Action that rsuccessfully eturns retreived socials
 export function loadAboutItemsSuccess(aboutItems) {
     return {
         type: LOAD_ABOUT_ITEMS_SUCCESS,
@@ -17,7 +26,7 @@ export function loadAboutItemsSuccess(aboutItems) {
     }
 }
 
-// Action that returns the successfully loaded header image
+// Action that successfully returns loaded header image
 export function loadPlaceholderImageSuccess(placeholderImage) {
     return {
         type: LOAD_PLACEHOLDER_SUCCESS,
@@ -25,7 +34,7 @@ export function loadPlaceholderImageSuccess(placeholderImage) {
     };
 }
 
-// Action that returns the successfully loaded header image
+// Action that successfully returns loaded header image
 export function loadHeaderImageSuccess(headerImage) {
     return {
         type: LOAD_HEADER_IMAGE_SUCCESS,
@@ -33,7 +42,7 @@ export function loadHeaderImageSuccess(headerImage) {
     };
 }
 
-// Action that returns successfully retreived socials
+// Action that successfully returns retreived socials
 export function loadSocialsSuccess(socials) {
     return {
         type: LOAD_SOCIALS_SUCCESS,
@@ -41,7 +50,7 @@ export function loadSocialsSuccess(socials) {
     };
 }
 
-// Action that returns successfully retreived socials
+// Action that successfully returns retreived socials
 export function loadFooterBlurbSuccess(footerBlurb) {
     return {
         type: LOAD_FOOTER_BLURB_SUCCESS,

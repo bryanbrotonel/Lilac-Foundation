@@ -7,6 +7,14 @@ const contentClient = contentful.createClient({
     accessToken: '788382ad2aed44f757676fb78d448b35e5633b7c2f3ca1bb456eec2c587c5231'
 });
 
+// Loads liac logo
+export function loadLilacLogo() {
+    return dispatch => {
+        return contentClient.getAsset('11JMH7ZEbGUK20s0YcIWIU').then((asset) =>
+            dispatch(actions.loadLilacLogoSuccess(asset.fields.file.url))).catch(error => console.log(error));
+    }
+}
+
 // Loads header image with id
 export function loadPlaceholderImage() {
     return dispatch => {

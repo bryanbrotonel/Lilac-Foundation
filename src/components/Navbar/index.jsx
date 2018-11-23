@@ -1,11 +1,30 @@
 import React from 'react';
 import propTypes from 'prop-types';
 
+import { connect } from 'react-redux';
+import { loadLilacLogo } from '../../store/base/base';
+
 import { NavLink } from 'react-router-dom';
 import { slide as Menu } from 'react-burger-menu';
+import ReactSVG from 'react-svg';
+
 import DonateButton from '../Donate Button';
 
 import './styles.scss';
+
+// Maps Redux dispatch actions to props
+const mapDispatchToProps = dispatch => {
+  return {
+    loadLilacLogo: () => {
+      dispatch(loadLilacLogo());
+    }
+  };
+};
+
+// Maps Redux state to props
+function mapStateToProps(state) {
+  return { base: state.base };
+}
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -14,6 +33,13 @@ class Navbar extends React.Component {
       pages: ['home', 'projects', 'blog', 'team', 'about'],
       menuOpen: false
     };
+  }
+
+  componentDidMount() {
+    const { loadLilacLogo } = this.props;
+
+    // Dispatches headerImage()
+    loadLilacLogo();
   }
 
   // Burger menu on state change
@@ -33,6 +59,14 @@ class Navbar extends React.Component {
 
   render() {
     const { pages, menuOpen } = this.state;
+    const { base } = this.props;
+
+    if (base.lilacLogo) {
+      var lilacLogo = base.lilacLogo;
+      var lilacLogoAlt = (
+        <span className="navbar-logo">The Lilac Foundation</span>
+      );
+    }
 
     // Mobile navbar links
     const mobileNavLinks = pages.map(page => {
@@ -78,21 +112,27 @@ class Navbar extends React.Component {
         </Menu>
         <div className="container-fluid">
           <div className="row w-100 mx-auto">
-            <div className="col-10 col-md-4">
+            <div className="col-10 col-md-4 v-center">
               <a className="navbar-brand mr-auto mr-md-0" href="#">
-                <img
-                  src="https://bulma.io/images/bulma-logo.png"
-                  alt="Bulma: a modern CSS framework based on Flexbox"
-                  width="112"
-                  height="28"
-                />
+                {!lilacLogo ? (
+                  lilacLogoAlt
+                ) : (
+                  <ReactSVG
+                    src={lilacLogo}
+                    fallback={() => lilacLogoAlt}
+                    loading={() => lilacLogoAlt}
+                    svgClassName="navbar-logo"
+                  />
+                )}
               </a>
             </div>
-            <div className="col-4 offcanvas-collapse d-none d-md-flex">
+            <div className="col-4 offcanvas-collapse v-center d-none d-md-flex">
               <ul className="navbar-nav mx-auto">{desktopNavLinks}</ul>
             </div>
-            <div className="col-4 text-right d-none d-md-block">
-              <DonateButton className="btn-primary" />
+            <div className="col-4 text-right v-center d-none d-md-block">
+              <div>
+                <DonateButton className="btn-primary" />
+              </div>
             </div>
             <div className="col-2 hv-center">
               <button
@@ -111,8 +151,13 @@ class Navbar extends React.Component {
 }
 
 Navbar.propTypes = {
+  loadLilacLogo: propTypes.func,
+  base: propTypes.object,
   logo: propTypes.string,
   pages: propTypes.array
 };
 
-export default Navbar;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Navbar);

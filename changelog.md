@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 0.0.3
 
+### 2018-11-23
+
+####
+- Retereived lilac logo from [Contentful](https://www.contentful.com/)
+- Added [react-svg](https://github.com/tanem/react-svg) to project dependecies
+- Added navbar logo layout and styling
+
 ### 2018-11-21
 
 #### Added
