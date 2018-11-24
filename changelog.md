@@ -21,6 +21,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added share functionality to project and blog post
 - Added `hoverZoomIcon` and `v-center` mixins
 
+#### Removed
+- Team home section component
+- Unused colours
+- Unused colour background image mixin
+
 ### 2018-11-21
 
 #### Added
