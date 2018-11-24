@@ -99,7 +99,7 @@ class Navbar extends React.Component {
     });
 
     return (
-      <nav id="navbar" className="navbar navbar-light navbar-expand-md">
+      <nav id="navbar" className="navbar navbar-expand-md">
         <Menu
           isOpen={menuOpen}
           onStateChange={state => this.handleStateChange(state)}
@@ -111,26 +111,23 @@ class Navbar extends React.Component {
           {mobileNavLinks}
         </Menu>
         <div className="container-fluid">
-          <div className="row w-100 mx-auto">
-            <div className="col-10 col-md-4 v-center">
+          <div className="navbar-row row">
+            <div className="col-10 col-md-2">
               <a className="navbar-brand mr-auto mr-md-0" href="#">
                 {!lilacLogo ? (
                   lilacLogoAlt
                 ) : (
-                  <ReactSVG
-                    src={lilacLogo}
-                    svgClassName="navbar-logo"
-                  />
+                  <ReactSVG src={lilacLogo} svgClassName="navbar-logo" />
                 )}
               </a>
             </div>
-            <div className="col-4 offcanvas-collapse v-center d-none d-md-flex">
+            <div className="col-8 offcanvas-collapse d-none d-md-flex">
               <ul className="navbar-nav mx-auto">{desktopNavLinks}</ul>
             </div>
-            <div className="col-4 text-right v-center d-none d-md-block">
-              <div>
+            <div className="col-2 text-right d-none d-md-block">
+            <div>
                 <DonateButton className="btn-primary" />
-              </div>
+            </div>
             </div>
             <div className="col-2 hv-center">
               <button

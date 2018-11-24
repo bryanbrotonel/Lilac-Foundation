@@ -7,6 +7,8 @@ import moment from 'moment';
 
 import { loadProjectPost } from '../../store/projects/projects';
 
+import ShareItem from '../../components/Share Item';
+
 import './styles.scss';
 
 // Maps Redux dispatch actions to props
@@ -60,6 +62,11 @@ class ProjectPost extends React.Component {
               </p>
               <Markdown className="markdown-content" source={content} />
             </div>
+          </div>
+        </div>
+        <div className="row justify-content-center">
+          <div className="col-12 col-md-4 pb-5">
+            <ShareItem pageTitle={title} />
           </div>
         </div>
       </div>

@@ -9,11 +9,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### 2018-11-23
 
-####
+#### Added
 - Retereived lilac logo from [Contentful](https://www.contentful.com/)
 - Added [react-svg](https://github.com/tanem/react-svg) to project dependecies
 - Added navbar logo layout and styling
 - Blog home page section styling
+- Added new [Fontawesome](https://fontawesome.com/) icons
+  - Social media iccons
+  - Heart icon for footer
+- Created new share item row component
+- Added share functionality to project and blog post
+- Added `hoverZoomIcon` and `v-center` mixins
 
 ### 2018-11-21
 

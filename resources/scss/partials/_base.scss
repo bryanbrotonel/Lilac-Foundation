@@ -20,9 +20,7 @@ svg {
 
 // Vertical center elements
 .v-center {
-    display: flex !important;
-    flex-direction: column;
-    justify-content: center;
+    @include v-center();
 }
 
 // Horizontal center elements

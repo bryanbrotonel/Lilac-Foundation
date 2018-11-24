@@ -5,12 +5,13 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import * as Markdown from 'react-markdown';
-
-import { Loader } from '../../components/Loader';
 import { loadBlogPost } from '../../store/blog/blog';
 
-import './styles.scss';
+import { Loader } from '../../components/Loader';
 import PageHeader from '../../components/Page Header';
+import ShareItem from '../../components/Share Item';
+
+import './styles.scss';
 
 // Maps Redux dispatch actions to props
 const mapDispatchToProps = dispatch => {
@@ -45,7 +46,9 @@ class BlogPost extends React.Component {
 
   render() {
     const { post } = this.props;
-    const { headerImage, date, title, subtitle, content, author } = post;    
+    const { headerImage, date, title, subtitle, content, author } = post;
+
+    const sharingSocials = ['facebook', 'twitter', 'mail'];
 
     return post.length !== 0 ? (
       <React.Fragment>
@@ -65,15 +68,25 @@ class BlogPost extends React.Component {
           </div>
         </PageHeader>
 
-        <div className="blog-post-wrapper">
+        <div className="blog-post-wrapper container">
           <div className="row no-gutters justify-content-center">
-            <div className="col-md-8 col-lg-6">
-              <div className="container">
-                <Markdown className="markdown-content blog-post-content" source={content} />
-              </div>
+            <div className="col-md-8 col-lg-7">
+              <Markdown
+                className="markdown-content blog-post-content"
+                source={content}
+              />
             </div>
-            <div className="back-to-blog col-12">
-              <Link to="/blog">Back to Blog</Link>
+          </div>
+          <div className="row">
+            <div className="col-12 col-md-4 container text-center">
+              <div className="pt-4">
+                <ShareItem pageTitle={title} />
+              </div>
+              <div className="py-4">
+                <Link className="text-muted" to="/blog">
+                  Back to Blog
+                </Link>
+              </div>
             </div>
           </div>
         </div>

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { loadFooterBlurb, loadSocialMedia } from '../../store/base/base';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DonateButton from '../Donate Button';
 
 import './styles.scss';
@@ -101,15 +102,19 @@ class Footer extends React.Component {
             </div>
           </div>
           <div className="footer-credit">
-            Made with <span className="heart">❤</span> by&#160;
-            <a
-              href="https://bryanbrotonel.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="credit-link"
-            >
-              Bryan Brotonel
-            </a>
+            <span>
+              Made with&#160;
+              <FontAwesomeIcon icon="heart" size="sm" className="heart" />{' '}
+              by&#160;
+              <a
+                href="https://bryanbrotonel.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="credit-link"
+              >
+                Bryan Brotonel
+              </a>
+            </span>
           </div>
         </footer>
       </div>

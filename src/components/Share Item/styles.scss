@@ -1,0 +1,7 @@
+@import 'resources/scss/modules/colours';
+@import 'resources/scss/modules/figures';
+
+.share-icon {
+    color: $primary-dark;
+    @include hoverZoomIcon(1.15);
+}

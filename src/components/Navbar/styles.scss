@@ -1,5 +1,6 @@
 @import 'resources/scss/modules/typography';
 @import 'resources/scss/modules/colours';
+@import 'resources/scss/modules/figures';
 
 $text-colour: $black;
 
@@ -13,27 +14,30 @@ $text-colour: $black;
 
 // Navbar logo styling
 .navbar-logo {
-    $transiton: 0.1s;
+    // $transiton: 0.1s;
 
     object-fit: contain;
     height: 60px;
     width: 60px;
-
-    -moz-transition: all $transiton;
-    -webkit-transition: all $transiton;
-    transition: all $transiton;
+    @include hoverZoomIcon();
 }
 
-.navbar-logo:hover {
-
-    $transform: 1.05;
-
-    -moz-transform: scale($transform);
-    -webkit-transform: scale($transform);
-    transform: scale($transform);
+// Navbar desktop row spacing
+.navbar-row {
+    width: 100%;
+    margin-right: auto !important;
+    margin-left: auto !important;
 }
 
-.custom-toggler .navbar-toggler-icon {
+// Navbar desktop row spacing
+@media (min-width: 768px) {
+    .navbar-row>div[class*="col-"] {
+        @include v-center();
+    }
+}
+
+// Navbar toggler colouring
+.navbar-toggler-icon {
     @include navbar-toggler-icon($white);
 }
 
