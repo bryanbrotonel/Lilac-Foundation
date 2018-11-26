@@ -14,13 +14,19 @@ $text-colour: $black;
 
 // Navbar logo styling
 .navbar-logo {
-    // $transiton: 0.1s;
-
     object-fit: contain;
-    height: 60px;
-    width: 60px;
+    height: 40px;
+    width: 40px;
     @include hoverZoomIcon();
 }
+
+@media (min-width: 768px) {
+    .navbar-logo {
+        height: 50px;
+        width: 50px;
+    }
+}
+
 
 // Navbar desktop row spacing
 .navbar-row {

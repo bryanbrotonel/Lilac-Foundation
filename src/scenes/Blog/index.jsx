@@ -125,7 +125,7 @@ class Blog extends React.Component {
                   <BlogListItem key={i} {...fields} {...sys} />
                 ))
               )}
-              <div className="text-center pb-4">
+              <div className="text-center pb-3">
                 <Pagination
                   totalItems={posts.length}
                   pageLimit={6}

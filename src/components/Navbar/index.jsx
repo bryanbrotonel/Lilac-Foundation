@@ -99,7 +99,7 @@ class Navbar extends React.Component {
     });
 
     return (
-      <nav id="navbar" className="navbar navbar-expand-md">
+      <nav id="navbar" className="navbar navbar-expand-md navbar-light">
         <Menu
           isOpen={menuOpen}
           onStateChange={state => this.handleStateChange(state)}

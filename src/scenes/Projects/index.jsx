@@ -100,7 +100,7 @@ class Projects extends React.Component {
               </div>
               <div className="row future-projects-section">
                 <div className="col-12 text-center">
-                  <h3 className="projects-section-title">Future Projects</h3>
+                  <h2 className="projects-section-title">Future Projects</h2>
                 </div>
                 {// Future projects mapping
                 futureProjects.map(({ fields, sys }, i) => (

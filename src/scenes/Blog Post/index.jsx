@@ -84,7 +84,7 @@ class BlogPost extends React.Component {
               </div>
               <div className="py-4">
                 <Link className="text-muted" to="/blog">
-                  Back to Blog
+                  More Blog Posts
                 </Link>
               </div>
             </div>

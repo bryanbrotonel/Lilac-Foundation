@@ -2,6 +2,7 @@ import React from 'react';
 import Proptypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import { Link } from 'react-router-dom';
 import * as Markdown from 'react-markdown';
 import moment from 'moment';
 
@@ -64,9 +65,16 @@ class ProjectPost extends React.Component {
             </div>
           </div>
         </div>
-        <div className="row justify-content-center">
-          <div className="col-12 col-md-4 pb-5">
-            <ShareItem pageTitle={title} />
+        <div className="row">
+          <div className="col-12 col-md-4 container text-center">
+            <div className="pt-4">
+              <ShareItem pageTitle={title} />
+            </div>
+            <div className="py-4">
+              <Link className="text-muted" to="/projects">
+                More Projects
+              </Link>
+            </div>
           </div>
         </div>
       </div>

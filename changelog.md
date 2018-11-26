@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 0.0.3
 
+### 2018-11-26
+
+#### Added
+- Shell touch ups
+- Improved blog post component folder structuring
+
 ### 2018-11-23
 
 #### Added
