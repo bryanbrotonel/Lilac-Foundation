@@ -16,18 +16,26 @@
 
 // Page header neighbour margin for page header visibility
 .page-header+div {
+    padding-top: 2rem;
     margin-top: calc(40vh - 80px);
-}
-
-// Page subtitle text colour
-.page-header h6 {
-    color: $text;
 }
 
 // Page header heading row width and height
 .page-header .heading {
     width: 100% !important;
     height: 100% !important;
+}
+
+// Medium device list styling
+@media (min-width: 768px) {
+    .page-header {
+        height: 50vh;
+    }
+
+    .page-header+div {
+        margin-top: calc(50vh - 80px);
+
+    }
 }
 
 // Heading z-index
@@ -43,15 +51,4 @@
 
 .heading-content *:last-child {
     margin: 0 auto;
-}
-
-// Medium device list styling
-@media (min-width: 768px) {
-    .page-header {
-        height: 50vh;
-    }
-
-    .page-header+div {
-        margin-top: 50vh;
-    }
 }

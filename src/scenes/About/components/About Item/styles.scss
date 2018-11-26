@@ -29,7 +29,7 @@
     z-index: 1;
 }
 
-@media only screen and (min-width: 720px) {
+@media (min-width: 768px) {
     // Medium screen about dot styling
     .about-dot {
         width: 40px;
@@ -64,7 +64,7 @@
 }
 
 // Medium screen stylings
-@media only screen and (min-width: 720px) {
+@media (min-width: 768px) {
 
     // About wrapper styling
     .about-wrapper {

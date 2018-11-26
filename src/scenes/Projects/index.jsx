@@ -10,6 +10,7 @@ import {
 
 import PageHeader from '../../components/Page Header';
 import { Loader } from '../../components/Loader';
+import ScrollReveal from '../../components/Scroll Reveal';
 import CurrentProjectItem from './components/Current Project Item';
 import FutureProjectItem from './components/Future Project Item';
 
@@ -24,8 +25,8 @@ const mapDispatchToProps = dispatch => {
     loadFutureProjects: () => {
       dispatch(loadFutureProjects());
     },
-    loadHeaderImage: () => {
-      dispatch(loadHeaderImage('2iuUpTaObaSCw0kcya8Ci'));
+    loadHeaderImage: photoID => {
+      dispatch(loadHeaderImage(photoID));
     }
   };
 };
@@ -50,7 +51,7 @@ class Projects extends React.Component {
     } = this.props;
 
     // Dispatches headerImage()
-    loadHeaderImage();
+    loadHeaderImage('1rod766IpGKmKQCWGKOeQc');
 
     // Dispatches loadCurrentProjects()
     loadCurrentProjects();
@@ -63,6 +64,16 @@ class Projects extends React.Component {
     const { loading, currentProjects, futureProjects } = this.props.projects;
 
     const { headerImage } = this.props.base;
+
+    // Scroll reveal config
+    const revealConfig = {
+      origin: 'bottom',
+      duration: 1000,
+      delay: 500,
+      distance: '25px',
+      scale: 1,
+      easing: 'ease-out'
+    };
 
     return (
       <div className="bg-gray">
@@ -81,13 +92,15 @@ class Projects extends React.Component {
                 {// Current projects mapping
                 currentProjects.map(({ fields, sys }, i) => (
                   <div className="col-12 col-lg-6 mb-3 mb-lg-0" key={i}>
-                    <CurrentProjectItem {...fields} {...sys} />
+                    <ScrollReveal config={revealConfig}>
+                      <CurrentProjectItem {...fields} {...sys} />
+                    </ScrollReveal>
                   </div>
                 ))}
               </div>
               <div className="row future-projects-section">
                 <div className="col-12 text-center">
-                  <h3 className="projects-section-title">Future Projects</h3>
+                  <h2 className="projects-section-title">Future Projects</h2>
                 </div>
                 {// Future projects mapping
                 futureProjects.map(({ fields, sys }, i) => (

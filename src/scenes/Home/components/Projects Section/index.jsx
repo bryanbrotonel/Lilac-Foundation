@@ -8,6 +8,8 @@ import PageSection from '../../../../components/Page Section';
 import PageItem from '../../../../components/Page Item';
 import ScrollReveal from '../../../../components/Scroll Reveal';
 
+import './styles.scss';
+
 // Maps Redux dispatch actions to props
 const mapDispatchToProps = dispatch => {
   return {
@@ -59,7 +61,7 @@ class ProjectsSection extends React.Component {
         const path = this.createURL`${title}${id}`;
 
         return (
-          <div key={id} className="col-12 col-md-6 mb-3">
+          <div key={id} className="project-section-item col-12 col-md-6">
             <ScrollReveal config={revealConfig}>
               <PageItem
                 path={`/projects/${path}`}

@@ -40,6 +40,7 @@ class BlogListItem extends React.Component {
             <h3 className="blog-list-title">{title}</h3>
             <h4 className="blog-list-subtitle">{subtitle}</h4>
             <Markdown
+            className="markdown-snippet"
               source={content
                 .split('')
                 .splice(0, 130)

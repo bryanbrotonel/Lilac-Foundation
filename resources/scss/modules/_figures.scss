@@ -38,3 +38,23 @@
         }
     }
 }
+
+@mixin hoverZoomIcon($scale: 1.05, $transition: 0.2s) {
+
+    -moz-transition: all $transition;
+    -webkit-transition: all $transition;
+    transition: all $transition;
+
+    &:hover {
+        -moz-transform: scale($scale);
+        -webkit-transform: scale($scale);
+        transform: scale($scale);
+    }
+}
+
+// Vertical center elements
+@mixin v-center() {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+}

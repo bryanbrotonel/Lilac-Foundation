@@ -16,11 +16,11 @@ import './styles.scss';
 // Maps Redux dispatch actions to props
 const mapDispatchToProps = dispatch => {
   return {
+    loadHeaderImage: photoID => {
+      dispatch(loadHeaderImage(photoID));
+    },
     loadBlog: () => {
       dispatch(loadBlog());
-    },
-    loadHeaderImage: () => {
-      dispatch(loadHeaderImage('6zLfKvDvY4OkAiAm4SSam0'));
     }
   };
 };
@@ -50,14 +50,13 @@ class Blog extends React.Component {
     const { loadHeaderImage, loadBlog } = this.props;
 
     // Dispatches headerImage()
-    loadHeaderImage();
+    loadHeaderImage('5gEc5LhPBuaSMAOGSg4ucC');
 
     // Dispatches loadBlog()
     loadBlog();
   }
 
-  displayBlog() {
-  }
+  displayBlog() {}
 
   // Toggle blog grid display
   toggleDisplay() {
@@ -126,7 +125,7 @@ class Blog extends React.Component {
                   <BlogListItem key={i} {...fields} {...sys} />
                 ))
               )}
-              <div className="text-center pb-4">
+              <div className="text-center pb-3">
                 <Pagination
                   totalItems={posts.length}
                   pageLimit={6}

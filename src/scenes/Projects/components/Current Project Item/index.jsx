@@ -11,7 +11,7 @@ import './styles.scss';
 const mapDispatchToProps = dispatch => {
   return {
     loadPlaceholderImage: () => {
-      dispatch(loadPlaceholderImage('3P1CE0NLf2IyGeCA2KSQOU'));
+      dispatch(loadPlaceholderImage());
     }
   };
 };

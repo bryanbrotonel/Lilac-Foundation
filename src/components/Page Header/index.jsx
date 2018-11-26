@@ -6,12 +6,14 @@ import './styles.scss';
 class PageHeader extends React.Component {
   // Changes navbar colour upon component mount
   componentDidMount() {
+    document.getElementById('navbar').classList.remove('navbar-light');
     document.getElementById('navbar').classList.add('navbar-dark');
   }
 
   // Resets navbar colour upon component unmount
   componentWillUnmount() {
     document.getElementById('navbar').classList.remove('navbar-dark');
+    document.getElementById('navbar').classList.add('navbar-light');
   }
 
   render() {

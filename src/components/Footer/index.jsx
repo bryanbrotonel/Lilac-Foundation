@@ -3,20 +3,26 @@ import Proptypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import { connect } from 'react-redux';
-import { loadSocialMedia } from '../../store/base/base';
+import { loadFooterBlurb, loadSocialMedia } from '../../store/base/base';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DonateButton from '../Donate Button';
 
 import './styles.scss';
 
+// Maps Redux dispatch actions to props
 const mapDispatchToProps = dispatch => {
   return {
+    loadFooterBlurb: () => {
+      dispatch(loadFooterBlurb('6KzSyVjmeWmq6weOe2AWsS'));
+    },
     loadSocialMedia: () => {
       dispatch(loadSocialMedia('2umAjY8tMEQuOIYUmii08Y'));
     }
   };
 };
 
+// Maps Redux state to props
 const mapStateToProps = state => {
   return { base: state.base };
 };
@@ -34,7 +40,10 @@ class Footer extends React.Component {
   }
 
   componentDidMount() {
-    const { loadSocialMedia } = this.props;
+    const { loadFooterBlurb, loadSocialMedia } = this.props;
+
+    // Dispatch loadFooterBlurb()
+    loadFooterBlurb();
 
     // Dispatch loadSocialMedia()
     loadSocialMedia();
@@ -42,7 +51,15 @@ class Footer extends React.Component {
 
   render() {
     const { pages } = this.state;
-    const { socials } = this.props.base;
+    const { footerBlurb, socials } = this.props.base;
+
+    // Format footer blurb
+    if (footerBlurb.length !== 0) {
+      const { blurbTitle, blurbContent } = footerBlurb;
+
+      var footerTitle = blurbTitle;
+      var footerBlurbContent = blurbContent;
+    }
 
     // Format footer page links
     const footerPageLinks = pages.map(page => {
@@ -79,27 +96,25 @@ class Footer extends React.Component {
             </div>
 
             <div className="col-12 col-md-4 text-left">
-              <h5>
-                <strong>The Lilac Foundation</strong>
-              </h5>
-              <p className="mb-2">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Distinctio pariatur excepturi voluptates aspernatur tempora
-                consectetur.
-              </p>
+              <h4 className="footer-title">{footerTitle}</h4>
+              <p className="mb-3">{footerBlurbContent}</p>
               <DonateButton className="btn-light" />
             </div>
           </div>
           <div className="footer-credit">
-            Made with <span className="heart">❤</span> by&#160;
-            <a
-              href="https://bryanbrotonel.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="credit-link"
-            >
-              Bryan Brotonel
-            </a>
+            <span>
+              Made with&#160;
+              <FontAwesomeIcon icon="heart" size="sm" className="heart" />{' '}
+              by&#160;
+              <a
+                href="https://bryanbrotonel.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="credit-link"
+              >
+                Bryan Brotonel
+              </a>
+            </span>
           </div>
         </footer>
       </div>
@@ -109,6 +124,7 @@ class Footer extends React.Component {
 
 Footer.Proptypes = {
   loadSocialMedia: Proptypes.func,
+  loadFooterBlurb: Proptypes.func,
   base: Proptypes.object
 };
 

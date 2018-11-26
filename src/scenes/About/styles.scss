@@ -3,8 +3,13 @@
 // About timeline spacing
 .about-timeline {
     position: relative;
-    padding: 7em 0;
-    margin-top: -80px;
+    padding: 7em 0 !important;
+}
+
+@media (min-width: 768px) {
+    .about-timeline {
+        margin-top: calc(50vh - 80px) !important;
+    }
 }
 
 // About timeline line
@@ -20,7 +25,8 @@
 }
 
 // About timeline line
-@media only screen and (min-width: 720px) {
+@media (min-width: 768px) {
+
     .about-timeline::before {
         left: 50%;
         margin-left: -2px;

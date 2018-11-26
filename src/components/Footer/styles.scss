@@ -12,11 +12,6 @@
     margin-right: 1rem !important;
 }
 
-// Footer Typography
-.footer .svg-inline--fa {
-    font-size: 2rem !important;
-}
-
 // Footer widget list
 .footer-widget ul li {
     font-weight: 550;
@@ -30,6 +25,12 @@
 // Footer widget list items padding
 .footer-widget ul li:not(:last-child) {
     padding-bottom: .75rem;
+}
+
+// Footer title font weight
+.footer-title {
+    font-weight: bold;
+    margin-top: 0;
 }
 
 // Footer credit spacing

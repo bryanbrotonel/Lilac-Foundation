@@ -7,6 +7,39 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 0.0.3
 
+### 2018-11-26
+
+#### Added
+- Shell touch ups
+- Improved blog post component folder structuring
+
+### 2018-11-23
+
+#### Added
+- Retereived lilac logo from [Contentful](https://www.contentful.com/)
+- Added [react-svg](https://github.com/tanem/react-svg) to project dependecies
+- Added navbar logo layout and styling
+- Blog home page section styling
+- Added new [Fontawesome](https://fontawesome.com/) icons
+  - Social media iccons
+  - Heart icon for footer
+- Created new share item row component
+- Added share functionality to project and blog post
+- Added `hoverZoomIcon` and `v-center` mixins
+
+#### Removed
+- Team home section component
+- Unused colours
+- Unused colour background image mixin
+
+### 2018-11-21
+
+#### Added
+- Implemented navbar hamburger button styling
+- Implemented fluid responsive typography
+- Edited element margins and padding
+- Updated project post to more reasonable layout
+
 ### 2018-11-20
 
 #### Added
@@ -15,10 +48,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added [Animate.css](https://daneden.github.io/animate.css/) to project dependecies
 - Added [ScrollReveal.js](https://scrollrevealjs.org) to project dependecies
 - Added scroll reveal to project home section
+- Switched header image thunks from blog [Contentful](https://www.contentful.com/) client to website content [Contentful](https://www.contentful.com/) client
+- Connected footer blurb to website content [Contentful](https://www.contentful.com/) client
+- Added [ScrollReveal.js](https://scrollrevealjs.org) throughout project where necessary
 
 #### Removed
 
 - Removed video header component
+- Removed unnecessary [Contentful](https://www.contentful.com/) client references
 
 ### 2018-11-19
 

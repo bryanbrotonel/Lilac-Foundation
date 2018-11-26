@@ -6,6 +6,11 @@
     box-sizing: border-box;
 }
 
+// Svg colouring
+svg {
+    fill: currentColor;
+}
+
 // Horizontal vertical center elements
 .hv-center {
     align-items: center;
@@ -15,9 +20,7 @@
 
 // Vertical center elements
 .v-center {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    @include v-center();
 }
 
 // Horizontal center elements
@@ -65,4 +68,17 @@
     -ms-user-select: none;
     /* Non-prefixed version, currently supported by Chrome and Opera */
     user-select: none;
+}
+
+.equal-height-row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.equal-height-row>[class*='col-'] {
+    display: flex;
+    flex-direction: column;
 }

@@ -1,17 +1,49 @@
 @import 'resources/scss/modules/typography';
 @import 'resources/scss/modules/colours';
+@import 'resources/scss/modules/figures';
 
 $text-colour: $black;
 
 // Navbar styling
 .navbar {
-    min-height: 80px;
+    height: 80px;
     font-family: $base-font;
     background-color: transparent !important;
     z-index: 3 !important;
 }
 
-.custom-toggler .navbar-toggler-icon {
+// Navbar logo styling
+.navbar-logo {
+    object-fit: contain;
+    height: 40px;
+    width: 40px;
+    @include hoverZoomIcon();
+}
+
+@media (min-width: 768px) {
+    .navbar-logo {
+        height: 50px;
+        width: 50px;
+    }
+}
+
+
+// Navbar desktop row spacing
+.navbar-row {
+    width: 100%;
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
+
+// Navbar desktop row spacing
+@media (min-width: 768px) {
+    .navbar-row>div[class*="col-"] {
+        @include v-center();
+    }
+}
+
+// Navbar toggler colouring
+.navbar-toggler-icon {
     @include navbar-toggler-icon($white);
 }
 
@@ -63,8 +95,23 @@ $text-colour: $black;
     right: 0;
 }
 
-.navbar-dark {
-    .navbar-nav .nav-link {
-        @include colouredLinks($white);
-    }
+// Light navbar styling
+.navbar-light .navbar-toggler {
+    color: rgba($black, .99) !important;
+    border-color: rgba($black, .99) !important;
+}
+
+// Light navbar styling
+.navbar-light .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='"+ rgba($black, 0.99) + "' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+}
+
+// Light navbar styling
+.navbar-dark .navbar-nav .nav-link {
+    @include colouredLinks($white);
+}
+
+// Light navbar styling
+.navbar-dark .navbar-logo {
+    color: $white;
 }

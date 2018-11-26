@@ -4,8 +4,3 @@
 .bg-gray {
     @include bg-colour($gray-100, $black);
 }
-
-// Background with tint
-.bg-primary-wallpaper {
-    @include bg-colour((linear-gradient($primary-tint, $primary-tint), url('https://source.unsplash.com/AEaTUnvneik/1600x1024') no-repeat center center / cover), $white);
-}
