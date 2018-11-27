@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { loadTeamMembers } from '../../store/team/team';
 
 import TeamMember from '../../components/Team Member';
-import { Loader } from '../../components/Loader';
+import Loader from '../../components/Loader';
 
 import './styles.scss';
 

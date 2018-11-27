@@ -6,6 +6,7 @@ import { loadDonateBlurb } from '../../../../store/home/home';
 
 import PageSection from '../../../../components/Page Section';
 import DonateButton from '../../../../components/Donate Button';
+import Loader from '../../../../components/Loader';
 
 import './styles.scss';
 
@@ -39,16 +40,19 @@ class MissionSection extends React.Component {
         <img src="https://source.unsplash.com/AEaTUnvneik/1600x1024" alt="" />
         <div className="caption hv-center">
           <div className="text-center  col-12 col-md-6">
-            {loading && !donateBlurb ? <h1 className="text-muted">
-                Loading...
-              </h1> : <React.Fragment>
+            {loading && !donateBlurb ? (
+              <Loader />
+            ) : (
+              <React.Fragment>
                 <h1>{donateBlurb.blurbTitle}</h1>
                 <p>{donateBlurb.blurbContent}</p>
                 <DonateButton className="btn-light" />
-              </React.Fragment>}
+              </React.Fragment>
+            )}
           </div>
         </div>
       </PageSection>
+    );
   }
 }
 

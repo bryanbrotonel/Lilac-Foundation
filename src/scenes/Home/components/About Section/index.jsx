@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 import { loadAboutBlurb } from '../../../../store/home/home';
 
+import Loader from '../../../../components/Loader';
 import PageSection from '../../../../components/Page Section';
 
 // Maps Redux dispatch actions to props
@@ -36,7 +37,7 @@ class AboutSection extends React.Component {
         <div className="container hv-center">
           <div className="text-center col-12 col-md-6">
             {loading && !aboutBlurb ? (
-              <h1 className="text-muted">Loading...</h1>
+              <Loader />
             ) : (
               <React.Fragment>
                 <h1>{aboutBlurb.blurbTitle}</h1>

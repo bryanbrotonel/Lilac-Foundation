@@ -9,7 +9,7 @@ import {
 } from '../../store/projects/projects';
 
 import PageHeader from '../../components/Page Header';
-import { Loader } from '../../components/Loader';
+import Loader from '../../components/Loader';
 import ScrollReveal from '../../components/Scroll Reveal';
 import CurrentProjectItem from './components/Current Project Item';
 import FutureProjectItem from './components/Future Project Item';

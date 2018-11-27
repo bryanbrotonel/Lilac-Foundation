@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { loadBlog } from '../../../../store/blog/blog';
 
 import PageSection from '../../../../components/Page Section';
-import { Loader } from '../../../../components/Loader';
+import Loader from '../../../../components/Loader';
 
 import './styles.scss';
 
@@ -71,7 +71,7 @@ class BlogSection extends React.Component {
           <div className="col-12 py-4 d-sm-block d-md-none">
             <div className="container">{sectionTitle}</div>
           </div>
-          <div className="col-12 col-md-5">
+          <div className="col-12 col-lg-5">
             <div
               className="blog-section-header"
               style={{
@@ -80,7 +80,7 @@ class BlogSection extends React.Component {
               }}
             />
           </div>
-          <div className="col-12 col-md-7">
+          <div className="col-12 col-lg-7">
             <div className="blog-section-content container">
               <div className="pb-4 d-none d-md-block">{sectionTitle}</div>
               <h2 className="blog-section-title">{latestPost.title}</h2>
