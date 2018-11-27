@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 #### Added
 - Loader styling
+- Mobile [React Burger Menu](http://negomi.github.io/react-burger-menu/) layout and styling
+- Desktop navbar stylng
 
 ### 2018-11-26
 

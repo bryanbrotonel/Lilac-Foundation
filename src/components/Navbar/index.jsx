@@ -4,10 +4,12 @@ import propTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { loadLilacLogo } from '../../store/base/base';
 
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { slide as Menu } from 'react-burger-menu';
 import ReactSVG from 'react-svg';
 
+import MobileNavLinks from './components/Mobile Nav Links';
+import DesktopNavLinks from './components/Desktop Nav Links';
 import DonateButton from '../Donate Button';
 
 import './styles.scss';
@@ -30,9 +32,11 @@ class Navbar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      pages: ['home', 'projects', 'blog', 'team', 'about'],
+      pages: ['projects', 'blog', 'team', 'about'],
       menuOpen: false
     };
+
+    this.closeMenu = this.closeMenu.bind(this);
   }
 
   componentDidMount() {
@@ -68,36 +72,6 @@ class Navbar extends React.Component {
       );
     }
 
-    // Mobile navbar links
-    const mobileNavLinks = pages.map(page => {
-      return (
-        <NavLink
-          key={page}
-          to={'/' + page}
-          activeStyle={{ fontWeight: 'bold' }}
-          className="nav-link mx-auto text-capitalize"
-          onClick={() => this.closeMenu()}
-        >
-          {page}
-        </NavLink>
-      );
-    });
-
-    // Desktop navbar links
-    const desktopNavLinks = pages.map(page => {
-      return (
-        <li key={page} className="nav-item">
-          <NavLink
-            to={'/' + page}
-            activeStyle={{ fontWeight: 'bold' }}
-            className="nav-link mx-auto text-capitalize"
-          >
-            {page}
-          </NavLink>
-        </li>
-      );
-    });
-
     return (
       <nav id="navbar" className="navbar navbar-expand-md navbar-light">
         <Menu
@@ -108,30 +82,47 @@ class Navbar extends React.Component {
           pageWrapId={'body'}
           outerContainerId={'app'}
         >
-          {mobileNavLinks}
-        </Menu>
-        <div className="container-fluid">
-          <div className="navbar-row row">
-            <div className="col-10 col-md-2">
-              <a className="navbar-brand mr-auto mr-md-0" href="#">
+          <div className="row text-center">
+            <div className="col-12">
+              <Link to="/">
                 {!lilacLogo ? (
                   lilacLogoAlt
                 ) : (
                   <ReactSVG src={lilacLogo} svgClassName="navbar-logo" />
                 )}
-              </a>
+              </Link>
+            </div>
+            <div className="col-12">
+              <ul className="navbar-nav mx-auto">
+                <MobileNavLinks pages={pages} closeMenu={this.closeMenu} />
+              </ul>
+            </div>
+          </div>
+        </Menu>
+        <div className="container-fluid">
+          <div className="navbar-row row">
+            <div className="col-10 col-md-2">
+              <Link to="/" className="navbar-brand mr-auto mr-md-0">
+                {!lilacLogo ? (
+                  lilacLogoAlt
+                ) : (
+                  <ReactSVG src={lilacLogo} svgClassName="navbar-logo" />
+                )}
+              </Link>
             </div>
             <div className="col-8 offcanvas-collapse d-none d-md-flex">
-              <ul className="navbar-nav mx-auto">{desktopNavLinks}</ul>
+              <ul className="navbar-nav mx-auto">
+                <DesktopNavLinks pages={pages} />
+              </ul>
             </div>
             <div className="col-2 text-right d-none d-md-block">
-            <div>
+              <div>
                 <DonateButton className="btn-primary" />
-            </div>
+              </div>
             </div>
             <div className="col-2 hv-center">
               <button
-                className="navbar-toggler p-0 border-0"
+                className="navbar-toggler p-2 border-0"
                 type="button"
                 onClick={() => this.toggleMenu()}
               >
