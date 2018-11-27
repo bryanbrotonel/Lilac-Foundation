@@ -99,19 +99,19 @@ class TeamMemberProfile extends React.Component {
           </div>
         ) : (
           <div className="container my-5">
-            <div className="row py-md-5 justify-content-center">
-              <div className="col-8 col-md-5 col-lg-4 mb-3 text-center">
-                <div className="member-info mb-3">
+            <div className="row pb-md-5 justify-content-center">
+              <div className="col-10 col-md-5 col-lg-4 text-center">
+                <div className="member-info">
                   <img
                     alt="image"
                     className="rounded-circle w-75"
                     src={teamMember.fields.profilePicture.fields.file.url}
                   />
                 </div>
-                <div className="d-md-none">{memberInfo}</div>
               </div>
-              <div className="col-12 col-md-7 col-lg-6">
-                <div className="d-none d-md-block">{memberInfo}</div>
+              <div className="col-12 d-lg-none text-center mb-3">{memberInfo}</div>
+              <div className="col-12 col-md-10 col-lg-6">
+                <div className="d-none d-lg-block">{memberInfo}</div>
                 <Markdown source={teamMember.fields.description} />
               </div>
               <div className="col-12 mb-3 text-center">

@@ -34,7 +34,8 @@ class MissionSection extends React.Component {
   render() {
     const { loading, donateBlurb } = this.props.home;
 
-    return <PageSection className="donate-section">
+    return (
+      <PageSection className="donate-section">
         <img src="https://source.unsplash.com/AEaTUnvneik/1600x1024" alt="" />
         <div className="caption hv-center">
           <div className="text-center  col-12 col-md-6">
@@ -47,7 +48,7 @@ class MissionSection extends React.Component {
               </React.Fragment>}
           </div>
         </div>
-      </PageSection>;
+      </PageSection>
   }
 }
 

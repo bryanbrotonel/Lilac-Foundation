@@ -1,5 +1,10 @@
 @import 'resources/scss/modules/colours';
 
+// Page header neighbour margin for page header visibility
+.page-header+div {
+    padding-top: 2rem;
+}
+
 // Heading text colours
 .heading * {
     color: $white !important;
@@ -8,11 +13,6 @@
 // Heaidng blog metadata typography styling
 .heading .meta {
     font-style: italic;
-}
-
-// Blog post content paragraph styling
-.blog-post-content p {
-    color: $blog-text !important
 }
 
 .back-to-blog {

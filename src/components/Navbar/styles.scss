@@ -15,18 +15,10 @@ $text-colour: $black;
 // Navbar logo styling
 .navbar-logo {
     object-fit: contain;
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
     @include hoverZoomIcon();
 }
-
-@media (min-width: 768px) {
-    .navbar-logo {
-        height: 50px;
-        width: 50px;
-    }
-}
-
 
 // Navbar desktop row spacing
 .navbar-row {

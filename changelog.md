@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Home masthead layout and styling
 - Added new figures partial
 - Styled about content typography
+- Finalized webpage spacing
 
 #### Removed
 - Unecessary [Redux](https://redux.js.org) action args
