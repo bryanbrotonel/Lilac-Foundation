@@ -10,8 +10,8 @@ import PageSection from '../../../../components/Page Section';
 // Maps Redux dispatch actions to props
 const mapDispatchToProps = dispatch => {
   return {
-    loadAboutBlurb: () => {
-      dispatch(loadAboutBlurb('1ug8aWyL1aAyqwewMEgiQU'));
+    loadAboutBlurb() {
+      dispatch(loadAboutBlurb());
     }
   };
 };
@@ -40,7 +40,7 @@ class AboutSection extends React.Component {
             ) : (
               <React.Fragment>
                 <h1>{aboutBlurb.blurbTitle}</h1>
-                <p>{aboutBlurb.blurbContent}</p>
+                <p className="text-muted">{aboutBlurb.blurbContent}</p>
                 <Link to="/about">Learn More</Link>
               </React.Fragment>
             )}

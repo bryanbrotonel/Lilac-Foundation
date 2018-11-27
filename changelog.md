@@ -12,8 +12,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 #### Added
 - Shell touch ups
 - Improved blog post component folder structuring
+- Added new TLF Crest [Redux](https://redux.js.org) thunk
+- Home masthead layout and styling
+- Added new figures partial
+- Styled about content typography
+
+#### Removed
+- Unecessary [Redux](https://redux.js.org) action args
 
 ### 2018-11-23
+
 
 #### Added
 - Retereived lilac logo from [Contentful](https://www.contentful.com/)

@@ -91,6 +91,11 @@
 }
 
 // About content typography styling
-.about-content {
+.about-content * {
     color: $white !important;
+}
+
+// Link hover styling
+.about-content a {
+    @include colouredLinks($white)
 }

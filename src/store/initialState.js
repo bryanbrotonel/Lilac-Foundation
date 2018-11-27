@@ -8,6 +8,7 @@ export default {
         placeholderImage: ''
     },
     home: {
+        TLFCrest: '',
         aboutBlurb: '',
         donateBlurb: '',
         loading: false

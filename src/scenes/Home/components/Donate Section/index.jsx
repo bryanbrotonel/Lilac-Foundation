@@ -12,8 +12,8 @@ import './styles.scss';
 // Maps Redux dispatch actions to props
 const mapDispatchToProps = dispatch => {
   return {
-    loadDonateBlurb: () => {
-      dispatch(loadDonateBlurb('32q3yAUuT6sYWiqAsiEyQE'));
+    loadDonateBlurb() {
+      dispatch(loadDonateBlurb());
     }
   };
 };
