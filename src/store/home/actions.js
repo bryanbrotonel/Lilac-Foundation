@@ -2,6 +2,7 @@
 
 import {
     HOME_CONTENT_LOADING,
+    LOAD_TLF_CREST_SUCCESS,
     LOAD_ABOUT_BLURB_SUCCESS,
     LOAD_DONATE_BLURB_SUCCESS
 } from "./types";
@@ -14,7 +15,15 @@ export function homeContentLoading(isLoading = true) {
     };
 }
 
-// Action that returns the successfully loaded about blurb
+// Action that successfully returns the TLF crest
+export function loadTLFCrestSuccess(TLFCrest) {
+    return {
+        type: LOAD_TLF_CREST_SUCCESS,
+        TLFCrest
+    }
+}
+
+// Action that successfully returns the loaded about blurb
 export function loadAboutBlurbSuccess(aboutBlurb) {
     return {
         type: LOAD_ABOUT_BLURB_SUCCESS,
@@ -22,7 +31,7 @@ export function loadAboutBlurbSuccess(aboutBlurb) {
     };
 }
 
-// Action that returns the successfully loaded about blurb
+// Action that successfully returns the loaded about blurb
 export function loadDonateBlurbSuccess(donateBlurb) {
     return {
         type: LOAD_DONATE_BLURB_SUCCESS,

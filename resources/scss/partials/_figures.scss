@@ -1,0 +1,8 @@
+// Animate.css fade in left transfrom orign
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(-5%, 0, 0);
+        transform: translate3d(-5%, 0, 0);
+    }
+}

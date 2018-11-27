@@ -66,7 +66,6 @@ a {
     @include colouredLinks($black)
 }
 
-
 // Blockquote font size styling
 blockquote {
     font-size: 1.125rem;
@@ -81,6 +80,10 @@ small,
 // Base font styling
 .base-font {
     font-family: $base-font !important;
+}
+
+.text-muted {
+    color: $text-dark !important;
 }
 
 .markdown-content p {

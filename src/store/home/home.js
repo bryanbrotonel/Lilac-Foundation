@@ -18,28 +18,44 @@ function loadingHomeContentError(dispatch, error) {
     dispatch(actions.homeContentLoading(false));
 }
 
-// Loads about blurb with id
-export function loadAboutBlurb(id) {
+export function loadTLFCrest() {
     return dispatch => {
+
+        const TLFCrestId = 'Y31mEdGqqaeUaIEyoIe6A';
 
         // Dispatches loading animation
         dispatch(actions.homeContentLoading());
 
-        return contentClient.getEntry(id).then((blurb) => {
-            dispatch(loadAboutBlurbSuccess(blurb.fields))
+        return contentClient.getAsset(TLFCrestId).then((asset) => {
+            dispatch(actions.loadTLFCrestSuccess(asset.fields.file.url))
         }).catch(error => loadingHomeContentError(dispatch, error));
     }
 }
 
-// Loads donate blurb with id
-export function loadDonateBlurb(id) {
+// Loads about blurb
+export function loadAboutBlurb() {
     return dispatch => {
+
+        const aboutBlurbId = '1ug8aWyL1aAyqwewMEgiQU';
 
         // Dispatches loading animation
         dispatch(actions.homeContentLoading());
 
-        return contentClient.getEntry(id).then((blurb) => {
-            dispatch(loadDonateBlurbSuccess(blurb.fields))
-        }).catch(error => loadingHomeContentError(dispatch, error));
+        return contentClient.getEntry(aboutBlurbId).then((blurb) =>
+            dispatch(loadAboutBlurbSuccess(blurb.fields))).catch(error => loadingHomeContentError(dispatch, error));
+    }
+}
+
+// Loads donate blurb
+export function loadDonateBlurb() {
+    return dispatch => {
+
+        const donateBlurbId = '32q3yAUuT6sYWiqAsiEyQE';
+
+        // Dispatches loading animation
+        dispatch(actions.homeContentLoading());
+
+        return contentClient.getEntry(donateBlurbId).then((blurb) =>
+            dispatch(loadDonateBlurbSuccess(blurb.fields))).catch(error => loadingHomeContentError(dispatch, error));
     }
 }

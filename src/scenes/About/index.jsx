@@ -50,7 +50,7 @@ class About extends React.Component {
             title={item.title}
             headerImage={item.headerImage.fields.file.url}
           >
-            <Markdown className="markdown-content" source={item.description} />
+            <Markdown className="about-content markdown-content" source={item.description} />
           </AboutItem>
         );
       });

@@ -3,6 +3,7 @@
 import initialState from '../initialState';
 import {
     HOME_CONTENT_LOADING,
+    LOAD_TLF_CREST_SUCCESS,
     LOAD_ABOUT_BLURB_SUCCESS,
     LOAD_DONATE_BLURB_SUCCESS
 } from './types';
@@ -17,7 +18,15 @@ export default function homeReducer(state = initialState.home, action) {
                 loading: action.isLoading
             };
 
-        // Successful about blurb loading type
+            // Successful about blurb loading type
+        case LOAD_TLF_CREST_SUCCESS:
+            return {
+                ...state,
+                TLFCrest: action.TLFCrest,
+                loading: false
+            };
+
+            // Successful about blurb loading type
         case LOAD_ABOUT_BLURB_SUCCESS:
             return {
                 ...state,
@@ -25,7 +34,7 @@ export default function homeReducer(state = initialState.home, action) {
                 loading: false
             };
 
-        // Successful donate blurb loading type
+            // Successful donate blurb loading type
         case LOAD_DONATE_BLURB_SUCCESS:
             return {
                 ...state,
@@ -33,7 +42,7 @@ export default function homeReducer(state = initialState.home, action) {
                 loading: false
             }
 
-        // Default case
+            // Default case
         default:
             return state;
     }
