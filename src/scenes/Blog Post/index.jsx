@@ -48,8 +48,6 @@ class BlogPost extends React.Component {
     const { post } = this.props;
     const { headerImage, date, title, subtitle, content, author } = post;
 
-    const sharingSocials = ['facebook', 'twitter', 'mail'];
-
     return post.length !== 0 ? (
       <React.Fragment>
         <PageHeader headerImage={headerImage.fields.file.url}>

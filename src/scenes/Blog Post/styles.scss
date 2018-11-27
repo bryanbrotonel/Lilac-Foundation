@@ -1,10 +1,5 @@
 @import 'resources/scss/modules/colours';
 
-// Page header neighbour margin for page header visibility
-.page-header+div {
-    padding-top: 2rem;
-}
-
 // Heading text colours
 .heading * {
     color: $white !important;

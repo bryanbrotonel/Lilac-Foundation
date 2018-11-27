@@ -66,6 +66,10 @@ a {
     @include colouredLinks($black)
 }
 
+.action-link {
+    @include colouredLinks($primary, $primary-dark)
+}
+
 // Blockquote font size styling
 blockquote {
     font-size: 1.125rem;

@@ -93,7 +93,7 @@ class BlogSection extends React.Component {
                   .join('')
                   .concat('...')}
               />
-              <Link to={`/blog/${path}`}>Read More &gt;</Link>
+              <Link to={`/blog/${path}`}>Read More</Link>
             </div>
           </div>
         </div>
