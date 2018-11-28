@@ -1,12 +1,14 @@
 import React from 'react';
 import Proptypes from 'prop-types';
+
 import { Link } from 'react-router-dom';
 import * as Markdown from 'react-markdown';
-import { connect } from 'react-redux';
-import { loadTeamMembers } from '../../store/team/team';
 
-import TeamMember from '../../components/Team Member';
-import Loader from '../../components/Loader';
+import { connect } from 'react-redux';
+import { loadTeamMembers } from 'store/team/team';
+
+import TeamMember from 'components/Team Member';
+import Loader from 'components/Loader';
 
 import './styles.scss';
 

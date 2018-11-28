@@ -1,12 +1,12 @@
 import React from 'react';
 import Proptypes from 'prop-types';
+
 import { connect } from 'react-redux';
+import { loadDonateBlurb } from 'store/home/home';
 
-import { loadDonateBlurb } from '../../../../store/home/home';
-
-import PageSection from '../../../../components/Page Section';
-import DonateButton from '../../../../components/Donate Button';
-import Loader from '../../../../components/Loader';
+import PageSection from 'components/Page Section';
+import DonateButton from 'components/Donate Button';
+import Loader from 'components/Loader';
 
 import './styles.scss';
 

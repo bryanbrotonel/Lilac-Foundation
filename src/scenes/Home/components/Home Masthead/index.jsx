@@ -2,10 +2,10 @@ import React from 'react';
 import Proptypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import { loadHeaderImage } from '../../../../store/base/base';
-import { loadTLFCrest } from '../../../../store/home/home';
+import { loadHeaderImage } from 'store/base/base';
+import { loadTLFCrest } from 'store/home/home';
 
-import DonateButton from '../../../../components/Donate Button';
+import DonateButton from 'components/Donate Button';
 
 import './styles.scss';
 

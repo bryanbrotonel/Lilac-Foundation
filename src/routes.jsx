@@ -1,14 +1,14 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
-import Home from './scenes/Home';
-import Blog from './scenes/Blog';
-import BlogPost from './scenes/Blog Post';
-import Team from './scenes/Team';
-import About from './scenes/About';
-import TeamMemberProfile from './scenes/Team Member Profile';
-import Projects from './scenes/Projects';
-import ProjectPost from './scenes/Project Post';
+import Home from 'scenes/Home';
+import Blog from 'scenes/Blog';
+import BlogPost from 'scenes/Blog Post';
+import Team from 'scenes/Team';
+import About from 'scenes/About';
+import TeamMemberProfile from 'scenes/Team Member Profile';
+import Projects from 'scenes/Projects';
+import ProjectPost from 'scenes/Project Post';
 
 const Routes = () => (
   <Switch>

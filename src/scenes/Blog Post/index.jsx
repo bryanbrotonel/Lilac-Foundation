@@ -1,15 +1,16 @@
 import React from 'react';
 import Proptypes from 'prop-types';
-import { connect } from 'react-redux';
 
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import * as Markdown from 'react-markdown';
-import { loadBlogPost } from '../../store/blog/blog';
 
-import Loader from '../../components/Loader';
-import PageHeader from '../../components/Page Header';
-import ShareItem from '../../components/Share Item';
+import { connect } from 'react-redux';
+import { loadBlogPost } from 'store/blog/blog';
+
+import Loader from 'components/Loader';
+import PageHeader from 'components/Page Header';
+import ShareItem from 'components/Share Item';
 
 import './styles.scss';
 

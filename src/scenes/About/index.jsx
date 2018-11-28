@@ -3,9 +3,9 @@ import Proptypes from 'prop-types';
 import * as Markdown from 'react-markdown';
 
 import { connect } from 'react-redux';
-import { loadHeaderImage, loadAboutItems } from '../../store/base/base';
+import { loadHeaderImage, loadAboutItems } from 'store/base/base';
 
-import PageHeader from '../../components/Page Header';
+import PageHeader from 'components/Page Header';
 import AboutItem from './components/About Item';
 
 import './styles.scss';

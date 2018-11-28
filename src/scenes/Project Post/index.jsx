@@ -1,14 +1,14 @@
 import React from 'react';
 import Proptypes from 'prop-types';
-import { connect } from 'react-redux';
 
 import { Link } from 'react-router-dom';
 import * as Markdown from 'react-markdown';
 import moment from 'moment';
 
-import { loadProjectPost } from '../../store/projects/projects';
+import { connect } from 'react-redux';
+import { loadProjectPost } from 'store/projects/projects';
 
-import ShareItem from '../../components/Share Item';
+import ShareItem from 'components/Share Item';
 
 import './styles.scss';
 

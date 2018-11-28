@@ -1,11 +1,7 @@
-import * as contentful from 'contentful';
+import {
+  postClient
+} from '../contentful';
 import * as actions from './actions';
-
-// The Lilac Foundation Client
-const client = contentful.createClient({
-  space: 's85q1dv8e3m5',
-  accessToken: 'e1f99556ca22933d807bbeba1f93e70d5ebaa2bd37d43e099d26f653e9ade466'
-});
 
 // Dispatches end of loading action and logs an error into the console
 function loadingBlogError(dispatch, error) {
@@ -20,7 +16,7 @@ export function loadBlog(limit = 100) {
     dispatch(actions.blogLoading());
 
     // Retreives and returns client blog post entries
-    return client
+    return postClient
       .getEntries({
         content_type: 'blogPost',
         order: '-fields.date',
@@ -43,7 +39,7 @@ export function loadBlogPost(id) {
     dispatch(actions.blogLoading());
 
     // Retreives and returns requested client post entry
-    return client
+    return postClient
       .getEntry(id)
       .then(({
           fields

@@ -1,16 +1,16 @@
 import React from 'react';
 import Proptypes from 'prop-types';
-import { connect } from 'react-redux';
 
+import { connect } from 'react-redux';
 import { loadHeaderImage } from '../../store/base/base';
 import {
   loadCurrentProjects,
   loadFutureProjects
-} from '../../store/projects/projects';
+} from 'store/projects/projects';
 
-import PageHeader from '../../components/Page Header';
-import Loader from '../../components/Loader';
-import ScrollReveal from '../../components/Scroll Reveal';
+import Loader from 'components/Loader';
+import PageHeader from 'components/Page Header';
+import ScrollReveal from 'components/Scroll Reveal';
 import CurrentProjectItem from './components/Current Project Item';
 import FutureProjectItem from './components/Future Project Item';
 

@@ -1,12 +1,12 @@
 import React from 'react';
 import Proptypes from 'prop-types';
+
 import { connect } from 'react-redux';
+import { loadCurrentProjects } from 'store/projects/projects';
 
-import { loadCurrentProjects } from '../../../../store/projects/projects';
-
-import PageSection from '../../../../components/Page Section';
-import PageItem from '../../../../components/Page Item';
-import ScrollReveal from '../../../../components/Scroll Reveal';
+import PageSection from 'components/Page Section';
+import PageItem from 'components/Page Item';
+import ScrollReveal from 'components/Scroll Reveal';
 
 import './styles.scss';
 

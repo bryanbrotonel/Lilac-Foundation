@@ -1,12 +1,13 @@
 import React from 'react';
 import Proptypes from 'prop-types';
-import { connect } from 'react-redux';
+
 import * as Markdown from 'react-markdown';
 import { Link } from 'react-router-dom';
 
-import { loadBlog } from '../../../../store/blog/blog';
+import { connect } from 'react-redux';
+import { loadBlog } from 'store/blog/blog';
 
-import Loader from '../../../../components/Loader';
+import Loader from 'components/Loader';
 
 import './styles.scss';
 

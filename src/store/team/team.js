@@ -1,11 +1,7 @@
-import * as contentful from 'contentful';
+import {
+    contentClient
+} from '../contentful';
 import * as actions from './actions';
-
-// The Lilac Foundation Client
-const contentClient = contentful.createClient({
-    space: 'lviz1x4y4a6n',
-    accessToken: '788382ad2aed44f757676fb78d448b35e5633b7c2f3ca1bb456eec2c587c5231'
-});
 
 // Dispatches end of loading action and logs an error into the console
 function loadingTeamError(dispatch, error) {

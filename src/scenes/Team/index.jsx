@@ -1,14 +1,15 @@
 import React from 'react';
 import Proptypes from 'prop-types';
+
 import { Link } from 'react-router-dom';
 
 import { connect } from 'react-redux';
-import { loadHeaderImage } from '../../store/base/base';
-import { loadTeamMembers } from '../../store/team/team';
+import { loadHeaderImage } from 'store/base/base';
+import { loadTeamMembers } from 'store/team/team';
 
-import PageHeader from '../../components/Page Header';
-import TeamMember from '../../components/Team Member';
-import ScrollReveal from '../../components/Scroll Reveal';
+import PageHeader from 'components/Page Header';
+import TeamMember from 'components/Team Member';
+import ScrollReveal from 'components/Scroll Reveal';
 
 import './styles.scss';
 

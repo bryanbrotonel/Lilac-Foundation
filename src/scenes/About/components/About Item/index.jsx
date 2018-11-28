@@ -1,7 +1,7 @@
 import React from 'react';
 import Proptypes from 'prop-types';
 
-import ScrollReveal from '../../../../components/Scroll Reveal';
+import ScrollReveal from 'components/Scroll Reveal';
 
 import './styles.scss';
 

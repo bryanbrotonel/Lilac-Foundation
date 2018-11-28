@@ -1,11 +1,7 @@
-import * as contentful from 'contentful';
+import {
+    postClient
+} from '../contentful';
 import * as actions from './actions';
-
-// The Lilac Foundation Client
-const client = contentful.createClient({
-    space: 's85q1dv8e3m5',
-    accessToken: 'e1f99556ca22933d807bbeba1f93e70d5ebaa2bd37d43e099d26f653e9ade466'
-});
 
 // Dispatches end of loading action and logs an error into the console
 function loadProjectsError(dispatch, error) {
@@ -16,7 +12,7 @@ function loadProjectsError(dispatch, error) {
 // Loads current projects from Contentful
 export function loadCurrentProjects(limit = 100) {
     return dispatch => {
-        client
+        postClient
             .getEntries({
                 content_type: 'projectPost',
                 'fields.currentProject': 'true',
@@ -36,7 +32,7 @@ export function loadCurrentProjects(limit = 100) {
 // Loads future projects from Contentful
 export function loadFutureProjects() {
     return dispatch => {
-        client
+        postClient
             .getEntries({
                 content_type: 'projectPost',
                 'fields.currentProject': 'false'
@@ -58,7 +54,7 @@ export function loadProjectPost(id) {
         dispatch(actions.projectsLoading());
 
         // Retreives and returns requested client post entry
-        return client
+        return postClient
             .getEntry(id)
             .then(({
                     fields
