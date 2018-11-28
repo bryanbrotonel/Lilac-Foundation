@@ -148,3 +148,46 @@ $base-line-height: 1.45;
         text-decoration: none;
     }
 }
+
+@mixin action-link($colour, $hover: $colour) {
+    @include colouredLinks($colour, $hover);
+    position: relative;
+    -webkit-transition: color 0.4s;
+    transition: color 0.4s;
+
+    &:hover,
+    &:focus {
+        color: $hover;
+    }
+
+    &:hover::before,
+    &:focus::before {
+        color: $colour;
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+        -webkit-transition-delay: 0s;
+        transition-delay: 0s;
+    }
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        top: 1.25em;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        -webkit-transform: scale3d(0, 1, 1);
+        transform: scale3d(0, 1, 1);
+        -webkit-transform-origin: center left;
+        transform-origin: center left;
+        -webkit-transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+        transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+
+    &::before {
+        background: $hover;
+        -webkit-transition-delay: 0s;
+        transition-delay: 0s;
+    }
+}

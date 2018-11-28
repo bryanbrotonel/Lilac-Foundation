@@ -47,8 +47,7 @@ class ProjectPost extends React.Component {
     const { projectPost } = this.props;
     const { title, date, content } = projectPost;
 
-    return (
-      <div className="container">
+    return <div className="container">
         <div className="row justify-content-center">
           <div className="col-12 col-md-7">
             <div className="project-post-wrapper">
@@ -71,14 +70,13 @@ class ProjectPost extends React.Component {
               <ShareItem pageTitle={title} />
             </div>
             <div className="py-4">
-              <Link className="text-muted" to="/projects">
+              <Link className="action-link-dark" to="/projects">
                 More Projects
               </Link>
             </div>
           </div>
         </div>
-      </div>
-    );
+      </div>;
   }
 }
 

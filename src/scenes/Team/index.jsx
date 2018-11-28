@@ -89,7 +89,7 @@ class Team extends React.Component {
         </PageHeader>
         <div className="container">
           <div className="row justify-content-center">
-            <div className="team-section col-10">
+            <div className="team-section col-12 col-md-10">
               <div className="row justify-content-center">
                 {teamMemberItems}
               </div>

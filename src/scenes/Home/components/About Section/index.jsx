@@ -35,14 +35,14 @@ class AboutSection extends React.Component {
     return (
       <PageSection className="bg-gray">
         <div className="container hv-center">
-          <div className="text-center col-12 col-md-6">
+          <div className="text-center col-12 col-md-8 col-lg-6">
             {loading && !aboutBlurb ? (
               <Loader />
             ) : (
               <React.Fragment>
                 <h1>{aboutBlurb.blurbTitle}</h1>
                 <p className="text-muted">{aboutBlurb.blurbContent}</p>
-                <Link to="/about">Learn More</Link>
+                <Link className="action-link-primary" to="/about">Learn More</Link>
               </React.Fragment>
             )}
           </div>

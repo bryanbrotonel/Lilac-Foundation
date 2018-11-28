@@ -48,15 +48,13 @@ class BlogPost extends React.Component {
     const { post } = this.props;
     const { headerImage, date, title, subtitle, content, author } = post;
 
-    return post.length !== 0 ? (
-      <React.Fragment>
+    return post.length !== 0 ? <React.Fragment>
         <PageHeader headerImage={headerImage.fields.file.url}>
           <div className="post-heading">
             <h1 className="title">{title}</h1>
             <h5 className="subtitle">{subtitle}</h5>
             <span className="meta">
-              Published by {author}{' '}
-              {moment(date).calendar(null, {
+              Published by {author} {moment(date).calendar(null, {
                 sameDay: '[today]',
                 lastDay: '[yesterday]',
                 lastWeek: '[last] dddd',
@@ -69,10 +67,7 @@ class BlogPost extends React.Component {
         <div className="blog-post-wrapper container">
           <div className="row no-gutters justify-content-center">
             <div className="col-md-8 col-lg-7">
-              <Markdown
-                className="markdown-content blog-post-content"
-                source={content}
-              />
+              <Markdown className="markdown-content blog-post-content" source={content} />
             </div>
           </div>
           <div className="row">
@@ -81,17 +76,14 @@ class BlogPost extends React.Component {
                 <ShareItem pageTitle={title} />
               </div>
               <div className="py-4">
-                <Link className="text-muted" to="/blog">
+                <Link className="action-link-dark" to="/blog">
                   More Blog Posts
                 </Link>
               </div>
             </div>
           </div>
         </div>
-      </React.Fragment>
-    ) : (
-      <Loader />
-    );
+      </React.Fragment> : <Loader />;
   }
 }
 
