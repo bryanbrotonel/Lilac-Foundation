@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 0.0.3
 
+### 2018-11-28
+
+- Added favicon
+
 ### 2018-11-27
 
 #### Added
