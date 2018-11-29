@@ -11,10 +11,10 @@ class DesktopNavLinks extends React.Component {
     // Desktop navbar links
     const desktopNavLinks = pages.map(page => {
       return (
-        <li key={page} className="nav-item menu__item">
+        <li key={page} className="nav-item">
           <NavLink
             to={'/' + page}
-            activeClassName="menu__item--current"
+            activeClassName="nav-link-active"
             className="nav-link"
           >
             {page}

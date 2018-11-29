@@ -96,5 +96,5 @@
 
 // Link hover styling
 .about-content a {
-    @include colouredLinks($white)
+    @include colouredLink($white)
 }

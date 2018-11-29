@@ -29,7 +29,7 @@
 
 .footer-widget ul li a {
     text-transform: capitalize;
-    @include colouredLinks($white, $text);
+    @include colouredLink($white, $text);
 }
 
 // Footer widget list items padding

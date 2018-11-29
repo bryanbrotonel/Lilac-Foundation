@@ -140,7 +140,7 @@ $base-line-height: 1.45;
 }
 
 // Link and hover mixin
-@mixin colouredLinks($colour, $hover: $colour) {
+@mixin colouredLink($colour, $hover: $colour) {
     color: $colour !important;
 
     &:hover,
@@ -151,7 +151,7 @@ $base-line-height: 1.45;
 }
 
 @mixin action-link($colour, $hover: $colour) {
-    @include colouredLinks($colour, $hover);
+    @include colouredLink($colour, $hover);
     position: relative;
     -webkit-transition: color 0.4s;
     transition: color 0.4s;

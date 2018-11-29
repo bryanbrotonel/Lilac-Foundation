@@ -63,7 +63,7 @@ h4 {
 
 // Link hover styling
 a {
-    @include colouredLinks($black)
+    @include colouredLink($black)
 }
 
 // Blockquote font size styling
@@ -96,6 +96,10 @@ small,
 
 .markdown-content p {
     line-height: 1.6rem;
+}
+
+.markdown-content a {
+    @include colouredLink($primary, $primary-dark)
 }
 
 // Markdown snippet font sizing
