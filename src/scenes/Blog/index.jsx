@@ -7,9 +7,10 @@ import { loadHeaderImage } from '../../store/base/base';
 
 import Loader from 'components/Loader';
 import PageHeader from 'components/Page Header';
-import Pagination from 'components/Pagination';
+import NoItems from '../../components/No Items';
 import BlogGridItem from './components/Blog Grid Item';
 import BlogListItem from './components/Blog List Item';
+import Pagination from 'components/Pagination';
 
 import './styles.scss';
 
@@ -79,7 +80,7 @@ class Blog extends React.Component {
   }
 
   render() {
-    const { gridDisplay, currentBlogPosts } = this.state;
+    const { gridDisplay, currentBlogPosts, pageLimit } = this.state;
     const { loading, posts } = this.props.blog;
     const { headerImage } = this.props.headerImage;
 
@@ -89,29 +90,31 @@ class Blog extends React.Component {
           <h1>Blog</h1>
         </PageHeader>
         <div className="container">
-          <div className="row justify-content-end">
-            <div
-              className="col-6 blog-display-toggle"
-              onClick={() => this.toggleDisplay()}
-            >
-              <span className="no-select">
-                View as&nbsp;
-                <span className={gridDisplay ? 'font-weight-bold' : ''}>
-                  Grid
-                </span>
-                &nbsp;|&nbsp;
-                <span className={!gridDisplay ? 'font-weight-bold' : ''}>
-                  List
-                </span>
-              </span>
-            </div>
-          </div>
           {loading ? (
             <div className="hv-center">
               <Loader />
             </div>
+          ) : posts.length === 0 ? (
+            <NoItems item="blog posts" />
           ) : (
             <React.Fragment>
+              <div className="row justify-content-end">
+                <div
+                  className="col-6 blog-display-toggle"
+                  onClick={() => this.toggleDisplay()}
+                >
+                  <span className="no-select">
+                    View as&nbsp;
+                    <span className={gridDisplay ? 'font-weight-bold' : ''}>
+                      Grid
+                    </span>
+                    &nbsp;|&nbsp;
+                    <span className={!gridDisplay ? 'font-weight-bold' : ''}>
+                      List
+                    </span>
+                  </span>
+                </div>
+              </div>
               {gridDisplay ? (
                 <React.Fragment>
                   <div className="row justify-content-between">
@@ -125,10 +128,10 @@ class Blog extends React.Component {
                   <BlogListItem key={i} {...fields} {...sys} />
                 ))
               )}
-              <div className="text-center pb-3">
+              <div className="col-12 col-md-4 container text-center">
                 <Pagination
                   totalItems={posts.length}
-                  pageLimit={6}
+                  pageLimit={pageLimit}
                   onPageChanged={this.onPageChanged}
                 />
               </div>

@@ -1,0 +1,26 @@
+@import 'resources/scss/modules/colours';
+@import 'resources/scss/modules/typography';
+
+// No items component styling
+.no-items {
+    height: 50vh;
+    text-align: center;
+}
+
+// No items typography styling
+.no-items-title,
+.no-items-message {
+    font-family: $base-font;
+}
+
+// No items title styling
+.no-items-title {
+    color: $primary;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+// No items message styling
+.no-items-message {
+    color: $black;
+}
