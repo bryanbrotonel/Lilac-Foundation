@@ -1,15 +1,17 @@
 import React from 'react';
 import Proptypes from 'prop-types';
-import { connect } from 'react-redux';
 
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import * as Markdown from 'react-markdown';
-import { loadBlogPost } from '../../store/blog/blog';
 
-import { Loader } from '../../components/Loader';
-import PageHeader from '../../components/Page Header';
-import ShareItem from '../../components/Share Item';
+import { connect } from 'react-redux';
+import { loadBlogPost } from 'store/blog/blog';
+
+import NotFound from 'scenes/Not Found';
+import Loader from 'components/Loader';
+import PageHeader from 'components/Page Header';
+import ShareItem from 'components/Share Item';
 
 import './styles.scss';
 
@@ -24,7 +26,7 @@ const mapDispatchToProps = dispatch => {
 
 // Maps Redux state to props
 function mapStateToProps(state) {
-  return { post: state.blog.singlePost };
+  return { blog: state.blog };
 }
 
 class BlogPost extends React.Component {
@@ -45,12 +47,16 @@ class BlogPost extends React.Component {
   }
 
   render() {
-    const { post } = this.props;
-    const { headerImage, date, title, subtitle, content, author } = post;
+    const { blog } = this.props;
+    console.log(blog);
+    const { loading, singlePost } = blog;
+    const { headerImage, date, title, subtitle, content, author } = singlePost;
 
-    const sharingSocials = ['facebook', 'twitter', 'mail'];
-
-    return post.length !== 0 ? (
+    return loading ? (
+      <Loader />
+    ) : singlePost.length === 0 ? (
+      <NotFound />
+    ) : (
       <React.Fragment>
         <PageHeader headerImage={headerImage.fields.file.url}>
           <div className="post-heading">
@@ -83,7 +89,7 @@ class BlogPost extends React.Component {
                 <ShareItem pageTitle={title} />
               </div>
               <div className="py-4">
-                <Link className="text-muted" to="/blog">
+                <Link className="action-link-dark" to="/blog">
                   More Blog Posts
                 </Link>
               </div>
@@ -91,8 +97,6 @@ class BlogPost extends React.Component {
           </div>
         </div>
       </React.Fragment>
-    ) : (
-      <Loader />
     );
   }
 }
@@ -100,7 +104,7 @@ class BlogPost extends React.Component {
 BlogPost.propTypes = {
   location: Proptypes.object.isRequired,
   loadBlogPost: Proptypes.func,
-  post: Proptypes.any
+  blog: Proptypes.object
 };
 
 export default connect(

@@ -1,3 +1,29 @@
+// Svg colouring
+svg {
+    fill: currentColor;
+}
+
+.btn {
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+// Masthead overlay styling
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: $black;
+    opacity: .5
+}
+
+// Markdown content image width
+.markdown-content img {
+    width: 100%;
+}
+
 // Animate.css fade in left transfrom orign
 @keyframes fadeInLeft {
     from {

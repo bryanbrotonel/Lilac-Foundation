@@ -5,9 +5,9 @@ import { connect } from 'react-redux';
 import { loadBlog } from '../../store/blog/blog';
 import { loadHeaderImage } from '../../store/base/base';
 
-import { Loader } from '../../components/Loader';
-import PageHeader from '../../components/Page Header';
-import Pagination from '../../components/Pagination';
+import Loader from 'components/Loader';
+import PageHeader from 'components/Page Header';
+import Pagination from 'components/Pagination';
 import BlogGridItem from './components/Blog Grid Item';
 import BlogListItem from './components/Blog List Item';
 

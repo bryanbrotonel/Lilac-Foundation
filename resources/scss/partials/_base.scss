@@ -6,11 +6,6 @@
     box-sizing: border-box;
 }
 
-// Svg colouring
-svg {
-    fill: currentColor;
-}
-
 // Horizontal vertical center elements
 .hv-center {
     align-items: center;
@@ -40,22 +35,6 @@ svg {
     }
 }
 
-// Markdown content image width
-.markdown-content img {
-    width: 100%;
-}
-
-// Masthead overlay styling
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: $black;
-    opacity: .5
-}
-
 // Disable text select
 .no-select {
     /* Safari */
@@ -81,4 +60,8 @@ svg {
 .equal-height-row>[class*='col-'] {
     display: flex;
     flex-direction: column;
+}
+
+.footer, .navbar {
+    z-index: 2;
 }

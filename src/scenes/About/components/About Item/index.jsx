@@ -1,7 +1,7 @@
 import React from 'react';
 import Proptypes from 'prop-types';
 
-import ScrollReveal from '../../../../components/Scroll Reveal';
+import ScrollReveal from 'components/Scroll Reveal';
 
 import './styles.scss';
 
@@ -34,7 +34,7 @@ class AboutItem extends React.Component {
         {overlay}
         <div className="about-dot" />
         <div className="about-wrapper no-gutters row">
-          <div className="about-content col-md-12 col-lg-8">
+          <div className="about-content col-md-12 col-md-10 col-lg-8">
             <ScrollReveal config={revealConfig}>
               <h2 className="about-item-title">{title}</h2>
               {children}

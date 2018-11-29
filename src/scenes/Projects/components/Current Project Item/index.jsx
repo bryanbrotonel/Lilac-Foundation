@@ -2,8 +2,9 @@ import React from 'react';
 import Proptypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import { loadPlaceholderImage } from '../../../../store/base/base';
-import PageItem from '../../../../components/Page Item';
+import { loadPlaceholderImage } from 'store/base/base';
+
+import PageItem from 'components/Page Item';
 
 import './styles.scss';
 

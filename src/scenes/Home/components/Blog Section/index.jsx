@@ -1,13 +1,13 @@
 import React from 'react';
 import Proptypes from 'prop-types';
-import { connect } from 'react-redux';
+
 import * as Markdown from 'react-markdown';
 import { Link } from 'react-router-dom';
 
-import { loadBlog } from '../../../../store/blog/blog';
+import { connect } from 'react-redux';
+import { loadBlog } from 'store/blog/blog';
 
-import PageSection from '../../../../components/Page Section';
-import { Loader } from '../../../../components/Loader';
+import Loader from 'components/Loader';
 
 import './styles.scss';
 
@@ -65,42 +65,33 @@ class BlogSection extends React.Component {
       </React.Fragment>
     );
 
-    return !loading && posts.length !== 0 ? (
-      <div>
+    return !loading && posts.length !== 0 ? <div>
         <div className="row no-gutters justify-content-center blog-section-wrapper">
           <div className="col-12 py-4 d-sm-block d-md-none">
             <div className="container">{sectionTitle}</div>
           </div>
-          <div className="col-12 col-md-5">
-            <div
-              className="blog-section-header"
-              style={{
-                backgroundImage:
-                  'url(' + latestPost.headerImage.fields.file.url + ')'
-              }}
-            />
+          <div className="col-12 col-lg-5">
+            <div className="blog-section-header" style={{ backgroundImage: 'url(' + latestPost.headerImage.fields.file.url + ')' }} />
           </div>
-          <div className="col-12 col-md-7">
+          <div className="col-12 col-lg-7">
             <div className="blog-section-content container">
               <div className="pb-4 d-none d-md-block">{sectionTitle}</div>
               <h2 className="blog-section-title">{latestPost.title}</h2>
-              <h3 className="blog-section-subtitle">{latestPost.subtitle}</h3>
-              <Markdown
-                className="markdown-content"
-                source={latestPost.content
+              <h3 className="blog-section-subtitle">
+                {latestPost.subtitle}
+              </h3>
+              <Markdown className="markdown-content" source={latestPost.content
                   .split('')
                   .splice(0, 150)
                   .join('')
-                  .concat('...')}
-              />
-              <Link to={`/blog/${path}`}>Read More &gt;</Link>
+                  .concat('...')} />
+              <Link className="action-link-primary" to={`/blog/${path}`}>
+                Read More
+              </Link>
             </div>
           </div>
         </div>
-      </div>
-    ) : (
-      <Loader />
-    );
+      </div> : <Loader />;
   }
 }
 

@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 0.0.3
 
+### 2018-11-28
+
+- Added favicon
+- Added absolute imports
+- Added [Favicons Webpack Plugin](https://github.com/jantimon/favicons-webpack-plugin) to project dependecies
+- Added page not found scene
+
+### 2018-11-27
+
+#### Added
+- Loader styling
+- Mobile [React Burger Menu](http://negomi.github.io/react-burger-menu/) layout and styling
+- Desktop navbar stylng
+
 ### 2018-11-26
 
 #### Added
@@ -16,6 +30,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Home masthead layout and styling
 - Added new figures partial
 - Styled about content typography
+- Finalized webpage spacing
 
 #### Removed
 - Unecessary [Redux](https://redux.js.org) action args

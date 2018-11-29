@@ -1,11 +1,13 @@
 import React from 'react';
 import Proptypes from 'prop-types';
-import { connect } from 'react-redux';
+
 import { Link } from 'react-router-dom';
 
-import { loadAboutBlurb } from '../../../../store/home/home';
+import { connect } from 'react-redux';
+import { loadAboutBlurb } from 'store/home/home';
 
-import PageSection from '../../../../components/Page Section';
+import Loader from 'components/Loader';
+import PageSection from 'components/Page Section';
 
 // Maps Redux dispatch actions to props
 const mapDispatchToProps = dispatch => {
@@ -34,14 +36,16 @@ class AboutSection extends React.Component {
     return (
       <PageSection className="bg-gray">
         <div className="container hv-center">
-          <div className="text-center col-12 col-md-6">
+          <div className="text-center col-12 col-md-8 col-lg-6">
             {loading && !aboutBlurb ? (
-              <h1 className="text-muted">Loading...</h1>
+              <Loader />
             ) : (
               <React.Fragment>
                 <h1>{aboutBlurb.blurbTitle}</h1>
                 <p className="text-muted">{aboutBlurb.blurbContent}</p>
-                <Link to="/about">Learn More</Link>
+                <Link className="action-link-primary" to="/about">
+                  Learn More
+                </Link>
               </React.Fragment>
             )}
           </div>

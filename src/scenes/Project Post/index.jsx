@@ -1,14 +1,16 @@
 import React from 'react';
 import Proptypes from 'prop-types';
-import { connect } from 'react-redux';
 
 import { Link } from 'react-router-dom';
 import * as Markdown from 'react-markdown';
 import moment from 'moment';
 
-import { loadProjectPost } from '../../store/projects/projects';
+import { connect } from 'react-redux';
+import { loadProjectPost } from 'store/projects/projects';
 
-import ShareItem from '../../components/Share Item';
+import NotFound from 'scenes/Not Found';
+import Loader from 'components/Loader';
+import ShareItem from 'components/Share Item';
 
 import './styles.scss';
 
@@ -23,7 +25,7 @@ const mapDispatchToProps = dispatch => {
 
 // Maps Redux state to props
 function mapStateToProps(state) {
-  return { projectPost: state.projects.projectPost };
+  return { projects: state.projects };
 }
 
 class ProjectPost extends React.Component {
@@ -44,10 +46,15 @@ class ProjectPost extends React.Component {
   }
 
   render() {
-    const { projectPost } = this.props;
+    const { projects } = this.props;
+    const { loading, projectPost } = projects;
     const { title, date, content } = projectPost;
 
-    return (
+    return loading ? (
+      <Loader />
+    ) : projectPost.length === 0 ? (
+      <NotFound />
+    ) : (
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-12 col-md-7">
@@ -71,7 +78,7 @@ class ProjectPost extends React.Component {
               <ShareItem pageTitle={title} />
             </div>
             <div className="py-4">
-              <Link className="text-muted" to="/projects">
+              <Link className="action-link-dark" to="/projects">
                 More Projects
               </Link>
             </div>
@@ -83,7 +90,7 @@ class ProjectPost extends React.Component {
 }
 
 ProjectPost.propTypes = {
-  projectPost: Proptypes.any,
+  projects: Proptypes.object,
   location: Proptypes.object,
   loadProjectPost: Proptypes.func
 };

@@ -85,16 +85,14 @@ class Footer extends React.Component {
 
     return (
       <div className="footer">
-        <footer className=" container">
+        <footer className="container">
           <div className="row align-items-top">
-            <div className="footer-widget col-4 d-none d-md-flex">
+            <div className="footer-widget col-6 col-md-4">
               <ul className="list-unstyled">{footerPageLinks}</ul>
             </div>
-
-            <div className="footer-widget col-4 d-none d-md-flex">
+            <div className="footer-widget col-6 col-md-4">
               <ul className="list-unstyled">{footerSocialLinks}</ul>
             </div>
-
             <div className="col-12 col-md-4 text-left">
               <h4 className="footer-title">{footerTitle}</h4>
               <p className="mb-3">{footerBlurbContent}</p>

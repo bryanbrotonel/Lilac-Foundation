@@ -7,7 +7,15 @@
 
 // Team member padding styling
 .team-member {
-    padding-bottom: .5rem;
+    padding: 1rem;
+}
+
+@media (min-width: 992px) {
+
+    // Large screen team member padding styling
+    .team-member {
+        padding: 2rem 2rem 0 2rem;
+    }
 }
 
 // Team member role margin
@@ -15,8 +23,9 @@
     margin-bottom: 0;
 }
 
-// Team member name overflow
+// Team member name styling
 .team-member .team-member-name {
+    margin-top: 1rem;
     white-space: nowrap;
 }
 
@@ -28,13 +37,6 @@
 
 // Large media team section styling
 @media (min-width: 992px) {
-
-    // Large screen team member padding styling
-    .team-member {
-        padding-bottom: 2rem;
-        padding-left: 2rem !important;
-        padding-right: 2rem !important;
-    }
 
     // Large screen team section padding styling
     .team-section {

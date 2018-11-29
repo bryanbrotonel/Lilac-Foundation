@@ -1,16 +1,16 @@
 import React from 'react';
 import Proptypes from 'prop-types';
-import { connect } from 'react-redux';
 
+import { connect } from 'react-redux';
 import { loadHeaderImage } from '../../store/base/base';
 import {
   loadCurrentProjects,
   loadFutureProjects
-} from '../../store/projects/projects';
+} from 'store/projects/projects';
 
-import PageHeader from '../../components/Page Header';
-import { Loader } from '../../components/Loader';
-import ScrollReveal from '../../components/Scroll Reveal';
+import Loader from 'components/Loader';
+import PageHeader from 'components/Page Header';
+import ScrollReveal from 'components/Scroll Reveal';
 import CurrentProjectItem from './components/Current Project Item';
 import FutureProjectItem from './components/Future Project Item';
 
@@ -76,7 +76,7 @@ class Projects extends React.Component {
     };
 
     return (
-      <div className="bg-gray">
+      <div>
         <PageHeader headerImage={headerImage}>
           <h1>Projects</h1>
         </PageHeader>
@@ -91,7 +91,7 @@ class Projects extends React.Component {
                 </div>
                 {// Current projects mapping
                 currentProjects.map(({ fields, sys }, i) => (
-                  <div className="col-12 col-lg-6 mb-3 mb-lg-0" key={i}>
+                  <div className="col-12 col-md-6 mb-3 mb-lg-0" key={i}>
                     <ScrollReveal config={revealConfig}>
                       <CurrentProjectItem {...fields} {...sys} />
                     </ScrollReveal>
