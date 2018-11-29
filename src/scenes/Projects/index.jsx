@@ -76,7 +76,7 @@ class Projects extends React.Component {
     };
 
     return (
-      <div className="bg-gray">
+      <div>
         <PageHeader headerImage={headerImage}>
           <h1>Projects</h1>
         </PageHeader>

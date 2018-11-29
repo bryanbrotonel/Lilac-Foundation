@@ -8,6 +8,7 @@ import * as Markdown from 'react-markdown';
 import { connect } from 'react-redux';
 import { loadBlogPost } from 'store/blog/blog';
 
+import NotFound from 'scenes/Not Found';
 import Loader from 'components/Loader';
 import PageHeader from 'components/Page Header';
 import ShareItem from 'components/Share Item';
@@ -25,7 +26,7 @@ const mapDispatchToProps = dispatch => {
 
 // Maps Redux state to props
 function mapStateToProps(state) {
-  return { post: state.blog.singlePost };
+  return { blog: state.blog };
 }
 
 class BlogPost extends React.Component {
@@ -46,16 +47,24 @@ class BlogPost extends React.Component {
   }
 
   render() {
-    const { post } = this.props;
-    const { headerImage, date, title, subtitle, content, author } = post;
+    const { blog } = this.props;
+    console.log(blog);
+    const { loading, singlePost } = blog;
+    const { headerImage, date, title, subtitle, content, author } = singlePost;
 
-    return post.length !== 0 ? <React.Fragment>
+    return loading ? (
+      <Loader />
+    ) : singlePost.length === 0 ? (
+      <NotFound />
+    ) : (
+      <React.Fragment>
         <PageHeader headerImage={headerImage.fields.file.url}>
           <div className="post-heading">
             <h1 className="title">{title}</h1>
             <h5 className="subtitle">{subtitle}</h5>
             <span className="meta">
-              Published by {author} {moment(date).calendar(null, {
+              Published by {author}{' '}
+              {moment(date).calendar(null, {
                 sameDay: '[today]',
                 lastDay: '[yesterday]',
                 lastWeek: '[last] dddd',
@@ -68,7 +77,10 @@ class BlogPost extends React.Component {
         <div className="blog-post-wrapper container">
           <div className="row no-gutters justify-content-center">
             <div className="col-md-8 col-lg-7">
-              <Markdown className="markdown-content blog-post-content" source={content} />
+              <Markdown
+                className="markdown-content blog-post-content"
+                source={content}
+              />
             </div>
           </div>
           <div className="row">
@@ -84,14 +96,15 @@ class BlogPost extends React.Component {
             </div>
           </div>
         </div>
-      </React.Fragment> : <Loader />;
+      </React.Fragment>
+    );
   }
 }
 
 BlogPost.propTypes = {
   location: Proptypes.object.isRequired,
   loadBlogPost: Proptypes.func,
-  post: Proptypes.any
+  blog: Proptypes.object
 };
 
 export default connect(

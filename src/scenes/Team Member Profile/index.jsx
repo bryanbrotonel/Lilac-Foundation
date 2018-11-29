@@ -1,5 +1,5 @@
 import React from 'react';
-import Proptypes from 'prop-types';
+import propTypes from 'prop-types';
 
 import { Link } from 'react-router-dom';
 import * as Markdown from 'react-markdown';
@@ -7,11 +7,11 @@ import * as Markdown from 'react-markdown';
 import { connect } from 'react-redux';
 import { loadTeamMembers } from 'store/team/team';
 
+import NotFound from 'scenes/Not Found';
 import TeamMember from 'components/Team Member';
 import Loader from 'components/Loader';
 
 import './styles.scss';
-
 const mapDispatchToProps = dispatch => {
   return {
     loadTeamMembers: () => {
@@ -91,49 +91,42 @@ class TeamMemberProfile extends React.Component {
       );
     }
 
-    return (
-      <React.Fragment>
-        {loading && !teamMember ? (
-          <Loader />
-        ) : !teamMember ? (
-          <div className="container hv-center">
-            <h1 className="text-muted base-font">Member not found :(</h1>
-          </div>
-        ) : (
-          <div className="container my-5">
-            <div className="row pb-md-5 justify-content-center">
-              <div className="col-10 col-md-5 col-lg-4 text-center">
-                <div className="member-info">
-                  <img
-                    alt="image"
-                    className="rounded-circle w-75"
-                    src={teamMember.fields.profilePicture.fields.file.url}
-                  />
-                </div>
-              </div>
-              <div className="col-12 d-lg-none text-center mb-3">{memberInfo}</div>
-              <div className="col-12 col-md-10 col-lg-6">
-                <div className="d-none d-lg-block">{memberInfo}</div>
-                <Markdown source={teamMember.fields.description} />
-              </div>
-              <div className="col-12 mb-3 text-center">
-                <h3>Meet the Team</h3>
-              </div>
-              <div className="col-10 col-lg-8">
-                <div className="row justify-content-center">
-                  {teamMemberItems}
-                </div>
-              </div>
+    return loading ? (
+      <Loader />
+    ) : !teamMember ? (
+      <NotFound />
+    ) : (
+      <div className="container my-5">
+        <div className="row pb-md-5 justify-content-center">
+          <div className="col-10 col-md-5 col-lg-4 text-center">
+            <div className="member-info">
+              <img
+                alt="image"
+                className="rounded-circle w-75"
+                src={teamMember.fields.profilePicture.fields.file.url}
+              />
             </div>
           </div>
-        )}
-      </React.Fragment>
+          <div className="col-12 d-lg-none text-center mb-3">{memberInfo}</div>
+          <div className="col-12 col-md-10 col-lg-6">
+            <div className="d-none d-lg-block">{memberInfo}</div>
+            <Markdown source={teamMember.fields.description} />
+          </div>
+          <div className="col-12 mb-3 text-center">
+            <h3>Meet the Team</h3>
+          </div>
+          <div className="col-10 col-lg-8">
+            <div className="row justify-content-center">{teamMemberItems}</div>
+          </div>
+        </div>
+      </div>
     );
   }
 }
 
 TeamMemberProfile.propTypes = {
-  loadTeamMembers: Proptypes.func
+  loadTeamMembers: propTypes.func,
+  team: propTypes.object
 };
 
 export default connect(

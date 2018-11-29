@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added favicon
 - Added absolute imports
 - Added [Favicons Webpack Plugin](https://github.com/jantimon/favicons-webpack-plugin) to project dependecies
+- Added page not found scene
 
 ### 2018-11-27
 

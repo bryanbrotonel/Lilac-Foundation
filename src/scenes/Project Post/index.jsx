@@ -8,6 +8,8 @@ import moment from 'moment';
 import { connect } from 'react-redux';
 import { loadProjectPost } from 'store/projects/projects';
 
+import NotFound from 'scenes/Not Found';
+import Loader from 'components/Loader';
 import ShareItem from 'components/Share Item';
 
 import './styles.scss';
@@ -23,7 +25,7 @@ const mapDispatchToProps = dispatch => {
 
 // Maps Redux state to props
 function mapStateToProps(state) {
-  return { projectPost: state.projects.projectPost };
+  return { projects: state.projects };
 }
 
 class ProjectPost extends React.Component {
@@ -44,10 +46,16 @@ class ProjectPost extends React.Component {
   }
 
   render() {
-    const { projectPost } = this.props;
+    const { projects } = this.props;
+    const { loading, projectPost } = projects;
     const { title, date, content } = projectPost;
 
-    return <div className="container">
+    return loading ? (
+      <Loader />
+    ) : projectPost.length === 0 ? (
+      <NotFound />
+    ) : (
+      <div className="container">
         <div className="row justify-content-center">
           <div className="col-12 col-md-7">
             <div className="project-post-wrapper">
@@ -76,12 +84,13 @@ class ProjectPost extends React.Component {
             </div>
           </div>
         </div>
-      </div>;
+      </div>
+    );
   }
 }
 
 ProjectPost.propTypes = {
-  projectPost: Proptypes.any,
+  projects: Proptypes.object,
   location: Proptypes.object,
   loadProjectPost: Proptypes.func
 };

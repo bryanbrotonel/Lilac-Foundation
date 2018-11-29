@@ -9,6 +9,7 @@ import About from 'scenes/About';
 import TeamMemberProfile from 'scenes/Team Member Profile';
 import Projects from 'scenes/Projects';
 import ProjectPost from 'scenes/Project Post';
+import NotFound from 'scenes/Not Found';
 
 const Routes = () => (
   <Switch>
@@ -21,6 +22,7 @@ const Routes = () => (
     <Route exact path="/team" component={Team} />
     <Route exact path="/team/:teamMember" component={TeamMemberProfile} />
     <Route exact path="/about" component={About} />
+    <Route component={NotFound}/>
   </Switch>
 );
 
