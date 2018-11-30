@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### 2018-11-30
 
 - Added [React Document Title](https://github.com/gaearon/react-document-title) to each page
+- Improved blog post layout
+- Improved project post layout
+- Added new Post Layout component
 
 ### 2018-11-29
 

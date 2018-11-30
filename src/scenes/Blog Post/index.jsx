@@ -5,13 +5,12 @@ import { connect } from 'react-redux';
 import { loadBlogPost } from 'store/blog/blog';
 
 import { Link } from 'react-router-dom';
-import moment from 'moment';
-import * as Markdown from 'react-markdown';
 import DocumentTitle from 'react-document-title';
 
 import NotFound from 'scenes/Not Found';
 import Loader from 'components/Loader';
 import PageHeader from 'components/Page Header';
+import PostLayout from 'components/Post Layout';
 import ShareItem from 'components/Share Item';
 
 import './styles.scss';
@@ -64,31 +63,16 @@ class BlogPost extends React.Component {
     ) : (
       <DocumentTitle title={`${title} | The Lilac Foundation`}>
         <React.Fragment>
-          <PageHeader headerImage={headerImage.fields.file.url}>
-            <div className="post-heading">
-              <h1 className="title">{title}</h1>
-              <h5 className="subtitle">{subtitle}</h5>
-              <span className="meta">
-                by {author}&#160;
-                {moment(updatedAt).calendar(null, {
-                  sameDay: '[today]',
-                  lastDay: '[yesterday]',
-                  lastWeek: '[last] dddd',
-                  sameElse: '[on] MMM Do YYYY'
-                })}
-              </span>
-            </div>
-          </PageHeader>
+          <PageHeader headerImage={headerImage.fields.file.url} />
 
-          <div className="blog-post-wrapper container">
-            <div className="row no-gutters justify-content-center">
-              <div className="col-md-8 col-lg-7">
-                <Markdown
-                  className="markdown-content blog-post-content"
-                  source={content}
-                />
-              </div>
-            </div>
+          <div className="container">
+            <PostLayout
+              title={title}
+              subtitle={subtitle}
+              author={author}
+              date={updatedAt}
+              content={content}
+            />
             <div className="row">
               <div className="col-12 col-md-4 container text-center">
                 <div className="pt-4">
