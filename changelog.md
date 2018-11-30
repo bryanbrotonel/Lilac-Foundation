@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 0.0.3
 
+### 2018-11-30
+
+- Added [React Document Title](https://github.com/gaearon/react-document-title) to each page
+
 ### 2018-11-29
 
 #### Added

@@ -1,12 +1,13 @@
 import React from 'react';
 import Proptypes from 'prop-types';
 
+import { connect } from 'react-redux';
+import { loadProjectPost } from 'store/projects/projects';
+
 import { Link } from 'react-router-dom';
 import * as Markdown from 'react-markdown';
 import moment from 'moment';
-
-import { connect } from 'react-redux';
-import { loadProjectPost } from 'store/projects/projects';
+import DocumentTitle from 'react-document-title';
 
 import NotFound from 'scenes/Not Found';
 import Loader from 'components/Loader';
@@ -55,36 +56,38 @@ class ProjectPost extends React.Component {
     ) : projectPost.length === 0 ? (
       <NotFound />
     ) : (
-      <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-12 col-md-7">
-            <div className="project-post-wrapper">
-              <h1 className="project-post-title">{title}</h1>
-              <p className="project-post-date">
-                {moment(date).calendar(null, {
-                  sameDay: '[Today]',
-                  lastDay: '[Yesterday]',
-                  lastWeek: '[Last] dddd',
-                  sameElse: 'MMM[.] Do YYYY'
-                })}
-              </p>
-              <Markdown className="markdown-content" source={content} />
+      <DocumentTitle title={`${title} | The Lilac Foundation`}>
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-12 col-md-7">
+              <div className="project-post-wrapper">
+                <h1 className="project-post-title">{title}</h1>
+                <p className="project-post-date">
+                  {moment(date).calendar(null, {
+                    sameDay: '[Today]',
+                    lastDay: '[Yesterday]',
+                    lastWeek: '[Last] dddd',
+                    sameElse: 'MMM[.] Do YYYY'
+                  })}
+                </p>
+                <Markdown className="markdown-content" source={content} />
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-12 col-md-4 container text-center">
+              <div className="pt-4">
+                <ShareItem pageTitle={title} />
+              </div>
+              <div className="py-4">
+                <Link className="action-link-dark" to="/projects">
+                  More Projects
+                </Link>
+              </div>
             </div>
           </div>
         </div>
-        <div className="row">
-          <div className="col-12 col-md-4 container text-center">
-            <div className="pt-4">
-              <ShareItem pageTitle={title} />
-            </div>
-            <div className="py-4">
-              <Link className="action-link-dark" to="/projects">
-                More Projects
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
+      </DocumentTitle>
     );
   }
 }

@@ -8,6 +8,8 @@ import {
   loadFutureProjects
 } from 'store/projects/projects';
 
+import DocumentTitle from 'react-document-title';
+
 import Loader from 'components/Loader';
 import PageHeader from 'components/Page Header';
 import NoItems from 'components/No Items';
@@ -101,37 +103,39 @@ class Projects extends React.Component {
     }
 
     return (
-      <div>
-        <PageHeader headerImage={headerImage}>
-          <h1>Projects</h1>
-        </PageHeader>
-        <div className="container">
-          {loading ? (
-            <Loader />
-          ) : (
-            <React.Fragment>
-              <div className="row current-projects-section">
-                {currentProjectsTitle}
-                {// Current projects mapping
-                currentProjects.length === 0 ? (
-                  <div className="col-12">
-                    <NoItems item="Projects" />
-                  </div>
-                ) : (
-                  currentProjects.map(({ fields, sys }, i) => (
-                    <div className="col-12 col-md-6 mb-3 mb-lg-0" key={i}>
-                      <ScrollReveal config={revealConfig}>
-                        <CurrentProjectItem {...fields} {...sys} />
-                      </ScrollReveal>
+      <DocumentTitle title="Projects | The Lilac Foundation">
+        <div>
+          <PageHeader headerImage={headerImage}>
+            <h1>Projects</h1>
+          </PageHeader>
+          <div className="container">
+            {loading ? (
+              <Loader />
+            ) : (
+              <React.Fragment>
+                <div className="row current-projects-section">
+                  {currentProjectsTitle}
+                  {// Current projects mapping
+                  currentProjects.length === 0 ? (
+                    <div className="col-12">
+                      <NoItems item="Projects" />
                     </div>
-                  ))
-                )}
-              </div>
-              {displayFutureProjects}
-            </React.Fragment>
-          )}
+                  ) : (
+                    currentProjects.map(({ fields, sys }, i) => (
+                      <div className="col-12 col-md-6 mb-3 mb-lg-0" key={i}>
+                        <ScrollReveal config={revealConfig}>
+                          <CurrentProjectItem {...fields} {...sys} />
+                        </ScrollReveal>
+                      </div>
+                    ))
+                  )}
+                </div>
+                {displayFutureProjects}
+              </React.Fragment>
+            )}
+          </div>
         </div>
-      </div>
+      </DocumentTitle>
     );
   }
 }
