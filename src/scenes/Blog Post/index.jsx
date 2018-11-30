@@ -50,7 +50,12 @@ class BlogPost extends React.Component {
   render() {
     const { blog } = this.props;
     const { loading, singlePost } = blog;
-    const { headerImage, date, title, subtitle, content, author } = singlePost;
+    const { sys, fields } = singlePost;
+
+    if (sys && fields) {
+      var { updatedAt } = sys;
+      var { headerImage, title, subtitle, content, author } = fields;
+    }
 
     return loading ? (
       <Loader />
@@ -64,8 +69,8 @@ class BlogPost extends React.Component {
               <h1 className="title">{title}</h1>
               <h5 className="subtitle">{subtitle}</h5>
               <span className="meta">
-                Published by {author}{' '}
-                {moment(date).calendar(null, {
+                by {author}&#160;
+                {moment(updatedAt).calendar(null, {
                   sameDay: '[today]',
                   lastDay: '[yesterday]',
                   lastWeek: '[last] dddd',

@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Handled no items to show case for projects and blog
 - Added new no items component
+- Updated blog post dates display
 
 ### 2018-11-28
 
