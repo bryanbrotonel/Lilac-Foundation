@@ -2,7 +2,7 @@
 
 // Page header styling
 .page-header {
-    height: 30vh;
+    height: 250px;
     width: 100%;
     position: absolute !important;
     top: 0 !important;
@@ -18,7 +18,7 @@
 // Page header neighbour margin for page header visibility
 .page-header+div {
     padding-top: 2rem;
-    margin-top: calc(30vh - 80px);
+    margin-top: 170px;
 }
 
 // Page header heading row width and height
@@ -30,12 +30,11 @@
 // Medium device list styling
 @media (min-width: 768px) {
     .page-header {
-        height: 50vh;
+        height: 400px;
     }
 
     .page-header+div {
-        margin-top: calc(50vh - 80px);
-
+        margin-top: 320px;
     }
 }
 

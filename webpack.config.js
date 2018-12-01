@@ -78,7 +78,6 @@ module.exports = {
         }),
         new FaviconsWebpackPlugin({
             logo: './resources/TLF Favicon.png',
-            background: '#fff',
             title: 'The Lilac Foundation',
         })
     ],

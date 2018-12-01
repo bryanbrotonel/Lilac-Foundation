@@ -25,6 +25,10 @@ svg {
     width: 100%;
 }
 
+.rounded-circle:hover {
+    border-radius: 50% !important;
+}
+
 // Animate.css fade in left transfrom orign
 @keyframes fadeInLeft {
     from {

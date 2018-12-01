@@ -39,7 +39,7 @@ class MissionSection extends React.Component {
       <PageSection className="donate-section">
         <img src="https://source.unsplash.com/AEaTUnvneik/1600x1024" alt="" />
         <div className="caption hv-center">
-          <div className="text-center  col-12 col-md-8 col-lg-6">
+          <div className="col-12 col-md-8 col-lg-6">
             {loading && !donateBlurb ? (
               <Loader />
             ) : (

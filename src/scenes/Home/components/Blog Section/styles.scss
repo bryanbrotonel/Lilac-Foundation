@@ -1,8 +1,13 @@
+// Blog section wrapper height
+.blog-section-wrapper {
+    height: 100%;
+}
+
 // Blog section header styling
 .blog-section-header {
     padding: 0;
+    min-height: 350px;
     height: 100%;
-    min-height: 40vh;
     left: 0;
     top: 0;
     bottom: 0;

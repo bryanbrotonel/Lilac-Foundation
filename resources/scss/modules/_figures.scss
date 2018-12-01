@@ -2,6 +2,7 @@
 @mixin hoverZoomImg($scale: 1.1, $transition: 0.3s) {
 
     overflow: hidden;
+      transform: translateZ(0);
 
     // Large media hoverZoomImage styling
     @media (min-width: 992px) {

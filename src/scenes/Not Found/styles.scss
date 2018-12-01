@@ -3,7 +3,13 @@
 
 // Page not found scene styling
 .page-not-found {
-    height: calc(90vh - 80px);
+    height: 500px;
+}
+
+@media (min-width: 998px) {
+    .page-not-found {
+        height: 750px;
+    }
 }
 
 // Page not found message styling
