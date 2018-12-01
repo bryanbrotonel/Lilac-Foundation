@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Improved blog post layout
 - Improved project post layout
 - Added new Post Layout component
+- Added deployment code
 
 ### 2018-11-29
 

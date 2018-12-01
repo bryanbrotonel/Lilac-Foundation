@@ -1,12 +1,14 @@
 {
   "name": "lilac-foundation",
-  "version": "1.0.0",
-  "description": "Website for The Lilac Foundation",
+  "version": "3.0.0",
+  "description": "Official website for The Lilac Foundation",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
+    "heroku-postbuild": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
-    "start": "webpack-dev-server --mode development --open"
+    "dev": "webpack-dev-server --mode development --open"
   },
   "repository": {
     "type": "git",
