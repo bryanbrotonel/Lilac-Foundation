@@ -63,7 +63,18 @@ h4 {
 
 // Link hover styling
 a {
-    @include colouredLink($black)
+    color: $primary;
+}
+
+a:hover,
+a:after {
+    color: $primary-dark;
+    text-decoration: none;
+}
+
+p a:hover,
+p a:after {
+    text-decoration: underline;
 }
 
 // Blockquote font size styling
@@ -82,24 +93,24 @@ small,
     font-family: $base-font !important;
 }
 
+// Muted text class
 .text-muted {
     color: $text-dark !important;
 }
 
+// Primary coloured action link
 .action-link-primary {
     @include action-link($primary, $primary-dark)
 }
 
+// Dark coloured action link
 .action-link-dark {
     @include action-link($tertiary, $black)
 }
 
+// Markdown content line height
 .markdown-content p {
     line-height: 1.6rem;
-}
-
-.markdown-content a {
-    @include colouredLink($primary, $primary-dark)
 }
 
 // Markdown snippet font sizing

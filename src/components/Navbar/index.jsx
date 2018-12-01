@@ -84,7 +84,7 @@ class Navbar extends React.Component {
         >
           <div className="row text-center">
             <div className="col-12">
-              <Link to="/">
+              <Link to="/" onClick={() => this.closeMenu()}>
                 {!lilacLogo ? (
                   lilacLogoAlt
                 ) : (

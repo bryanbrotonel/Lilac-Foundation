@@ -1,4 +1,5 @@
 @import "resources/scss/modules/figures";
+@import 'resources/scss/modules/colours';
 
 // Team section padding styling
 .team-section {
@@ -7,14 +8,14 @@
 
 // Team member padding styling
 .team-member {
-    padding: 1rem;
+    padding-bottom: 2rem;
 }
 
 @media (min-width: 992px) {
 
     // Large screen team member padding styling
-    .team-member {
-        padding: 2rem 2rem 0 2rem;
+    .team-member-image-wrapper {
+        padding: 0 2rem;
     }
 }
 
