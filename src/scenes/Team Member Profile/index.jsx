@@ -1,12 +1,11 @@
 import React from 'react';
 import propTypes from 'prop-types';
 
-import { connect } from 'react-redux';
-import { loadTeamMembers } from 'store/team/team';
-
 import { Link } from 'react-router-dom';
 import * as Markdown from 'react-markdown';
-import DocumentTitle from 'react-document-title';
+
+import { connect } from 'react-redux';
+import { loadTeamMembers } from 'store/team/team';
 
 import NotFound from 'scenes/Not Found';
 import TeamMember from 'components/Team Member';
@@ -54,7 +53,7 @@ class TeamMemberProfile extends React.Component {
 
         return (
           <div key={name} className="col-8 col-sm-6 col-md-4 text-center">
-            <Link className="team-member-link" to={`/team/${path}`}>
+            <Link to={`/team/${path}`}>
               <TeamMember
                 name={name}
                 profilePicture={profilePicture.fields.file.url}
@@ -97,36 +96,30 @@ class TeamMemberProfile extends React.Component {
     ) : !teamMember ? (
       <NotFound />
     ) : (
-      <DocumentTitle title={`${teamMember.fields.name} | The Lilac Foundation`}>
-        <div className="container my-5">
-          <div className="row pb-md-5 justify-content-center">
-            <div className="col-10 col-md-5 col-lg-4 text-center">
-              <div className="member-info">
-                <img
-                  alt="image"
-                  className="rounded-circle w-75"
-                  src={teamMember.fields.profilePicture.fields.file.url}
-                />
-              </div>
-            </div>
-            <div className="col-12 d-lg-none text-center mb-3">
-              {memberInfo}
-            </div>
-            <div className="col-12 col-md-10 col-lg-6">
-              <div className="d-none d-lg-block">{memberInfo}</div>
-              <Markdown source={teamMember.fields.description} />
-            </div>
-            <div className="col-12 mb-3 text-center">
-              <h3>Meet the Team</h3>
-            </div>
-            <div className="col-10 col-lg-8">
-              <div className="row justify-content-center">
-                {teamMemberItems}
-              </div>
+      <div className="container my-5">
+        <div className="row pb-md-5 justify-content-center">
+          <div className="col-10 col-md-5 col-lg-4 text-center">
+            <div className="member-info">
+              <img
+                alt="image"
+                className="rounded-circle w-75"
+                src={teamMember.fields.profilePicture.fields.file.url}
+              />
             </div>
           </div>
+          <div className="col-12 d-lg-none text-center mb-3">{memberInfo}</div>
+          <div className="col-12 col-md-10 col-lg-6">
+            <div className="d-none d-lg-block">{memberInfo}</div>
+            <Markdown source={teamMember.fields.description} />
+          </div>
+          <div className="col-12 mb-3 text-center">
+            <h3>Meet the Team</h3>
+          </div>
+          <div className="col-10 col-lg-8">
+            <div className="row justify-content-center">{teamMemberItems}</div>
+          </div>
         </div>
-      </DocumentTitle>
+      </div>
     );
   }
 }

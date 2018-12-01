@@ -29,19 +29,18 @@
     .blog-section-content {
         padding: 4rem !important;
     }
+}
+
+@media (min-width: 1200px) {
 
     // Blog post content styling
-    .blog-section-content .markdown-snippet {
+    .blog-section-content .markdown-content {
         width: 80%;
     }
 }
 
-.blog-section-title {
-    margin-bottom: 0;
-}
-
 // Blog section title margin
-.blog-post-title,
-.blog-post-subtitle {
+.blog-section-title,
+.blog-section-subtitle {
     margin-top: 0;
 }

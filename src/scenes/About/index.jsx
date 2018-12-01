@@ -1,11 +1,9 @@
 import React from 'react';
 import Proptypes from 'prop-types';
+import * as Markdown from 'react-markdown';
 
 import { connect } from 'react-redux';
 import { loadHeaderImage, loadAboutItems } from 'store/base/base';
-
-import * as Markdown from 'react-markdown';
-import DocumentTitle from 'react-document-title';
 
 import PageHeader from 'components/Page Header';
 import AboutItem from './components/About Item';
@@ -52,23 +50,20 @@ class About extends React.Component {
             title={item.title}
             headerImage={item.headerImage.fields.file.url}
           >
-            <Markdown
-              className="about-content markdown-content"
-              source={item.description}
-            />
+            <Markdown className="about-content markdown-content" source={item.description} />
           </AboutItem>
         );
       });
     }
 
-    return <DocumentTitle title="About | The Lilac Foundation">
-        <div className="bg-gray">
-          <PageHeader headerImage={headerImage}>
-            <h1>About</h1>
-          </PageHeader>
+    return (
+      <div className="bg-gray">
+        <PageHeader headerImage={headerImage}>
+          <h1>About</h1>
+        </PageHeader>
           <div className="about-timeline">{aboutItemsSection}</div>
-        </div>
-      </DocumentTitle>;
+      </div>
+    );
   }
 }
 

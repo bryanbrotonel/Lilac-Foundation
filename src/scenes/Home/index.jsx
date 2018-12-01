@@ -1,7 +1,5 @@
 import React from 'react';
 
-import DocumentTitle from 'react-document-title';
-
 import HomeMasthead from './components/Home Masthead';
 import ProjectsSection from './components/Projects Section';
 import BlogSection from './components/Blog Section';
@@ -11,7 +9,6 @@ import AboutSection from './components/About Section';
 class Home extends React.Component {
   render() {
     return (
-      <DocumentTitle title="The Lilac Foundation">
       <React.Fragment>
         <HomeMasthead />
         <ProjectsSection />
@@ -19,7 +16,6 @@ class Home extends React.Component {
         <BlogSection />
         <DonateSection />
       </React.Fragment>
-      </DocumentTitle>
     );
   }
 }

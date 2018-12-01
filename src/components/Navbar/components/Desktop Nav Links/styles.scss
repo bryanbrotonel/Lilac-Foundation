@@ -18,23 +18,11 @@
 .navbar-nav .nav-link {
     position: relative;
     display: block;
-    margin: 0 1.25rem !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+    margin: .75rem !important;
     text-transform: capitalize;
     text-align: center;
     -webkit-transition: color 0.3s;
     transition: color 0.3s;
-}
-
-// Avtive nav link styling
-.nav-link-active::before {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1);
-    -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
 }
 
 // Light navbar styling 

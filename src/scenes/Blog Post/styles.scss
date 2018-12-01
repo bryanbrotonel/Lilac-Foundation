@@ -1,3 +1,15 @@
+@import 'resources/scss/modules/colours';
+
+// Heading text colours
+.heading * {
+    color: $white !important;
+}
+
+// Heaidng blog metadata typography styling
+.heading .meta {
+    font-style: italic;
+}
+
 .back-to-blog {
     text-align: center;
     margin: 2.5rem 0;

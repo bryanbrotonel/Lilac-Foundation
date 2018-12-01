@@ -14,14 +14,12 @@ class TeamMember extends React.Component {
 
     return (
       <div className="team-member">
-        <div className="team-member-image-wrapper">
-          <div className="team-member-image rounded-circle">
-            <img
-              src={profilePictureURL}
-              alt={name}
-              className=" rounded-circle w-100"
-            />
-          </div>
+        <div className="team-member-image rounded-circle">
+          <img
+            src={profilePictureURL}
+            alt={name}
+            className=" rounded-circle w-100"
+          />
         </div>
         <h4 className="team-member-name">{name}</h4>
         <p className="team-member-role">{role}</p>

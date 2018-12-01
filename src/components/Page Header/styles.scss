@@ -2,12 +2,11 @@
 
 // Page header styling
 .page-header {
-    height: 30vh;
+    height: 40vh;
     width: 100%;
     position: absolute !important;
     top: 0 !important;
     background-color: $primary-dark !important;
-    color: $white;
 
     background: no-repeat center center;
     background-attachment: scroll;
@@ -17,8 +16,8 @@
 
 // Page header neighbour margin for page header visibility
 .page-header+div {
-    padding-top: 2rem;
-    margin-top: calc(30vh - 80px);
+    padding-top: 4rem;
+    margin-top: calc(40vh - 80px);
 }
 
 // Page header heading row width and height

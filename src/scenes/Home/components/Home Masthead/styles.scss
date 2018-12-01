@@ -1,5 +1,4 @@
 @import 'resources/scss/modules/colours';
-@import 'resources/scss/modules/typography';
 
 // Home masthead layout and positioning
 .home-masthead {
@@ -69,7 +68,6 @@
 
 // Masthead content subtitle margin and fade in animation
 .masthead-content .masthead-subtitle {
-    font-family: $base-font;
     margin-top: 0;
 
     animation-duration: .75s;

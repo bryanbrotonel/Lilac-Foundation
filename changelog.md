@@ -7,24 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 0.0.3
 
-### 2018-11-30
-
-- Added [React Document Title](https://github.com/gaearon/react-document-title) to each page
-- Improved blog post layout
-- Improved project post layout
-- Added new Post Layout component
-
-### 2018-11-29
-
-#### Added
-
-- Handled no items to show case for projects and blog
-- Added new no items component
-- Updated blog post dates display
-
 ### 2018-11-28
-
-#### Added
 
 - Added favicon
 - Added absolute imports
@@ -34,7 +17,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### 2018-11-27
 
 #### Added
-
 - Loader styling
 - Mobile [React Burger Menu](http://negomi.github.io/react-burger-menu/) layout and styling
 - Desktop navbar stylng
@@ -42,7 +24,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### 2018-11-26
 
 #### Added
-
 - Shell touch ups
 - Improved blog post component folder structuring
 - Added new TLF Crest [Redux](https://redux.js.org) thunk
@@ -52,13 +33,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Finalized webpage spacing
 
 #### Removed
-
 - Unecessary [Redux](https://redux.js.org) action args
 
 ### 2018-11-23
 
-#### Added
 
+#### Added
 - Retereived lilac logo from [Contentful](https://www.contentful.com/)
 - Added [react-svg](https://github.com/tanem/react-svg) to project dependecies
 - Added navbar logo layout and styling
@@ -71,7 +51,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `hoverZoomIcon` and `v-center` mixins
 
 #### Removed
-
 - Team home section component
 - Unused colours
 - Unused colour background image mixin
@@ -79,7 +58,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### 2018-11-21
 
 #### Added
-
 - Implemented navbar hamburger button styling
 - Implemented fluid responsive typography
 - Edited element margins and padding

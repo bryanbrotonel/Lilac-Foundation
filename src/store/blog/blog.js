@@ -19,7 +19,7 @@ export function loadBlog(limit = 100) {
     return postClient
       .getEntries({
         content_type: 'blogPost',
-        order: 'sys.updatedAt',
+        order: '-fields.date',
         limit: limit
       })
       .then(({
@@ -41,11 +41,11 @@ export function loadBlogPost(id) {
     // Retreives and returns requested client post entry
     return postClient
       .getEntry(id)
-      .then((
-          postData
-        ) =>
+      .then(({
+          fields
+        }) =>
         // Dispatches loading success action return blog post
-        dispatch(actions.loadPostSuccess(postData))
+        dispatch(actions.loadPostSuccess(fields))
       )
       .catch(error => loadingBlogError(dispatch, error));
   };

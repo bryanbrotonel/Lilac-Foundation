@@ -29,7 +29,7 @@
 
 .footer-widget ul li a {
     text-transform: capitalize;
-    @include coloured-link($white, $text);
+    @include colouredLinks($white, $text);
 }
 
 // Footer widget list items padding
@@ -63,4 +63,5 @@
 .footer-widget ul li:hover,
 .footer-credit .credit-link:hover {
     color: $text !important;
+    text-decoration: none;
 }

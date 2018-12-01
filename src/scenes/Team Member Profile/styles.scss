@@ -22,7 +22,7 @@
 }
 
 .member-social-link {
-    @include coloured-link($text-dark, $black)
+    @include colouredLinks($text-dark, $black)
 }
 
 // Team member socials list item styling

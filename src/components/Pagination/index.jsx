@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './styles.scss';
+import './styles.scss'
 
 class Pagination extends React.Component {
   constructor(props) {
@@ -62,15 +62,12 @@ class Pagination extends React.Component {
     var nextPage = page + 1;
 
     return (
-      <h4 className="pagination-button">
-        <a
-          className="action-link-dark"
-          href="#"
-          onClick={event => this.handleClick(event, nextPage)}
-        >
-          Load More
-        </a>
-      </h4>
+      <button
+        className="pagination-button btn btn-primary"
+        onClick={event => this.handleClick(event, nextPage)}
+      >
+        <h4>Load More</h4>
+      </button>
     );
   }
 }

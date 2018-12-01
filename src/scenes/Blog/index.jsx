@@ -4,14 +4,12 @@ import Proptypes from 'prop-types';
 import { connect } from 'react-redux';
 import { loadBlog } from '../../store/blog/blog';
 import { loadHeaderImage } from '../../store/base/base';
-import DocumentTitle from 'react-document-title';
 
 import Loader from 'components/Loader';
 import PageHeader from 'components/Page Header';
-import NoItems from '../../components/No Items';
+import Pagination from 'components/Pagination';
 import BlogGridItem from './components/Blog Grid Item';
 import BlogListItem from './components/Blog List Item';
-import Pagination from 'components/Pagination';
 
 import './styles.scss';
 
@@ -81,67 +79,63 @@ class Blog extends React.Component {
   }
 
   render() {
-    const { gridDisplay, currentBlogPosts, pageLimit } = this.state;
+    const { gridDisplay, currentBlogPosts } = this.state;
     const { loading, posts } = this.props.blog;
     const { headerImage } = this.props.headerImage;
 
     return (
-      <DocumentTitle title="Blog | The Lilac Foundation">
-        <div className="bg-gray">
-          <PageHeader headerImage={headerImage}>
-            <h1>Blog</h1>
-          </PageHeader>
-          <div className="container">
-            {loading ? (
-              <div className="hv-center">
-                <Loader />
-              </div>
-            ) : posts.length === 0 ? (
-              <NoItems item="blog posts" />
-            ) : (
-              <React.Fragment>
-                <div className="row justify-content-end">
-                  <div
-                    className="col-6 blog-display-toggle"
-                    onClick={() => this.toggleDisplay()}
-                  >
-                    <span className="no-select">
-                      View as&nbsp;
-                      <span className={gridDisplay ? 'font-weight-bold' : ''}>
-                        Grid
-                      </span>
-                      &nbsp;|&nbsp;
-                      <span className={!gridDisplay ? 'font-weight-bold' : ''}>
-                        List
-                      </span>
-                    </span>
-                  </div>
-                </div>
-                {gridDisplay ? (
-                  <React.Fragment>
-                    <div className="row justify-content-between">
-                      {currentBlogPosts.map(({ fields, sys }, i) => (
-                        <BlogGridItem key={i} {...fields} {...sys} />
-                      ))}
-                    </div>
-                  </React.Fragment>
-                ) : (
-                  currentBlogPosts.map(({ fields, sys }, i) => (
-                    <BlogListItem key={i} {...fields} {...sys} />
-                  ))
-                )}
-                <div className="col-12 col-md-4 container text-center">
-                  <Pagination
-                    totalItems={posts.length}
-                    pageLimit={pageLimit}
-                    onPageChanged={this.onPageChanged}
-                  />
-                </div>
-              </React.Fragment>
-            )}
+      <div className="bg-gray">
+        <PageHeader headerImage={headerImage}>
+          <h1>Blog</h1>
+        </PageHeader>
+        <div className="container">
+          <div className="row justify-content-end">
+            <div
+              className="col-6 blog-display-toggle"
+              onClick={() => this.toggleDisplay()}
+            >
+              <span className="no-select">
+                View as&nbsp;
+                <span className={gridDisplay ? 'font-weight-bold' : ''}>
+                  Grid
+                </span>
+                &nbsp;|&nbsp;
+                <span className={!gridDisplay ? 'font-weight-bold' : ''}>
+                  List
+                </span>
+              </span>
+            </div>
           </div>
+          {loading ? (
+            <div className="hv-center">
+              <Loader />
+            </div>
+          ) : (
+            <React.Fragment>
+              {gridDisplay ? (
+                <React.Fragment>
+                  <div className="row justify-content-between">
+                    {currentBlogPosts.map(({ fields, sys }, i) => (
+                      <BlogGridItem key={i} {...fields} {...sys} />
+                    ))}
+                  </div>
+                </React.Fragment>
+              ) : (
+                currentBlogPosts.map(({ fields, sys }, i) => (
+                  <BlogListItem key={i} {...fields} {...sys} />
+                ))
+              )}
+              <div className="text-center pb-3">
+                <Pagination
+                  totalItems={posts.length}
+                  pageLimit={6}
+                  onPageChanged={this.onPageChanged}
+                />
+              </div>
+            </React.Fragment>
+          )}
         </div>
-      </DocumentTitle>
+      </div>
     );
   }
 }
