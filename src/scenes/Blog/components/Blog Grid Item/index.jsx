@@ -11,7 +11,7 @@ class BlogGridItem extends React.Component {
 
   render() {
     const props = this.props;
-    const { id, title, subtitle, headerImage, date } = props;
+    const { id, title, subtitle, headerImage, updatedAt } = props;
 
     const path = this.createURL`${title}${id}`;
 
@@ -21,7 +21,7 @@ class BlogGridItem extends React.Component {
           path={`/blog/${path}`}
           title={title}
           subtitle={subtitle}
-          date={date}
+          date={updatedAt}
           headerImage={headerImage.fields.file.url}
         />
       </div>

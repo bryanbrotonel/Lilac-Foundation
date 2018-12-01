@@ -19,7 +19,7 @@ export function loadBlog(limit = 100) {
     return postClient
       .getEntries({
         content_type: 'blogPost',
-        order: 'sys.updatedAt',
+        order: '-sys.updatedAt',
         limit: limit
       })
       .then(({

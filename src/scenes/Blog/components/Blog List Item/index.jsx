@@ -21,7 +21,7 @@ class BlogListItem extends React.Component {
       headerImage,
       content,
       author,
-      date
+      updatedAt
     } = this.props;
 
     const path = this.createURL`${title}${id}`;
@@ -40,17 +40,16 @@ class BlogListItem extends React.Component {
             <h3 className="blog-list-title">{title}</h3>
             <h4 className="blog-list-subtitle">{subtitle}</h4>
             <Markdown
-            className="markdown-snippet"
+              className="markdown-snippet"
               source={content
                 .split('')
                 .splice(0, 130)
                 .join('')
                 .concat('...')}
             />
-
             <p className="text-muted">
-              {author} |&nbsp;
-              {moment(date).calendar(null, {
+              {author} •&nbsp;
+              {moment(updatedAt).calendar(null, {
                 sameDay: '[Today]',
                 lastDay: '[Yesterday]',
                 lastWeek: '[Last] dddd',
@@ -71,7 +70,7 @@ BlogListItem.propTypes = {
   headerImage: Proptypes.object,
   content: Proptypes.string,
   author: Proptypes.string,
-  date: Proptypes.string,
+  updatedAt: Proptypes.string,
   path: Proptypes.string
 };
 export default BlogListItem;
