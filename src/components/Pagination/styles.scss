@@ -1,6 +1,8 @@
 @import "resources/scss/modules/typography";
+@import "resources/scss/modules/colours";
 
-.pagination-button h4 {
+// Pagination button title
+.pagination-button {
     font-family: $base-font;
-    margin: .5rem !important;
+    margin-bottom: 2rem !important;
 }

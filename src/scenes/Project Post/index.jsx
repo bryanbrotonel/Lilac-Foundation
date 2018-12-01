@@ -1,18 +1,17 @@
 import React from 'react';
 import Proptypes from 'prop-types';
 
-import { Link } from 'react-router-dom';
-import * as Markdown from 'react-markdown';
-import moment from 'moment';
-
 import { connect } from 'react-redux';
 import { loadProjectPost } from 'store/projects/projects';
 
+import { Link } from 'react-router-dom';
+import DocumentTitle from 'react-document-title';
+
 import NotFound from 'scenes/Not Found';
 import Loader from 'components/Loader';
+import PageHeader from 'components/Page Header';
+import PostLayout from 'components/Post Layout';
 import ShareItem from 'components/Share Item';
-
-import './styles.scss';
 
 // Maps Redux dispatch actions to props
 const mapDispatchToProps = dispatch => {
@@ -48,43 +47,33 @@ class ProjectPost extends React.Component {
   render() {
     const { projects } = this.props;
     const { loading, projectPost } = projects;
-    const { title, date, content } = projectPost;
+    const { title, date, headerImage, content } = projectPost;
 
     return loading ? (
       <Loader />
     ) : projectPost.length === 0 ? (
       <NotFound />
     ) : (
-      <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-12 col-md-7">
-            <div className="project-post-wrapper">
-              <h1 className="project-post-title">{title}</h1>
-              <p className="project-post-date">
-                {moment(date).calendar(null, {
-                  sameDay: '[Today]',
-                  lastDay: '[Yesterday]',
-                  lastWeek: '[Last] dddd',
-                  sameElse: 'MMM[.] Do YYYY'
-                })}
-              </p>
-              <Markdown className="markdown-content" source={content} />
+      <DocumentTitle title={`${title} | The Lilac Foundation`}>
+        <React.Fragment>
+          <PageHeader headerImage={headerImage.fields.file.url} />
+          <div className="container">
+            <PostLayout title={title} date={date} content={content} />
+            <div className="row">
+              <div className="col-12 col-md-4 container text-center">
+                <div className="pt-4">
+                  <ShareItem pageTitle={title} />
+                </div>
+                <div className="py-4">
+                  <Link className="action-link-dark" to="/projects">
+                    More Projects
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="row">
-          <div className="col-12 col-md-4 container text-center">
-            <div className="pt-4">
-              <ShareItem pageTitle={title} />
-            </div>
-            <div className="py-4">
-              <Link className="action-link-dark" to="/projects">
-                More Projects
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
+        </React.Fragment>
+      </DocumentTitle>
     );
   }
 }

@@ -1,11 +1,12 @@
 import React from 'react';
 import Proptypes from 'prop-types';
 
-import { Link } from 'react-router-dom';
-
 import { connect } from 'react-redux';
 import { loadHeaderImage } from 'store/base/base';
 import { loadTeamMembers } from 'store/team/team';
+
+import { Link } from 'react-router-dom';
+import DocumentTitle from 'react-document-title';
 
 import PageHeader from 'components/Page Header';
 import TeamMember from 'components/Team Member';
@@ -68,14 +69,14 @@ class Team extends React.Component {
         const { name, role, profilePicture, path } = teamMembers[key].fields;
 
         return (
-          <div key={name} className="col-8 col-sm-6 col-md-4 text-center">
-            <Link to={`/team/${path}`}>
+          <div key={name} className="col-9 col-sm-6 col-md-4 text-center">
+            <Link className="team-member-link" to={`/team/${path}`}>
               <ScrollReveal config={revealConfig}>
-              <TeamMember
-                name={name}
-                role={role}
-                profilePicture={profilePicture.fields.file.url}
-              />
+                <TeamMember
+                  name={name}
+                  role={role}
+                  profilePicture={profilePicture.fields.file.url}
+                />
               </ScrollReveal>
             </Link>
           </div>
@@ -84,20 +85,22 @@ class Team extends React.Component {
     }
 
     return (
-      <div className="bg-gray">
-        <PageHeader headerImage={headerImage}>
-          <h1>Team</h1>
-        </PageHeader>
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="team-section col-12 col-md-10">
-              <div className="row justify-content-center">
-                {teamMemberItems}
+      <DocumentTitle title="Team | The Lilac Foundation">
+        <div className="bg-gray">
+          <PageHeader headerImage={headerImage}>
+            <h1>Team</h1>
+          </PageHeader>
+          <div className="container">
+            <div className="row justify-content-center">
+              <div className="team-section col-12 col-md-10">
+                <div className="row justify-content-center">
+                  {teamMemberItems}
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </DocumentTitle>
     );
   }
 }

@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { loadBlog } from 'store/blog/blog';
 
+import PageSection from 'components/Page Section';
 import Loader from 'components/Loader';
 
 import './styles.scss';
@@ -58,40 +59,57 @@ class BlogSection extends React.Component {
     }
 
     // Home blog section title
-    const sectionTitle = (
-      <React.Fragment>
-        <h1>The Lilac Foundation Blog</h1>
-        <h5 className="text-muted">The latest from the team</h5>
-      </React.Fragment>
-    );
+    const sectionTitle = <h1 className="blog-section-title">The Lilac Foundation Blog</h1>;
 
-    return !loading && posts.length !== 0 ? <div>
+    return loading ? (
+      <Loader />
+    ) : !loading && posts.length === 0 ? (
+      <PageSection>
+        <div className="container hv-center">
+          <div className="text-center">
+            <h1>The Lilac Foundation Blog</h1>
+            <h5 className="base-font">Coming soon</h5>
+          </div>
+        </div>
+      </PageSection>
+    ) : (
+      <div>
         <div className="row no-gutters justify-content-center blog-section-wrapper">
-          <div className="col-12 py-4 d-sm-block d-md-none">
-            <div className="container">{sectionTitle}</div>
+          <div className="col-12 py-4 d-md-block d-lg-none">
+            <div className="container py-3">{sectionTitle}</div>
           </div>
           <div className="col-12 col-lg-5">
-            <div className="blog-section-header" style={{ backgroundImage: 'url(' + latestPost.headerImage.fields.file.url + ')' }} />
+            <div
+              className="blog-section-header"
+              style={{
+                backgroundImage:
+                  'url(' + latestPost.headerImage.fields.file.url + ')'
+              }}
+            />
           </div>
           <div className="col-12 col-lg-7">
             <div className="blog-section-content container">
-              <div className="pb-4 d-none d-md-block">{sectionTitle}</div>
-              <h2 className="blog-section-title">{latestPost.title}</h2>
-              <h3 className="blog-section-subtitle">
-                {latestPost.subtitle}
-              </h3>
-              <Markdown className="markdown-content" source={latestPost.content
+              <div className="pb-3">
+                <div className="pb-4 d-none d-lg-block">{sectionTitle}</div>
+                <h2 className="blog-post-title">{latestPost.title}</h2>
+                <h3 className="blog-post-subtitle">{latestPost.subtitle}</h3>
+              </div>
+              <Markdown
+                className="markdown-snippet"
+                source={latestPost.content
                   .split('')
                   .splice(0, 150)
                   .join('')
-                  .concat('...')} />
+                  .concat('...')}
+              />
               <Link className="action-link-primary" to={`/blog/${path}`}>
                 Read More
               </Link>
             </div>
           </div>
         </div>
-      </div> : <Loader />;
+      </div>
+    );
   }
 }
 

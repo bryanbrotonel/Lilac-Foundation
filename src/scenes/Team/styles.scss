@@ -1,4 +1,12 @@
+@import 'resources/scss/modules/typography';
+@import 'resources/scss/modules/colours';
+
 // Team section padding styling
 .team-section {
-    padding: 0 3rem 3rem 3rem;
+    padding: 0 3rem 3rem 3rem !important;
+}
+
+// Team member link styling
+.team-member-link {
+    @include coloured-link($black);
 }
