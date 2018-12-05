@@ -22,14 +22,24 @@
     }
 }
 
-// Footer widget list
-.footer-widget ul li {
-    font-weight: 550;
+// Footer widget header hover styling
+.footer-widget ul li:first-of-type {
+    font-family: $header-font;
+    font-weight: bold !important;
+    color: $text;
+    padding-bottom: 1.25rem !important;
 }
 
+// Footer widget link styling
 .footer-widget ul li a {
     text-transform: capitalize;
-    @include coloured-link($white, $text);
+    @include coloured-link($white, $white);
+}
+
+
+// Footer widget header hover styling
+.footer-widget ul li a:hover {
+    text-decoration: underline;
 }
 
 // Footer widget list items padding
@@ -59,8 +69,7 @@
     color: $tertiary-text !important;
 }
 
-// Footer links hover styling
-.footer-widget ul li:hover,
+// Credit link hover
 .footer-credit .credit-link:hover {
     color: $text !important;
 }

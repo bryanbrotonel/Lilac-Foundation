@@ -32,7 +32,7 @@ class Navbar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      pages: ['projects', 'blog', 'team', 'about'],
+      pages: ['about', 'team', 'projects', 'blog'],
       menuOpen: false
     };
 

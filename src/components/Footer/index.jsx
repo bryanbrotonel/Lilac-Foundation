@@ -31,10 +31,7 @@ class Footer extends React.Component {
   constructor() {
     super();
 
-    this.state = {
-      pages: ['projects', 'blog', 'team', 'about'],
-      socials: []
-    };
+    this.state = { pages: ['about', 'team', 'projects', 'blog'], socials: [] };
 
     this.componentDidMount = this.componentDidMount.bind(this);
   }
@@ -83,15 +80,20 @@ class Footer extends React.Component {
       });
     }
 
-    return (
-      <div className="footer">
+    return <div className="footer">
         <footer className="container">
           <div className="row align-items-top">
             <div className="footer-widget col-6 col-md-4">
-              <ul className="list-unstyled">{footerPageLinks}</ul>
+              <ul className="list-unstyled">
+                <li>Pages</li>
+                {footerPageLinks}
+              </ul>
             </div>
             <div className="footer-widget col-6 col-md-4">
-              <ul className="list-unstyled">{footerSocialLinks}</ul>
+              <ul className="list-unstyled">
+                <li>Contact</li>
+                {footerSocialLinks}
+              </ul>
             </div>
             <div className="col-12 col-md-4 text-left">
               <h4 className="footer-title">{footerTitle}</h4>
@@ -102,21 +104,14 @@ class Footer extends React.Component {
           <div className="footer-credit">
             <span>
               Made with&#160;
-              <FontAwesomeIcon icon="heart" size="sm" className="heart" />{' '}
-              by&#160;
-              <a
-                href="https://bryanbrotonel.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="credit-link"
-              >
+              <FontAwesomeIcon icon="heart" size="sm" className="heart" /> by&#160;
+              <a href="https://bryanbrotonel.com" target="_blank" rel="noopener noreferrer" className="credit-link">
                 Bryan Brotonel
               </a>
             </span>
           </div>
         </footer>
-      </div>
-    );
+      </div>;
   }
 }
 
