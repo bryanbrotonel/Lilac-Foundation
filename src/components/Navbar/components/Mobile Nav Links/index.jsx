@@ -1,12 +1,35 @@
-import React from 'react';
-import propTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import React from "react";
+import propTypes from "prop-types";
+import { NavLink } from "react-router-dom";
 
-import './styles.scss'
+import { connect } from "react-redux";
+import { loadDonateLink } from "../../../../store/base/base";
+
+import "./styles.scss";
+
+const mapDispatchToProps = dispatch => {
+  return {
+    loadDonateLink: () => {
+      dispatch(loadDonateLink());
+    }
+  };
+};
+
+// Maps Redux state to props
+function mapStateToProps(state) {
+  return { base: state.base };
+}
 
 class MobileNavLinks extends React.Component {
+  componentDidMount() {
+    const { loadDonateLink } = this.props;
+
+    // Dispatches loadDonateLink()
+    loadDonateLink();
+  }
+
   render() {
-    const { pages, closeMenu } = this.props;
+    const { pages, closeMenu, base } = this.props;
 
     // Mobile navbar links
     const mobileNavLinks = pages.map(page => {
@@ -14,7 +37,7 @@ class MobileNavLinks extends React.Component {
         <li key={page} className="nav-item menu__item">
           <NavLink
             key={page}
-            to={'/' + page}
+            to={"/" + page}
             activeClassName="menu__item--current"
             className="menu__link nav-link"
             onClick={() => closeMenu()}
@@ -29,7 +52,14 @@ class MobileNavLinks extends React.Component {
       <React.Fragment>
         {mobileNavLinks}
         <li className="nav-item menu__item">
-          <a className="nav-link">Donate</a>
+          <a
+            href={base.donateLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nav-link"
+          >
+            Donate
+          </a>
         </li>
       </React.Fragment>
     );
@@ -41,4 +71,7 @@ MobileNavLinks.propTypes = {
   closeMenu: propTypes.func.isRequired
 };
 
-export default MobileNavLinks;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MobileNavLinks);
