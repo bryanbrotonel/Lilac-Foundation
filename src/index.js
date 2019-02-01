@@ -1,22 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
-import { Router } from 'react-router-dom';
-import createHistory from 'history/createBrowserHistory';
+import { Router } from "react-router-dom";
+import createHistory from "history/createBrowserHistory";
 
 // Scroll to Top Component
-import ScrollToTop from './components/Scroll To Top';
+import ScrollToTop from "./components/Scroll To Top";
 
 // Redux Store
-import { configureStore } from './store';
+import { configureStore } from "./store";
 
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faHeart, faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { fab } from '@fortawesome/free-brands-svg-icons';
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faHeart, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { fab } from "@fortawesome/free-brands-svg-icons";
 
-import App from './scenes/App';
+import App from "./scenes/App";
 
-import '../resources/scss/main.scss';
+import "../resources/scss/main.scss";
 
 // Creates history
 const history = createHistory();
@@ -32,5 +32,5 @@ ReactDOM.render(
       <App store={store} />
     </ScrollToTop>
   </Router>,
-  document.getElementById('root')
+  document.getElementById("root")
 );

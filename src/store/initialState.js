@@ -2,6 +2,7 @@
 export default {
     base: {
         lilacLogo: '',
+        donateLink: '',
         footerBlurb: [],
         socials: [],
         headerImage: '',
