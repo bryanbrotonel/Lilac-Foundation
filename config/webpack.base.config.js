@@ -4,6 +4,7 @@ const merge = require("webpack-merge");
 
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 
 const APP_DIR = path.resolve(__dirname, "../src");
 
@@ -59,6 +60,10 @@ module.exports = env => {
         new webpack.DefinePlugin({
           "process.env.VERSION": JSON.stringify(env.VERSION),
           "process.env.PLATFORM": JSON.stringify(env.PLATFORM)
+        }),
+        new FaviconsWebpackPlugin({
+          logo: "./resources/TLF Favicon.png",
+          title: "The Lilac Foundation"
         })
       ]
     }
