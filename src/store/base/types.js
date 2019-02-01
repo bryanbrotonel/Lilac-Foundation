@@ -3,6 +3,9 @@
 // Successfully loaded liac logo
 export const LOAD_LILAC_LOGO_SUCCESS = 'LOAD_LILAC_LOGO_SUCCESS';
 
+// Successfully loaded donate link
+export const LOAD_DONATE_LINK_SUCCESS = 'LOAD_DONATE_LINK_SUCCESS';
+
 // Successfully loaded header image
 export const LOAD_PLACEHOLDER_SUCCESS = 'LOAD_PLACEHOLDER_SUCCESS';
 
