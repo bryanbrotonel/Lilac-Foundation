@@ -1,0 +1,61 @@
+@import 'resources/scss/modules/typography';
+@import 'resources/scss/modules/colours';
+@import 'resources/scss/modules/figures';
+
+// Navbar styling
+.navbar {
+    height: 80px;
+    font-family: $base-font;
+    background-color: transparent !important;
+    z-index: 3 !important;
+}
+
+// Navbar desktop row spacing
+.navbar-row {
+    width: 100%;
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
+
+// Navbar logo styling
+.navbar-logo {
+    object-fit: contain;
+    height: 50px;
+    width: 50px;
+    @include hoverZoomIcon();
+}
+
+// Navbar desktop row spacing
+@media (min-width: 768px) {
+    .navbar-row>div[class*="col-"] {
+        @include v-center();
+    }
+}
+
+// Navbar toggler colouring
+.navbar-toggler-icon {
+    @include navbar-toggler-icon($white);
+}
+
+// Light navbar styling
+.navbar-light .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='"+ rgba($black, 0.99) + "' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+}
+
+// Light navbar styling
+.navbar-dark .navbar-brand {
+    color: $white !important;
+}
+
+.navbar-light .navbar-brand {
+    color: $tertiary !important;
+}
+
+.menu__item--current::before {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+    -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}

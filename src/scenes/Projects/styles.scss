@@ -1,0 +1,23 @@
+// Projects section grid justify
+.current-projects-section,
+.future-projects-section {
+    justify-content: center !important;
+    padding-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+
+    // Projects section grid justify
+    .current-projects-section,
+    .future-projects-section {
+        justify-content: start !important;
+        padding-bottom: 5rem;
+    }
+}
+
+// Projects sectipon bottom margin
+.projects-section-title {
+    margin-top: 0;
+    margin-bottom: 2rem;
+    text-align: center;
+}

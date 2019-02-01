@@ -1,0 +1,56 @@
+@import 'resources/scss/modules/colours';
+
+// Nav link bottom line styling
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: .25rem;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    -webkit-transform: scale3d(0, 1, 1);
+    transform: scale3d(0, 1, 1);
+    -webkit-transition: -webkit-transform 0.1s;
+    transition: transform 0.1s;
+}
+
+// Nav link styling
+.navbar-nav .nav-link {
+    position: relative;
+    display: block;
+    margin: 0 1.25rem !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    text-transform: capitalize;
+    text-align: center;
+    -webkit-transition: color 0.3s;
+    transition: color 0.3s;
+}
+
+// Avtive nav link styling
+.nav-link-active::before {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+    -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+
+// Light navbar styling 
+.navbar-dark .nav-link::before {
+    background: $white !important;
+}
+
+.navbar-dark .nav-link {
+    color: $white !important;
+}
+
+// Dark navbar styling
+.navbar-light .nav-link::before {
+    background: $tertiary !important;
+}
+
+.navbar-light .nav-link {
+    color: $tertiary !important;
+}

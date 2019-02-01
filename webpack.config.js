@@ -1,5 +1,7 @@
+const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+let FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 module.exports = {
     entry: [
@@ -13,6 +15,7 @@ module.exports = {
     },
 
     resolve: {
+        modules: [path.resolve(__dirname, './src'), 'node_modules'],
         extensions: ['.js', '.jsx'],
     },
 
@@ -73,6 +76,10 @@ module.exports = {
             filename: './index.html',
             hash: true,
         }),
+        new FaviconsWebpackPlugin({
+            logo: './resources/TLF Favicon.png',
+            title: 'The Lilac Foundation',
+        })
     ],
 
     devServer: {

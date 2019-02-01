@@ -1,0 +1,28 @@
+// app.scss
+@import 'resources/scss/main.scss';
+
+// Full page body styling
+#app,
+#body,
+#body>div {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+// Entire web app styling
+#app {
+    min-height: 100vh !important;
+    background-color: $white;
+}
+
+// Body styling
+
+// After body styling
+#body:after {
+    content: ‘\00a0’;
+    display: block;
+    margin-top: var(— space);
+    height: 0;
+    visibility: hidden;
+}

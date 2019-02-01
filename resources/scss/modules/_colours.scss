@@ -1,0 +1,37 @@
+$black: #252427 !default;
+$white: #FFF !default;
+$gray-100: #F6F6F8;
+
+$black-overlay: rgba($black, .5);
+
+$text: #949AA6;
+$text-dark: #6c757d;
+
+$primary: #D1B1FF;
+$primary-dark: #9f81cc;
+$primary-light: #ffe3ff;
+
+$tertiary: #272932;
+$tertiary-text: #4E5264;
+
+// Section background colours mixins
+@mixin bg-colour($background, $text) {
+    background: $background !important;
+    color: $text !important;
+}
+
+@mixin btn-colour($text, $background: transparent) {
+    color: $text !important;
+    background-color: $background !important;
+    border-color: if($background !=transparent, $background, $text) !important;
+}
+
+@mixin navbar-toggler-icon($colour: white) {
+    $red: red($colour);
+    $green: green($colour);
+    $blue: blue($colour);
+
+    $rgbColour: $red + ", "+ $green + ", "+ $blue;
+
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba("+ $rgbColour + ", 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
+}

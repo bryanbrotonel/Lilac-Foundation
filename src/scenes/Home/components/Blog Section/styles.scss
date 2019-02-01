@@ -1,0 +1,52 @@
+// Blog section wrapper height
+.blog-section-wrapper {
+    height: 100%;
+}
+
+// Blog section header styling
+.blog-section-header {
+    padding: 0;
+    min-height: 350px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+}
+
+// Blog section content styling
+.blog-section-content {
+    padding: 3rem 0;
+}
+
+@media (min-width: 998px) {
+
+    // Blog section content styling
+    .blog-section-content {
+        padding: 3rem !important;
+    }
+}
+
+@media (min-width: 1200px) {
+
+    // Blog section content styling
+    .blog-section-content {
+        padding: 4rem !important;
+    }
+
+    // Blog post content styling
+    .blog-section-content .markdown-snippet {
+        width: 80%;
+    }
+}
+
+.blog-section-title {
+    margin-bottom: 0;
+}
+
+// Blog section title margin
+.blog-post-title,
+.blog-post-subtitle {
+    margin-top: 0;
+}

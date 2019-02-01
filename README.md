@@ -1,4 +1,4 @@
-# Lilac-Foundation
+# Lilac Foundation
 
 Website for the Lilac Foundation
 

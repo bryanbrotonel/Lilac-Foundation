@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css?family=Slabo+27px');
+@import 'resources/scss/modules/colours';
+@import 'resources/scss/modules/typography';
+
+// Home masthead layout and positioning
+.home-masthead {
+    width: 100%;
+    position: absolute !important;
+    top: 0 !important;
+    height: 100vh;
+}
+
+// Home masthead neighbour margin for masthead visibility
+.home-masthead+div {
+    margin-top: calc(100vh - 80px);
+}
+
+// Masthead content and image width and height
+.masthead-content-wrapper,
+.masthead-background-wrapper,
+.masthead-background {
+    width: 100%;
+    height: 100%;
+}
+
+// Masthead content wrapper z-index positioning
+.masthead-content-wrapper {
+    z-index: 1;
+    position: absolute;
+    background-color: rgba($tertiary, 0.5);
+}
+
+// Masthead image tint colour
+.masthead-background-wrapper {
+    background-color: $tertiary;
+}
+
+// Masthead image postiioning and animation
+.masthead-background {
+    object-fit: cover;
+    object-position: center;
+    overflow: hidden;
+}
+
+// Masthead image width
+.masthead-image-wrapper .masthead-image {
+    width: 100%;
+}
+
+// Masthead fadeIn animation
+.masthead-background,
+.masthead-image-wrapper .masthead-image {
+    animation-name: fadeIn;
+    animation-duration: 1s;
+    animation-delay: .5s;
+}
+
+// Masthead content typography styling
+.masthead-content {
+    text-align: left;
+    color: $white;
+}
+
+// Masthead title typogrpahy styling
+.masthead-content .masthead-title {
+    font-family: 'Slabo 27px', serif;
+    letter-spacing: .1rem;
+}
+
+// Masthead content title fade in animation
+.masthead-content .masthead-title,
+.masthead-image-wrapper .masthead-image {
+    animation-delay: 2s;
+    animation-duration: 1s;
+}
+
+// Masthead content subtitle margin and fade in animation
+.masthead-content .masthead-subtitle {
+    font-family: $base-font;
+    margin-top: 0;
+
+    animation-duration: .75s;
+    animation-delay: 2.25s;
+}
+
+// Masthead fadeInLeft animation
+.masthead-content .masthead-title,
+.masthead-content .masthead-subtitle,
+.masthead-donate-button {
+    animation-name: fadeInLeft;
+    animation-fill-mode: both;
+}
+
+// Masthead donate button animation
+.masthead-donate-button {
+    animation-duration: .75s;
+    animation-delay: 3.75s;
+}
+
+// Masthead animation fill mode
+.masthead-background,
+.masthead-image-wrapper .masthead-image,
+.masthead-content .masthead-title,
+.masthead-content .masthead-subtitle,
+.masthead-donate-button {
+    animation-fill-mode: both;
+}

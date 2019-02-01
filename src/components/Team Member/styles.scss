@@ -1,0 +1,47 @@
+@import "resources/scss/modules/figures";
+@import 'resources/scss/modules/colours';
+
+// Team section padding styling
+.team-section {
+    padding-bottom: 3rem;
+}
+
+// Team member padding styling
+.team-member {
+    padding-bottom: 2rem;
+}
+
+@media (min-width: 992px) {
+
+    // Large screen team member padding styling
+    .team-member-image-wrapper {
+        padding: 0 2rem;
+    }
+}
+
+// Team member role margin
+.team-member .team-member-role {
+    margin-bottom: 0;
+}
+
+// Team member name styling
+.team-member .team-member-name {
+    margin-top: 1rem;
+    white-space: nowrap;
+}
+
+// Team member hover zoom and grayscale styling
+.team-member-image {
+    @include hoverZoomImg();
+    @include grayscaleToColourImg();
+}
+
+// Large media team section styling
+@media (min-width: 992px) {
+
+    // Large screen team section padding styling
+    .team-section {
+        padding-bottom: 0;
+    }
+
+}

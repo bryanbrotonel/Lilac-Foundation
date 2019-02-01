@@ -1,0 +1,6 @@
+@import 'resources/scss/modules/colours';
+
+// Background with grey colour
+.bg-gray {
+    @include bg-colour($gray-100, $black);
+}
