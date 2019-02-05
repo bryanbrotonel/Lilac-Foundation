@@ -71,7 +71,7 @@ class HomeMasthead extends React.Component {
                 <div className="masthead-content">
                   <h1 className="masthead-title">The Lilac Foundation</h1>
                   <h3 className="masthead-subtitle">
-                    To enrich the lives of those we embody
+                    "To enrich the lives of those we embody"
                   </h3>
                   <DonateButton className="masthead-donate-button btn-primary" />
                 </div>
