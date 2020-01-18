@@ -43,7 +43,7 @@ PostLayout.propTypes = {
   title: propTypes.string.isRequired,
   subtitle: propTypes.string,
   author: propTypes.string,
-  date: propTypes.string.isRequired,
+  date: propTypes.string,
   content: propTypes.string.isRequired
 };
 

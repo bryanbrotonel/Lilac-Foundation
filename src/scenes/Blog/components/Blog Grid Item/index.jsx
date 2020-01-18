@@ -6,7 +6,9 @@ import PageItem from '../../../../components/Page Item';
 class BlogGridItem extends React.Component {
   // Creates url with post title and id
   createURL(str, title, id) {
-    return `${str[0]}${title.replace(/\s+/g, '-').toLowerCase()}-${id}`;
+    return encodeURIComponent(`${str[0]}${title
+      .replace(/\s+/g, "-")
+      .toLowerCase()}-${id}`);
   }
 
   render() {
