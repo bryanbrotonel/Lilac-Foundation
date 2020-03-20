@@ -31,7 +31,10 @@ class PostLayout extends React.Component {
                 })}
               </span>
             </div>
-            <Markdown className="markdown-content" source={content} />
+            <Markdown
+              className="markdown-content"
+              source={content}
+            />
           </div>
         </div>
       </div>
