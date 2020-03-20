@@ -3,6 +3,7 @@ import Proptypes from 'prop-types';
 
 import { connect } from 'react-redux';
 import { loadPlaceholderImage } from 'store/base/base';
+import { createURL } from 'helpers';
 
 import PageItem from 'components/Page Item';
 
@@ -23,13 +24,7 @@ function mapStateToProps(state) {
 }
 
 class CurrentProjectItem extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      headerImage: ''
-    };
-  }
+  
   componentDidMount() {
     const { loadPlaceholderImage } = this.props;
 
@@ -37,15 +32,10 @@ class CurrentProjectItem extends React.Component {
     loadPlaceholderImage();
   }
 
-  // Creates url with post title and id
-  createURL(str, title, id) {
-    return `${str[0]}${title.replace(/\s+/g, '-').toLowerCase()}-${id}`;
-  }
-
   render() {
     const { base, id, title, headerImage } = this.props;
 
-    const path = this.createURL`${title}${id}`;
+    const path = createURL`${title}${id}`;
 
     return (
       <PageItem

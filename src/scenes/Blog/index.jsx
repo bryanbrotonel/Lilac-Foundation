@@ -38,7 +38,7 @@ class Blog extends React.Component {
 
     this.state = {
       currentBlogPosts: [],
-      pageLimit: 6,
+      pageLimit: 4,
       currentPage: null,
       totalPages: null,
       gridDisplay: true
@@ -107,11 +107,11 @@ class Blog extends React.Component {
                   >
                     <span className="no-select">
                       View as&nbsp;
-                      <span className={gridDisplay ? 'font-weight-bold' : ''}>
+                      <span className={gridDisplay ? "font-weight-bold" : ""}>
                         Grid
                       </span>
                       &nbsp;|&nbsp;
-                      <span className={!gridDisplay ? 'font-weight-bold' : ''}>
+                      <span className={!gridDisplay ? "font-weight-bold" : ""}>
                         List
                       </span>
                     </span>
@@ -121,7 +121,9 @@ class Blog extends React.Component {
                   <React.Fragment>
                     <div className="row justify-content-between">
                       {currentBlogPosts.map(({ fields, sys }, i) => (
-                        <BlogGridItem key={i} {...fields} {...sys} />
+                        <div className="col-12 col-md-6 mb-3 mb-lg-0">
+                          <BlogGridItem key={i} {...fields} {...sys} />
+                        </div>
                       ))}
                     </div>
                   </React.Fragment>

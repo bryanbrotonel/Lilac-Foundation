@@ -1,120 +1,68 @@
-// Base font size
-html {
-    font-size: 1.15em;
+html,
+body {
+  font-size: 16px;
 }
 
 // Page body typography styling
 body {
-    background-color: $white;
-    font-family: $base-font;
-    font-weight: $base-font-weight;
-    line-height: $base-line-height;
-    color: $black;
-}
-
-// Paragraph styling
-p {
-    margin-bottom: 1.3em;
+  background-color: $white;
+  font-family: $base-font;
+  font-weight: $base-font-weight;
+  line-height: $base-line-height;
+  color: $black;
 }
 
 // Heading styling
 @for $i from 1 through 6 {
-    h#{7 - $i} {
-        font-family: $header-font;
-    }
+  h#{$i} {
+    font-family: $header-font;
+    font-weight: 700;
+  }
+
+  h#{$i},
+  p {
+    font-style: normal;
+    letter-spacing: 0em;
+    margin-bottom: 2rem;
+  }
 }
 
-@for $i from 1 through 4 {
-    h#{5 - $i} {
-        margin: 1.414em 0 0.5em;
-        font-weight: inherit;
-        line-height: 1.2;
-    }
+@for $i from 4 through 6 {
+  h#{$i} {
+    font-size: 20px;
+    line-height: 2.5rem;
+  }
 }
 
-// First heading styling
 h1 {
-    // font-size: 3.157em;
-    margin-top: 0;
-    $h1-map: (768px: 37.904px, 992px: 50.512px);
-    @include poly-fluid-sizing('font-size', $h1-map);
+  font-size: 39.1px;
 }
 
-// Second header styling
 h2 {
-    // font-size: 2.369em;
-    $h2-map: (768px: 28.432px, 992px: 37.904px);
-    @include poly-fluid-sizing('font-size', $h2-map);
+  font-size: 31.3px;
 }
 
-// Third header styling
 h3 {
-    // font-size: 1.777em;
-    $h3-map: (768px: 21.328px, 992px: 28.432px);
-    @include poly-fluid-sizing('font-size', $h3-map);
+  font-size: 25px;
 }
 
-// Fourth header styling
-h4 {
-    // font-size: 1.333em;
-    $h4-map: (768px: 21.328px, 992px: 21.328px);
-    @include poly-fluid-sizing('font-size', $h4-map);
+p {
+  font-weight: 400;
+  // line-height: 2.5rem;
 }
 
 // Link hover styling
 a {
-    color: $primary;
+  color: $primary;
 }
 
 a:hover,
 a:after {
-    color: $primary-dark;
-    text-decoration: none;
+  color: $primary-dark;
+  text-decoration: none;
 }
 
 p a:hover,
 p a:after {
-    text-decoration: underline;
-}
-
-// Blockquote font size styling
-blockquote {
-    font-size: 1.125rem;
-    font-family: $header-font
-}
-
-// Small font sizing
-small,
-.font_small {
-    font-size: 0.75em;
-}
-
-// Base font styling
-.base-font {
-    font-family: $base-font !important;
-}
-
-// Muted text class
-.text-muted {
-    color: $text-dark !important;
-}
-
-// Primary coloured action link
-.action-link-primary {
-    @include action-link($primary, $primary-dark)
-}
-
-// Dark coloured action link
-.action-link-dark {
-    @include action-link($tertiary, $black)
-}
-
-// Markdown content line height
-.markdown-content p {
-    line-height: 1.6rem;
-}
-
-// Markdown snippet font sizing
-.markdown-snippet * {
-    font-size: 1rem !important;
+  text-decoration: underline;
 }
