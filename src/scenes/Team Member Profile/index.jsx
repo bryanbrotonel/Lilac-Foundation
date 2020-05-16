@@ -70,7 +70,7 @@ class TeamMemberProfile extends React.Component {
 
       memberInfo = (
         <div className="member-info">
-          <h3 className="member-name">{name}</h3>
+          <h2 className="member-name">{name}</h2>
           <h5 className="base-font">{role}</h5>
           <ul className="member-socials">
             {Object.keys(socials.fields).map(key => {
