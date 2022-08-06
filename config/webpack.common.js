@@ -18,9 +18,13 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.(tsx|ts|js)?$/,
         exclude: /node_modules/,
         loader: 'ts-loader',
+      },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf|svg)$/i,
