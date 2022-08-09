@@ -7,7 +7,7 @@ import Footer from '../../components/Footer';
 
 const App = () => {
   return (
-    <div className="min-h-full grid grid-rows-[auto_1fr_auto] bg-white">
+    <div className="min-h-full grid grid-rows-[auto_1fr_auto] bg-white-0">
       <Navbar />
       <NavRoutes />
       <Footer />

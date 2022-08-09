@@ -1,23 +1,26 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import type { RootState } from '../../app/store';
+import * as Contentful from 'contentful';
 
 // Interface for blog post
-interface Post {
+interface TypeBlogPost {
   metadata: Object;
   sys: {
     id: string;
+    updatedAt: string;
   };
   fields: {
-    title: string;
-    content: string;
-    headerImage: Object;
-    subtitle: string;
+    title: Contentful.EntryFields.Symbol;
+    subtitle: Contentful.EntryFields.Symbol;
+    author?: Contentful.EntryFields.Symbol;
+    headerImage: Contentful.Asset;
+    content: Contentful.EntryFields.Text;
   };
 }
 
 // State of blog slice
 interface BlogState {
-  blogPosts: Array<Post>;
+  blogPosts: Array<TypeBlogPost>;
   status: String;
   erorr: String;
 }
@@ -41,11 +44,11 @@ export const fetchPosts = createAsyncThunk('blog/fetchPosts', async () => {
   const contentfulClient = await client.getEntries({
     content_type: 'blogPost',
     order: '-sys.updatedAt',
-    limit: 100,
+    limit: 10,
   });
 
   // Returns blog posts as an array of Post objects
-  return contentfulClient.items as Post[];
+  return contentfulClient.items as TypeBlogPost[];
 });
 
 export const blogSlice = createSlice({

@@ -64,7 +64,7 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
   }
   
-  body {
+  /* body {
     font-family: var(--font-secondary);
     color: var(--colour-black);
     line-height: var(--body-line-height);
@@ -82,7 +82,7 @@ const GlobalStyle = createGlobalStyle`
   h4 {
     font-family: var(--font-primary);
     --heading-font-weight: 700;
-  }
+  } */
 
   ::-moz-selection { /* Code for Firefox */
     background: var(--colour-light);

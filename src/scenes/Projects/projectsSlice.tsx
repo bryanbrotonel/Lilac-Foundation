@@ -1,23 +1,25 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import type { RootState } from '../../app/store';
+import * as Contentful from 'contentful';
 
 // Interface for Projects post
-interface Project {
+interface TypeProjectPost {
   metadata: Object;
   sys: {
     id: string;
   };
   fields: {
-    title: string;
-    date: string;
-    headerImage: Object;
-    content: string;
+    title?: Contentful.EntryFields.Symbol;
+    currentProject?: Contentful.EntryFields.Boolean;
+    date?: Contentful.EntryFields.Date;
+    headerImage?: Contentful.Asset;
+    content?: Contentful.EntryFields.Text;
   };
 }
 
 // State of Projects slice
 interface ProjectsState {
-  ProjectPosts: Array<Project>;
+  ProjectPosts: Array<TypeProjectPost>;
   status: String;
   erorr: String;
 }
@@ -45,7 +47,7 @@ export const fetchProjects = createAsyncThunk('Project/fetchPosts', async () => 
   });
 
   // Returns projects as an array of Project objects
-  return contentfulClient.items as Project[];
+  return contentfulClient.items as TypeProjectPost[];
 });
 
 export const ProjectSlice = createSlice({
