@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Loading from './components/Loading';
 import Home from './scenes/Home';
@@ -7,6 +7,7 @@ import About from './scenes/About';
 import Blog from './scenes/Blog';
 import Projects from './scenes/Projects';
 import NotFound from './scenes/NotFound';
+import BlogPost from './scenes/Blog/BlogPost';
 
 const NavRoutes = () => (
   <Routes>
@@ -19,7 +20,7 @@ const NavRoutes = () => (
       }
     ></Route>
     <Route
-      path="/about"
+      path="about"
       element={
         <Suspense fallback={<Loading />}>
           <About />
@@ -27,7 +28,7 @@ const NavRoutes = () => (
       }
     ></Route>
     <Route
-      path="/team"
+      path="team"
       element={
         <Suspense fallback={<Loading />}>
           <Team />
@@ -35,7 +36,7 @@ const NavRoutes = () => (
       }
     ></Route>
     <Route
-      path="/projects"
+      path="projects"
       element={
         <Suspense fallback={<Loading />}>
           <Projects />
@@ -43,13 +44,22 @@ const NavRoutes = () => (
       }
     ></Route>
     <Route
-      path="/blog"
+      path="blog"
       element={
         <Suspense fallback={<Loading />}>
           <Blog />
         </Suspense>
       }
     ></Route>
+    <Route
+      path="blog/:postId"
+      element={
+        <Suspense fallback={<Loading />}>
+          <BlogPost />
+        </Suspense>
+      }
+    ></Route>
+
     <Route path="*" element={<NotFound />} />
   </Routes>
 );

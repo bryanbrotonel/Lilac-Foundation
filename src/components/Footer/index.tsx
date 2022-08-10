@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const FooterContainer = styled.div`
-  background-color: var(--colour-primary);
+  background-color: var(--colour-secondary);
   color: var(--colour-white);
   padding: 4rem 0;
   @media (min-width: 768px) {

@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{html,ts,tsx,js}'],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
@@ -33,10 +33,6 @@ module.exports = {
           30: '#d9d9d9',
           20: '#f0f0f0',
           0: '#FFFFFF', // Base hue
-        },
-        gray: {
-          100: '#949AA6',
-          200: '#6c757d',
         },
         // primary: '#D1B1FF',
         primary: {

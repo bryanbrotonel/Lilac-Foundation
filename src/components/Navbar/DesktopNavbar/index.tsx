@@ -1,26 +1,30 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-interface PropTypes {
-  links: string[][];
-}
+function DesktopNavbar(props: { links: string[][]; darkNavbar: boolean }) {
+  const { links, darkNavbar } = props;
 
-function DesktopNavbar(props: PropTypes) {
-  const { links } = props;
+  var desktopLinks = [...links];
 
   // Remove  home page link and assign to variable
-  const homeLink = links.shift();
+  const homeLink = desktopLinks.shift();
 
   // Remove register page and assign to variable
-  const donateLink = links.pop();
+  const donateLink = desktopLinks.pop();
 
   // Remaining pages
-  const pages = links;
+  const pages = desktopLinks;
 
   return (
     <div className="hidden md:block">
-      <div className="sticky bg-transparent border border-white-30">
-        <div className="container grid grid-cols-3 items-baseline py-6">
+      <div
+        className={`sticky border-b  ${
+          darkNavbar
+            ? 'bg-secondary text-white-0 border-gray-700'
+            : 'bg-transparent text-black-700 border-white-30'
+        }`}
+      >
+        <div className="container grid grid-flow-col-dense lg:grid-cols-3 items-baseline py-6">
           <div>
             <NavLink className="text-2xl font-serif" to={homeLink[0]}>
               {homeLink[1]}
@@ -33,7 +37,7 @@ function DesktopNavbar(props: PropTypes) {
 
               return (
                 <NavLink
-                  className="font-bold text-black-700 hover:text-black-300"
+                  className="font-bold hover:text-black-300"
                   key={linkName}
                   to={linkPath}
                 >
@@ -44,7 +48,7 @@ function DesktopNavbar(props: PropTypes) {
           </div>
           <div className="justify-self-end">
             <NavLink to={donateLink[0]}>
-              <button className="bg-primary-50 hover:bg-primary-40 text-white-0 leading-6 font-bold py-2 px-3 rounded-lg">
+              <button className="bg-primary-50 hover:bg-primary-40 text-white-0 leading-6 font-semibold py-2 px-3 rounded-lg">
                 {donateLink[1]}
               </button>
             </NavLink>
