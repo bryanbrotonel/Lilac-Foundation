@@ -19,12 +19,14 @@ function DesktopNavbar(props: PropTypes) {
 
   return (
     <div className="hidden md:block">
-      <div className="sticky bg-transparent">
-        <div className="container flex justify-between items-center py-6">
+      <div className="sticky bg-transparent border border-white-30">
+        <div className="container grid grid-cols-3 items-baseline py-6">
           <div>
-            <NavLink className="text-xl" to={homeLink[0]}>{homeLink[1]}</NavLink>
+            <NavLink className="text-2xl font-serif" to={homeLink[0]}>
+              {homeLink[1]}
+            </NavLink>
           </div>
-          <div className="flex flex-row items-center gap-8">
+          <div className="justify-self-center flex flex-row items-center gap-8">
             {pages.map((link) => {
               const linkPath = link[0];
               const linkName = link[1];
@@ -40,7 +42,7 @@ function DesktopNavbar(props: PropTypes) {
               );
             })}
           </div>
-          <div>
+          <div className="justify-self-end">
             <NavLink to={donateLink[0]}>
               <button className="bg-primary-50 hover:bg-primary-40 text-white-0 leading-6 font-bold py-2 px-3 rounded-lg">
                 {donateLink[1]}

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function BlogCard(props: {
   title: string;
@@ -19,23 +20,24 @@ function BlogCard(props: {
 
   return (
     <div className="w-80 mx-auto overflow-hidden">
-      <div className="border border-white-30 overflow-hidden">
-        <a href="#">
+      <div className="bg-primary-50 border border-white-30 overflow-hidden">
+        <Link to="postId">
           <img
             className="h-48 w-full object-cover object-center img-hover-scale"
             src={`${image}?fm=webp`}
             alt={`${title} - Image`}
+            loading="lazy"
           />
-        </a>
+        </Link>
       </div>
       <div className="h-56 mt-4">
         <div>
-          <a
-            href="#"
+        <Link to="postId"
+
             className="block mt-1 text-xl font-serif font-bold leading-tight text-black hover:underline"
           >
             {title}
-          </a>
+          </Link>
           <p className="mt-4 text-slate-700">{subtitle}</p>
         </div>
         <div className="mt-4">

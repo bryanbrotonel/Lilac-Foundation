@@ -58,6 +58,9 @@ module.exports = {
         serif: ['Merriweather', 'serif'],
       },
     },
+    container: {
+      center: true,
+    },
   },
   variants: {
     extend: {},

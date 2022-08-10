@@ -1,19 +1,7 @@
 import React, { useEffect } from 'react';
-
-import styled from 'styled-components';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import ProjectItem from './ProjectItem';
 import { fetchProjects, selectAllProjects } from './projectsSlice';
-
-const ProjectsContainer = styled.div`
-  & > div {
-    margin-bottom: 5rem;
-  }
-  @media (min-width: 768px) {
-    & > div {
-      margin-bottom: 12rem;
-    }
-  }
-`;
 
 function Projects() {
   const dispatch = useAppDispatch();
@@ -26,30 +14,39 @@ function Projects() {
       dispatch(fetchProjects());
     }
   }, [projectsStatus, dispatch]);
-
+  2;
   let projectsList;
 
-  console.log(projects)
+  if (projectsStatus === 'succeeded') {;
 
-  if (projectsStatus === 'succeeded') {
     projectsList = (
-      <ProjectsContainer>
+      <React.Fragment>
         {projects.map((project) => (
-          <div key={project.sys.id}>
-            <h2>{project.fields.title}</h2>
-            <h3>{project.fields.date}</h3>
-            <p>{project.fields.content}</p>
-          </div>
+            <ProjectItem
+              key={project.sys.id}
+              id={project.sys.id}
+              title={project.fields.title}
+              image={project.fields.headerImage.fields.file.url}
+            />
         ))}
-      </ProjectsContainer>
+      </React.Fragment>
     );
   }
 
   return (
-    <ProjectsContainer className="container">
-      <h1>Projects</h1>
-      {projectsList}
-    </ProjectsContainer>
+    <div className="container mt-12">
+      <h1 className="font-bold font-serif text-6xl">Projects</h1>
+      <hr className="mt-4 mb-8 border-white-30" />
+      <div className="text-center text-lg my-32 mx-auto md:w-1/2">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium
+          iste ut dolore tenetur! Repudiandae possimus obcaecati minus!
+          Praesentium laborum magni consequatur culpa, iste consectetur quam
+          cum, accusantium recusandae, ex inventore?
+        </p>
+      </div>
+      <div className="flex flex-col gap-40 pt-12">{projectsList}</div>
+    </div>
   );
 }
 

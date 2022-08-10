@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 interface FeaturePostProps {
   title: string;
@@ -35,26 +36,27 @@ function FeaturePost({
         <div
           className={`w-full ${
             main ? 'h-64 md:h-96' : 'md:aspect-square h-44'
-          } border border-white-30 overflow-hidden`}
+          } bg-primary-50 border border-white-30 overflow-hidden`}
         >
-          <a href="">
+          <Link to="postId">
             <img
               src={`${image}?fm=webp`}
               alt={`${title} - Image`}
               className="w-full h-full object-cover object-center img-hover-scale"
+              loading="lazy"
             />
-          </a>
+          </Link>
         </div>
       </div>
       <div>
-        <a
-          href="#"
+        <Link
+          to="postId"
           className={`font-serif font-bold ${
             main ? 'text-4xl' : 'text-2xl'
           } hover:underline hover:text-primary-100`}
         >
           {title}
-        </a>
+        </Link>
         <h2 className="text-slate-500">{subtitle}</h2>
         <div className="mt-4">
           <p>
