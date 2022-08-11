@@ -1,82 +1,69 @@
 import React from 'react';
-
-import styled from 'styled-components';
-
-const FooterContainer = styled.div`
-  background-color: var(--colour-secondary);
-  color: var(--colour-white);
-  padding: 4rem 0;
-  @media (min-width: 768px) {
-    padding: 0;
-  }
-`;
-
-const FooterRow = styled.div`
-  width: 100%;
-
-  height: 100%;
-  display: flex;
-  gap: 4rem;
-
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  @media (min-width: 768px) {
-    gap: 0rem;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-  }
-`;
-
-const FooterContent = styled.div`
-  display: grid;
-  gap: 2rem;
-
-  text-align: center;
-
-  @media (min-width: 768px) {
-    text-align: left;
-    padding: 4rem 0;
-  }
-`;
-
-const FooterTitle = styled.h1`
-  font-size: var(--text-xxxl);
-  font-weight: bold;
-  margin: 0;
-`;
-
-const Copyright = styled.span`
-  font-size: var(--text-xs);
-  @media (min-width: 768px) {
-    font-size: var(--text-sm);
-  }
-`;
+import { Link } from 'react-router-dom';
+import FooterLink from './FooterLink';
 
 function footer() {
   return (
-    <FooterContainer>
-      <FooterRow>
-        <FooterContent>
-          <FooterTitle>The Lilac Foundation</FooterTitle>
-          <Copyright>
-            &#169; {new Date().getFullYear()}. All Rights Reserved | Vancouver,
-            BC
-          </Copyright>
-        </FooterContent>
-        <div>
-          <ul>
-            <li>links</li>
-            <li>links</li>
-            <li>links</li>
-            <li>links</li>
-            <li>links</li>
-          </ul>
+    <div className="bg-secondary py-20 mt-20">
+      <div className="container flex flex-col md:flex-row gap-y-10 md:gap-y-0">
+        <div className="basis-1/3 order-last md:order-none prose prose-invert">
+          <h2 className="font-serif text-4xl !mb-4">The Lilac Foundation</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Id,
+            blanditiis voluptates assumenda illo dolorum animi eveniet suscipit
+            exercitationem impedit molestias.
+          </p>
+          <span className="text-gray-500">
+            Made with &#128156; by&nbsp;
+            <a
+              href="https://bryanbrotonel.live"
+              className="no-underline text-inherit hover:text-white-20"
+            >
+              Bryan
+            </a>
+          </span>
         </div>
-      </FooterRow>
-    </FooterContainer>
+        <div className="basis-1/3 flex justify-start md:justify-center">
+          <div>
+            <h3 className="font-sans text-sm uppercase mb-4 text-gray-400">
+              Pages
+            </h3>
+            <ul className="list-none space-y-3 text-lg">
+              <li>
+                <FooterLink to="about">About</FooterLink>
+              </li>
+              <li>
+                <FooterLink to="team">Team</FooterLink>
+              </li>
+              <li>
+                <FooterLink to="projects">Projects</FooterLink>
+              </li>
+              <li>
+                <FooterLink to="blog">Blog</FooterLink>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="basis-1/3 flex justify-start md:justify-center">
+          <div>
+            <h3 className="font-sans text-sm uppercase mb-4 text-gray-400">
+              Contact
+            </h3>
+            <ul className="list-none space-y-3 text-lg">
+              <li>
+                <FooterLink to="">Facebook</FooterLink>
+              </li>
+              <li>
+                <FooterLink to="">Instagram</FooterLink>
+              </li>
+              <li>
+                <FooterLink to="">Mail</FooterLink>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 
