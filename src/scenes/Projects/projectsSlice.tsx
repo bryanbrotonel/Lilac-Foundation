@@ -42,7 +42,7 @@ export const fetchProjects = createAsyncThunk('Project/fetchPosts', async () => 
   // Retreive projects from Contentful in order of creation date
   const contentfulClient = await client.getEntries({
     content_type: 'projectPost',
-    order: '-sys.updatedAt',
+    order: '-sys.createdAt',
     limit: 100,
   });
 

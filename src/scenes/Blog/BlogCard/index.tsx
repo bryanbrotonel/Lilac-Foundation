@@ -7,8 +7,9 @@ function BlogCard(props: {
   image: string;
   author: string;
   date: string;
+  slug: string;
 }) {
-  const { title, subtitle, image, author, date } = props;
+  const { title, subtitle, image, author, date, slug } = props;
 
   // Format date
   const formattedPostDate = new Date(date).toLocaleDateString('en-gb', {
@@ -21,7 +22,7 @@ function BlogCard(props: {
   return (
     <div className="w-80 mx-auto overflow-hidden">
       <div className="bg-primary-50 border border-white-30 overflow-hidden">
-        <Link to="postId">
+        <Link to={slug}>
           <img
             className="h-48 w-full object-cover object-center img-hover-scale"
             src={`${image}?fm=webp`}
@@ -32,8 +33,8 @@ function BlogCard(props: {
       </div>
       <div className="h-56 mt-4">
         <div>
-        <Link to="postId"
-
+          <Link
+            to={slug}
             className="block mt-1 text-xl font-serif font-bold leading-tight text-black hover:underline"
           >
             {title}

@@ -7,6 +7,7 @@ interface FeaturePostProps {
   image: string;
   author: string;
   date: string;
+  slug: string;
   main?: boolean;
 }
 
@@ -16,6 +17,7 @@ function FeaturePost({
   image,
   author,
   date,
+  slug,
   main = false,
 }: FeaturePostProps) {
   // Format date
@@ -38,7 +40,7 @@ function FeaturePost({
             main ? 'h-64 md:h-96' : 'md:aspect-square h-44'
           } bg-primary-50 border border-white-30 overflow-hidden`}
         >
-          <Link to="postId">
+          <Link to={slug}>
             <img
               src={`${image}?fm=webp`}
               alt={`${title} - Image`}
@@ -50,7 +52,7 @@ function FeaturePost({
       </div>
       <div>
         <Link
-          to="postId"
+          to={slug}
           className={`font-serif font-bold ${
             main ? 'text-4xl' : 'text-2xl'
           } hover:underline hover:text-primary-100`}

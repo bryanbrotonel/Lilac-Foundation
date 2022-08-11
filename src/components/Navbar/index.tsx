@@ -13,9 +13,9 @@ function Navbar() {
     ['', 'Donate'],
   ];
 
-  const darkNavbarPaths = ['/blog/postId'];
+  const darkNavbarPaths = ['/blog/'];
   const location = useLocation();
-  const darkNavbar = darkNavbarPaths.includes(location.pathname);
+  const darkNavbar = darkNavbarPaths.some((v) => location.pathname.includes(v));
 
   return (
     <React.Fragment>

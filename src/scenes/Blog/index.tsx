@@ -7,20 +7,20 @@ import FeaturePost from './FeaturePost';
 function Blog() {
   const dispatch = useAppDispatch();
 
-  const postsStatus = useAppSelector((state) => state.blog.status);
+  const blogStatus = useAppSelector((state) => state.blog.status);
   const posts = useAppSelector(selectAllPosts);
 
   useEffect(() => {
-    if (postsStatus === 'idle') {
+    if (blogStatus === 'idle') {
       dispatch(fetchPosts());
     }
-  }, [postsStatus, dispatch]);
+  }, [blogStatus, dispatch]);
 
   let mainPost;
   let featurePosts;
   let blogPostsList;
 
-  if (postsStatus === 'succeeded') {
+  if (blogStatus === 'succeeded') {
     let postsList = [...posts];
 
     // Get primary post from list
@@ -33,7 +33,8 @@ function Blog() {
         subtitle={firstPost.fields.subtitle}
         image={firstPost.fields.headerImage.fields.file.url}
         author={firstPost.fields.author}
-        date={firstPost.sys.updatedAt}
+        date={firstPost.sys.createdAt}
+        slug={firstPost.fields.slug}
         main
       />
     );
@@ -47,24 +48,31 @@ function Blog() {
           subtitle={post.fields.subtitle}
           image={post.fields.headerImage.fields.file.url}
           author={post.fields.author}
-          date={post.sys.updatedAt}
+          date={post.sys.createdAt}
+          slug={post.fields.slug}
         />
       ));
 
-    blogPostsList = (
-      <React.Fragment>
-        {postsList.map((post) => (
-          <BlogCard
-            key={post.sys.id}
-            title={post.fields.title}
-            subtitle={post.fields.subtitle}
-            image={post.fields.headerImage.fields.file.url}
-            author={post.fields.author}
-            date={post.sys.updatedAt}
-          />
-        ))}
-      </React.Fragment>
-    );
+    if (postsList.length > 0) {
+      blogPostsList = (
+        <div>
+          <hr className="my-8 border-white-30" />
+          <div className="flex flex-wrap gap-8">
+            {postsList.map((post) => (
+              <BlogCard
+                key={post.sys.id}
+                title={post.fields.title}
+                subtitle={post.fields.subtitle}
+                image={post.fields.headerImage.fields.file.url}
+                author={post.fields.author}
+                date={post.sys.createdAt}
+                slug={post.fields.slug}
+              />
+            ))}
+          </div>
+        </div>
+      );
+    }
   }
 
   return (
@@ -73,14 +81,11 @@ function Blog() {
       <hr className="mt-4 mb-8 border-white-30" />
       <div className="flex flex-col lg:flex-row gap-6 lg:gap-12 lg:mb-12 divide-y divide-white-30 lg:divide-y-0">
         <div className="basis-7/12">{mainPost}</div>
-        <div className="basis-5/12 flex flex-col divide-y divide-white-30 lg:divide-y-0 gap-5">
+        <div className="basis-5/12 flex flex-col justify-start divide-y divide-white-30 lg:divide-y-0 gap-5">
           {featurePosts}
         </div>
       </div>
-      <div>
-        <hr className="my-8 border-white-30" />
-        <div className="flex flex-wrap gap-8">{blogPostsList}</div>
-      </div>
+      {blogPostsList}
     </div>
   );
 }

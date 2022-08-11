@@ -1,55 +1,21 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk, AsyncThunk } from '@reduxjs/toolkit';
 import type { RootState } from '../../app/store';
-import * as Contentful from 'contentful';
-
-// Interface for blog post
-interface TypeBlogPost {
-  metadata: Object;
-  sys: {
-    id: string;
-    updatedAt: string;
-  };
-  fields: {
-    title: Contentful.EntryFields.Symbol;
-    subtitle: Contentful.EntryFields.Symbol;
-    author?: Contentful.EntryFields.Symbol;
-    headerImage: Contentful.Asset;
-    content: Contentful.EntryFields.Text;
-  };
-}
+import { fetchContentfulBlogEntries } from '../../api/contentful';
+import { TypeBlogPost } from '../../types';
 
 // State of blog slice
 interface BlogState {
   blogPosts: Array<TypeBlogPost>;
+  currentPost: any;
   status: String;
-  erorr: String;
 }
 
 // Initial state of blog slice
 const initialState: BlogState = {
   blogPosts: [],
+  currentPost: null,
   status: 'idle',
-  erorr: null,
 };
-
-// Redux thunk that fetches blog posts
-export const fetchPosts = createAsyncThunk('blog/fetchPosts', async () => {
-  const contentful = require('contentful');
-  const client = contentful.createClient({
-    space: process.env.REACT_APP_CONTENTFUL_SPACE_ID,
-    accessToken: process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN,
-  });
-
-  // Retreive blog posts from Contentful in order of creation date
-  const contentfulClient = await client.getEntries({
-    content_type: 'blogPost',
-    order: '-sys.updatedAt',
-    limit: 10,
-  });
-
-  // Returns blog posts as an array of Post objects
-  return contentfulClient.items as TypeBlogPost[];
-});
 
 export const blogSlice = createSlice({
   name: 'blog',
@@ -66,14 +32,17 @@ export const blogSlice = createSlice({
         state.status = 'succeeded';
         // Appends data to blog posts
         state.blogPosts = state.blogPosts.concat(action.payload);
-      })
-      .addCase(fetchPosts.rejected, (state, action) => {
-        state.status = 'failed';
-        state.erorr = action.error.message;
       });
   },
 });
 
+// Redux thunk that fetches blog posts
+export const fetchPosts = createAsyncThunk(
+  'blog/fetchPosts',
+  fetchContentfulBlogEntries
+);
+
 export const selectAllPosts = (state: RootState) => state.blog.blogPosts;
+export const selectCurrentPost = (state: RootState) => state.blog.currentPost;
 
 export default blogSlice.reducer;
