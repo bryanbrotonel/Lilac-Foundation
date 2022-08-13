@@ -9,7 +9,7 @@ function BlogSection() {
       </h1>
       <div className="container bg-white-20 py-24">
         <div className="flex md:flex-wrap flex-col md:flex-row">
-          <BlogCard
+          {/* <BlogCard
             title={''}
             subtitle={''}
             image={''}
@@ -32,7 +32,7 @@ function BlogSection() {
             author={''}
             date={''}
             slug={''}
-          />
+          /> */}
         </div>
       </div>
     </div>

@@ -6,7 +6,7 @@ function ProjectSection() {
       <div className="flex flex-col md:flex-row-reverse gap-8">
         <div className="w-full md:w-4/6 aspect-[3/2] mx-auto overflow-hidden">
           <img
-            src=""
+            src="https://images.unsplash.com/photo-1660421716577-c3ef88a85431?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
             alt="Project Image"
             className="w-full h-full object-cover object-center"
           />
