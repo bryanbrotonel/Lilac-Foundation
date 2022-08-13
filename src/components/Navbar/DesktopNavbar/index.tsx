@@ -18,7 +18,7 @@ function DesktopNavbar(props: { links: string[][]; darkNavbar: boolean }) {
   return (
     <div className="hidden md:block">
       <div
-        className={`sticky border-b  ${
+        className={`border-b  ${
           darkNavbar
             ? 'bg-secondary text-white-0 border-gray-700'
             : 'bg-transparent text-black-700 border-white-30'

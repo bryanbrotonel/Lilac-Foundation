@@ -1,10 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import FooterLink from './FooterLink';
 
 function footer() {
   return (
-    <div className="bg-secondary py-20 mt-20">
+    <div className="bg-secondary py-20">
       <div className="container flex flex-col md:flex-row gap-y-10 md:gap-y-0">
         <div className="basis-1/3 order-last md:order-none prose prose-invert">
           <h2 className="font-serif text-4xl !mb-4">The Lilac Foundation</h2>
