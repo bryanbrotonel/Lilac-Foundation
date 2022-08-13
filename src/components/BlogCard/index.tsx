@@ -20,11 +20,11 @@ function BlogCard(props: {
   });
 
   return (
-    <div className="w-80 mx-auto overflow-hidden">
+    <div className="w-72 mx-auto overflow-hidden">
       <div className="bg-primary-50 border border-white-30 overflow-hidden">
         <Link to={slug}>
           <img
-            className="h-48 w-full object-cover object-center img-hover-scale"
+            className="h-64 w-full object-cover object-center img-hover-scale"
             src={`${image}?fm=webp`}
             alt={`${title} - Image`}
             loading="lazy"
@@ -39,13 +39,13 @@ function BlogCard(props: {
           >
             {title}
           </Link>
-          <p className="mt-4 text-slate-700">{subtitle}</p>
+          <p className="mt-4 text-gray-700">{subtitle}</p>
         </div>
         <div className="mt-4">
           <span>
             <span className="font-bold">{author}</span>
             <br />
-            <span className="text-slate-500">{formattedPostDate}</span>
+            <span className="text-gray-500">{formattedPostDate}</span>
           </span>
         </div>
       </div>

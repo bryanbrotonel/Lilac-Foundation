@@ -8,15 +8,7 @@ function BlogSection() {
         The Latest Blog Posts
       </h1>
       <div className="container bg-white-20 py-24">
-        <div className="flex md:flex-wrap flex-col md:flex-row">
-          {/* <BlogCard
-            title={''}
-            subtitle={''}
-            image={''}
-            author={''}
-            date={''}
-            slug={''}
-          />
+        <div className="flex md:flex-wrap flex-col md:flex-row gap-y-8 md:gap-0">
           <BlogCard
             title={''}
             subtitle={''}
@@ -32,7 +24,15 @@ function BlogSection() {
             author={''}
             date={''}
             slug={''}
-          /> */}
+          />
+          <BlogCard
+            title={''}
+            subtitle={''}
+            image={''}
+            author={''}
+            date={''}
+            slug={''}
+          />
         </div>
       </div>
     </div>
