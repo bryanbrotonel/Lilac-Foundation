@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { fetchPosts, selectAllPosts } from './blogSlice';
-import BlogCard from './BlogCard';
+import BlogCard from '../../components/BlogCard';
 import FeaturePost from './FeaturePost';
 
 function Blog() {

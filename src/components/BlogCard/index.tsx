@@ -31,11 +31,11 @@ function BlogCard(props: {
           />
         </Link>
       </div>
-      <div className="h-56 mt-4">
+      <div className="mt-4">
         <div>
           <Link
             to={slug}
-            className="block mt-1 text-xl font-serif font-bold leading-tight text-black hover:underline"
+            className="block mt-1 text-2xl font-serif font-bold leading-tight text-black hover:underline"
           >
             {title}
           </Link>
