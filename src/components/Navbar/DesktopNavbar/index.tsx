@@ -26,7 +26,7 @@ function DesktopNavbar(props: { links: string[][]; darkNavbar: boolean }) {
       >
         <div className="container grid grid-flow-col-dense lg:grid-cols-3 items-baseline py-6">
           <div>
-            <NavLink className="text-2xl font-serif" to={homeLink[0]}>
+            <NavLink className="text-2xl font-serif font-bold" to={homeLink[0]}>
               {homeLink[1]}
             </NavLink>
           </div>

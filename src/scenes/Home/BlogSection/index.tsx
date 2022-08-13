@@ -8,7 +8,7 @@ function BlogSection() {
         The Latest Blog Posts
       </h1>
       <div className="container bg-white-20 py-24">
-        <div className="flex flex-wrap flex-col md:flex-row gap-12">
+        <div className="flex md:flex-wrap flex-col md:flex-row">
           <BlogCard
             title={''}
             subtitle={''}
