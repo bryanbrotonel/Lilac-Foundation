@@ -13,14 +13,10 @@ function Navbar() {
     ['', 'Donate'],
   ];
 
-  const darkNavbarPaths = ['/blog/'];
-  const location = useLocation();
-  const darkNavbar = darkNavbarPaths.some((v) => location.pathname.includes(v));
-
   return (
     <React.Fragment>
-      <DesktopNavbar links={links} darkNavbar={darkNavbar} />
-      <MobileNavbar links={links} darkNavbar={darkNavbar} />
+      <DesktopNavbar links={links} />
+      <MobileNavbar links={links} />
     </React.Fragment>
   );
 }

@@ -1,6 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useAppDispatch } from '../../../app/hooks';
+import {
+  resetNavbarTheme,
+  setNavbarTheme,
+} from '../../../components/Navbar/navbarSlice';
 
 function Hero() {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    // Set navbar theme to hero theme
+    dispatch(setNavbarTheme('bg-primary-400 text-white-0 border-primary-400'));
+
+    return () => {
+      // reset navbar theme to original theme
+      dispatch(resetNavbarTheme());
+    };
+  }, []);
+
   return (
     <div className="h-fit lg:h-3/4 py-24 bg-primary-400">
       <div className="h-full flex flex-col lg:flex-row gap-12 lg:gap-0 justify-evenly container">

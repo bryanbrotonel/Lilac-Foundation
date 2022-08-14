@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { useAppSelector } from '../../../app/hooks';
+import { getNavbarTheme } from '../navbarSlice';
 import NavMenu from './NavMenu';
 import { NavLink } from 'react-router-dom';
 
-function MobileNavbar(props: { links: string[][]; darkNavbar: boolean }) {
-  const { links, darkNavbar } = props;
+function MobileNavbar(props: { links: string[][] }) {
+  const { links } = props;
 
   const [toggleMenu, setToggleMenu] = useState(false);
+  const navbarTheme = useAppSelector(getNavbarTheme);
 
   useEffect(() => {
     document.body.style.overflow = toggleMenu ? 'hidden' : 'unset';
@@ -19,13 +22,7 @@ function MobileNavbar(props: { links: string[][]; darkNavbar: boolean }) {
   return (
     <React.Fragment>
       <div className="md:hidden">
-        <div
-          className={`border-b  ${
-            darkNavbar
-              ? 'bg-secondary text-white-0 border-gray-700'
-              : 'bg-transparent text-black-700 border-white-20'
-          }`}
-        >
+        <div className={`border-b  ${navbarTheme}`}>
           <div className="container py-6 flex justify-between items-baseline">
             <div>
               <NavLink className="text-xl font-serif" to={homeLink[0]}>

@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useAppSelector } from '../../../app/hooks';
+import { getNavbarTheme } from '../navbarSlice';
 
-function DesktopNavbar(props: { links: string[][]; darkNavbar: boolean }) {
-  const { links, darkNavbar } = props;
+function DesktopNavbar(props: { links: string[][] }) {
+  const { links } = props;
+
+  const navbarTheme = useAppSelector(getNavbarTheme);
 
   var desktopLinks = [...links];
 
@@ -17,13 +21,7 @@ function DesktopNavbar(props: { links: string[][]; darkNavbar: boolean }) {
 
   return (
     <div className="hidden md:block">
-      <div
-        className={`border-b  ${
-          darkNavbar
-            ? 'bg-secondary text-white-0 border-gray-700'
-            : 'bg-transparent text-black-700 border-white-30'
-        }`}
-      >
+      <div className={`border-b  ${navbarTheme}`}>
         <div className="container grid grid-flow-col-dense lg:grid-cols-3 items-baseline py-6">
           <div>
             <NavLink className="text-2xl font-serif font-bold" to={homeLink[0]}>

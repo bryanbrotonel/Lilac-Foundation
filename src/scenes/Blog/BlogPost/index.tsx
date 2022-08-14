@@ -8,6 +8,10 @@ import {
   // fetchPostBySlug,
   selectCurrentPost,
 } from '../blogSlice';
+import {
+  resetNavbarTheme,
+  setNavbarDarkTheme,
+} from '../../../components/Navbar/navbarSlice';
 
 function BlogPost() {
   const params = useParams();
@@ -23,6 +27,16 @@ function BlogPost() {
       console.log(post);
       setCurrentPost(post);
     });
+  }, []);
+
+  useEffect(() => {
+    // Set navbar theme to dark theme
+    dispatch(setNavbarDarkTheme());
+
+    return () => {
+      // reset navbar theme to original theme
+      dispatch(resetNavbarTheme());
+    };
   }, []);
 
   let blogPost;
