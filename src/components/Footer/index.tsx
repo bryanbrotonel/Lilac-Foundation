@@ -1,4 +1,5 @@
 import React from 'react';
+import { AiFillHeart } from 'react-icons/ai';
 import FooterLink from './FooterLink';
 
 function footer() {
@@ -13,13 +14,19 @@ function footer() {
             exercitationem impedit molestias.
           </p>
           <span className="text-gray-500">
-            Made with &#128156; by&nbsp;
-            <a
-              href="https://bryanbrotonel.live"
-              className="no-underline text-inherit hover:text-white-20"
-            >
-              Bryan
-            </a>
+            <div className="flex items-center">
+              <span> Made with&nbsp;</span>
+              <AiFillHeart className="inline-block text-primary-50" />
+              <span>
+                &nbsp;by&nbsp;
+                <a
+                  href="https://bryanbrotonel.live"
+                  className="no-underline text-inherit hover:text-white-20"
+                >
+                  Bryan
+                </a>
+              </span>
+            </div>
           </span>
         </div>
         <div className="basis-1/3 flex justify-start md:justify-center">

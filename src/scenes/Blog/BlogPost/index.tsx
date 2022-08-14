@@ -1,9 +1,16 @@
-import Markdown from 'markdown-to-jsx';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Markdown from 'markdown-to-jsx';
+
+import resolveConfig from 'tailwindcss/resolveConfig';
+import tailwindConfig from '../../../../tailwind.config';
+
 import { fetchContentfulBlogEntry } from '../../../api/contentful';
-import { useAppDispatch, useAppSelector } from '../../../app/hooks';
+import { useAppDispatch } from '../../../app/hooks';
 import Loading from '../../../components/Loading';
+
+import { BsTwitter, BsFacebook, BsLinkedin } from 'react-icons/bs';
+
 import {
   // fetchPostBySlug,
   selectCurrentPost,
@@ -15,16 +22,13 @@ import {
 
 function BlogPost() {
   const params = useParams();
+  const fullConfig = resolveConfig(tailwindConfig);
   const dispatch = useAppDispatch();
-
-  const blogStatus = useAppSelector((state) => state.blog.status);
-  const post = useAppSelector(selectCurrentPost);
 
   const [currentPost, setCurrentPost] = useState(null);
 
   useEffect(() => {
     fetchContentfulBlogEntry(params.postId).then((post) => {
-      console.log(post);
       setCurrentPost(post);
     });
   }, []);
@@ -41,9 +45,9 @@ function BlogPost() {
 
   let blogPost;
 
-  if (currentPost === null) {
-    blogPost = <Loading />;
-  } else if (currentPost !== null) {
+  if (currentPost === null) blogPost = <Loading />;
+
+  if (currentPost !== null) {
     const {
       fields: { title, subtitle, content, author, headerImage },
       sys: { createdAt },
@@ -75,15 +79,23 @@ function BlogPost() {
           </div>
         </div>
         <div className="container">
-          <div className="max-w-prose lg:text-xl mx-auto my-6">
+          <div className="flex flex-row items-baseline justify-between max-w-prose lg:text-xl mx-auto mb-6">
             <span>
               <span className="font-bold">{author}</span>&nbsp;&#124;&nbsp;
               {formattedPostDate}
             </span>
-            <div className="mt-4">
-              <span>
-                Twitter&nbsp;&#124;&nbsp;Facebook&nbsp;&#124;&nbsp;LinkedIn
-              </span>
+            <div className="mt-6">
+              <div className="flex flex-row gap-4 text-black-700">
+                <a href="">
+                  <BsTwitter size={25} />
+                </a>
+                <a href=" ">
+                  <BsFacebook size={25} />
+                </a>
+                <a href=" ">
+                  <BsLinkedin size={25} />
+                </a>
+              </div>
             </div>
           </div>
           <div className="prose prose-slate lg:prose-xl mx-auto mb-129">

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useAppSelector } from '../../../app/hooks';
+import DonateButton from '../../DonateButton';
 import { getNavbarTheme } from '../navbarSlice';
 
 function DesktopNavbar(props: { links: string[][] }) {
@@ -12,9 +13,6 @@ function DesktopNavbar(props: { links: string[][] }) {
 
   // Remove  home page link and assign to variable
   const homeLink = desktopLinks.shift();
-
-  // Remove register page and assign to variable
-  const donateLink = desktopLinks.pop();
 
   // Remaining pages
   const pages = desktopLinks;
@@ -29,7 +27,8 @@ function DesktopNavbar(props: { links: string[][] }) {
             </NavLink>
           </div>
           <div className="justify-self-center flex flex-row items-center gap-8">
-            {pages.map((link) => {
+            {/* Remove donate link */}
+            {pages.splice(0, pages.length - 1).map((link) => {
               const linkPath = link[0];
               const linkName = link[1];
 
@@ -45,11 +44,7 @@ function DesktopNavbar(props: { links: string[][] }) {
             })}
           </div>
           <div className="justify-self-end">
-            <NavLink to={donateLink[0]}>
-              <button className="bg-primary-50 hover:bg-primary-40 text-white-0 leading-6 font-semibold py-2 px-3 rounded-lg">
-                {donateLink[1]}
-              </button>
-            </NavLink>
+            <DonateButton />
           </div>
         </div>
       </div>

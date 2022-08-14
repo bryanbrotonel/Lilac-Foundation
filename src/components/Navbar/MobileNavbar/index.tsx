@@ -4,6 +4,8 @@ import { getNavbarTheme } from '../navbarSlice';
 import NavMenu from './NavMenu';
 import { NavLink } from 'react-router-dom';
 
+import { AiOutlineMenu } from 'react-icons/ai';
+
 function MobileNavbar(props: { links: string[][] }) {
   const { links } = props;
 
@@ -23,19 +25,14 @@ function MobileNavbar(props: { links: string[][] }) {
     <React.Fragment>
       <div className="md:hidden">
         <div className={`border-b  ${navbarTheme}`}>
-          <div className="container py-6 flex justify-between items-baseline">
+          <div className="container py-6 flex justify-between items-center">
             <div>
               <NavLink className="text-xl font-serif" to={homeLink[0]}>
                 {homeLink[1]}
               </NavLink>
             </div>
             <div>
-              <button
-                className="bg-primary-50 hover:bg-primary-40 text-white-0 leading-6 font-bold py-2 px-3 rounded-lg"
-                onClick={() => setToggleMenu(true)}
-              >
-                Toggle
-              </button>
+              <AiOutlineMenu size={20} onClick={() => setToggleMenu(true)} />
             </div>
           </div>
         </div>

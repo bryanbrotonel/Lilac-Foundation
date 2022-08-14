@@ -1,6 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
+import { AiOutlineClose } from 'react-icons/ai';
+
 interface PropTypes {
   links: string[][];
   display: boolean;
@@ -16,13 +18,8 @@ function NavMenu(props: PropTypes) {
         display ? 'transform-none' : 'translate-x-full'
       } md:hidden fixed top-0 right-0 z-40 h-screen w-screen bg-secondary transition-transform ease-linear duration-300`}
     >
-      <div className="flex justify-end m-5">
-        <button
-          className="text-white-0 bg-primary-50 py-2 px-3"
-          onClick={() => toggleMenu(false)}
-        >
-          Toggle
-        </button>
+      <div className="flex justify-end m-5 text-white-0">
+        <AiOutlineClose size={20} onClick={() => toggleMenu(false)} />
       </div>
       <div className="container">
         <div className="flex flex-col gap-10 pt-5">

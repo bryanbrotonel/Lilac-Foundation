@@ -1,4 +1,5 @@
 import React from 'react';
+import DonateButton from '../../../components/DonateButton';
 
 function DonateSection() {
   return (
@@ -13,9 +14,7 @@ function DonateSection() {
           tenetur repellendus nemo minus delectus debitis earum labore quos.
           Repellat, optio?
         </p>
-        <button className="bg-primary-50 hover:bg-primary-40 text-white-0 leading-6 font-bold py-2 px-3 rounded-lg">
-          Donate
-        </button>
+        <DonateButton fontSize={'lg'} />
       </div>
     </div>
   );
