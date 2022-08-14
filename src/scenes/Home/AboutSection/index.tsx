@@ -5,14 +5,14 @@ function AboutSection() {
     <div className="relative bg-primary-100 text-white-0 py-24 overflow-hidden">
       <div className="absolute -top-48 left-4 lg:left-1/4">
         <img
-          className="w-96 -rotate-180 translate-x-4 translate-y-4"
+          className="w-96 -rotate-180 translate-x-4 translate-y-4 opacity-50"
           src="https://openclipart.org/download/175545/Syringa.svg"
           alt="Lilac"
         />
       </div>
       <div className="absolute -bottom-48 right-4 lg:right-1/4">
         <img
-          className="w-96 -rotate-12 -translate-y-4 "
+          className="w-96 -rotate-12 -translate-y-4 opacity-50"
           src="https://openclipart.org/download/175545/Syringa.svg"
           alt="Lilac"
         />

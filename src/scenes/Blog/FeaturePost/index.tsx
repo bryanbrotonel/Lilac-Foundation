@@ -20,7 +20,7 @@ function FeaturePost({
   slug,
   main = false,
 }: FeaturePostProps) {
-  // Format date
+  // Formatting post date
   const formattedPostDate = new Date(date).toLocaleDateString('en-gb', {
     year: 'numeric',
     month: 'long',
@@ -34,21 +34,19 @@ function FeaturePost({
         main ? 'flex-col gap-8' : 'flex-col md:flex-row gap-4 py-8 lg:py-0'
       }`}
     >
-      <div>
-        <div
-          className={`w-full ${
-            main ? 'h-64 md:h-96' : 'md:aspect-square h-44'
-          } bg-primary-50 border border-white-30 overflow-hidden`}
-        >
-          <Link to={slug}>
-            <img
-              src={`${image}?fm=webp`}
-              alt={`${title} - Image`}
-              className="w-full h-full object-cover object-center img-hover-scale"
-              loading="lazy"
-            />
-          </Link>
-        </div>
+      <div
+        className={`w-full ${
+          main ? 'h-64 md:h-96' : 'md:aspect-square h-44'
+        } bg-primary-50 border border-white-30 overflow-hidden`}
+      >
+        <Link to={slug}>
+          <img
+            src={`${image}?fm=webp`}
+            alt={`${title} - Image`}
+            className="w-full h-full object-cover object-center img-hover-scale"
+            loading="lazy"
+          />
+        </Link>
       </div>
       <div>
         <Link
