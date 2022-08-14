@@ -14,7 +14,7 @@ const App = () => {
   }, [useLocation()]);
 
   return (
-    <div className="min-h-full grid grid-rows-[auto_1fr_auto] bg-white-0">
+    <div className="h-full bg-white-0">
       <Navbar />
       <NavRoutes />
       <Footer />

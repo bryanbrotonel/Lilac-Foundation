@@ -53,6 +53,32 @@ module.exports = {
         sans: ['Roboto', 'sans-serif'],
         serif: ['Merriweather', 'serif'],
       },
+      animation: {
+        fadeInUp: 'fadeInUp 0.7s ease-out',
+        fadeInRight: 'fadeInRight 0.7s ease-out',
+      },
+      keyframes: {
+        fadeInUp: {
+          '0%': {
+            opacity: 0,
+            transform: 'translateY(-1rem)',
+          },
+          '100%': {
+            opacity: 1,
+            transform: 'translateY(0)',
+          },
+        },
+        fadeInRight: {
+          '0%': {
+            opacity: 0,
+            transform: 'translateX(-1rem)',
+          },
+          '100%': {
+            opacity: 1,
+            transform: 'translateX(0)',
+          },
+        },
+      },
     },
     container: {
       center: true,
