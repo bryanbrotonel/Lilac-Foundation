@@ -34,7 +34,7 @@ function DesktopNavbar(props: { links: string[][] }) {
 
               return (
                 <NavLink
-                  className="font-bold hover:text-black-300"
+                  className="font-bold hover:opacity-75"
                   key={linkName}
                   to={linkPath}
                 >

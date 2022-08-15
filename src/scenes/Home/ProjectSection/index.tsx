@@ -29,11 +29,13 @@ function ProjectSection() {
     featuredProjectComponent = (
       <div className="flex flex-col md:flex-row-reverse gap-8">
         <div className="w-full md:w-4/6 aspect-[3/2] mx-auto overflow-hidden">
-          <img
-            src={headerImage.fields.file.url}
-            alt={`${title} - Image`}
-            className="w-full h-full object-cover object-center"
-          />
+          <a href={`/projects/${slug}`}>
+            <img
+              src={headerImage.fields.file.url}
+              alt={`${title} - Image`}
+              className="w-full h-full object-cover object-center"
+            />
+          </a>
         </div>
         <div className="basis-1/2 flex flex-col justify-center">
           <div className="mb-2">
