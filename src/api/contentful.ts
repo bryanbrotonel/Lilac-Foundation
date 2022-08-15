@@ -22,7 +22,6 @@ export async function fetchContentfulBlogEntries() {
     content_type: 'testBlogPost',
     order: '-sys.createdAt',
     select: CONTENT_SELECT,
-    limit: 10,
   });
 
   // Returns blog posts as an array of Post objects

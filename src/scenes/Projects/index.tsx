@@ -43,7 +43,7 @@ function Projects() {
   }
 
   return (
-    <div className="container my-12">
+    <div className="container mt-12 mb-36">
       <h1 className="font-bold font-serif text-6xl">Projects</h1>
       <hr className="mt-4 mb-8 border-white-30" />
       <div className="text-center text-lg my-32 mx-auto md:w-1/2">

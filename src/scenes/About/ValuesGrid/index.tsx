@@ -5,7 +5,7 @@ function ValuesGrid(props: { values: string }) {
   const { values } = props;
 
   return (
-    <div className="md:w-11/12 mx-auto p-12 my-12 bg-gray-100">
+    <div className="md:w-11/12 mx-auto p-12 mt-12 mb-36 bg-gray-100">
       <h1 className="mb-12 font-serif text-4xl text-primary-700">
         Core Values
       </h1>

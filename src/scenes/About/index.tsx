@@ -23,7 +23,7 @@ function About() {
   }, []);
 
   return (
-    <div className="container mt-12">
+    <div className="container mt-12 mb-36">
       <h1 className="font-bold font-serif text-6xl">About</h1>
       <hr className="mt-4 mb-8 border-white-30" />
       <div>

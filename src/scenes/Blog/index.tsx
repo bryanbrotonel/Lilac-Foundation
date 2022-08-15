@@ -64,7 +64,7 @@ function Blog() {
   }
 
   return (
-    <div className="container mt-12">
+    <div className="container mt-12 mb-36">
       <h1 className="font-bold font-serif text-6xl">Blog</h1>
       <hr className="mt-4 mb-8 border-white-30" />
       <div className="flex flex-col lg:flex-row gap-6 lg:gap-12 lg:mb-12 divide-y divide-white-30 lg:divide-y-0">

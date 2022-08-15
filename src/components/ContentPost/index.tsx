@@ -36,7 +36,7 @@ function ContentPost(props: {
   });
 
   return (
-    <div className="mb-12">
+    <div className="mb-36">
       <div className="relative bg-secondary py-12">
         <div className="container">
           <div className="w-full max-w-prose lg:text-xl aspect-video mx-auto mb-12 bg-primary-50 overflow-hidden">
@@ -54,7 +54,7 @@ function ContentPost(props: {
         </div>
       </div>
       <div className="container">
-        <div className="flex flex-row items-center justify-between max-w-prose lg:text-xl mx-auto my-6">
+        <div className="flex flex-row items-baseline justify-between max-w-prose lg:text-xl mx-auto mb-6">
           <span>
             {author && (
               <React.Fragment>
@@ -63,13 +63,13 @@ function ContentPost(props: {
             )}
             {formattedPostDate}
           </span>
-          <div>
+          <div className="mt-6">
             <div className="flex flex-row gap-4">
               <SocialShareLink
                 tooltip="Share on Facebook"
                 link={`https://www.facebook.com/sharer/sharer.php?u=${window.location.href}`}
               >
-                <BsFacebook size={20} />
+                <BsFacebook size={25} />
               </SocialShareLink>
               <SocialShareLink
                 tooltip="Share on Twitter"
@@ -77,23 +77,23 @@ function ContentPost(props: {
                   window.location.href
                 }&text=${title}${author && '%20by%20Author'}`}
               >
-                <BsTwitter size={20} />
+                <BsTwitter size={25} />
               </SocialShareLink>
               <SocialShareLink
                 tooltip="Share on LinkedIn"
                 link={`https://www.linkedin.com/shareArticle?mini=true&url=${window.location.href}`}
               >
-                <BsLinkedin size={20} />
+                <BsLinkedin size={25} />
               </SocialShareLink>
               <SocialShareLink tooltip="Copy to clipboard">
-                <BsLink45Deg size={20} />
+                <BsLink45Deg size={25} />
               </SocialShareLink>
             </div>
           </div>
         </div>
         <div className="prose prose-slate lg:prose-xl mx-auto mb-129">
           <hr className="border-white-30" />
-          <div className="break-words">
+          <div>
             <Markdown>{content}</Markdown>
           </div>
         </div>
