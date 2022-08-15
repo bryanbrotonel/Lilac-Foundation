@@ -1,18 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { TypeTestBlogPostFields } from '../../types';
 
 function BlogCard(props: {
-  title: string;
-  subtitle: string;
-  image: string;
-  author: string;
-  date: string;
-  slug: string;
+  blogFields: TypeTestBlogPostFields;
+  createdAt: string;
 }) {
-  const { title, subtitle, image, author, date, slug } = props;
+  const {
+    blogFields: { title, subtitle, headerImage, author, slug },
+    createdAt,
+  } = props;
 
   // Format date
-  const formattedPostDate = new Date(date).toLocaleDateString('en-gb', {
+  const formattedPostDate = new Date(createdAt).toLocaleDateString('en-gb', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
@@ -25,7 +25,7 @@ function BlogCard(props: {
         <Link to={slug}>
           <img
             className="h-64 w-full object-cover object-center img-hover-scale"
-            src={`${image}?fm=webp`}
+            src={`${headerImage.fields.file.url}?fm=webp`}
             alt={`${title} - Image`}
             loading="lazy"
           />

@@ -1,27 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { TypeTestBlogPostFields } from '../../../types';
 
-interface FeaturePostProps {
-  title: string;
-  subtitle: string;
-  image: string;
-  author: string;
-  date: string;
-  slug: string;
+function FeaturePost(props: {
+  blogFields: TypeTestBlogPostFields;
+  createdAt: string;
   main?: boolean;
-}
-
-function FeaturePost({
-  title,
-  subtitle,
-  image,
-  author,
-  date,
-  slug,
-  main = false,
-}: FeaturePostProps) {
+}) {
+  const {
+    blogFields: { title, subtitle, headerImage, author, slug },
+    createdAt,
+    main,
+  } = props;
   // Formatting post date
-  const formattedPostDate = new Date(date).toLocaleDateString('en-gb', {
+  const formattedPostDate = new Date(createdAt).toLocaleDateString('en-gb', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
@@ -41,7 +33,7 @@ function FeaturePost({
       >
         <Link to={slug}>
           <img
-            src={`${image}?fm=webp`}
+            src={`${headerImage.fields.file.url}?fm=webp`}
             alt={`${title} - Image`}
             className="w-full h-full object-cover object-center img-hover-scale"
             loading="lazy"

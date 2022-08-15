@@ -2,10 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Markdown from 'markdown-to-jsx';
 
-import {
-  fetchContentfulBlogEntry,
-  fetchContentfulProjectEntry,
-} from '../../../api/contentful';
+import { fetchContentfulProjectEntry } from '../../../api/contentful';
 import { useAppDispatch } from '../../../app/hooks';
 import Loading from '../../../components/Loading';
 
@@ -38,9 +35,9 @@ function ProjectPost() {
     };
   }, []);
 
-  let blogPost;
+  let projectPost;
 
-  if (currentPost === null) blogPost = <Loading />;
+  if (currentPost === null) projectPost = <Loading />;
 
   if (currentPost !== null) {
     const {
@@ -55,7 +52,7 @@ function ProjectPost() {
       day: 'numeric',
       timeZone: 'utc',
     });
-    blogPost = (
+    projectPost = (
       <React.Fragment>
         <div className="relative bg-secondary py-12">
           <div className="container">
@@ -98,7 +95,7 @@ function ProjectPost() {
     );
   }
 
-  return <div>{blogPost}</div>;
+  return <div>{projectPost}</div>;
 }
 
 export default ProjectPost;

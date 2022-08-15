@@ -29,12 +29,8 @@ function Blog() {
     mainPost = (
       <FeaturePost
         key={firstPost.sys.id}
-        title={firstPost.fields.title}
-        subtitle={firstPost.fields.subtitle}
-        image={firstPost.fields.headerImage.fields.file.url}
-        author={firstPost.fields.author}
-        date={firstPost.sys.createdAt}
-        slug={firstPost.fields.slug}
+        createdAt={firstPost.sys.createdAt}
+        blogFields={firstPost.fields}
         main
       />
     );
@@ -44,12 +40,8 @@ function Blog() {
       .map((post) => (
         <FeaturePost
           key={post.sys.id}
-          title={post.fields.title}
-          subtitle={post.fields.subtitle}
-          image={post.fields.headerImage.fields.file.url}
-          author={post.fields.author}
-          date={post.sys.createdAt}
-          slug={post.fields.slug}
+          createdAt={post.sys.createdAt}
+          blogFields={post.fields}
         />
       ));
 
@@ -61,12 +53,8 @@ function Blog() {
             {postsList.map((post) => (
               <BlogCard
                 key={post.sys.id}
-                title={post.fields.title}
-                subtitle={post.fields.subtitle}
-                image={post.fields.headerImage.fields.file.url}
-                author={post.fields.author}
-                date={post.sys.createdAt}
-                slug={post.fields.slug}
+                createdAt={post.sys.createdAt}
+                blogFields={post.fields}
               />
             ))}
           </div>
