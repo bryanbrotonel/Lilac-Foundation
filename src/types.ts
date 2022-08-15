@@ -1,19 +1,37 @@
 import * as Contentful from 'contentful';
 
-export interface TypeBlogPost {
-  sys: {
-    id: string;
-    createdAt: string;
-  };
-  fields: {
-    title: Contentful.EntryFields.Symbol;
-    subtitle: Contentful.EntryFields.Symbol;
-    author?: Contentful.EntryFields.Symbol;
-    headerImage: Contentful.Asset;
-    content: Contentful.EntryFields.Text;
-    slug: Contentful.EntryFields.Symbol;
-  };
+export interface TypeBlogPostFields {
+  title: Contentful.EntryFields.Symbol;
+  subtitle: Contentful.EntryFields.Symbol;
+  author?: Contentful.EntryFields.Symbol;
+  headerImage: Contentful.Asset;
+  content: Contentful.EntryFields.Text;
+  slug?: Contentful.EntryFields.Symbol;
 }
+
+export type TypeBlogPost = Contentful.Entry<TypeBlogPostFields>;
+
+export interface TypeProjectPostFields {
+  title: Contentful.EntryFields.Symbol;
+  currentProject?: Contentful.EntryFields.Boolean;
+  date?: Contentful.EntryFields.Date;
+  headerImage?: Contentful.Asset;
+  content?: Contentful.EntryFields.Text;
+  slug?: Contentful.EntryFields.Symbol;
+}
+
+export type TypeProjectPost = Contentful.Entry<TypeProjectPostFields>;
+
+export interface TypeTestBlogPostFields {
+  title: Contentful.EntryFields.Symbol;
+  subtitle: Contentful.EntryFields.Symbol;
+  author?: Contentful.EntryFields.Symbol;
+  headerImage: Contentful.Asset;
+  content: Contentful.EntryFields.Text;
+  slug?: Contentful.EntryFields.Symbol;
+}
+
+export type TypeTestBlogPost = Contentful.Entry<TypeTestBlogPostFields>;
 
 export interface TypeAboutItemFields {
   title?: Contentful.EntryFields.Symbol;

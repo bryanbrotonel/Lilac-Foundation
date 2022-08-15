@@ -1,4 +1,4 @@
-import { TypeBlogPost } from '../types';
+import { TypeBlogPost, TypeProjectPost } from '../types';
 
 const CONTENTFUL = require('contentful');
 
@@ -23,7 +23,7 @@ export async function fetchContentfulBlogEntries() {
     limit: 10,
   });
 
-  console.log('blogPostItems', blogPostItems);
+    console.log(blogPostItems.items);
 
   // Returns blog posts as an array of Post objects
   return (await blogPostItems.items) as TypeBlogPost[];
@@ -39,6 +39,34 @@ export async function fetchContentfulBlogEntry(slug: string) {
 
   // Returns blog posts as an array of Post objects
   return (await blogPostItems.items[0]) as TypeBlogPost;
+}
+
+export async function fetchContentfulProjectEntries() {
+  // Retreive blog posts from Contentful in order of creation date
+  const projectPostItems = await CONTENTFUL_POSTS_CLIENT.getEntries({
+    content_type: 'projectPost',
+    order: '-sys.createdAt',
+    select: 'sys.id,sys.createdAt,fields',
+    limit: 100,
+  });
+
+    console.log(projectPostItems.items);
+
+
+  // Returns blog posts as an array of Post objects
+  return (await projectPostItems.items) as TypeProjectPost[];
+}
+
+export async function fetchContentfulProjectEntry(slug: string) {
+  // Retreive blog posts from Contentful in order of creation date
+  const projectPostItems = await CONTENTFUL_POSTS_CLIENT.getEntries({
+    content_type: 'projectPost',
+    select: 'sys.id,sys.createdAt,fields',
+    'fields.slug': slug,
+  });
+
+  // Returns blog posts as an array of Post objects
+  return (await projectPostItems.items[0]) as TypeProjectPost;
 }
 
 export async function fetchContentfulContentEntries(

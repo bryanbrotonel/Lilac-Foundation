@@ -14,20 +14,13 @@ function Projects() {
       dispatch(fetchProjects());
     }
   }, [projectsStatus, dispatch]);
-  2;
   let projectsList;
 
-  if (projectsStatus === 'succeeded') {;
-
+  if (projectsStatus === 'succeeded') {
     projectsList = (
       <React.Fragment>
         {projects.map((project) => (
-            <ProjectItem
-              key={project.sys.id}
-              id={project.sys.id}
-              title={project.fields.title}
-              image={project.fields.headerImage.fields.file.url}
-            />
+          <ProjectItem key={project.sys.id} projectFields={project.fields} />
         ))}
       </React.Fragment>
     );

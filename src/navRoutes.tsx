@@ -8,6 +8,7 @@ import Blog from './scenes/Blog';
 import Projects from './scenes/Projects';
 import NotFound from './scenes/NotFound';
 import BlogPost from './scenes/Blog/BlogPost';
+import ProjectPost from './scenes/Projects/ProjectPost';
 
 const NavRoutes = () => (
   <Routes>
@@ -44,6 +45,14 @@ const NavRoutes = () => (
       }
     ></Route>
     <Route
+      path="projects/:postId"
+      element={
+        <Suspense fallback={<Loading />}>
+          <ProjectPost />
+        </Suspense>
+      }
+    ></Route>
+    <Route
       path="blog"
       element={
         <Suspense fallback={<Loading />}>
@@ -59,7 +68,6 @@ const NavRoutes = () => (
         </Suspense>
       }
     ></Route>
-
     <Route path="*" element={<NotFound />} />
   </Routes>
 );

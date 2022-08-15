@@ -2,7 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Markdown from 'markdown-to-jsx';
 
-import { fetchContentfulBlogEntry } from '../../../api/contentful';
+import {
+  fetchContentfulBlogEntry,
+  fetchContentfulProjectEntry,
+} from '../../../api/contentful';
 import { useAppDispatch } from '../../../app/hooks';
 import Loading from '../../../components/Loading';
 
@@ -13,14 +16,14 @@ import {
   setNavbarDarkTheme,
 } from '../../../components/Navbar/navbarSlice';
 
-function BlogPost() {
+function ProjectPost() {
   const params = useParams();
   const dispatch = useAppDispatch();
 
   const [currentPost, setCurrentPost] = useState(null);
 
   useEffect(() => {
-    fetchContentfulBlogEntry(params.postId).then((post) => {
+    fetchContentfulProjectEntry(params.postId).then((post) => {
       setCurrentPost(post);
     });
   }, []);
@@ -41,7 +44,7 @@ function BlogPost() {
 
   if (currentPost !== null) {
     const {
-      fields: { title, subtitle, content, author, headerImage },
+      fields: { title, content, headerImage },
       sys: { createdAt },
     } = currentPost;
 
@@ -66,16 +69,12 @@ function BlogPost() {
             </div>
             <div className="prose lg:prose-xl prose-invert mx-auto">
               <h1 className="font-serif !mb-0">{title}</h1>
-              <p className="lead">{subtitle}</p>
             </div>
           </div>
         </div>
         <div className="container">
           <div className="flex flex-row items-baseline justify-between max-w-prose lg:text-xl mx-auto mb-6">
-            <span>
-              <span className="font-bold">{author}</span>&nbsp;&#124;&nbsp;
-              {formattedPostDate}
-            </span>
+            <span>{formattedPostDate}</span>
             <div className="mt-6">
               <div className="flex flex-row gap-4 text-black-700">
                 <a href="">
@@ -102,4 +101,4 @@ function BlogPost() {
   return <div>{blogPost}</div>;
 }
 
-export default BlogPost;
+export default ProjectPost;

@@ -1,8 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import InViewObserver from '../../../components/InViewObserver';
+import { TypeProjectPostFields } from '../../../types';
 
-function ProjectItem(props: { id: string; title: string; image: string }) {
-  const { id, title, image } = props;
+function ProjectItem(props: { projectFields: TypeProjectPostFields }) {
+  const {
+    projectFields: { title, headerImage, slug },
+  } = props;
   2;
   return (
     <InViewObserver
@@ -11,22 +15,22 @@ function ProjectItem(props: { id: string; title: string; image: string }) {
     >
       <div className="basis-1/2 lg:basis-5/12">
         <div className="aspect-[4/3] bg-primary-50 border border-white-30 overflow-hidden">
-          <a href="#">
+          <Link to={slug}>
             <img
               className="w-full h-full object-cover object-center img-hover-scale"
-              src={`${image}?fm=webp`}
+              src={`${headerImage.fields.file.url}?fm=webp`}
               alt={`${title} - Image`}
               loading="lazy"
             />
-          </a>
+          </Link>
         </div>
       </div>
       <div className="basis-1/2 lg:basis-5/12 space-y-6">
-        <a href="#">
+        <Link to={slug}>
           <h1 className="font-serif font-semibold text-5xl hover:text-primary-400">
             {title}
           </h1>
-        </a>
+        </Link>
         <p className="prose">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque quis
           assumenda iusto quae blanditiis sunt minima nulla iure quam, ipsum
