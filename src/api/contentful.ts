@@ -29,7 +29,7 @@ export async function fetchContentfulBlogEntries() {
   return (await blogPostItems.items) as TypeBlogPost[];
 }
 
-// Retreive blog post from Contentful by slug
+// Retreive single blog post from Contentful by slug
 export async function fetchContentfulBlogEntry(slug: string) {
   const blogPostItems = await CONTENTFUL_POSTS_CLIENT.getEntries({
     content_type: 'testBlogPost',

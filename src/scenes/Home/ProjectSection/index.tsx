@@ -1,31 +1,59 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '../../../app/hooks';
+import { fetchProjects, selectAllProjects } from '../../Projects/projectsSlice';
+import LinesEllipsis from 'react-lines-ellipsis';
 
 function ProjectSection() {
-  return (
-    <div className="container py-24">
+  const dispatch = useAppDispatch();
+
+  const projectsStatus = useAppSelector((state) => state.projects.status);
+  const projects = useAppSelector(selectAllProjects);
+
+  useEffect(() => {
+    if (projectsStatus === 'idle') {
+      dispatch(fetchProjects());
+    }
+  }, [projectsStatus, dispatch]);
+
+  let featuredProjectComponent;
+
+  if (projectsStatus === 'succeeded') {
+    let projectsList = [...projects];
+
+    const featuredProject = projectsList.shift();
+
+    const {
+      fields: { title, content, headerImage, slug },
+    } = featuredProject;
+
+    featuredProjectComponent = (
       <div className="flex flex-col md:flex-row-reverse gap-8">
         <div className="w-full md:w-4/6 aspect-[3/2] mx-auto overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1660421716577-c3ef88a85431?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
-            alt="Project Image"
+            src={headerImage.fields.file.url}
+            alt={`${title} - Image`}
             className="w-full h-full object-cover object-center"
           />
         </div>
         <div className="basis-1/2 flex flex-col justify-center">
           <div className="mb-2">
             <span className="font-sans font-bold text-gray-500 uppercase">
-              Latest Proejct
+              Laest Project
             </span>
           </div>
-          <h1 className="mb-4 text-5xl font-serif">Project Title</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius
-            possimus unde perferendis similique ipsam nulla molestias sed.
-            Explicabo, repudian...
-          </p>
+          <h1 className="mb-4 text-5xl font-serif">{title}</h1>
+          <div className="max-h-24 text-ellipsis overflow-hidden">
+            <LinesEllipsis
+              text={content}
+              maxLine="3"
+              ellipsis="..."
+              trimRight
+              basedOn="letters"
+            />
+          </div>
           <div className="mt-8">
             <a
-              href="#"
+              href={`/projects/${slug}`}
               className=" uppercase hover:underline underline-offset-2"
             >
               <button className="py-1 px-3 bg-transparent hover:bg-primary-400 text-primary-400 hover:text-white-0 rounded-lg border-primary-400 border-2">
@@ -35,8 +63,10 @@ function ProjectSection() {
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
+
+  return <div className="container py-24">{featuredProjectComponent}</div>;
 }
 
 export default ProjectSection;

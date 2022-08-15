@@ -23,7 +23,7 @@ function FeaturePost(props: {
   return (
     <div
       className={`flex ${
-        main ? 'flex-col gap-8' : 'flex-col md:flex-row gap-4 py-8 lg:py-0'
+        main ? 'flex-col gap-8' : 'flex-col md:flex-row gap-6 py-8 lg:py-0'
       }`}
     >
       <div
