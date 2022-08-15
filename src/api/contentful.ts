@@ -1,14 +1,22 @@
 import { TypeBlogPost } from '../types';
 
 const CONTENTFUL = require('contentful');
-const CONTENTFUL_CLIENT = CONTENTFUL.createClient({
-  space: process.env.REACT_APP_CONTENTFUL_SPACE_ID,
-  accessToken: process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN,
+
+// Contentful client for blog and porject posts
+const CONTENTFUL_POSTS_CLIENT = CONTENTFUL.createClient({
+  space: process.env.REACT_APP_CONTENTFUL_POSTS_SPACE_ID,
+  accessToken: process.env.REACT_APP_CONTENTFUL_POSTS_ACCESS_TOKEN,
+});
+
+// Contentful client for website content (pages, etc)
+const CONTENTFUL_CONTENT_CLIENT = CONTENTFUL.createClient({
+  space: process.env.REACT_APP_CONTENTFUL_CONTENT_SPACE_ID,
+  accessToken: process.env.REACT_APP_CONTENTFUL_CONTENT_ACCESS_TOKEN,
 });
 
 export async function fetchContentfulBlogEntries() {
   // Retreive blog posts from Contentful in order of creation date
-  const blogPostItems = await CONTENTFUL_CLIENT.getEntries({
+  const blogPostItems = await CONTENTFUL_POSTS_CLIENT.getEntries({
     content_type: 'testBlogPost',
     order: '-sys.createdAt',
     select: 'sys.id,sys.createdAt,fields',
@@ -23,7 +31,7 @@ export async function fetchContentfulBlogEntries() {
 
 export async function fetchContentfulBlogEntry(slug: string) {
   // Retreive blog posts from Contentful in order of creation date
-  const blogPostItems = await CONTENTFUL_CLIENT.getEntries({
+  const blogPostItems = await CONTENTFUL_POSTS_CLIENT.getEntries({
     content_type: 'testBlogPost',
     select: 'sys.id,sys.createdAt,fields',
     'fields.slug': slug,
@@ -31,4 +39,18 @@ export async function fetchContentfulBlogEntry(slug: string) {
 
   // Returns blog posts as an array of Post objects
   return (await blogPostItems.items[0]) as TypeBlogPost;
+}
+
+export async function fetchContentfulContentEntries(
+  content_type: string,
+  order: string = ''
+) {
+  // Retreive blog posts from Contentful in order of creation date
+  const contentfulEntries = await CONTENTFUL_CONTENT_CLIENT.getEntries({
+    content_type: content_type,
+    order: order,
+  });
+
+  // Returns blog posts as an array of Post objects
+  return await contentfulEntries.items;
 }
