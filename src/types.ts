@@ -70,7 +70,7 @@ export interface TypeTeamMemberFields {
   profilePicture?: Contentful.Asset;
   description?: Contentful.EntryFields.Text;
   socials?: Contentful.Entry<Record<string, any>>;
-  path?: Contentful.EntryFields.Symbol;
+  slug?: Contentful.EntryFields.Symbol;
   order?: Contentful.EntryFields.Integer;
 }
 

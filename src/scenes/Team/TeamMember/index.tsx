@@ -1,15 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { TypeTeamMemberFields } from '../../../types';
 
-function TeamMember(props: { name: string; image: string; link: string }) {
-  const { name, image, link } = props;
+function TeamMember(props: { memberFields: TypeTeamMemberFields }) {
+  const {
+    memberFields: { name, profilePicture, slug },
+  } = props;
+
   return (
     <div>
       <div className="h-56 w-56 bg-primary-50 overflow-hidden">
-        <Link to={link}>
+        <Link to={slug}>
           <img
             className="h-full w-full object-cover object-center img-hover-scale grayscale hover:grayscale-0"
-            src={`${image}?fm=webp`}
+            src={`${profilePicture.fields.file.url}?fm=webp`}
             alt={`${name} - Image`}
             loading="lazy"
           />

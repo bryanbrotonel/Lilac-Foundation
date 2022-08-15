@@ -9,6 +9,7 @@ import Projects from './scenes/Projects';
 import NotFound from './scenes/NotFound';
 import BlogPost from './scenes/Blog/BlogPost';
 import ProjectPost from './scenes/Projects/ProjectPost';
+import ProfilePage from './scenes/Team/ProfilePage';
 
 const NavRoutes = () => (
   <Routes>
@@ -33,6 +34,14 @@ const NavRoutes = () => (
       element={
         <Suspense fallback={<Loading />}>
           <Team />
+        </Suspense>
+      }
+    ></Route>
+    <Route
+      path="team/:teamMemberSlug"
+      element={
+        <Suspense fallback={<Loading />}>
+          <ProfilePage />
         </Suspense>
       }
     ></Route>

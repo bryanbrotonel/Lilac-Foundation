@@ -23,10 +23,6 @@ function BlogPost() {
     fetchContentfulBlogEntry(params.postId).then((post) => {
       setCurrentPost(post);
     });
-  }, []);
-
-  useEffect(() => {
-    // Set navbar theme to dark theme
     dispatch(setNavbarDarkTheme());
 
     return () => {
