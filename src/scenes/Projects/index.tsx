@@ -1,9 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { fetchContentfulContentEntryByID } from '../../api/contentful';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { TypeBlurb } from '../../types';
 import ProjectItem from './ProjectItem';
 import { fetchProjects, selectAllProjects } from './projectsSlice';
 
 function Projects() {
+  const [projectParagraph, setprojectParagraph] = useState<TypeBlurb>(null);
+
   const dispatch = useAppDispatch();
 
   const projectsStatus = useAppSelector((state) => state.projects.status);
@@ -14,6 +18,18 @@ function Projects() {
       dispatch(fetchProjects());
     }
   }, [projectsStatus, dispatch]);
+
+  useEffect(() => {
+    (async () => {
+      // Fetch project paragraph
+      const projectBlurb = (await fetchContentfulContentEntryByID(
+        '1DhuyIgmljfzphuS3FvPLO'
+      )) as TypeBlurb;
+
+      setprojectParagraph(projectBlurb);
+    })();
+  }, []);
+
   let projectsList;
 
   if (projectsStatus === 'succeeded') {
@@ -27,16 +43,11 @@ function Projects() {
   }
 
   return (
-    <div className="container mt-12">
+    <div className="container my-12">
       <h1 className="font-bold font-serif text-6xl">Projects</h1>
       <hr className="mt-4 mb-8 border-white-30" />
       <div className="text-center text-lg my-32 mx-auto md:w-1/2">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium
-          iste ut dolore tenetur! Repudiandae possimus obcaecati minus!
-          Praesentium laborum magni consequatur culpa, iste consectetur quam
-          cum, accusantium recusandae, ex inventore?
-        </p>
+        <p>{projectParagraph && projectParagraph.fields.blurbContent}</p>
       </div>
       <div className="flex flex-col gap-40 pt-12">{projectsList}</div>
     </div>
