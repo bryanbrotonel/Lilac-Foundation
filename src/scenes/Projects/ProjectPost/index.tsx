@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { fetchContentfulProjectEntry } from '../../../api/contentful';
 import ContentPost from '../../../components/ContentPost';
 import Loading from '../../../components/Loading';
+import NotFound from '../../NotFound';
 
 function ProjectPost() {
   const params = useParams();
@@ -19,7 +20,9 @@ function ProjectPost() {
 
   if (currentPost === null) projectPost = <Loading />;
 
-  if (currentPost !== null) {
+  if (currentPost === undefined) projectPost = <NotFound />;
+
+  if (currentPost !== null && currentPost !== undefined) {
     const {
       fields: { title, content, headerImage },
       sys: { createdAt },

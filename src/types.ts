@@ -22,17 +22,6 @@ export interface TypeProjectPostFields {
 
 export type TypeProjectPost = Contentful.Entry<TypeProjectPostFields>;
 
-export interface TypeTestBlogPostFields {
-  title: Contentful.EntryFields.Symbol;
-  subtitle: Contentful.EntryFields.Symbol;
-  author?: Contentful.EntryFields.Symbol;
-  headerImage: Contentful.Asset;
-  content: Contentful.EntryFields.Text;
-  slug?: Contentful.EntryFields.Symbol;
-}
-
-export type TypeTestBlogPost = Contentful.Entry<TypeTestBlogPostFields>;
-
 export interface TypeAboutItemFields {
   title?: Contentful.EntryFields.Symbol;
   headerImage?: Contentful.Asset;

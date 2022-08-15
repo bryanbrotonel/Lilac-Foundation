@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { fetchContentfulBlogEntry } from '../../../api/contentful';
 import ContentPost from '../../../components/ContentPost';
 import Loading from '../../../components/Loading';
+import NotFound from '../../NotFound';
 
 function BlogPost() {
   const params = useParams();
@@ -19,7 +20,9 @@ function BlogPost() {
 
   if (currentPost === null) blogPost = <Loading />;
 
-  if (currentPost !== null) {
+  if (currentPost === undefined) blogPost = <NotFound />;
+
+  if (currentPost !== null && currentPost !== undefined) {
     const {
       fields: { title, subtitle, content, author, headerImage },
       sys: { createdAt },

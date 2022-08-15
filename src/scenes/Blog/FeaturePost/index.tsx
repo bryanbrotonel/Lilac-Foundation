@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { TypeTestBlogPostFields } from '../../../types';
+import { TypeBlogPostFields } from '../../../types';
 
 function FeaturePost(props: {
-  blogFields: TypeTestBlogPostFields;
+  blogFields: TypeBlogPostFields;
   createdAt: string;
   main?: boolean;
 }) {
@@ -26,20 +26,20 @@ function FeaturePost(props: {
         main ? 'flex-col gap-8' : 'flex-col md:flex-row gap-6 py-8 lg:py-0'
       }`}
     >
-      <div
-        className={`w-full ${
-          main ? 'h-64 md:h-96' : 'md:aspect-square h-44'
-        } bg-primary-50 border border-white-30 overflow-hidden`}
-      >
-        <Link to={slug}>
+      <Link to={slug}>
+        <div
+          className={`w-full ${
+            main ? 'h-64 md:h-96' : 'md:w-44 h-44'
+          } bg-primary-50 border border-white-30 overflow-hidden`}
+        >
           <img
             src={`${headerImage.fields.file.url}?fm=webp`}
             alt={`${title} - Image`}
             className="w-full h-full object-cover object-center img-hover-scale"
             loading="lazy"
           />
-        </Link>
-      </div>
+        </div>
+      </Link>
       <div>
         <Link
           to={slug}

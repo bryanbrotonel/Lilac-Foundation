@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { TypeTestBlogPostFields } from '../../types';
+import { TypeBlogPostFields } from '../../types';
 
 function BlogCard(props: {
-  blogFields: TypeTestBlogPostFields;
+  blogFields: TypeBlogPostFields;
   createdAt: string;
 }) {
   const {

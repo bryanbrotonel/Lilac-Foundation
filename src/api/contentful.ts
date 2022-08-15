@@ -19,7 +19,7 @@ const CONTENTFUL_CONTENT_CLIENT = CONTENTFUL.createClient({
 // Retreive blog posts from Contentful in order of creation date
 export async function fetchContentfulBlogEntries() {
   const blogPostItems = await CONTENTFUL_POSTS_CLIENT.getEntries({
-    content_type: 'testBlogPost',
+    content_type: 'blogPost',
     order: '-sys.createdAt',
     select: CONTENT_SELECT,
   });
@@ -31,7 +31,7 @@ export async function fetchContentfulBlogEntries() {
 // Retreive single blog post from Contentful by slug
 export async function fetchContentfulBlogEntry(slug: string) {
   const blogPostItems = await CONTENTFUL_POSTS_CLIENT.getEntries({
-    content_type: 'testBlogPost',
+    content_type: 'blogPost',
     select: CONTENT_SELECT,
     'fields.slug': slug,
   });
