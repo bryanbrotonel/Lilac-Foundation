@@ -40,7 +40,7 @@ function ProjectSection() {
         <div className="basis-1/2 flex flex-col justify-center">
           <div className="mb-2">
             <span className="font-sans font-bold text-gray-500 uppercase">
-              Laest Project
+              Latest Project
             </span>
           </div>
           <h1 className="mb-4 text-5xl font-serif">{title}</h1>

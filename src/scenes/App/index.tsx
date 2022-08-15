@@ -14,7 +14,7 @@ const App = () => {
   }, [useLocation()]);
 
   return (
-    <div className="h-full bg-white-0">
+    <div className="h-full bg-white-0 selection:bg-primary-50/60">
       <Navbar />
       <NavRoutes />
       <Footer />
