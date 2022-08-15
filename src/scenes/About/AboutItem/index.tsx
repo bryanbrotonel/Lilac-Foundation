@@ -13,14 +13,12 @@ function AboutItem(props: { item: TypeAboutItem; justified: boolean }) {
 
   return (
     <div
-      className={`md:flex ${
-        justified ? 'justify-end' : 'justify-start'
-      } my-10`}
+      className={`md:flex ${justified ? 'justify-end' : 'justify-start'} my-10`}
     >
-      <div className="relative w-full lg:w-[64rem] aspect-[3/2] my-10 space-y-8 lg:space-y-0">
+      <div className="relative  w-full lg:w-[64rem] aspect-[3/2] my-10 space-y-8 lg:space-y-0">
         <InViewObserver
-          className={`relative aspect-[3/2] md:w-2/3 md:absolute md:${
-            justified ? 'right-0' : 'left-0'
+          className={`relative aspect-[3/2] md:w-2/3 md:absolute ${
+            justified ? 'md:right-0' : 'md:left-0'
           } opacity-0 translate-y-4`}
           transitionClass="transition duration-700 ease-out translate-y-0 opacity-100"
         >
@@ -32,8 +30,8 @@ function AboutItem(props: { item: TypeAboutItem; justified: boolean }) {
           />
         </InViewObserver>
         <InViewObserver
-          className={`w-fit md:max-w-xl md:h-1/2 md:absolute md:${
-            justified ? 'left-0' : 'right-0'
+          className={`relative w-fit md:max-w-xl md:h-1/2 md:absolute ${
+            justified ? 'md:left-0' : 'md:right-0'
           } md:bottom-0 opacity-0 translate-y-4`}
           transitionClass="transition duration-700 ease-out translate-y-0 opacity-100"
         >
