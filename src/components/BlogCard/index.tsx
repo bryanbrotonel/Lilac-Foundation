@@ -22,14 +22,14 @@ function BlogCard(props: {
   return (
     <div className="w-72 mx-auto overflow-hidden">
       <div className="bg-primary-50 border border-white-30 overflow-hidden">
-        <Link to={slug}>
+        <a href={`blog/${slug}`}>
           <img
             className="h-64 w-full object-cover object-center img-hover-scale"
             src={`${headerImage.fields.file.url}?fm=webp`}
             alt={`${title} - Image`}
             loading="lazy"
           />
-        </Link>
+        </a>
       </div>
       <div className="mt-4">
         <div>

@@ -36,11 +36,13 @@ function About() {
 
             {/* Who We Are  section */}
             <div className="py-12 bg-gray-200 text-center">
-              <h1 className="font-serif text-4xl text-primary-400">
-                {aboutItems[1].fields.title}
-              </h1>
-              <div className="prose mx-auto">
-                <Markdown>{aboutItems[1].fields.description}</Markdown>
+              <div className="container">
+                <h1 className="font-serif text-4xl text-primary-400">
+                  {aboutItems[1].fields.title}
+                </h1>
+                <div className="prose mx-auto">
+                  <Markdown>{aboutItems[1].fields.description}</Markdown>
+                </div>
               </div>
             </div>
 

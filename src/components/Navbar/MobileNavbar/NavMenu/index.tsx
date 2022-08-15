@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import { AiOutlineClose } from 'react-icons/ai';
+import DonateButton from '../../../DonateButton';
 
 interface PropTypes {
   links: string[][];
@@ -23,7 +24,7 @@ function NavMenu(props: PropTypes) {
       </div>
       <div className="container">
         <div className="flex flex-col gap-10 pt-5">
-          {links.map((link) => {
+          {links.splice(0, links.length - 1).map((link) => {
             const linkPath = link[0];
             const linkName = link[1];
 
@@ -38,6 +39,13 @@ function NavMenu(props: PropTypes) {
               </NavLink>
             );
           })}
+          <div>
+            <DonateButton
+              color="primary-800"
+              fontSize="lg"
+              bgColor="bg-primary-50"
+            />
+          </div>
         </div>
       </div>
     </div>
