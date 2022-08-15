@@ -3,6 +3,8 @@ import { fetchContentfulContentEntryByID } from '../../../api/contentful';
 import DonateButton from '../../../components/DonateButton';
 import { TypeBlurb } from '../../../types';
 
+import Lilac from '../../../images/lilac.inline.svg';
+
 function DonateSection() {
   const [donateParagraph, setDonateParagraph] = useState<TypeBlurb>(null);
 
@@ -34,11 +36,7 @@ function DonateSection() {
         <div className="relative basis-1/2 xl:basis-1/3 flex items-center">
           {/* Background flower */}
           <div className="absolute h-full -bottom-1/2 inset-x-0 opacity-25">
-            <img
-              className="h-full w-full"
-              src="https://openclipart.org/download/175545/Syringa.svg"
-              alt="Lilac"
-            />
+            <Lilac className="h-full w-full" />
           </div>
           {/* Donate section content */}
           <div className="relative container space-y-8 py-12">

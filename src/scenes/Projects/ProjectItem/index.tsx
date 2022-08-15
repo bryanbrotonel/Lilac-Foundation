@@ -2,10 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import InViewObserver from '../../../components/InViewObserver';
 import { TypeProjectPostFields } from '../../../types';
+import LinesEllipsis from 'react-lines-ellipsis';
 
 function ProjectItem(props: { projectFields: TypeProjectPostFields }) {
   const {
-    projectFields: { title, headerImage, slug },
+    projectFields: { title, content, headerImage, slug },
   } = props;
   2;
   return (
@@ -32,10 +33,13 @@ function ProjectItem(props: { projectFields: TypeProjectPostFields }) {
           </h1>
         </Link>
         <p className="prose">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque quis
-          assumenda iusto quae blanditiis sunt minima nulla iure quam, ipsum
-          aperiam, accusamus nisi voluptates quidem. Ducimus sapiente accusamus
-          dolores! Non.
+          <LinesEllipsis
+            text={content}
+            maxLine="3"
+            ellipsis="..."
+            trimRight
+            basedOn="letters"
+          />
         </p>
         <button>
           <a

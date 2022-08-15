@@ -6,6 +6,9 @@ import {
   setNavbarTheme,
 } from '../../../components/Navbar/navbarSlice';
 
+import Clovetree  from '../../../images/clovetree.inline.svg';
+
+
 function Hero() {
   const dispatch = useAppDispatch();
 
@@ -22,11 +25,7 @@ function Hero() {
   return (
     <div className="relative h-fit lg:h-3/4 py-24 bg-primary-400 overflow-hidden">
       <div className="absolute h-full -left-8 -bottom-8 opacity-20">
-        <img
-          className="h-full w-full"
-          src="https://openclipart.org/download/23773/warszawianka-Clovetree.svg"
-          alt="Lilac"
-        />
+        <Clovetree className="h-full w-full" />
       </div>
       <div className="relative h-full flex flex-col lg:flex-row gap-12 lg:gap-0 justify-evenly container">
         <div className="basis-1/2 flex flex-col justify-center text-white-0 animate-fadeInRight">

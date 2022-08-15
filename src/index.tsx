@@ -7,14 +7,12 @@ import { store } from './app/store';
 
 import App from './scenes/App';
 
-import GlobalStyle from './styles/globalStyles';
 import './style.css';
 
 const root = createRoot(document.getElementById('app'));
 
 root.render(
   <BrowserRouter>
-    <GlobalStyle />
     <Provider store={store}>
       <App />
     </Provider>

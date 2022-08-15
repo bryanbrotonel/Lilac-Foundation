@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { fetchContentfulContentEntryByID } from '../../../api/contentful';
 import { TypeBlurb } from '../../../types';
 
+import Lilac from '../../../images/lilac.inline.svg';
+
 function AboutSection() {
   const [aboutParagraph, setAboutParagraph] = useState<TypeBlurb>(null);
 
@@ -19,18 +21,10 @@ function AboutSection() {
   return (
     <div className="relative bg-primary-100 text-white-0 py-24 overflow-hidden">
       <div className="absolute -top-48 left-4 lg:left-1/4">
-        <img
-          className="w-96 -rotate-180 translate-x-4 translate-y-4 opacity-50"
-          src="https://openclipart.org/download/175545/Syringa.svg"
-          alt="Lilac"
-        />
+        <Lilac className="w-96 -rotate-180 translate-x-4 translate-y-4 opacity-50" />
       </div>
       <div className="absolute -bottom-48 right-4 lg:right-1/4">
-        <img
-          className="w-96 -rotate-12 -translate-y-4 opacity-50"
-          src="https://openclipart.org/download/175545/Syringa.svg"
-          alt="Lilac"
-        />
+        <Lilac className="w-96 -rotate-12 -translate-y-4 opacity-50" />
       </div>
       <div className="container text-center">
         <div className="py-20">
