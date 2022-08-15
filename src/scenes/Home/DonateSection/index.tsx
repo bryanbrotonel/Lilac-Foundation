@@ -1,7 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { fetchContentfulContentEntryByID } from '../../../api/contentful';
 import DonateButton from '../../../components/DonateButton';
+import { TypeBlurb } from '../../../types';
 
 function DonateSection() {
+  const [donateParagraph, setDonateParagraph] = useState<TypeBlurb>(null);
+
+  useEffect(() => {
+    (async () => {
+      // Fetch donate paragraph
+      const donateBlurb = (await fetchContentfulContentEntryByID(
+        '32q3yAUuT6sYWiqAsiEyQE'
+      )) as TypeBlurb;
+
+      setDonateParagraph(donateBlurb);
+    })();
+  }, []);
+
   return (
     <div className="bg-primary-400 text-white-0 overflow-hidden">
       <div className="flex flex-col md:flex-row gap-8">
@@ -29,14 +44,9 @@ function DonateSection() {
           <div className="relative container space-y-8 py-12">
             <div>
               <h1 className="font-serif font-bold text-5xl mb-4">
-                Lend a Helping Hand
+                {donateParagraph && donateParagraph.fields.blurbTitle}
               </h1>
-              <p>
-                The Lilac Foundation is a leading example of an organization
-                focused on uplifting the quality of life of Lilanians in areas
-                such as agriculture, education, health and housing. Be a part of
-                our mission and donate today!
-              </p>
+              <p>{donateParagraph && donateParagraph.fields.blurbContent}</p>
             </div>
             <DonateButton fontSize={'lg'} />
           </div>

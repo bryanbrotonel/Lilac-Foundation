@@ -1,18 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { AiFillHeart } from 'react-icons/ai';
+import { fetchContentfulContentEntryByID } from '../../api/contentful';
+import { TypeBlurb, TypeSocials, TypeSocialsFields } from '../../types';
 import FooterLink from './FooterLink';
 
-function footer() {
+function Footer() {
+  const [footerParagraph, setFooterParagraph] = useState<TypeBlurb>(null);
+  const [socialLinks, setSocialLinks] = useState<TypeSocials>(null);
+
+  useEffect(() => {
+    (async () => {
+      // Fetch footer paragraph
+      const footerBlurb = (await fetchContentfulContentEntryByID(
+        '6KzSyVjmeWmq6weOe2AWsS'
+      )) as TypeBlurb;
+
+      // Fetch social links
+      const footerLinks = (await fetchContentfulContentEntryByID(
+        '2umAjY8tMEQuOIYUmii08Y'
+      )) as TypeSocials;
+
+      setFooterParagraph(footerBlurb);
+      setSocialLinks(footerLinks);
+    })();
+  }, []);
+
   return (
     <div className="bg-secondary py-20">
       <div className="container flex flex-col md:flex-row gap-y-10 md:gap-y-0">
         <div className="basis-1/3 order-last md:order-none prose prose-invert">
           <h2 className="font-serif text-4xl !mb-4">The Lilac Foundation</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Id,
-            blanditiis voluptates assumenda illo dolorum animi eveniet suscipit
-            exercitationem impedit molestias.
-          </p>
+          <p>{footerParagraph && footerParagraph.fields.blurbContent}</p>
           <span className="text-gray-500">
             <div className="flex items-center">
               <span> Made with&nbsp;</span>
@@ -34,6 +52,7 @@ function footer() {
             <h3 className="font-sans text-sm uppercase mb-4 text-gray-400">
               Pages
             </h3>
+            <div></div>
             <ul className="list-none space-y-3 text-lg">
               <li>
                 <FooterLink to="about">About</FooterLink>
@@ -56,15 +75,18 @@ function footer() {
               Contact
             </h3>
             <ul className="list-none space-y-3 text-lg">
-              <li>
-                <FooterLink to="">Facebook</FooterLink>
-              </li>
-              <li>
-                <FooterLink to="">Instagram</FooterLink>
-              </li>
-              <li>
-                <FooterLink to="">Mail</FooterLink>
-              </li>
+              {socialLinks &&
+                Object.keys(socialLinks.fields).map((key) => {
+                  return (
+                    <li key={`${key} Social Link`}>
+                      <FooterLink
+                        to={socialLinks.fields[key as keyof TypeSocialsFields]}
+                      >
+                        {key}
+                      </FooterLink>
+                    </li>
+                  );
+                })}
             </ul>
           </div>
         </div>
@@ -73,4 +95,4 @@ function footer() {
   );
 }
 
-export default footer;
+export default Footer;

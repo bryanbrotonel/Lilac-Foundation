@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
+import { fetchContentfulContentEntryByID } from '../../api/contentful';
+import { TypeDonateLink } from '../../types';
 
 interface DonateButtonProps {
   color?: String;
@@ -17,6 +19,18 @@ function DonateButton(props?: DonateButtonProps) {
   const { fontSize, bgColor, color } = props;
 
   const [isHovering, setIsHovering] = useState(false);
+  const [donateLink, setDonateLink] = useState<TypeDonateLink>(null);
+
+  useEffect(() => {
+    (async () => {
+      // Fetch about paragraph
+      const donateLinkData = (await fetchContentfulContentEntryByID(
+        '4rfjxAZlVASfEH5qAPW7JN'
+      )) as TypeDonateLink;
+
+      setDonateLink(donateLinkData);
+    })();
+  }, []);
 
   const handleMouseOver = () => {
     setIsHovering(true);
@@ -32,7 +46,10 @@ function DonateButton(props?: DonateButtonProps) {
       onMouseOut={handleMouseOut}
       className={`py-2 px-4 text-${color} text-${fontSize} ${bgColor} rounded-lg`}
     >
-      <a className="subpixel-antialiased" href="#">
+      <a
+        className="subpixel-antialiased"
+        href={donateLink && donateLink.fields.donateLink}
+      >
         <div className="flex items-center">
           <AiOutlineHeart
             className={`${isHovering ? 'hidden' : 'inline-block'}`}

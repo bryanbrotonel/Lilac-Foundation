@@ -16,8 +16,8 @@ const CONTENTFUL_CONTENT_CLIENT = CONTENTFUL.createClient({
   accessToken: process.env.REACT_APP_CONTENTFUL_CONTENT_ACCESS_TOKEN,
 });
 
+// Retreive blog posts from Contentful in order of creation date
 export async function fetchContentfulBlogEntries() {
-  // Retreive blog posts from Contentful in order of creation date
   const blogPostItems = await CONTENTFUL_POSTS_CLIENT.getEntries({
     content_type: 'testBlogPost',
     order: '-sys.createdAt',
@@ -29,20 +29,20 @@ export async function fetchContentfulBlogEntries() {
   return (await blogPostItems.items) as TypeBlogPost[];
 }
 
+// Retreive blog post from Contentful by slug
 export async function fetchContentfulBlogEntry(slug: string) {
-  // Retreive blog posts from Contentful in order of creation date
   const blogPostItems = await CONTENTFUL_POSTS_CLIENT.getEntries({
     content_type: 'testBlogPost',
     select: CONTENT_SELECT,
     'fields.slug': slug,
   });
 
-  // Returns blog posts as an array of Post objects
+  // Returns blog posts as Blog Post object
   return (await blogPostItems.items[0]) as TypeBlogPost;
 }
 
+// Retreive project posts from Contentful in order of creation date
 export async function fetchContentfulProjectEntries() {
-  // Retreive blog posts from Contentful in order of creation date
   const projectPostItems = await CONTENTFUL_POSTS_CLIENT.getEntries({
     content_type: 'projectPost',
     order: '-sys.createdAt',
@@ -50,27 +50,27 @@ export async function fetchContentfulProjectEntries() {
     limit: 100,
   });
 
-  // Returns blog posts as an array of Post objects
+  // Returns blog posts as an array of Project Post objects
   return (await projectPostItems.items) as TypeProjectPost[];
 }
 
+// Retreive blog posts from Contentful in order of creation date
 export async function fetchContentfulProjectEntry(slug: string) {
-  // Retreive blog posts from Contentful in order of creation date
   const projectPostItems = await CONTENTFUL_POSTS_CLIENT.getEntries({
     content_type: 'projectPost',
     select: CONTENT_SELECT,
     'fields.slug': slug,
   });
 
-  // Returns blog posts as an array of Post objects
+  // Returns blog posts as Project Post object
   return (await projectPostItems.items[0]) as TypeProjectPost;
 }
 
+// Retreive blog posts from Contentful in order of creation date
 export async function fetchContentfulContentEntries(
   content_type: string,
   order: string = ''
 ) {
-  // Retreive blog posts from Contentful in order of creation date
   const contentfulEntries = await CONTENTFUL_CONTENT_CLIENT.getEntries({
     content_type: content_type,
     select: CONTENT_SELECT,
@@ -85,13 +85,19 @@ export async function fetchContentfulContentEntry(
   content_type: string,
   slug: string
 ) {
-  // Retreive blog posts from Contentful in order of creation date
   const contentfulEntries = await CONTENTFUL_CONTENT_CLIENT.getEntries({
     content_type: content_type,
     select: CONTENT_SELECT,
     'fields.slug': slug,
   });
 
-  // Returns blog posts as an array of Post objects
   return (await contentfulEntries.items[0]) as Contentful.Entry<any>;
+}
+
+// Retreive Contentful content by id
+export async function fetchContentfulContentEntryByID(id: string) {
+  const contentfulEntries = await CONTENTFUL_CONTENT_CLIENT.getEntry(id);
+
+  // Returns Conextful entry
+  return (await contentfulEntries) as Contentful.Entry<any>;
 }
