@@ -48,6 +48,13 @@ const handler: Handler = async (event, context) => {
   // If id is provided, get single entry
   if (params.id) {
     items = await client.getEntry(params.id);
+  } else if (params.query) {
+    items = await client.getEntries(params.query);
+  } else {
+    return {
+      statusCode: 405,
+      body: 'Query parameters requrired',
+    };
   }
 
   return {

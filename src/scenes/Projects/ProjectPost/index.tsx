@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchContentfulProjectEntry } from '../../../api/contentful';
+import { fetchContentfulPostsEntry } from '../../../api/contentful';
 import ContentPost from '../../../components/ContentPost';
 import Loading from '../../../components/Loading';
+import { TypeProjectPost } from '../../../types';
 import NotFound from '../../NotFound';
 
 function ProjectPost() {
@@ -11,8 +12,8 @@ function ProjectPost() {
   const [currentPost, setCurrentPost] = useState(null);
 
   useEffect(() => {
-    fetchContentfulProjectEntry(params.postId).then((post) => {
-      setCurrentPost(post);
+    fetchContentfulPostsEntry('projectPost', params.postId).then((post) => {
+      setCurrentPost(post as TypeProjectPost);
     });
   }, []);
 

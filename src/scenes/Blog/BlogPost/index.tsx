@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchContentfulBlogEntry } from '../../../api/contentful';
+import { fetchContentfulPostsEntry } from '../../../api/contentful';
 import ContentPost from '../../../components/ContentPost';
 import Loading from '../../../components/Loading';
 import NotFound from '../../NotFound';
+
+import { TypeBlogPost } from '../../../types';
 
 function BlogPost() {
   const params = useParams();
@@ -11,8 +13,8 @@ function BlogPost() {
   const [currentPost, setCurrentPost] = useState(null);
 
   useEffect(() => {
-    fetchContentfulBlogEntry(params.postId).then((post) => {
-      setCurrentPost(post);
+    fetchContentfulPostsEntry('blogPost', params.postId).then((post) => {
+      setCurrentPost(post as TypeBlogPost);
     });
   }, []);
 

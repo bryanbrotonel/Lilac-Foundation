@@ -32,7 +32,7 @@ function ProjectItem(props: { projectFields: TypeProjectPostFields }) {
             {title}
           </h1>
         </a>
-        <p className="prose">
+        <div className="prose">
           <LinesEllipsis
             text={content}
             maxLine="3"
@@ -40,7 +40,7 @@ function ProjectItem(props: { projectFields: TypeProjectPostFields }) {
             trimRight
             basedOn="letters"
           />
-        </p>
+        </div>
         <button>
           <a
             className="py-2 px-4 bg-primary-100 hover:bg-primary-400 text-white-0"
