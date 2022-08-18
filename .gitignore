@@ -6,6 +6,10 @@
 # testing
 /coverage
 
+# development
+.env
+.netlify
+
 # production
 /build
 .vscode
