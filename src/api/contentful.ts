@@ -97,16 +97,14 @@ export async function fetchContentfulContentEntry(
 // Retreive Contentful content by id
 export async function fetchContentfulContentEntryByID(id: string) {
   // Returns Contentful entry
-  return await axios
-    .get(`/.netlify/functions/ContentfulAPI?entry_id=${id}`)
-    .then(function (response: AxiosResponse) {
-      return response.data;
-    })
-    .catch(function (error: AxiosError) {
-      console.log(error);
-      return {
-        statusCode: 422,
-        body: `contentful.ts Error: ${error}`,
-      };
-    });
+  return await axios({
+    method: 'post',
+    url: '/.netlify/functions/ContentfulAPI',
+    data: {
+      space: 'content',
+      id: id,
+    },
+  }).then(function (response: AxiosResponse) {
+    return response.data;
+  });
 }
