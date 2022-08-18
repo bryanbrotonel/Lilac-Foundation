@@ -1,28 +1,21 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import type { RootState } from '../../app/store';
-import * as Contentful from 'contentful';
-import { fetchContentfulProjectEntries } from '../../api/contentful';
+import { fetchContentfulPostsEntries } from '../../api/contentful';
 import { TypeProjectPost } from '../../types';
 
 // State of Projects slice
 interface ProjectsState {
-  ProjectPosts: Array<TypeProjectPost>;
+  projectPosts: Array<TypeProjectPost>;
   status: String;
   erorr: String;
 }
 
 // Initial state of Projects slice
 const initialState: ProjectsState = {
-  ProjectPosts: [],
+  projectPosts: [],
   status: 'idle',
   erorr: null,
 };
-
-// Redux thunk that fetches projects
-export const fetchProjects = createAsyncThunk(
-  'Project/fetchPosts',
-  fetchContentfulProjectEntries
-);
 
 export const ProjectSlice = createSlice({
   name: 'Project',
@@ -38,7 +31,7 @@ export const ProjectSlice = createSlice({
         // Sets status to succeeded when fetchProjects thunk is receives data
         state.status = 'succeeded';
         // Appends data to ProjectPosts
-        state.ProjectPosts = state.ProjectPosts.concat(action.payload);
+        state.projectPosts = state.projectPosts.concat(action.payload);
       })
       .addCase(fetchProjects.rejected, (state, action) => {
         state.status = 'failed';
@@ -47,7 +40,14 @@ export const ProjectSlice = createSlice({
   },
 });
 
+// Redux thunk that fetches projects
+export const fetchProjects = createAsyncThunk('Project/fetchPosts', () => {
+  return fetchContentfulPostsEntries('projectPost') as Promise<
+    Array<TypeProjectPost>
+  >;
+});
+
 export const selectAllProjects = (state: RootState) =>
-  state.projects.ProjectPosts;
+  state.projects.projectPosts;
 
 export default ProjectSlice.reducer;

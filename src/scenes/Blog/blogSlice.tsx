@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk, AsyncThunk } from '@reduxjs/toolkit';
 import type { RootState } from '../../app/store';
-import { fetchContentfulBlogEntries } from '../../api/contentful';
+import { fetchContentfulPostsEntries } from '../../api/contentful';
 import { TypeBlogPost } from '../../types';
 
 // State of blog slice
@@ -37,10 +37,11 @@ export const blogSlice = createSlice({
 });
 
 // Redux thunk that fetches blog posts
-export const fetchPosts = createAsyncThunk(
-  'blog/fetchPosts',
-  fetchContentfulBlogEntries
-);
+export const fetchPosts = createAsyncThunk('blog/fetchPosts', async () => {
+  return fetchContentfulPostsEntries('blogPost') as Promise<
+    Array<TypeBlogPost>
+  >;
+});
 
 export const selectAllPosts = (state: RootState) => state.blog.blogPosts;
 export const selectCurrentPost = (state: RootState) => state.blog.currentPost;

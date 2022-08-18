@@ -8,6 +8,7 @@
 
 # development
 .env
+.netlify
 
 # production
 /build
