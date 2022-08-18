@@ -1,3 +1,4 @@
+import axios, { AxiosError, AxiosResponse } from 'axios';
 import * as Contentful from 'contentful';
 import { TypeBlogPost, TypeProjectPost } from '../types';
 
@@ -6,14 +7,14 @@ const CONTENT_SELECT = 'sys.id,sys.createdAt,fields';
 
 // Contentful client for blog and porject posts
 const CONTENTFUL_POSTS_CLIENT = CONTENTFUL.createClient({
-  space: process.env.REACT_APP_CONTENTFUL_POSTS_SPACE_ID,
-  accessToken: process.env.REACT_APP_CONTENTFUL_POSTS_ACCESS_TOKEN,
+  space: `${process.env.REACT_APP_CONTENTFUL_POSTS_SPACE || ''}`,
+  accessToken: `${process.env.REACT_APP_CONTENTFUL_POSTS_TOKEN || ''}`,
 });
 
 // Contentful client for website content (pages, etc)
 const CONTENTFUL_CONTENT_CLIENT = CONTENTFUL.createClient({
-  space: process.env.REACT_APP_CONTENTFUL_CONTENT_SPACE_ID,
-  accessToken: process.env.REACT_APP_CONTENTFUL_CONTENT_ACCESS_TOKEN,
+  space: `${process.env.REACT_APP_CONTENTFUL_CONTENT_SPACE || ''}`,
+  accessToken: `${process.env.REACT_APP_CONTENTFUL_CONTENT_TOKEN || ''}`,
 });
 
 // Retreive blog posts from Contentful in order of creation date
@@ -95,8 +96,17 @@ export async function fetchContentfulContentEntry(
 
 // Retreive Contentful content by id
 export async function fetchContentfulContentEntryByID(id: string) {
-  const contentfulEntries = await CONTENTFUL_CONTENT_CLIENT.getEntry(id);
-
-  // Returns Conextful entry
-  return (await contentfulEntries) as Contentful.Entry<any>;
+  // Returns Contentful entry
+  return await axios
+    .get(`/.netlify/functions/ContentfulAPI?entry_id=${id}`)
+    .then(function (response: AxiosResponse) {
+      return response.data;
+    })
+    .catch(function (error: AxiosError) {
+      console.log(error);
+      return {
+        statusCode: 422,
+        body: `contentful.ts Error: ${error}`,
+      };
+    });
 }
