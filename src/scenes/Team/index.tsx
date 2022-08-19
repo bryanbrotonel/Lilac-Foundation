@@ -5,11 +5,14 @@ import {
 } from '../../api/contentful';
 import Loading from '../../components/Loading';
 import { TypeBlurb, TypeTeamMember } from '../../types';
+import Markdown from 'markdown-to-jsx';
 import TeamMember from './TeamMember';
 
 function Team() {
   const [teamItems, setTeamItems] = useState<TypeTeamMember[]>([]);
   const [teamParagraph, setTeamParagraph] = useState<TypeBlurb>(null);
+
+  let teamParagraphContent;
 
   useEffect(() => {
     (async () => {
@@ -28,12 +31,18 @@ function Team() {
     })();
   }, []);
 
+  if (teamParagraph) {
+    teamParagraphContent = (
+      <Markdown>{teamParagraph.fields.blurbContent}</Markdown>
+    );
+  }
+
   return (
     <div className="container mt-12 mb-36">
       <h1 className="font-bold font-serif text-6xl">Team</h1>
       <hr className="mt-4 mb-8 border-white-30" />
-      <div className="text-center text-lg mt-32 mx-auto md:w-1/2">
-        <p>{teamParagraph && teamParagraph.fields.blurbContent}</p>
+      <div className="text-center mt-32 mx-auto md:w-3/5 prose">
+        {teamParagraphContent}
       </div>
       <div className="flex flex-wrap sm:flex-row gap-10 justify-center items-center py-24">
         {teamItems.length === 0 ? (

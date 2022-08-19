@@ -1,6 +1,7 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 const APP_DIR = path.resolve(__dirname, '../src');
 
@@ -43,7 +44,7 @@ module.exports = {
       title: 'New New',
       template: './resources/index.html',
       filename: './index.html',
-      favicon: './src/static/assets/images/favicon.svg',
+      favicon: './src/static/assets/assets/images/favicon.svg',
       inject: true,
       minify: {
         collapseWhitespace: true,
@@ -56,6 +57,7 @@ module.exports = {
       },
     }),
     new Dotenv(),
+    new FaviconsWebpackPlugin('../src/images/favicon.svg'),
   ],
   output: {
     filename: '[name].bundle.js',

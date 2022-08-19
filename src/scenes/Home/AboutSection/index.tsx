@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { fetchContentfulContentEntryByID } from '../../../api/contentful';
 import { TypeBlurb } from '../../../types';
 
-import Lilac from '../../../images/lilac.inline.svg';
+import Lilac from '../../../assets/images/lilac.inline.svg';
 
 function AboutSection() {
   const [aboutParagraph, setAboutParagraph] = useState<TypeBlurb>(null);

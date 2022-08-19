@@ -33,7 +33,7 @@ function ProfilePage() {
       <div className="flex flex-col lg:flex-row lg:justify-center gap-8 container my-32">
         <div>
           <img
-            className="w-48 h-48 rounded-full mx-auto"
+            className="w-52 h-52 rounded-full mx-auto"
             src={profilePicture.fields.file.url}
             alt={name}
           />

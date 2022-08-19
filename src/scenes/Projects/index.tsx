@@ -1,3 +1,4 @@
+import Markdown from 'markdown-to-jsx';
 import React, { useEffect, useState } from 'react';
 import { fetchContentfulContentEntryByID } from '../../api/contentful';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
@@ -30,7 +31,13 @@ function Projects() {
     })();
   }, []);
 
-  let projectsList;
+  let projectsList, projectsParagraphContent;
+
+    if (projectParagraph) {
+      projectsParagraphContent = (
+        <Markdown>{projectParagraph.fields.blurbContent}</Markdown>
+      );
+    }
 
   if (projectsStatus === 'succeeded') {
     projectsList = (
@@ -46,8 +53,8 @@ function Projects() {
     <div className="container mt-12 mb-36">
       <h1 className="font-bold font-serif text-6xl">Projects</h1>
       <hr className="mt-4 mb-8 border-white-30" />
-      <div className="text-center text-lg my-32 mx-auto md:w-1/2">
-        <p>{projectParagraph && projectParagraph.fields.blurbContent}</p>
+      <div className="text-center my-32 mx-auto md:w-1/2 prose">
+        {projectsParagraphContent}
       </div>
       <div className="flex flex-col gap-40 pt-12">{projectsList}</div>
     </div>
