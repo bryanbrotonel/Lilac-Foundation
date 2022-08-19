@@ -6,6 +6,8 @@ import Hero from './Hero';
 import ProjectSection from './ProjectSection';
 
 function Home() {
+  document.title = `The Lilac Foundation`;
+
   return (
     <React.Fragment>
       <Hero />

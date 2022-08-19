@@ -29,6 +29,9 @@ function Team() {
       setTeamItems(entries);
       setTeamParagraph(teamBlurb);
     })();
+
+        document.title = `Team | The Lilac Foundation`;
+
   }, []);
 
   if (teamParagraph) {

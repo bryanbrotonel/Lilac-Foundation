@@ -29,16 +29,18 @@ function ProfilePage() {
       fields: { name, profilePicture, description, socials },
     } = teamMember;
 
+    document.title = `${name} | The Lilac Foundation`;
+
     teamMemberComponent = (
       <div className="flex flex-col lg:flex-row lg:justify-center gap-8 container my-32">
         <div>
           <img
-            className="w-52 h-52 rounded-full mx-auto"
+            className="w-56 h-56 rounded-full mx-auto"
             src={profilePicture.fields.file.url}
             alt={name}
           />
         </div>
-        <div className='mx-auto lg:mx-0'>
+        <div className="mx-auto lg:mx-0">
           <h1 className="font-serif text-4xl text-center lg:text-left mb-3 ">
             {name}
           </h1>

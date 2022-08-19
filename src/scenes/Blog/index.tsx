@@ -15,6 +15,8 @@ function Blog() {
     if (blogStatus === 'idle') {
       dispatch(fetchPosts());
     }
+
+    document.title = 'Blog | The Lilac Foundation';
   }, [blogStatus, dispatch]);
 
   let mainComponent;

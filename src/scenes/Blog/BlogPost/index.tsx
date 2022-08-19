@@ -30,6 +30,8 @@ function BlogPost() {
       sys: { createdAt },
     } = currentPost;
 
+    document.title = `${title} by ${author} | The Lilac Foundation`;
+
     blogPost = (
       <ContentPost
         title={title}

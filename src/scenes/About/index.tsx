@@ -20,6 +20,8 @@ function About() {
       )) as TypeAboutItem[];
       setAboutItems(entries);
     })();
+
+    document.title = 'About | The Lilac Foundation';
   }, []);
 
   return (

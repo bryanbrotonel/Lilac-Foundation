@@ -29,15 +29,17 @@ function Projects() {
 
       setprojectParagraph(projectBlurb);
     })();
+
+    document.title = `Projects | The Lilac Foundation`;
   }, []);
 
   let projectsList, projectsParagraphContent;
 
-    if (projectParagraph) {
-      projectsParagraphContent = (
-        <Markdown>{projectParagraph.fields.blurbContent}</Markdown>
-      );
-    }
+  if (projectParagraph) {
+    projectsParagraphContent = (
+      <Markdown>{projectParagraph.fields.blurbContent}</Markdown>
+    );
+  }
 
   if (projectsStatus === 'succeeded') {
     projectsList = (

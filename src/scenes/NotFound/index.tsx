@@ -1,6 +1,9 @@
 import React from 'react';
 
 function NotFound() {
+
+      document.title = `Not Found | The Lilac Foundation`;
+
   return (
     <div className="h-[75vh] grid content-center text-center">
       <h1 className="font-serif text-9xl text-primary-800 mb-8">Oops!</h1>

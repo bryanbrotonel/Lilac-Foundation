@@ -29,6 +29,9 @@ function ProjectPost() {
       sys: { createdAt },
     } = currentPost;
 
+        document.title = `${title} | The Lilac Foundation`;
+
+
     projectPost = (
       <ContentPost
         title={title}
