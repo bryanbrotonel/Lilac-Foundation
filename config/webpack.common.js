@@ -44,7 +44,6 @@ module.exports = {
       title: 'New New',
       template: './resources/index.html',
       filename: './index.html',
-      favicon: './src/static/assets/assets/images/favicon.svg',
       inject: true,
       minify: {
         collapseWhitespace: true,
@@ -57,7 +56,7 @@ module.exports = {
       },
     }),
     new Dotenv(),
-    new FaviconsWebpackPlugin('../src/images/favicon.svg'),
+    new FaviconsWebpackPlugin('./src/static/assets/images/favicon.svg'),
   ],
   output: {
     filename: '[name].bundle.js',
