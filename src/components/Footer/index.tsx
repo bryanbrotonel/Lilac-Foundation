@@ -28,7 +28,7 @@ function Footer() {
   return (
     <div className="bg-secondary py-20">
       <div className="container flex flex-col md:flex-row gap-y-10 md:gap-y-0">
-        <div className="basis-1/3 order-last md:order-none prose prose-invert">
+        <div className="basis-2/4 lg:basis-1/3 order-last md:order-none prose prose-invert">
           <h2 className="font-serif text-4xl !mb-4">The Lilac Foundation</h2>
           <p>{footerParagraph && footerParagraph.fields.blurbContent}</p>
           <span className="text-gray-500">
@@ -47,7 +47,7 @@ function Footer() {
             </div>
           </span>
         </div>
-        <div className="basis-1/3 flex justify-start md:justify-center">
+        <div className="basis-1/4 lg:basis-1/3 flex justify-start md:justify-center">
           <div>
             <h3 className="font-sans text-sm uppercase mb-4 text-gray-400">
               Pages
@@ -69,7 +69,7 @@ function Footer() {
             </ul>
           </div>
         </div>
-        <div className="basis-1/3 flex justify-start md:justify-center">
+        <div className="basis-1/4 lg:basis-1/3 flex justify-start md:justify-center">
           <div>
             <h3 className="font-sans text-sm uppercase mb-4 text-gray-400">
               Contact

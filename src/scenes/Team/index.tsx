@@ -56,7 +56,7 @@ function Team() {
       <div className="md:w-1/2 mx-auto text-center pb-12">
         <span className="text-lg text-primary-400">
           Want to learn more team the team?&nbsp;
-          <a className="font-bold underline" href="team">
+          <a className="font-bold underline" href="about">
             Read More
           </a>
         </span>

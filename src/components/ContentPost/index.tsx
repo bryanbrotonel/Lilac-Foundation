@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import * as Contentful from 'contentful';
 import Markdown from 'markdown-to-jsx';
-import { BsFacebook, BsLinkedin, BsLink45Deg, BsTwitter } from 'react-icons/bs';
+import { BsFacebook, BsLinkedin, BsLink45Deg, BsTwitter, BsFillEnvelopeFill } from 'react-icons/bs';
 import { useAppDispatch } from '../../app/hooks';
 import { resetNavbarTheme, setNavbarDarkTheme } from '../Navbar/navbarSlice';
 import SocialShareLink from '../SocialShareLink';
@@ -55,7 +55,7 @@ function ContentPost(props: {
       </div>
       <div className="container">
         <div className="flex flex-row items-center justify-between max-w-prose lg:text-xl mx-auto my-6">
-          <div className="flex flex-col md:flex-row gap-x-1">
+          <div className="flex flex-col md:flex-row md:gap-x-1">
             <span>
               {author && (
                 <React.Fragment>
@@ -75,9 +75,7 @@ function ContentPost(props: {
               </SocialShareLink>
               <SocialShareLink
                 tooltip="Share on Twitter"
-                link={`https://twitter.com/intent/tweet?url=${
-                  window.location.href
-                }&text=${title}${author && '%20by%20Author'}`}
+                link={`https://twitter.com/intent/tweet?url=${window.location.href}&text=${title}`}
               >
                 <BsTwitter size={25} />
               </SocialShareLink>
@@ -87,8 +85,11 @@ function ContentPost(props: {
               >
                 <BsLinkedin size={25} />
               </SocialShareLink>
-              <SocialShareLink tooltip="Copy to clipboard">
-                <BsLink45Deg size={25} />
+              <SocialShareLink
+                tooltip="Share with Mail"
+                link={`mailto:?&subject=&cc=&bcc=&body=${window.location.href}`}
+              >
+                <BsFillEnvelopeFill size={25} />
               </SocialShareLink>
             </div>
           </div>
