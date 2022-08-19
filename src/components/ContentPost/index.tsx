@@ -54,16 +54,18 @@ function ContentPost(props: {
         </div>
       </div>
       <div className="container">
-        <div className="flex flex-row items-baseline justify-between max-w-prose lg:text-xl mx-auto mb-6">
-          <span>
-            {author && (
-              <React.Fragment>
-                <span className="font-bold">{author}</span>&nbsp;&#124;&nbsp;
-              </React.Fragment>
-            )}
-            {formattedPostDate}
-          </span>
-          <div className="mt-6">
+        <div className="flex flex-row items-center justify-between max-w-prose lg:text-xl mx-auto my-6">
+          <div className="flex flex-col md:flex-row gap-x-1">
+            <span>
+              {author && (
+                <React.Fragment>
+                  <span className="font-bold">{author}</span>
+                </React.Fragment>
+              )}
+            </span>
+            <span>{formattedPostDate}</span>
+          </div>
+          <div>
             <div className="flex flex-row gap-4">
               <SocialShareLink
                 tooltip="Share on Facebook"
@@ -91,7 +93,7 @@ function ContentPost(props: {
             </div>
           </div>
         </div>
-        <div className="prose prose-slate lg:prose-xl mx-auto mb-129">
+        <div className="prose prose-slate lg:prose-xl mx-auto mb-129 break-words">
           <hr className="border-white-30" />
           <div>
             <Markdown>{content}</Markdown>

@@ -58,7 +58,7 @@ function ProjectSection() {
               href={`/projects/${slug}`}
               className=" uppercase hover:underline underline-offset-2"
             >
-              <button className="py-1 px-3 bg-transparent hover:bg-primary-400 text-primary-400 hover:text-white-0 rounded-lg border-primary-400 border-2">
+              <button className=" py-2 px-3 text-white-0 bg-primary-400 hover:bg-primary-700 rounded-lg">
                 Read More
               </button>
             </a>

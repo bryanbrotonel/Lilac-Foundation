@@ -27,7 +27,7 @@ function MobileNavbar(props: { links: string[][] }) {
         <div className={`border-b  ${navbarTheme}`}>
           <div className="container py-6 flex justify-between items-center">
             <div>
-              <NavLink className="text-xl font-serif" to={homeLink[0]}>
+              <NavLink className="text-xl font-serif font-bold" to={homeLink[0]}>
                 {homeLink[1]}
               </NavLink>
             </div>

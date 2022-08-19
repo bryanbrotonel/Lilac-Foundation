@@ -4,7 +4,6 @@ import { TypeProjectPostFields } from '../../../types';
 import LinesEllipsis from 'react-lines-ellipsis';
 
 function ProjectItem(props: { projectFields: TypeProjectPostFields }) {
-
   const {
     projectFields: { title, content, headerImage, slug },
   } = props;
@@ -41,13 +40,8 @@ function ProjectItem(props: { projectFields: TypeProjectPostFields }) {
             basedOn="letters"
           />
         </div>
-        <button>
-          <a
-            className="py-2 px-4 bg-primary-100 hover:bg-primary-400 text-white-0"
-            href="#"
-          >
-            View Project
-          </a>
+        <button className="mt-12 py-2 px-3 text-white-0 bg-primary-400 rounded-lg">
+          <a href={`projects/${slug}`}>View Project</a>
         </button>
       </div>
     </InViewObserver>

@@ -3,7 +3,7 @@ import { fetchContentfulContentEntryByID } from '../../../api/contentful';
 import DonateButton from '../../../components/DonateButton';
 import { TypeBlurb } from '../../../types';
 
-import Lilac from '../../../images/lilac.inline.svg';
+import Lilac from '../../../assets/images/lilac.inline.svg';
 
 function DonateSection() {
   const [donateParagraph, setDonateParagraph] = useState<TypeBlurb>(null);

@@ -45,7 +45,7 @@ function InViewObserver(props: {
     rootMargin: '0px',
 
     // Percentage of target that detects visibility
-    threshold: 0.5,
+    threshold: 0.25,
   };
 
   // Observe only if element is within viewport and hasn't been seen

@@ -6,7 +6,7 @@ import {
   setNavbarTheme,
 } from '../../../components/Navbar/navbarSlice';
 
-import Clovetree  from '../../../images/clovetree.inline.svg';
+import Clovetree  from '../../../assets/images/clovetree.inline.svg';
 
 
 function Hero() {
